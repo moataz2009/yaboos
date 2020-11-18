@@ -1,0 +1,148 @@
+<div class="d-xs-block d-lg-none">
+    <a href={{mobileAppUrl}} class="mobileapp">{{headerMessage}}</a>
+</div>
+<img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
+<br><br><br><br><br>
+
+<div class="library">
+    <div class="container">
+        <!-- start libaray tabs  -->
+        <div class="row ">
+            <ul class="row ">
+                <li><a (click)="opensongsection()" class="song">الأغانى</a></li>
+                <li><a (click)="openalbumsection()">الالبومات</a></li>
+                <li><a (click)="openartistsection()">الفنانين</a></li>
+            </ul>
+        </div>
+        <!-- end libaray tabs  -->
+        <!-- start songs sections  -->
+        <div class="row justify-content-center" *ngIf="showSongs">
+            <div class="box col-xs-12">
+                <div class="songitems" *ngFor="let prop of songsList;">
+                    <a class="one" (click)="openmusicmodel(prop.id , prop.title)">
+                        <span> {{prop.title}}</span>
+                        <i class="fas fa-play-circle pr-2"></i>
+                    </a>
+                    <a class="two"  target="_blank">
+                        <i class="fas fa-download" (click)="DownloadAudio($event , prop.id)"></i>
+                     
+                    </a>
+                    <a class="two" target="_blank">
+                        <!-- add heart to library -->
+                        <i class="fas fa-heart mr-3" *ngIf="hideheart" (click)="changeheart()"></i> 
+                        <i class="far fa-heart mr-3" *ngIf="showanotherheart"></i> 
+                     <!-- end add heart to library -->
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <!-- end songs sections  -->
+        <!-- start albums sections  -->
+        <div class="row justify-content-center" *ngIf="showAlbums">
+            <div class="box col-xs-12 container">
+                <div class=" row albumsitems">
+                    <div class="col-xs-4 col-4" *ngFor="let prop of albumList;">
+                        <img [src]="'http://188.225.184.108:9091/'+prop.image" alt="" (click)="GetSongsOfAlbum(prop.id)" >
+                        <p> {{prop.title}}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- end albums sections  -->
+
+        <!-- start artists sections  -->
+        <div class="row justify-content-center" *ngIf="showArtists">
+            <div class="box col-xs-12 container">
+                <div class="row artistsitems">
+                    <div class="col-xs-4 col-4" *ngFor="let prop of artistList;">
+
+                        <img [src]="'http://188.225.184.108:9091/'+prop.image" alt="">
+                        <p> {{prop.name}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end artists sections  -->
+
+    </div>
+</div>
+
+<!-- start MusicModal -->
+<div class="modal fade secondModal" id="secondModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" *ngIf="isPlaying" aria-hidden="true" data-backdrop="false" data-keyboard="false" [style.display]="isPlaying ? 'block' : 'none'" [class.show]="isPlaying">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="con">
+            <div class="modal-body">
+                <div class="row">
+                    <a class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+              <i class="fas fa-times-circle" (click)="closeMedia()"> </i>
+            </span>
+                    </a>
+                    <a class="close" class="mini">
+                        <span aria-hidden="true">
+              <i *ngIf="hidelate" class="fas fa-chevron-right mymini"  style="transform: rotate(90deg);" (click)="myhello()"></i>
+              <i *ngIf="hidenow" class="fas fa-chevron-right myminilast"  style="transform: rotate(270deg);" (click)="opensmodal()"></i>
+              <!-- (click)="showminiwindow()"  aria-label="Close"   data-dismiss="modal"  -->
+
+              <!-- <i (click)="showminiwindow()"><img src="../../../assets/imgs/minimize.png"></i> -->
+            </span>
+                    </a>
+                </div>
+                <!-- *** -->
+                <div class="c-player">
+                    <div class="row justify-content-center ">
+                        <img class="firstimage" src="../../../assets/imgs/artistimage.png" alt="" srcset="">
+                    </div>
+
+                    <div class="c-player__details">
+                        <div class="audio justify-content-center row">
+                            <audio id="songplayer" [src]="currentSongURL" controls controlsList="nodownload" autoplay style="display: none;"></audio>
+                        </div>
+                        <div class="navigation  row  justify-content-center">
+                            <a href="" target="_blank" (click)="DownloadAudio($event ,currentSongId )"><i class="fas fa-download"></i></a>
+                            <a><i class="fas fa-forward" (click)="nextSong()"></i></a>
+                            <a id="mybuttonplay">
+                                <img class="secondimage" *ngIf="mainicon" src="../../../assets/imgs/playericon.png" (click)="ChangeIcons()">
+                                <img class="secondimage" *ngIf="songPlayIcon" src="../../../assets/imgs/playedicon.png" (click)="ChangeIcons()">
+
+                            </a>
+
+                            <a *ngIf="thisicon" (click)="showamainicon()"><img class="secondimage" src="../../../assets/imgs/playedicon.png"></a>
+                            <a><i class="fas fa-backward" (click)="prevSong()"></i></a>
+                            <a *ngIf="hideheart" (click)="changeheart()"><i class="fas fa-heart"></i> </a>
+                            <a *ngIf="showanotherheart"><i class="far fa-heart"></i> </a>
+                        </div>
+                        <h5>{{currentSongName}}</h5>
+                    </div>
+                </div>
+                <!-- *** -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end MusicModal -->
+
+
+
+<!-- minimized window -->
+<!-- <div class="showsongalert" *ngIf="showsongalertlib">
+    <div class="container">
+        <div class="box1">
+            <div class="textstwo">
+                <a><img src="../../../assets/imgs/Path 263.png"></a>
+                <a class="imgclass"><img src="../../../assets/imgs/Path 262.png"></a>
+
+            </div>
+            <div class="textslast">
+                <div class="textsone">
+                    <h1>أماكن السهر</h1>
+                    <p>عمرو دياب</p>
+                </div>
+                <a (click)="showwindowofplaying()"><img src="../../../assets/imgs/arrowicon.png"></a>
+            </div>
+        </div>
+    </div>
+</div> -->

@@ -1,0 +1,97 @@
+
+<div class="d-xs-block d-lg-none">
+    <a href={{mobileAppUrl}} class="mobileapp">{{headerMessage}}</a>
+  </div>  
+  <img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
+  <br><br><br><br><br> 
+
+<div class="privacy" >
+    <div class="container-fluid">
+         <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <h1>سياسة الخصوصية</h1>
+            </div>
+             <div class="col-xs-12 col-md-8">
+                <p class="text-center">
+                 تحكم سياسة الخصوصية هذه الطريقة التي تجمع وتستخدم وتحافظ وتكشف عبرها راديو يبوس عن المعلومات التي يتم جمعها من المستخدمين (كل منهم، "مستخدم") من موقع www.yaboos.fm وتطبيق yaboos fm ("الموقع/التطبيق"). تنطبق سياسة الخصوصية هذه على الموقع/التطبيق وجميع المنتجات والخدمات التي يقدمها راديو يبوس. نستخدم بياناتك لتوفير الخدمة وتحسينها. عبر استخدامك لهذه الخدمة، فإنك توافق على جمع واستخدام المعلومات وفقًا لهذه السياسة
+                </p>
+            </div>
+             <div class="col-xs-12 col-md-12">
+                <h3> معلومات التعريف الشخصية:  </h3>
+            </div>
+            <div class="col-md-12">
+                <h4> البيانات الشخصية </h4>
+            </div>
+            <div class="col-xs-12 col-md-8">
+                <p class="text-center">  قد نقوم بجمع معلومات التعريف الشخصية من المستخدمين بطرق متنوعة، بما في ذلك وعلى سبيل المثال لا الحصر، عندما يزور المستخدمون موقعنا ويسجلون دخولهم على الموقع، وفيما يتعلق بأنشطة أو خدمات أو ميزات أو موارد أخرى نوفرها على موقعنا/التطبيق. قد يُطلب من المستخدمين، حسب الاقتضاء، الاسم وعنوان البريد الإلكتروني ومعلومات بطاقة الائتمان. ومع ذلك، يجوز للمستخدمين زيارة موقعنا/تطبيقنا بشكل مجهول. سنقوم بجمع معلومات التعريف الشخصية من المستخدمين فقط إذا قاموا بتقديم هذه المعلومات لنا طوعاً. يمكن للمستخدمين دائمًا رفض تقديم معلومات تحديد الهوية الشخصية باستثناء أنها قد تمنعهم من المشاركة في أنشطة معينة متعلقة بالموقع/التطبيق.    </p>
+            </div>
+            <div class="col-md-12">
+                <h3> معلومات التعريف غير الشخصية: </h3>
+            </div>
+            <div class="col-md-12">
+                <h4>  بيانات الأستخدام</h4>
+            </div>
+            <div class="col-xs-12 col-md-8">
+                <p class="text-center"> قد نقوم بجمع معلومات التعريف غير الشخصية عن المستخدمين كلما تفاعلوا مع موقعنا/تطبيقنا. قد تتضمن معلومات التعريف غير الشخصية اسم المتصفح ونوع الكمبيوتر والمعلومات التقنية حول وسيلة اتصال المستخدمين بموقعنا/تطبيقنا، مثل نظام التشغيل وموفري خدمة الإنترنت ومعلومات أخرى مماثلة.         </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- minimize song model -->
+<!-- start MusicModal -->
+<div class="modal fade secondModal" id="secondModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" *ngIf="closmymedia" aria-hidden="true" data-backdrop="false" data-keyboard="false" [style.display]="closmymedia ? 'block' : 'none'" [class.show]="closmymedia">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="con">
+            <div class="modal-body">
+                <div class="row">
+                    <a class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+              <i class="fas fa-times-circle" (click)="closemyMedia()"> </i>
+            </span>
+                    </a>
+                    <a class="close" class="mini">
+                        <span aria-hidden="true">
+              <i *ngIf="hidelate" class="fas fa-chevron-right mymini"  style="transform: rotate(90deg);" (click)="myhello()"></i>
+              <i *ngIf="hidenow" class="fas fa-chevron-right myminilast"  style="transform: rotate(270deg);" (click)="opensmodal()"></i>
+              <!-- (click)="showminiwindow()"  aria-label="Close"   data-dismiss="modal"  -->
+
+              <!-- <i (click)="showminiwindow()"><img src="../../../assets/imgs/minimize.png"></i> -->
+            </span>
+                    </a>
+                </div>
+                <!-- *** -->
+                <div class="c-player">
+                    <div class="row justify-content-center ">
+                        <img class="firstimage" src="../../../assets/imgs/artistimage.png" alt="" srcset="">
+                    </div>
+
+                    <div class="c-player__details">
+                        <div class="audio justify-content-center row">
+                            <audio id="songplayer" [src]="currentSongURL" controls controlsList="nodownload" autoplay style="display: none;"></audio>
+                        </div>
+                        <div class="navigation  row  justify-content-center">
+                            <a href="" target="_blank"><i class="fas fa-download"></i></a>
+                            <a><i class="fas fa-forward" ></i></a>
+                            <a id="mybuttonplay">
+                                <img class="secondimage" *ngIf="mainicon" src="../../../assets/imgs/playericon.png" (click)="showanothericon()">
+                                <img class="secondimage" *ngIf="songPlayIcon" src="../../../assets/imgs/playedicon.png" (click)="showamainicon()" >
+
+                            </a>
+
+                            <a *ngIf="thisicon" (click)="showamainicon()"><img class="secondimage" src="../../../assets/imgs/playedicon.png"></a>
+                            <a><i class="fas fa-backward"></i></a>
+                            <a *ngIf="hideheart" (click)="changeheart()"><i class="fas fa-heart"></i> </a>
+                            <a *ngIf="showanotherheart"><i class="far fa-heart"></i> </a>
+                        </div>
+                        <h5>أماكن السهر</h5>
+                    </div>
+                </div>
+                <!-- *** -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end MusicModal -->

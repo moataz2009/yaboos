@@ -1,0 +1,394 @@
+@import"../../../styles.scss";
+
+.mobileapp{
+    left:0;height:50px;
+right:0; background-image: linear-gradient(#32AAB2,#106666);
+position: absolute;display: flex;
+justify-content: center;
+align-items: center;color:white;
+font-size: 17px;
+}
+.logoimage{width: 50%;
+    @include MediaQuery(xs){width: 50%;position: relative;right: -25%;top: 70px;}
+    @include MediaQuery(s){width: 50%;position: relative;right: -25%;top: 70px;}
+    @include MediaQuery(M){width: 50%;position: relative;right: -25%;top: 70px;}
+}
+
+.tools{
+    // margin: 0 auto;
+    width: 100%;
+    // margin-top:10%;
+    text-align: center;
+    @include MediaQuery(xs + s + M){margin-top: 80px;}
+    .tools-tab {
+        list-style-type: none;
+        display: flex;
+        @include MediaQuery(xs + s){display: block;}
+        @include MediaQuery(M){display: block;}
+        // margin: 0 auto;
+        padding: 0;
+        justify-content: space-around;
+        width: 100%;
+        position: relative;
+        top:100px;
+        @include MediaQuery(xs){top:10px;}
+        @include MediaQuery(s){top:93px;}
+        @include MediaQuery(M){top:93px;}
+        h3{
+            color: white;font-weight: bold;
+            @include MediaQuery(xs + s ){
+                font-size: 19px;
+            }
+
+        }
+        li{cursor: pointer;
+            a{
+                img{
+                    width:90%;
+                    @include MediaQuery(xs + s + M){
+                        width:49%;
+
+                    }
+                }
+            }
+        }
+        .firstchild{
+            margin-left: -27%;
+            @include MediaQuery(xs + s + M){margin-bottom: 45px; margin-left:0;}
+        }
+    }
+    .firstdiv{
+        width: 100%;
+        margin: 0 auto;
+        @include MediaQuery(xs+ s){margin-top: -60px;}
+        @include MediaQuery(M){margin-top: 70px;}
+        
+        .seprate{
+            margin-bottom: 5%;
+            h3{
+                text-align: center;color:white;margin: 0 auto; padding-top: 20px;
+                @include MediaQuery(xs){margin-bottom: 33px;}
+            }
+            a{
+                display: flex;
+                padding: 0;
+                margin: 0;
+                justify-content: center;
+                width: 100%;
+                img{
+                    @include MediaQuery(xs + s + M){width:50%;margin: 0 auto;margin-top: 30px;}
+                    @include MediaQuery(xl){width:50%;}
+                }
+            }
+          
+        }
+        ul{
+            text-align: center;
+            list-style-type: none;
+            display: flex;
+            // @include MediaQuery(xs){display: block;}
+            padding: 0;
+            margin: 0;
+            justify-content: space-around;
+            width: 100%;
+            @include MediaQuery(XXL){ justify-content:center;}
+            li{
+                h5{
+                    color: #106666;font-weight: bolder;
+                    font-size: 25px;
+                    @include MediaQuery(xs){ font-size: 16px;}
+                    padding-top: 20px;
+                }
+                a{
+                    img{
+                        width: 50%;
+                        @include MediaQuery(xs + s + M){ width: 80%;}
+                        @include MediaQuery(XL){ width: 70%;}
+                    }
+                }
+            }
+        }
+        .prev {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            right:20%;
+          
+            @include MediaQuery(xs + s + M ){right:0%;}
+            // @include MediaQuery(XL){right:10% !important;}
+            @media screen and (min-width:1200px) and (max-width:1900px){ right:10% !important; }
+            @media screen and (min-width:1901px){ right:30% !important;}
+            cursor: pointer;
+            i{
+                transform:rotatey(180deg);
+                color: #106666 ; 
+                font-size: 50px;
+            }
+        }
+    }
+}
+
+
+ //   music model
+ .secondModal {
+    top: 33%;
+    @include MediaQuery(M){  top: 41%;}
+    .modal-content {
+        background-color:#3EB7BA !important;
+        border-radius: 25px;
+        width: 80%;
+        @include MediaQuery(xs + s){width: 90%;margin:0 auto;}
+        @include MediaQuery(L){width: 95%;}
+        padding: 1% 2%;
+    }
+    .modal-body{
+        padding-top: 0%;
+    }
+    .c-player {
+        .firstimage {
+            width: 40%;
+            height: auto !important;  
+            padding-bottom: 20px;  
+            margin-top: -15px;
+        }
+    }
+    h5 {
+        text-align: center;
+        display: block;
+        color: #fff;
+        padding-bottom: 10px;
+    }
+    span {
+        text-align: center;
+        display: block;
+        color: #fff;
+        padding-bottom: 10px;
+    }
+    .audio {
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 10px;
+      box-shadow: 0;
+    }
+    audio:focus {
+        outline: none;
+    }
+    audio::-webkit-media-controls-panel{
+        background-color: #3EB7BA !important;
+        border:0;outline: 0;   
+    }
+    audio::-webkit-media-controls-enclosure{ background-color: #3EB7BA !important;}
+    audio::-webkit-media-controls-current-time-display{color:white;}
+    audio::-webkit-media-controls-time-remaining-display{color:white;}
+    aaudio::-webkit-media-controls-volume-slider-container{color:white !important;}
+    .navigation {
+        display: flex;
+        margin-bottom: 10px;
+        a{
+            color: #fff;
+            font-size: 25px;
+        }
+        a:first-child{
+            margin-top: 14px;
+        }
+        a:nth-child(2){
+            margin: 20px 25px 0;
+            color:#1a5356 !important;
+        }
+        .secondimage{width: 70px;}
+
+        a:nth-child(4) {
+            color:#1a5356 !important;
+            margin: 20px 25px 0;
+        }
+        a:nth-child(5) , a:nth-child(6){
+            margin-top: 20px;
+        }
+    }
+    .mymini{
+        position: fixed;
+        right: 58%;
+        @include MediaQuery(xs + s ){  right: 82%;}
+        @include MediaQuery(M){  right: 64%;}
+        @include MediaQuery(L){  right: 68%;}
+        @media screen and (min-width:1800px) {
+            right: 56%;
+            
+        }
+    }
+    
+}
+
+
+.showsongalert{
+    padding-top: 20px;
+    left:0;
+    right:0; 
+    position: absolute;
+    align-items: center;color:white;
+    font-size: 17px; 
+    z-index: 100000000;
+    background-color:  $basicColor;
+    width:40%;
+    bottom: 0;
+    @media screen and(min-width:1440px) and (max-width:1600px) {
+        bottom: -43px;
+    }
+    @include MediaQuery(xs + s+ M ){  width: 93%;}
+    @include MediaQuery(L){  width: 70%;}
+    margin: 0 auto;
+    border-radius: 20px;
+
+    .textslast{
+        display: inline-flex;
+        text-align: center;
+        float: left; 
+        h1{
+            font-size: 22px;
+        }
+        img{
+            width: 50%;
+        }
+    }
+    .textstwo{
+        display: inline;
+        float: right;
+        text-align: center;
+        img{
+            width: 40%;
+            @include MediaQuery(xs + s+ M){ width: 30%;}
+        }
+        .imgclass{
+            padding-right: 10px;
+        }
+    }
+   
+
+   
+}
+
+// minimize song model
+//   music model
+.secondModal {
+    top: 33%;
+    @include MediaQuery(M) {
+        top: 41%;
+    }
+    .modal-content {
+        background-color: #3EB7BA;
+        border-radius: 25px;
+        width: 80%;
+        @include MediaQuery(xs + s) {
+            width: 90%;
+            margin: 0 auto;
+        }
+        @include MediaQuery(L) {
+            width: 90%;
+        }
+        padding: 1% 2%;
+    }
+    .modal-body {
+        padding-top: 0%;
+    }
+    .c-player {
+        .firstimage {
+            width: 40%;
+            height: auto !important;
+            padding-bottom: 20px;
+            margin-top: -15px;
+        }
+    }
+    h5 {
+        text-align: center;
+        display: block;
+        color: #fff;
+        padding-bottom: 10px;
+    }
+    span {
+        text-align: center;
+        display: block;
+        color: #fff;
+        padding-bottom: 10px;
+    }
+    .audio {
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 10px;
+        box-shadow: 0;
+    }
+    audio:focus {
+        outline: none;
+    }
+    audio::-webkit-media-controls-panel {
+        background-color: #3EB7BA !important;
+        border: 0;
+        outline: 0;
+    }
+    audio::-webkit-media-controls-enclosure {
+        background-color: #3EB7BA !important;
+    }
+    audio::-webkit-media-controls-current-time-display {
+        color: white;
+    }
+    audio::-webkit-media-controls-time-remaining-display {
+        color: white;
+    }
+    aaudio::-webkit-media-controls-volume-slider-container {
+        color: white !important;
+    }
+    .navigation {
+        display: flex;
+        margin-bottom: 10px;
+        a {
+            color: #fff;
+            font-size: 25px;
+        }
+        a:first-child {
+            margin-top: 14px;
+        }
+        a:nth-child(2) {
+            margin: 20px 25px 0;
+            color: #1a5356 !important;
+        }
+        .secondimage {
+            width: 70px;
+        }
+        a:nth-child(4) {
+            color: #1a5356 !important;
+            margin: 20px 25px 0;
+        }
+        a:nth-child(5),
+        a:nth-child(6) {
+            margin-top: 20px;
+        }
+    }
+    .mymini {
+        position: fixed;
+        right: 58%;
+        @include MediaQuery(xs + s) {
+            right: 82%;
+        }
+        @include MediaQuery(M) {
+            right: 64%;
+        }
+        @include MediaQuery(L) {
+            right: 65%;
+        }
+        @media screen and (min-width:1600px) {
+            right: 56%;
+        }
+    }
+    .myminilast {
+        position: fixed;
+        // right: 65%;
+        right:61%;
+        @include MediaQuery(xs + s ){  right: 89%;}
+        @include MediaQuery(M){  right: 78%;}
+        @include MediaQuery(L){  right: 68%;}
+        // @media screen and (min-width:1600px) {right: 56%;}
+        @media screen and (min-width:1600px) and(max-width:1900px) {right: 56%;}
+        @media screen and (min-width:1901px) {right: 58%;}
+
+    }
+}
+

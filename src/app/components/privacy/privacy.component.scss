@@ -1,0 +1,171 @@
+@import"../../../styles.scss";
+
+.mobileapp{
+    left:0;height:50px;
+right:0; background-image: linear-gradient(#32AAB2,#106666);
+position: absolute;display: flex;
+justify-content: center;
+align-items: center;color:white;
+font-size: 17px;
+}
+.logoimage{width: 50%;
+    @include MediaQuery(xs){width: 50%;position: relative;right: -25%;top: 70px;}
+    @include MediaQuery(s){width: 50%;position: relative;right: -25%;top: 70px;}
+    @include MediaQuery(M){width: 50%;position: relative;right: -25%;top: 70px;}
+}
+.privacy{
+    padding: 1% 2%;
+    background-color: #106666;
+    border-radius: 10px;
+    text-align: center !important;
+    margin: 0 60px;
+    @include MediaQuery(xs + s + M){ margin: 0;}
+    h1{
+        color: #32AAB2;
+        padding-top: 20px;
+        // font-family: ArabicBold;
+        font-family: "29lt-bukra-bold";
+    }
+    h3{
+        color: white;
+    }
+    h4{
+        color: #32AAB2;
+    }
+    p{
+        color:white;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-family: "29ltbukraregular";
+        text-align: center;
+        line-height: 32px;
+        font-size: 18px;
+        @include MediaQuery(xs){ font-size: 12px;}
+    }
+}
+
+
+// minimize song model
+//   music model
+.secondModal {
+    top: 33%;
+    @include MediaQuery(M) {
+        top: 41%;
+    }
+    .modal-content {
+        background-color: #3EB7BA;
+        border-radius: 25px;
+        width: 80%;
+        @include MediaQuery(xs + s) {
+            width: 90%;
+            margin: 0 auto;
+        }
+        @include MediaQuery(L) {
+            width: 90%;
+        }
+        padding: 1% 2%;
+    }
+    .modal-body {
+        padding-top: 0%;
+    }
+    .c-player {
+        .firstimage {
+            width: 40%;
+            height: auto !important;
+            padding-bottom: 20px;
+            margin-top: -15px;
+        }
+    }
+    h5 {
+        text-align: center;
+        display: block;
+        color: #fff;
+        padding-bottom: 10px;
+    }
+    span {
+        text-align: center;
+        display: block;
+        color: #fff;
+        padding-bottom: 10px;
+    }
+    .audio {
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 10px;
+        box-shadow: 0;
+    }
+    audio:focus {
+        outline: none;
+    }
+    audio::-webkit-media-controls-panel {
+        background-color: #3EB7BA !important;
+        border: 0;
+        outline: 0;
+    }
+    audio::-webkit-media-controls-enclosure {
+        background-color: #3EB7BA !important;
+    }
+    audio::-webkit-media-controls-current-time-display {
+        color: white;
+    }
+    audio::-webkit-media-controls-time-remaining-display {
+        color: white;
+    }
+    aaudio::-webkit-media-controls-volume-slider-container {
+        color: white !important;
+    }
+    .navigation {
+        display: flex;
+        margin-bottom: 10px;
+        a {
+            color: #fff;
+            font-size: 25px;
+        }
+        a:first-child {
+            margin-top: 14px;
+        }
+        a:nth-child(2) {
+            margin: 20px 25px 0;
+            color: #1a5356 !important;
+        }
+        .secondimage {
+            width: 70px;
+        }
+        a:nth-child(4) {
+            color: #1a5356 !important;
+            margin: 20px 25px 0;
+        }
+        a:nth-child(5),
+        a:nth-child(6) {
+            margin-top: 20px;
+        }
+    }
+    .mymini {
+        position: fixed;
+        right: 58%;
+        @include MediaQuery(xs + s) {
+            right: 82%;
+        }
+        @include MediaQuery(M) {
+            right: 64%;
+        }
+        @include MediaQuery(L) {
+            right: 65%;
+        }
+        @media screen and (min-width:1600px) {
+            right: 56%;
+        }
+    }
+    .myminilast {
+        position: fixed;
+        // right: 65%;
+        right:61%;
+        @include MediaQuery(xs + s ){  right: 89%;}
+        @include MediaQuery(M){  right: 78%;}
+        @include MediaQuery(L){  right: 68%;}
+        // @media screen and (min-width:1600px) {right: 56%;}
+        @media screen and (min-width:1600px) and(max-width:1900px) {right: 56%;}
+        @media screen and (min-width:1901px) {right: 58%;}
+
+    }
+}

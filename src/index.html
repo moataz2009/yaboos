@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>Yaboos</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="./assets/imgs/Y logo-01.png" />
+  <link rel="manifest" href="./manifest.json">
+  <script src="https://kit.fontawesome.com/f339a7c60b.js"></script>
+   <!-- Android Viewport height fix-->
+<script type="text/javascript">
+  var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1; //&& ua.indexOf("mobile");
+  if(isAndroid) {
+      document.write('<meta name="viewport" content="width=device-width,height='+window.innerHeight+', initial-scale=1.0">');
+  }
+  </script> 
+</head>
+<body>
+  <app-root></app-root>
+   <audio id="player" src="http://188.225.182.10:8000/live" controls style="display:none;"> </audio> 
+</body>
+</html>

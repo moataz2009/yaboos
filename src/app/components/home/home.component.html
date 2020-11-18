@@ -1,0 +1,284 @@
+<div class="d-xs-block d-lg-none">
+    <a href={{mobileAppUrl}} class="mobileapp">{{headerMessage}}</a>
+</div>
+
+<img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
+<br><br><br><br><br>
+
+<div class="homepage m-auto text-center" *ngIf="hideall">
+    <div class="container">
+        <h1 class="col-xs-6">البث المباشر</h1>
+        <h5 class="col-xs-6">أماكن السهر</h5>
+        <div class="m-auto pb-3 d-flex justify-content-center">
+            <div class="backimg ">
+                <div class="col-xs-4 cdimag justify-content-center">
+                    <a id="button2">
+                        <img src="../../../assets/imgs/CD.png" class="cd img-responsive">
+                    </a>
+                    <img src="../../../assets/imgs/CD_GIF.gif" class="cd img-responsive" *ngIf="div4">
+                </div>
+
+                <!-- <audio id="player" [src]="PlayerURl" controls style="display:none;"> </audio> -->
+
+                <div class="col-xs-4 images justify-content-center">
+                    <img src="../../../assets/imgs/Materials-06.png" class="small" (click)="ForwardMins(PlayerURl)">
+                    <a id="button" #mybutton>
+                        <img src="../../../assets/imgs/Materials-04.png" class="large">
+                    </a>
+                    <img src="../../../assets/imgs/Materials-05.png" class="large" *ngIf="div1" (click)="openimage4()">
+                    <img src="../../../assets/imgs/Materials-07.png" class="small" (click)="BackwardMins(PlayerURl)">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-12 col-sm-12 m-auto pb-3 ">
+            <div class="last w-100 d-flex justify-content-center fdash">
+                <a class="btn btn-simple btn-danger btn-round ml-4" (click)="previouslive()" data-toggle="modal" data-target="#examModal">
+                    <span>الرجوع للخلف</span>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-10 col-sm-9 col-md-9 col-lg-6  m-auto pb-3 ">
+            <div class="input-group w-100 d-flex justify-content-center ">
+                <div class="input-group-append" (click)="HomeSearch(searchTxt.value)">
+                    <i class="fas fa-search"></i>
+                </div>
+                <input type="text" class="form-control border-right-0" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم....">
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-12  m-auto pb-3 " style="padding-right:0;padding-left: 0;" *ngIf="!currentUser">
+            <div class="last w-100 d-flex justify-content-center sdash">
+                <a class="btn btn-simple btn-danger btn-round sagel" aria-disabled="false" routerLink="/Home/login">
+                    <span>سجل الأن</span>
+                </a>
+                <!-- <a class="btn btn-simple btn-danger btn-round">
+                    <span>سجل لاحقا</span>
+                </a> -->
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 m-auto mylastdiv">
+            <div class="last w-100 d-flex justify-content-center social">
+                <a class="btn btn-simple btn-danger btn-round sagel" aria-disabled="false">
+                    <span> Apple Store </span>
+                    <i class="fab fa-apple"> </i>
+                </a>
+                <a class="btn btn-simple btn-danger btn-round">
+                    <span> Google Play  </span>
+                    <i class="fab fa-google-play"> </i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- song request -->
+<div class="footer" *ngIf="hideall">
+    <a class="songOrder " data-toggle="modal" href="#SongOrder">
+        <i class="fas fa-microphone-alt"></i>
+        <span class="text-nowrap"> طلب أغنيه </span>
+    </a>
+</div>
+<!-- start song reguest model -->
+<div class="modal sr SongOrderModal" id="SongOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="songorder">
+                    <form action="#" #RequestSong="ngForm" (ngSubmit)="onClick_RequestSong(RequestSong.value)">
+                        <div class="songname d-flex flex-row  ">
+                            <div class="d-flex flex-column justify-content-center">
+                                <img src="../../assets/imgs/SongOrder.png" alt="" srcset="">
+                                <span class="text-nowrap"> اسم الأغنيه</span>
+                            </div>
+                        </div>
+                        <div class="songSend">
+                            <textarea type="text" class="form-control " name="song" ngModel></textarea>
+                            <input type="submit" value="إرســـــال" class="form-control">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end song reguest model -->
+
+<!-- start error message model  for song request-->
+<div class="modal fade error  sr errorModal show" id="error" [class.show]="errorShow" [style.display]="errorShow ? 'block' : 'none'" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header    justify-content-center  ">
+                <div class="row justify-content-center ">
+                    <i class="fas fa-exclamation-triangle fa-5x"></i>
+                </div>
+            </div>
+            <!-- *** -->
+            <div class="modal-body">
+                <div class=" text-center">
+                    <h1 class="textpopTitle"> عفوا </h1>
+                </div>
+                <div class=" text-center">
+                    <div class="row">
+                        <a class="col ">
+                            <h3 class="detailstxt1"> {{ErrorMessage}}</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class=" text-center ">
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-info" (click)="closeMessage()" data-dismiss="modal" aria-label="Close"> أغلاق</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- *** -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end error message model  for song request -->
+
+<!-- start done message model  for song request -->
+<div class="modal fade error  sr errorModal " id="error" [class.show]="done" [style.display]="done ? 'block' : 'none'" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header    justify-content-center  ">
+
+                <div class="row justify-content-center ">
+
+                    <i class="fas fa-check-circle fa-5x"></i>
+
+                </div>
+            </div>
+            <!-- *** -->
+            <div class="modal-body">
+                <div class=" text-center">
+                    <h1 class="textpopTitle"> </h1>
+                </div>
+                <div class=" text-center">
+                    <div class="row">
+                        <a class="col ">
+                            <h3 class="detailstxt1"> {{Message}}</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class=" text-center ">
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-info" (click)="closeMessageDone()" data-dismiss="modal" aria-label="Close"> أغلاق</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- *** -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end  done message model for song request -->
+
+<!-- song request -->
+
+
+<!-- popup -->
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>حتى تتمكن من التمتع بمزايا المكتبة الموسيقيه يرجى التسجيل </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- start back to livestream before -->
+<div class="modal modal1" *ngIf="prevlive" id="examModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!-- close media -->
+                <div class="row">
+                    <a class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                      <i class="fas fa-times-circle" (click)="closeMedia()"> </i>
+                    </span>
+                    </a>
+                    <a class="close" class="mini">
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- close media -->
+                <div class="alltime pt-4 pb-4" dir="ltr">
+                    <div class="mylivehours">
+                        <input type="number" class="mr-2" maxlength="1" placeholder="0" (keyup)="keytab($event)" #InputClock1>
+                        <input type="number" maxlength="1" placeholder="0" (keyup)="keytab($event)" #InputClock2>
+                    </div>
+                    <span>:</span>
+                    <div class="mylivehours">
+                        <p class="backtext">الرجوع إلى الساعه</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <button class="btn confirmbtn" aria-disabled="false" (click)="closesection(InputClock1.value ,InputClock2.value )"> 
+                       تأكيد 
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end back to livestream before -->
+
+
+<!-- minimize song model -->
+<!-- start MusicModal -->
+<div class="modal fade secondModal" id="secondModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" *ngIf="closmymedia" aria-hidden="true" data-backdrop="false" data-keyboard="false" [style.display]="closmymedia ? 'block' : 'none'" [class.show]="closmymedia">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="con">
+            <div class="modal-body">
+                <div class="row">
+                    <a class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                             <i class="fas fa-times-circle" (click)="closemyMedia()"> </i>
+                        </span>
+                    </a>
+                    <a class="close" class="mini">
+                        <span aria-hidden="true">
+                            <i *ngIf="hidelate" class="fas fa-chevron-right mymini"  style="transform: rotate(90deg);" (click)="myhello()"></i>
+                            <i *ngIf="hidenow" class="fas fa-chevron-right myminilast"  style="transform: rotate(270deg);" (click)="opensmodal()"></i>
+                        </span>
+                    </a>
+                </div>
+                <!-- *** -->
+                <div class="c-player">
+                    <div class="row justify-content-center ">
+                        <img class="firstimage" src="../../../assets/imgs/artistimage.png" alt="" srcset="">
+                    </div>
+
+                    <div class="c-player__details">
+                        <div class="audio justify-content-center row">
+                            <audio id="songplayer" [src]="currentSongURL" controls controlsList="nodownload" autoplay style="display: none;"></audio>
+                        </div>
+                        <div class="navigation  row  justify-content-center">
+                            <a href="" target="_blank"><i class="fas fa-download"></i></a>
+                            <a><i class="fas fa-forward" ></i></a>
+                            <a id="mybuttonplay">
+                                <img class="secondimage" *ngIf="mainicon" src="../../../assets/imgs/playericon.png" (click)="showanothericon()">
+                                <img class="secondimage" *ngIf="songPlayIcon" src="../../../assets/imgs/playedicon.png" (click)="showamainicon()">
+                            </a>
+                            <a *ngIf="thisicon" (click)="showamainicon()"><img class="secondimage" src="../../../assets/imgs/playedicon.png"></a>
+                            <a><i class="fas fa-backward"></i></a>
+                            <a *ngIf="hideheart" (click)="changeheart()"><i class="fas fa-heart"></i> </a>
+                            <a *ngIf="showanotherheart"><i class="far fa-heart"></i> </a>
+                        </div>
+                        <h5>أماكن السهر</h5>
+                    </div>
+                </div>
+                <!-- *** -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end MusicModal -->
