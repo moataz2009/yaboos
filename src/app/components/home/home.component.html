@@ -212,8 +212,10 @@
                 <!-- close media -->
                 <div class="alltime pt-4 pb-4" dir="ltr">
                     <div class="mylivehours">
-                        <input type="number" class="mr-2" maxlength="1" placeholder="0" (keyup)="keytab($event)" #InputClock1>
-                        <input type="number" maxlength="1" placeholder="0" (keyup)="keytab($event)" #InputClock2>
+                        <input type="number" class="mr-2" placeholder="0" (keyup)="keytab($event)"
+                         #InputClock1  onKeyPress="if(this.value.length==1) return false;" >
+                        <input type="number"  placeholder="0" (keyup)="keytab($event)"
+                         #InputClock2   onKeyPress="if(this.value.length==1) return false;" >
                     </div>
                     <span>:</span>
                     <div class="mylivehours">
