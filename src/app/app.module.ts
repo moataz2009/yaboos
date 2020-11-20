@@ -54,15 +54,15 @@ import { ValidationService } from './validation.service';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-
+    FormsModule,
+    ReactiveFormsModule,
+    
     HttpClientModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireMessagingModule,
     AngularFireModule.initializeApp(environment.firebase),
     NgxUsefulSwiperModule,
-    FormsModule,
-    ReactiveFormsModule,
    
     ToastrModule.forRoot()  
 

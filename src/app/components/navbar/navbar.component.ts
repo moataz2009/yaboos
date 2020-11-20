@@ -44,10 +44,10 @@ username: string;
 
       var scrollTop = $window.scrollTop();
       if(scrollTop > 80) {
-        $('.navbar-toggler[aria-expanded="false"] ').hide();
+        // $('.navbar-toggler[aria-expanded="false"] ').hide();
       }
       else{
-          $('.navbar-toggler[aria-expanded="false"] ').show();
+          // $('.navbar-toggler[aria-expanded="false"] ').show();
       }
       
      }

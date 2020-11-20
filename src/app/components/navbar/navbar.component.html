@@ -1,11 +1,16 @@
+<button class="navbar-toggler" type="button" (click)="savechange()" *ngIf="navbtt">
+        <i class="fas fa-bars"></i>
+</button>
+<!-- <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="savechange()" *ngIf="navbtt"> -->
+    <!-- <span class="navbar-toggler-icon"></span> -->
+    <!-- <span class="myspan"></span>
+    <span></span>
+    <span></span> -->
+  <!-- </button> -->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark center-xs text-center" [class.bdark]="check">
     <a class="navbar-brand  pl-5" href="#"><img src="../../../assets/imgs/logo.png"></a>
-    <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="savechange()" *ngIf="navbtt">
-    <!-- <span class="navbar-toggler-icon"></span> -->
-    <span class="myspan"></span>
-    <span></span>
-    <span></span>
-  </button>
+   
 
     <button (click)="savechange1()" *ngIf="navbt" class="mysecondbutton" type="button"  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
     <i class="fa fa-less-than"></i>
