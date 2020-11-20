@@ -122,10 +122,24 @@ font-size: 17px;
     // position: fixed;
     position: relative;
     top:5%;
-    @include MediaQuery(xs){
-        // top:3%;
-        top:40px;
+    
+    // @include MediaQuery(xs){
+    //     // top:3%;
+    //     top:40px;
+    // }
+    @media screen and (max-width:319px) {
+        top: 16px;
     }
+    @media screen and (min-width:320px)and (max-width:359px) {
+        top: 5px;
+    }
+    @media screen and (min-width:360px)and (max-width:365px) {
+        top: 23px;
+    }
+    @media screen and (min-width:366px)and (max-width:575.98px) {
+        top: 40px;
+    }
+
     @include MediaQuery(s){
         // top:3%; 
         top:40px;
@@ -176,7 +190,17 @@ font-size: 17px;
         color:white;
         font-weight: bold;
         font-size: 80px;
-        @include MediaQuery(xs){ font-size: 28px;}
+        // @include MediaQuery(xs){ font-size: 28px;}
+        @media screen and (max-width:319px) {
+            font-size: 20px;
+        }
+        @media screen and (min-width:320px)and (max-width:359px) {
+            font-size: 22px;
+        }
+        @media screen and (min-width:360px)and (max-width:575.98px) {
+            font-size: 28px;
+        }
+
         @include MediaQuery(s){ font-size: 42px;}
         @include MediaQuery(M){ font-size: 48px;}
         @include MediaQuery(L){ font-size: 61px;}
@@ -199,6 +223,11 @@ font-size: 17px;
         .cd{
             // position: fixed;
             position: absolute;
+            //
+            @media screen and (max-width:319px){
+                width: 36%;
+               top:24px;left: 8%;
+           }
           
             @media screen and (min-width:320px) and (max-width:360px){
                  width: 33%;
@@ -216,11 +245,17 @@ font-size: 17px;
                 top:0%;
                
             }
-            @media screen and (min-width:412px) and (max-width:575.98px){
+            @media screen and (min-width:412px) and (max-width:539px){
                 width: 36%;left: 10%;
                 // top:28%;
                 top:0%;
             }
+            @media screen and (min-width:540px) and (max-width:575.98px){
+                width: 36%;left: 10%;
+                // top:28%;
+                top:-12%;
+            }
+          
             @media screen and (width:375px) and (height:812px){
                 width: 36%;left: 10%;
                 // top:32%;
@@ -232,7 +267,7 @@ font-size: 17px;
                 top:-10%;
             }
             @include MediaQuery(M){
-                 width: 24%; left: 21%;
+                 width: 25%; left: 21%;
                 //  top:42%;
                 top:10%;
             }
@@ -261,7 +296,15 @@ font-size: 17px;
         height:100px;margin-bottom:10px;width:90%;
         // margin-left: 26px;
       background-color: #106666;border-radius:10px;
-        @include MediaQuery(xs){height: 67px;}
+
+        // @include MediaQuery(xs){height: 67px;}
+        @media screen and (max-width:319px) {
+            height: 67px;width: 100%;
+        }
+        @media screen and (min-width:320px)and (max-width:575.98px) {
+            height: 67px;
+        }
+
         @include MediaQuery(s){
             // height: 67px;
             height: 82px;
@@ -277,7 +320,18 @@ font-size: 17px;
        a{
         color:white;background-color:#106666;
         border-color:#106666;border-radius:21px;
-        @include MediaQuery(xs){ font-size: 15px;}
+        // @include MediaQuery(xs){ font-size: 15px;}
+        @media screen and (max-width:319px) {
+            font-size: 10px;
+        }
+        @media screen and (min-width:320px)and (max-width:359px) {
+            font-size: 12px;
+        }
+        @media screen and (min-width:360px)and (max-width:575.98px) {
+            font-size: 15px;
+        }
+
+
         @include MediaQuery(s){ font-size: 15px;}
         @include MediaQuery(M){ font-size: 21px;}
         @include MediaQuery(L){ font-size: 17px;}
@@ -309,7 +363,17 @@ font-size: 17px;
 .fdash{
         span{
             font-size: 30px;color:#32AAB2;padding: 0 20px;font-weight:bold;
-            @include MediaQuery(xs){ font-size: 23px;}
+            // @include MediaQuery(xs){ font-size: 23px;}
+            @media screen and (max-width:319px) {
+                font-size: 14px;
+            }
+            @media screen and (min-width:320px)and (max-width:359px) {
+                font-size: 21px;
+            }
+            @media screen and (min-width:360px)and (max-width:575.98px) {
+                font-size: 23px;
+            }
+
             @include MediaQuery(s){ font-size: 23px;}
             @include MediaQuery(M){ font-size: 23px;}
             @include MediaQuery(L){ font-size: 23px;}
@@ -326,6 +390,11 @@ font-size: 17px;
             @include MediaQuery(XL-XXL){ font-size: 23px;}
             @include MediaQuery(XXL){ font-size: 23px;}
         }
+    }
+    .mysearchinput{
+        @media screen and (max-width:319px) {
+            padding-right: 0px;padding-left:0px;
+        } 
     }
 .input-group-append{
     position: relative;right:30px;z-index:100;top:10px;cursor: pointer;
@@ -429,6 +498,14 @@ input{
         @include MediaQuery(XL-XXL){width: 65px;height:65px;}
         @include MediaQuery(XXL){width: 75px;height:75px;}
     }
+    //
+    @media screen and (max-width:319px) {
+       left: 19%;
+    }
+    @media screen and (min-width:320px)and (max-width:359px) {
+        left: 20%;
+    }
+
     @include MediaQuery(M){bottom: -24px;}
     @include MediaQuery(L){bottom: -24px;}
     @include MediaQuery(XL-XXL){bottom: -24px;}
@@ -453,7 +530,24 @@ input{
     text-align: center;
     display: flex;
     font-weight:bold;
-    @include MediaQuery(xs+s){ 
+    // @include MediaQuery(xs){ 
+    //     // bottom: 50px;
+    //     bottom: 22px;
+    // }
+    @media screen and (max-width:319px) {
+        bottom: 26px;
+    }
+    @media screen and (min-width:320px)and (max-width:359px) {
+        bottom: 15px;
+    }
+    @media screen and (min-width:360px)and (max-width:365px) {
+        bottom: 29px;
+    }
+    @media screen and (min-width:366px)and (max-width:575.98px) {
+        bottom: 22px;
+    }
+
+    @include MediaQuery(s){ 
         // bottom: 50px;
         bottom: 22px;
     }
@@ -480,15 +574,19 @@ input{
                 // bottom: -50px !important;
             }
         }
-        i{ font-size: 30px;}
+        i{ 
+            font-size: 30px;
+            @media screen and (min-width:320px)and (max-width:359px) {
+               font-size: 21px;
+            }
+        }
         span{
             font-family:"29lt-bukra-bold" ;
+
             @include MediaQuery(xs+s) {
-                // font-family:ArabicLight  ;
                 font-size: 17px;
             }
             @include MediaQuery(M) {
-                // font-family:ArabicLight  ;
                 font-size: 20px;
             }
         }   
