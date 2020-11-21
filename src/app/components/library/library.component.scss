@@ -317,6 +317,9 @@
         a {
             color: #fff;
             font-size: 25px;
+            @media screen and (max-width:319px){
+                font-size: 15px;
+            }
         }
         a:first-child {
             margin-top: 14px;
@@ -327,6 +330,9 @@
         }
         .secondimage {
             width: 70px;
+            @media screen and (max-width:319px){
+                width: 59px;
+            }
         }
         a:nth-child(4) {
             color: #1a5356 !important;
