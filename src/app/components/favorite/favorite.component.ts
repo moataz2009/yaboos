@@ -71,6 +71,30 @@ myhello(){
   $('.firstimage').css("display","none");
   // $('.secondModal').css("width","90%");
   $('.secondModal').css("top","78%");
+
+  if(($(window).width() <= 319)){
+    $('.secondModal .navigation a').css("font-size","15px");
+    $('.secondModal .navigation .secondimage').css("width","59px");
+  }
+  if(($(window).width() <= 575.98)){
+    $('.secondModal').css("top","70%");
+  }
+  if(($(window).width() >= 575.99)&&($(window).width() <= 767.98)){
+    $('.secondModal').css("top","75%");
+  }
+  if(($(window).width() >= 992)&&($(window).width() <= 1199.98)){
+    $('.secondModal').css("top","84%");
+  }
+  if(($(window).width() >= 1200)&&($(window).width() <= 1399)){
+    $('.secondModal').css("top","79%");
+  }
+  if(($(window).width() >= 1400)&&($(window).width() <= 1900)){
+    $('.secondModal').css("top","75%");
+  }
+  if(($(window).width() >= 1901)){
+    $('.secondModal').css("top","79%");
+  }
+
   $('.secondModal .modal-content').css("background-color","#32AAB2");
   $('.secondModal .modal-content').css("width","100%");
   if(($(window).width() >= 1200)){
@@ -90,6 +114,10 @@ $('.secondModal').css("top","28%");
 $('.secondModal .modal-content').css("background-color","#3EB7BA");
 $('.secondModal .modal-content').css("width","90%");
 // edit
+if(($(window).width() <= 319)){
+  $('.secondModal .navigation a').css("font-size","15px");
+  $('.secondModal .navigation .secondimage').css("width","59px");
+}
 if(($(window).width() >= 768)&&($(window).width() <= 991)){
   $('.secondModal .modal-content').css("width","80%");
 }

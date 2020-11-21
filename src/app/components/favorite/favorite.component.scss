@@ -89,41 +89,65 @@ font-size: 17px;
         overflow-x: hidden;
         .songitems {
             padding-bottom: 50px;
+            @media screen  and (max-width:319px) {
+                width: 100%;
+             } 
             a {
                 color: #fff;
             }
             .one {
                 float: left;
                 cursor: pointer;
+                @media screen  and (max-width:319px) {
+                   width: 100%;
+                } 
+                span{
+                    @media screen  and (max-width:319px) {
+                        font-size: 10px;
+                    } 
+                    @media screen and (min-width:320px) and (max-width:343px) {
+                        font-size: 10px;
+                    } 
+                    @media screen and (min-width:344px) and (max-width:359px) {
+                        font-size: 11px;
+                    } 
+                    @media screen and (min-width:360px) and (max-width:400px) {
+                        font-size: 11px;
+                    } 
+                    @media screen and (min-width:401px) and (max-width:460px) {
+                        font-size: 12px;
+                    } 
+
+                }
             }
             .two {
                 float: right;
                 cursor: pointer;
             }
         }
-        .albumsitems,
-        .artistsitems {
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            margin: 0;
-            margin-bottom: 4%;
-            margin-top: 2%;
-            text-align: center;
-            img {
-                // width: 150px;
-                width: 189px;
-                @include MediaQuery(xs + s) {
-                    width: 80px;
-                }
-            }
-            p {
-                color: #fff;
-                @include MediaQuery(xs + s) {
-                    font-size: 12px;
-                }
-            }
-        }
+        // .albumsitems,
+        // .artistsitems {
+        //     width: 100%;
+        //     display: flex;
+        //     justify-content: space-around;
+        //     margin: 0;
+        //     margin-bottom: 4%;
+        //     margin-top: 2%;
+        //     text-align: center;
+        //     img {
+        //         // width: 150px;
+        //         width: 189px;
+        //         @include MediaQuery(xs + s) {
+        //             width: 80px;
+        //         }
+        //     }
+        //     p {
+        //         color: #fff;
+        //         @include MediaQuery(xs + s) {
+        //             font-size: 12px;
+        //         }
+        //     }
+        // }
     }
 }
 
@@ -221,6 +245,12 @@ font-size: 17px;
         a {
             color: #fff;
             font-size: 25px;
+            @media screen and (max-width:319px)  {
+                font-size: 15px;
+            }
+            @media screen and (min-width:320px) and (max-width:348px)  {
+                font-size: 20px;
+            }
         }
         a:first-child {
             margin-top: 14px;
@@ -231,6 +261,12 @@ font-size: 17px;
         }
         .secondimage {
             width: 70px;
+            @media screen and (max-width:319px)  {
+               width: 59px;
+            }
+            @media screen and (min-width:320px) and (max-width:348px)  {
+                width: 60px;
+            }
         }
         a:nth-child(4) {
             color: #1a5356 !important;
