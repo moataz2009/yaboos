@@ -87,7 +87,16 @@
                     color: #fff !important;
                     outline: 0 !important;
                 }
-                @include MediaQuery(xs + s) {
+                // @include MediaQuery(xs ) {
+                //     font-size: 15px;
+                // }
+                @media screen and (max-width:319px) {
+                    font-size: 12px;
+                }
+                @media screen and (min-width:320px)and (max-width:575.98px) {
+                    font-size: 15px;
+                }
+                @include MediaQuery(s) {
                     font-size: 15px;
                 }
             }
@@ -117,17 +126,58 @@
             a {
                 color: #fff;
             }
+            @media screen and (max-width:319px){
+                width: 100%;
+
+            }
             .one {
                 float: left;
                 cursor: pointer;
+                @media screen and (max-width:319px){
+                    width: 100%;   
+                }
+                span{
+                    @media screen and (max-width:319px){
+                        font-size: 10px;
+                    }
+                    @media screen and (min-width:320px) and (max-width:343px){
+                        font-size: 10px;
+                    }
+                    @media screen and (min-width:344px) and (max-width:359px){
+                        font-size: 11px;
+                    }
+                    @media screen and (min-width:360px) and (max-width:400px) {
+                        font-size: 11px;
+                    }
+                    @media screen and (min-width:401px) and (max-width:460px) {
+                        font-size: 12px;
+                    }
+                }
+                i{
+                    @media screen and (min-width:320px) and (max-width:343px){
+                        font-size: 12px;
+                    }
+                    @media screen and (min-width:344px) and (max-width:359px){
+                        font-size: 14px;
+                    }  
+                }
             }
             .two {
                 float: right;
                 cursor: pointer;
+                i{
+                    @media screen and (min-width:320px) and (max-width:343px){
+                        font-size: 12px;
+                    }
+                    @media screen and (min-width:344px) and (max-width:359px){
+                        font-size: 14px;
+                    }  
+                }
             }
         }
         .albumsitems,
         .artistsitems {
+
             width: 100%;
             display: flex;
             justify-content: space-around;
@@ -135,10 +185,22 @@
             margin-bottom: 4%;
             margin-top: 2%;
             text-align: center;
+            .smallalb{
+                padding-right: 0px;padding-left: 0px;
+            }
             img {
                 // width: 150px;
                 width: 189px;
-                @include MediaQuery(xs + s) {
+                // @include MediaQuery(xs ) {
+                //     width: 80px;
+                // }
+                @media screen and  (max-width:319px ) {
+                    width: 68px; 
+                }
+                @media screen and  (min-width:320px ) and  (max-width:575.98px ) {
+                    width: 80px; 
+                }
+                @include MediaQuery(s) {
                     width: 80px;
                 }
             }

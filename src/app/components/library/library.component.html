@@ -42,7 +42,7 @@
         <div class="row justify-content-center" *ngIf="showAlbums">
             <div class="box col-xs-12 container">
                 <div class=" row albumsitems">
-                    <div class="col-xs-4 col-4" *ngFor="let prop of albumList;">
+                    <div class="col-xs-4 col-4 smallalb" *ngFor="let prop of albumList;">
                         <img [src]="'http://188.225.184.108:9091/'+prop.image" alt="" (click)="GetSongsOfAlbum(prop.id)" >
                         <p> {{prop.title}}</p>
                     </div>
@@ -56,7 +56,7 @@
         <div class="row justify-content-center" *ngIf="showArtists">
             <div class="box col-xs-12 container">
                 <div class="row artistsitems">
-                    <div class="col-xs-4 col-4" *ngFor="let prop of artistList;">
+                    <div class="col-xs-4 col-4 smallalb" *ngFor="let prop of artistList;">
 
                         <img [src]="'http://188.225.184.108:9091/'+prop.image" alt="">
                         <p> {{prop.name}}</p>
