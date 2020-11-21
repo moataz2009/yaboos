@@ -47,12 +47,12 @@ songPlayIcon:boolean = false;
      slidesPerView: 3,
     speed:200,
 breakpoints:{  //when make it responsive
-      320:{
+      280:{
            slidesPerView: 3, 
           },
-          768:{
+      768:{
             slidesPerView: 3, 
-           }
+          }
    },
     loop:true,
   };
@@ -70,7 +70,7 @@ breakpoints:{  //when make it responsive
      slidesPerView: 3,
     speed:200,
 breakpoints:{  //when make it responsive
-      320:{
+      280:{
            slidesPerView: 3, 
           },
           768:{
