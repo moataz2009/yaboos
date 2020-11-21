@@ -67,6 +67,9 @@
             border-color: #106666;
             border-radius: 50px;
             height: 50px;
+            @include MediaQuery( M){
+                height: 59px;
+            }
         }
         .form-control-feedback {
             position: absolute;
@@ -82,6 +85,10 @@
         }
          ::placeholder {
             color: white;
+            @include MediaQuery( M){
+              font-size: 20px;
+            }
+
         }
         input:focus {
             outline: none !important;
@@ -463,6 +470,8 @@
     justify-content: center;
     p {
         line-height: 35px;
+        text-align: center;
+        margin: 0 auto;
     }
 }
 
@@ -471,7 +480,7 @@
     @include MediaQuery(xs + s +M) {
         position: relative !important;
         // z-index: 1000000000000000000000;
-        z-index: 1;
+        // z-index: 1;
     }
     .prosubject {
         margin: 0 auto;
@@ -508,13 +517,21 @@
                     width: 100% !important;
                 }
             }
+            @media screen and (min-width:1200px){
+                width: 100% !important;
+                margin-top: 0px;
+                img {
+                    width: 96% !important;
+                }
+            }
         }
         .contain {
             width: 100%;
             display: block;
               //
               overflow-y: auto;
-              height: 590px !important;
+            //   height: 590px !important;
+            height: 470px !important;
               overflow-x: hidden;
               margin-top: 32px;
             //   margin-left:20px;
@@ -561,6 +578,9 @@
                 color:#106666;
                 a {
                     display: block !important;
+                    i{
+                        color:#106666;
+                    }
                 }
             }
             .mytexts {
@@ -568,6 +588,7 @@
                 cursor: pointer;
                 @include MediaQuery(xs + s + M) {
                     margin-top: 17px;
+                    width: 300px;
                 }
                 @include MediaQuery(L) {
                     margin-top: 16px;
@@ -578,10 +599,23 @@
                 @include MediaQuery(XXL) {
                     margin-top: 20px;
                 }
+                @media screen and (min-width:1200px){
+                   width: 251px;
+                }
                 h3 {
                     color: #106666;
                     font-size: 22px;
-                    @include MediaQuery(xs) {
+                    // @include MediaQuery(xs) {
+                    //     font-size: 17px;
+                    // }
+                  
+                    @media screen and (max-width:319px) {
+                        font-size: 12px;
+                    }
+                    @media screen and  (min-width:320px) and  (max-width:359px){
+                        font-size: 12px;
+                    }
+                    @media screen and (min-width:360px)and (max-width:575.98px) {
                         font-size: 17px;
                     }
                     @include MediaQuery(s) {
@@ -961,10 +995,19 @@
 .imageapi{
     width:123px;
     height: 112px;
+    @media screen and  (max-width:319px) {
+        width: 100px;
+        height: 98px;
+        padding-left: 16px;
+    }
+    @media screen and  (min-width:320px) and  (max-width:359px) {
+        width: 100px;
+        height: 98px;
+    }
 }
 //
 @at-root::-webkit-scrollbar {
-    width: 10px;
+    width: 6px;
   
 }
 /* Track */
@@ -992,5 +1035,9 @@
     color: white;
     @media screen and (max-width:319px) {
         left: 89%;
+    }
+    @include MediaQuery( M){
+        left: 96%;
+        top: 43px;
     }
 }
