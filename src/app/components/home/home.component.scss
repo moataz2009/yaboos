@@ -436,22 +436,27 @@ font-size: 17px;
 
 input{
     background-color:#106666;border:none;border-radius:10px; color:white !important;
-    text-indent: 40px;outline:none !important;box-shadow:none !important;
+    text-indent: 40px;
+    outline:none !important;box-shadow:none !important;
     @include MediaQuery(xs){
         // left:6%;
         left:4%;
+        text-indent: 20px;
     }
     @include MediaQuery(s){
         // left:6%;
         left:4%;
+        text-indent: 20px;
     }
     @include MediaQuery(M){
         // left:6%;
         left:4%;
+        text-indent: 23px;
     }
     @include MediaQuery(L){
         // left:6%;
         left:4%;
+        text-indent: 23px;
     }
     @include MediaQuery(XL-XXL){
         // left:6%;
@@ -460,6 +465,9 @@ input{
     @include MediaQuery(XXL){
         // left:6%;
         left:4%;
+    }
+    @media screen and (min-width:1200px){
+        text-indent: 26px; 
     }
 }
 .images{
