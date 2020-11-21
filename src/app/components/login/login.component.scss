@@ -19,6 +19,9 @@ font-size: 17px;
 .socialmedia {
     position: relative;
     top: 100px;
+    @media screen and (max-width: 319px) {
+        top: 10px;
+    }
     @media screen and (min-width: 320px)and (max-width: 360px) {
         top: 5px;
     }
@@ -218,7 +221,8 @@ font-size: 17px;
             border: 0.5px solid white;
             font-size: 15px;
             padding: 6px;
-            text-indent: 29px !important;
+            // text-indent: 29px !important;
+            text-indent: 5px !important;
         }
         input[type=submit] {
             border-radius: 10px;
@@ -246,7 +250,8 @@ font-size: 17px;
         @include MediaQuery(M + L) {
             width: 100%;
         }
-        padding: 5% 2%;
+        // padding: 5% 2%;
+        padding: 3% 2% 2%;
     }
     p {
         text-align: center;
@@ -341,6 +346,7 @@ input[type=number] {
         position: absolute;
         // top: 197px;
         top: 148px;
+      
 
     }
     @include MediaQuery(M) {
@@ -366,15 +372,19 @@ input[type=number] {
     // top: -300px !important;
     top: -366px !important;
     // height: 500px !important;
-    height: 655px !important;
+    // height: 655px !important;
     @include MediaQuery(xs + s) {
         position: absolute;
         // top: 197px !important;
-        top: 152px !important;
+        // top: 152px !important;
+        top: 140px !important;
     }
     @include MediaQuery(M) {
         position: absolute;
         // top: 430px !important;
         top: 320px !important;
     }
+}
+::ng-deep ::placeholder {
+   text-indent: 5px !important;
 }

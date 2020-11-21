@@ -52,6 +52,8 @@ import { ValidationService } from './validation.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    
     AppRoutingModule,
     NgbModule,
     FormsModule,
