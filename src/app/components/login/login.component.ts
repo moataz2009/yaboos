@@ -115,26 +115,25 @@ mylogsection(){
 );  
 }
 
-
+ user:User;
 
 //Register
-Register()
+Register(formvalue)
 {
-  debugger;
+  // debugger;
   this.registersubmitted = true;
-  ValidationService.password(this.loginForm.value.password);
+  // ValidationService.password(this.loginForm.value.password);
 //   if (this.registerForm.invalid) {
 //     return this.toastr.error("   حدث خطأ يرجي التأكد من البيانات");
 // }
-   let user:User;
-
+   
     this.userObj.username = this.registerForm.value.username;
     this.userObj.password = this.registerForm.value.password;
     this.userObj.name = this.registerForm.value.name;
    
-      this.UsersService.register( this.userObj ).subscribe(
-       res=>{
-      console.log(res);
+      this.UsersService.register(formvalue).subscribe(
+       mydata =>{
+      console.log(mydata);
       localStorage.setItem('username' ,this.userObj.username );
       this.toastr.success("تم إنشاء الحساب بنجاح");
       $("#Register").hide();
