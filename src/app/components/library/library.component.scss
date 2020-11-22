@@ -214,6 +214,32 @@
                 }
             }
         }
+        // 
+        .songsinalbums{
+            display: flex;
+            justify-content: space-around;
+            // a{display: block;}
+            .mysongicons{
+                float: right;
+            }
+            .two{
+                i{
+                    color:white; padding-bottom:24px !important;
+                }
+            }
+            .myalbumsong{
+                float: left;
+                color:white !important;
+               .songs{
+                   padding-bottom:20px !important;
+               }
+            }
+            img{ width: 183px;}
+            h3{
+                color: white;
+                text-align: center;
+            }
+        }
     }
 }
 

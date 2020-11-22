@@ -41,23 +41,46 @@
         <!-- start albums sections  -->
         <div class="row justify-content-center" *ngIf="showAlbums">
             <div class="box col-xs-12 container">
-                <div class=" row albumsitems">
-                    <div class="col-xs-4 col-4 smallalb" *ngFor="let prop of albumList;">
-                        <img [src]="'http://188.225.184.108:9091/'+prop.image" alt="" (click)="GetSongsOfAlbum(prop.id)" >
-                        <p> {{prop.title}}</p>
+                <div class=" row albumsitems"  *ngIf="hideAlbums">
+                    <div class="col-xs-4 col-4 smallalb" *ngFor="let propimg of albumList;">
+                        <img [src]="'http://188.225.184.108:9091/'+propimg.image" alt="" (click)="GetSongsOfAlbum(propimg.id)" >
+                        <p> {{propimg.title}}</p>
                     </div>
                 </div>
 
+                <div class="row songsinalbums" *ngIf="showAlbumsongs">
+                    <div class="col-xs-2">
+                        <div  *ngFor="let props of songsalbumsList;">
+                            <a class="two"  target="_blank">
+                                <i class="fas fa-download" (click)="DownloadAudio($event , props.id)"></i>               
+                            </a>
+                            <a class="two" target="_blank">
+                                <i class="fas fa-heart mr-3" *ngIf="hideheart" (click)="changeheart()"></i> 
+                                <i class="far fa-heart mr-3" *ngIf="showanotherheart"></i> 
+                            </a>
+                        </div>
+                    </div>
+                        <div class="col-xs-8 myalbumsong">
+                            <div class="songs" *ngFor="let props of songsalbumsList;">
+                                <span> {{props.title}}</span>
+                                <i class="fas fa-play-circle pr-2"></i>
+                            </div>    
+                        </div>
+                        <div class="col-xs-2">
+                            <div *ngFor="let AlbData of songsalbumsData;" >
+                                <img  [src]="'http://188.225.184.108:9091/'+AlbData.album.artist.image">
+                                <h3> {{AlbData.album.title}} </h3>
+                            </div>
+                        </div>
+                </div>
             </div>
         </div>
         <!-- end albums sections  -->
-
         <!-- start artists sections  -->
         <div class="row justify-content-center" *ngIf="showArtists">
             <div class="box col-xs-12 container">
                 <div class="row artistsitems">
                     <div class="col-xs-4 col-4 smallalb" *ngFor="let prop of artistList;">
-
                         <img [src]="'http://188.225.184.108:9091/'+prop.image" alt="">
                         <p> {{prop.name}}</p>
                     </div>
@@ -65,8 +88,6 @@
             </div>
         </div>
         <!-- end artists sections  -->
-
-    </div>
 </div>
 
 <!-- start MusicModal -->

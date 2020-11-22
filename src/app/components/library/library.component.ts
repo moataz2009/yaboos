@@ -24,7 +24,10 @@ export class LibraryComponent implements OnInit {
   searchText:string;
   artistList: Artist[];
   songsList: Songs[];
+  songsalbumsList: Songs[];
+  songsalbumsData: Songs[]
   albumList : Album[];
+  myonealbum : Album;
   currentSongURL : any;
   currentSongName:any;
   currentSongId:any;
@@ -242,20 +245,36 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
 }
 
 
+hideAlbums:boolean=true;
+showAlbumsongs:boolean=false;
 
 GetSongsOfAlbum(albumId)
 {
 //debugger;
   this.SongsService.GetSongsOfAlbum("0" , "10" , albumId).subscribe(res =>{
-    this.songsList = res.result;
-  
-    
+    this.songsalbumsList = res.result;
     });
-    this.showArtists = false;
-    this.showAlbums= false;
-    this.showSongs = true;
 
+    this.SongsService.GetSongsOfAlbum("0" , "1" , albumId).subscribe(res =>{
+      this.songsalbumsData = res.result;
+      console.log(res.result);
+      });
+
+    // this.showArtists = false;
+    // this.showAlbums= false;
+    // this.showSongs = true;
+       this.hideAlbums=false;
+       this.showAlbumsongs=true;
 }
+
+
+// GetSongsOfAlbum(albumId){
+
+//   this.hideAlbums=false;
+// }
+
+
+
 
 
   ngOnInit(): void {
