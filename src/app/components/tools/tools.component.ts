@@ -13,6 +13,7 @@ export class ToolsComponent implements OnInit {
   soundratesection:boolean=false;
   hidesection:boolean=true;
   stoplivesection:boolean=false;
+  alarmsection:boolean=false;
 
   constructor() { }
 
@@ -75,6 +76,10 @@ export class ToolsComponent implements OnInit {
     this.stoplivesection=true;
     this.hidesection=false;
   }
+  sohwalarm(){
+    this.alarmsection=true;
+    this.hidesection=false;
+  }
 
   returntoolpage(){
     this.soundratesection=false;
@@ -85,6 +90,21 @@ export class ToolsComponent implements OnInit {
     this.stoplivesection=false;
     this.hidesection=true;
   }
+  returnmainpage(){
+    this.alarmsection=false;
+    this.hidesection=true;
+  }
+  keytab(event){
+    let nextInput = event.srcElement.nextElementSibling; // get the sibling element
+
+    if(nextInput == null) // check the maxLength from here
+    {
+      return;
+    } 
+    else{
+      nextInput.focus();   // focus if not null
+    }     
+ }
 
   thisicon:boolean=false;
   mainicon:boolean=true;
@@ -178,7 +198,7 @@ StopLive(num:number)
 // minimize song model
 // music model
 closmymedia: boolean = false; //show or hide model, it is display none modal now
- mainicon:boolean=true;
+//  mainicon:boolean=true;
  songPlayIcon: boolean = false;
 
  closemyMedia() {
