@@ -54,7 +54,7 @@ export class ToolsComponent implements OnInit {
     this.funShowImgs();
   }
   funShowImgs(){
-    debugger;
+    // debugger;
     if(document.querySelector("audio").volume == 0.999){
       $('div.firstdiv li a img#Highest').attr("src", "../../../assets/imgs/playedImg.png");
     }
