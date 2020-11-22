@@ -113,7 +113,13 @@
    top:126px;
   }
 }
+@include MediaQuery(s){
+   .navbar-toggler{
+    left: 46px;top:123px;
+    i{font-size: 45px;}
+  }
 
+}
 @include MediaQuery(M){
   // .navbar-dark .navbar-toggler[aria-expanded="false"] {
   //   left: 46px;top:84px;
