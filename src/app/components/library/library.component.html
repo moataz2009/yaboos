@@ -15,65 +15,123 @@
             </ul>
         </div>
         <!-- end libaray tabs  -->
+
         <!-- start songs sections  -->
         <div class="row justify-content-center" *ngIf="showSongs">
             <div class="box col-xs-12">
-                <div class="songitems" *ngFor="let prop of songsList;">
+                <!-- <div class="songitems" *ngFor="let prop of songsList;">
                     <a class="one" (click)="openmusicmodel(prop.id , prop.title)">
                         <span> {{prop.title}}</span>
                         <i class="fas fa-play-circle pr-2"></i>
                     </a>
                     <a class="two"  target="_blank">
                         <i class="fas fa-download" (click)="DownloadAudio($event , prop.id)"></i>
-                     
-                    </a>
-                    <a class="two" target="_blank">
-                        <!-- add heart to library -->
                         <i class="fas fa-heart mr-3" *ngIf="hideheart" (click)="changeheart()"></i> 
-                        <i class="far fa-heart mr-3" *ngIf="showanotherheart"></i> 
-                     <!-- end add heart to library -->
+                        <i class="far fa-heart mr-3" *ngIf="showanotherheart"></i>                    
                     </a>
-
-                </div>
+                   
+                </div> -->
+                <div class="col-sm-12 float-right  col-xs-12">
+                    <div class="row">
+                        <div class="songitems col-md-12 mt-sm-2 p-0">
+                            <div class="songs" *ngFor="let prop of songsList;">                                                                       
+                                <div class="col-10 float-left list" (click)="openmusicmodel(prop.id , prop.title)">
+                                    <span> {{prop.title}}</span>
+                                    <i class="fas fa-play-circle pr-2"></i>
+                                </div>
+                                <div class="col-2  float-right icons">
+                                    <i class="fas fa-download" (click)="DownloadAudio($event , prop.id)"></i>               
+                                    <i class="fas fa-heart mr-3" *ngIf="hideheart" (click)="changeheart()"></i> 
+                                    <i class="far fa-heart mr-3" *ngIf="showanotherheart"></i> 
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>    
+                            <div class="clearfix"></div>
+                            <!-- المزيد  -->
+                            <div class="more col-xs-3">
+                                <a  (click)="loadmoresongs()">المزيد</a>
+                            </div>
+                        </div> 
+                    </div>
+                </div>  
             </div>
         </div>
         <!-- end songs sections  -->
+
+
         <!-- start albums sections  -->
         <div class="row justify-content-center" *ngIf="showAlbums">
-            <div class="box col-xs-12 container">
-                <div class=" row albumsitems"  *ngIf="hideAlbums">
+            <div class="box  col-xs-12">
+
+                <div class=" row albumsitems LgScreen"  *ngIf="hideAlbums">
                     <div class="col-xs-4 col-4 smallalb" *ngFor="let propimg of albumList;">
                         <img [src]="'http://188.225.184.108:9091/'+propimg.image" alt="" (click)="GetSongsOfAlbum(propimg.id)" >
                         <p> {{propimg.title}}</p>
                     </div>
+                    <br>
                 </div>
-
-                <div class="row songsinalbums" *ngIf="showAlbumsongs">
-                    <div class="col-xs-2">
-                        <div  *ngFor="let props of songsalbumsList;">
-                            <a class="two"  target="_blank">
-                                <i class="fas fa-download" (click)="DownloadAudio($event , props.id)"></i>               
-                            </a>
-                            <a class="two" target="_blank">
-                                <i class="fas fa-heart mr-3" *ngIf="hideheart" (click)="changeheart()"></i> 
-                                <i class="far fa-heart mr-3" *ngIf="showanotherheart"></i> 
-                            </a>
-                        </div>
+                 <!-- المزيد  -->
+                 <div class="row" *ngIf="hideAlbums">
+                    <div class="more col-xs-3">
+                        <a  (click)="loadmorealbums()">المزيد</a>
                     </div>
-                        <div class="col-xs-8 myalbumsong">
-                            <div class="songs" *ngFor="let props of songsalbumsList;">
-                                <span> {{props.title}}</span>
-                                <i class="fas fa-play-circle pr-2"></i>
-                            </div>    
-                        </div>
-                        
-                        <div class="col-xs-2">
-                            <div *ngFor="let AlbData of songsalbumsData;" >
-                                <img  [src]="'http://188.225.184.108:9091/'+AlbData.album.artist.image">
+                 </div>
+                <!-- songs inside album -->
+
+                <div class="songsinalbums" *ngIf="showAlbumsongs">                   
+                    <div class="col-sm-4 text-center float-left col-xs-12 col-sm-12 col-lg-4">
+                        <div *ngFor="let AlbData of songsalbumsData;" >
+                            <div class="mt-3 mt-lg-5 mb-5 statialbum">
+                                <img class="mb-4"  [src]="'http://188.225.184.108:9091/'+AlbData.album.artist.image">
                                 <h3> {{AlbData.album.title}} </h3>
                             </div>
                         </div>
+                    </div>  
+                    <div class="col-sm-8 float-right col-xs-12 col-sm-12 col-lg-8">
+                        <div class="row">
+                                <!-- <div class="col-xs-2 col-sm-2">
+                                        <div  *ngFor="let props of songsalbumsList;">
+                                            <a class="two"  target="_blank">
+                                                <i class="fas fa-download" (click)="DownloadAudio($event , props.id)"></i>               
+                                                <i class="fas fa-heart mr-3" *ngIf="hideheart" (click)="changeheart()"></i> 
+                                                <i class="far fa-heart mr-3" *ngIf="showanotherheart"></i> 
+                                            </a>
+                                        </div>
+                                    </div> -->
+
+                            <!-- <div class="col-xs-10 col-sm-10"> -->
+                                <div class="myalbumsong SmScreen n_listScroll col-md-12 mt-sm-5 p-0">
+                                    <div class="songs" *ngFor="let props of songsalbumsList;">                                                                       
+                                        <div class="col-9 float-left list" (click)="openmusicmodel(props.id , props.title)">
+                                            <span> {{props.title}}</span>
+                                            <i class="fas fa-play-circle pr-2"></i>
+                                        </div>
+                                        <div class="col-3 float-right icons">
+                                            <i class="fas fa-download" (click)="DownloadAudio($event , props.id)"></i>               
+                                            <i class="fas fa-heart mr-3" *ngIf="hideheart" (click)="changeheart()"></i> 
+                                            <i class="far fa-heart mr-3" *ngIf="showanotherheart"></i> 
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                    </div> 
+                                     <!-- المزيد  -->
+                                    <div class="more col-xs-3" style="text-align: center;">
+                                        <a >المزيد</a>
+                                    </div>   
+                                    <div class="clearfix"></div>
+                                </div> 
+                                
+                            <!-- </div> -->
+                        </div>
+                    </div> 
+                    <div class="backicon">
+                        <a (click)="backalbums()">
+                            <i class="fa fa-share" style="color: white;"></i>
+                        </a>
+                    </div>                 
                 </div>
+                
+
             </div>
         </div>
         <!-- end albums sections  -->
@@ -84,6 +142,13 @@
                     <div class="col-xs-4 col-4 smallalb" *ngFor="let prop of artistList;">
                         <img [src]="'http://188.225.184.108:9091/'+prop.image" alt="">
                         <p> {{prop.name}}</p>
+                    </div>
+                    <br>
+                  
+                </div>
+                <div class="row">
+                    <div class="more col-xs-3">
+                        <a  (click)="loadartisits()">المزيد</a>
                     </div>
                 </div>
             </div>

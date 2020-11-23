@@ -122,64 +122,101 @@
         height: 50vh !important;
         overflow-x: hidden;
         .songitems {
-            padding-bottom: 50px;
-            a {
-                color: #fff;
+            .songs{  padding-bottom: 20px;
+               
+                .icons{
+                    @include MediaQuery(xs) {
+                       display: inline-flex;
+                    }
+                    i{
+                        @media screen and (max-width:319px){ 
+                            font-size: 12px;
+                            padding-top: 6px;
+                        }
+                      }
+                  }
+                  .list{
+                      cursor: pointer;
+                      span{
+                        @media screen and (max-width:319px){ font-size: 12px;}
+                      }
+                  }
             }
-            @media screen and (max-width:319px){
-                width: 100%;
+            color: #fff;
+            .more{
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                margin: 0 auto;
+                a{
+                    color:white;
+                    display: flex;
+                    justify-content: center;
+                font-size:22px;
+                cursor: pointer;
+                }
+                margin-bottom: 20px;
+            }
+            // a {
+            //     color: #fff;
+            // }
+            // @media screen and (max-width:319px){
+            //     width: 100%;
 
-            }
-            .one {
-                float: left;
-                cursor: pointer;
-                @media screen and (max-width:319px){
-                    width: 100%;   
-                }
-                @media screen and (min-width:320px) and (max-width:767.98px){
-                    width: 100%;   
-                }
-                span{
-                    @media screen and (max-width:319px){
-                        font-size: 10px;
-                    }
-                    @media screen and (min-width:320px) and (max-width:343px){
-                        font-size: 10px;
-                    }
-                    @media screen and (min-width:344px) and (max-width:359px){
-                        font-size: 11px;
-                    }
-                    @media screen and (min-width:360px) and (max-width:400px) {
-                        font-size: 11px;
-                    }
-                    @media screen and (min-width:401px) and (max-width:460px) {
-                        font-size: 12px;
-                    }
-                }
-                i{
-                    @media screen and (min-width:320px) and (max-width:343px){
-                        font-size: 12px;
-                    }
-                    @media screen and (min-width:344px) and (max-width:359px){
-                        font-size: 14px;
-                    }  
-                }
-            }
-            .two {
-                float: right;
-                cursor: pointer;
-                i{
-                    @media screen and (min-width:320px) and (max-width:343px){
-                        font-size: 12px;
-                    }
-                    @media screen and (min-width:344px) and (max-width:359px){
-                        font-size: 14px;
-                    }  
-                }
-            }
+            // }
+            // .one {
+            //     float: left;
+            //     cursor: pointer;
+            //     @media screen and (max-width:319px){
+            //         width: 100%;   
+            //     }
+            //     @media screen and (min-width:320px) and (max-width:767.98px){
+            //         width: 100%;   
+            //     }
+            //     span{
+            //         @media screen and (max-width:319px){
+            //             font-size: 10px;
+            //         }
+            //         @media screen and (min-width:320px) and (max-width:343px){
+            //             font-size: 10px;
+            //         }
+            //         @media screen and (min-width:344px) and (max-width:359px){
+            //             font-size: 11px;
+            //         }
+            //         @media screen and (min-width:360px) and (max-width:400px) {
+            //             font-size: 11px;
+            //         }
+            //         @media screen and (min-width:401px) and (max-width:460px) {
+            //             font-size: 12px;
+            //         }
+            //     }
+            //     i{
+            //         @media screen and (min-width:320px) and (max-width:343px){
+            //             font-size: 12px;
+            //         }
+            //         @media screen and (min-width:344px) and (max-width:359px){
+            //             font-size: 14px;
+            //         }  
+            //     }
+            // }
+            // .two {
+            //     float: right;
+            //     cursor: pointer;
+            //     i{
+            //         @media screen and (min-width:320px) and (max-width:343px){
+            //             font-size: 12px;
+            //         }
+            //         @media screen and (min-width:344px) and (max-width:359px){
+            //             font-size: 14px;
+            //         }  
+            //     }
+            // }
         }
         .albumsitems,
         .artistsitems {
+//
+// height: 48vh !important;
+// overflow-y:auto;
 
             width: 100%;
             display: flex;
@@ -189,6 +226,7 @@
             margin-top: 2%;
             text-align: center;
             .smallalb{
+                cursor: pointer;
                 padding-right: 0px;padding-left: 0px;
             }
             img {
@@ -213,12 +251,33 @@
                     font-size: 12px;
                 }
             }
+            
+        }
+        .row{
+            .more{
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                margin: 0 auto;
+                a{
+                    color:white;
+                    display: flex;
+                    justify-content: center;
+                font-size:22px;
+                cursor: pointer;
+                }
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
         }
         // 
         .songsinalbums{
-            display: flex;
-            justify-content: space-around;
+            // display: flex;
+            // justify-content: space-around;
             // a{display: block;}
+            width:100%;
+            max-width: 100;
+            
             .mysongicons{
                 // float: right;
             }
@@ -228,10 +287,41 @@
                 }
             }
             .myalbumsong{
+                height: 42vh;
+                @include MediaQuery(xs) {
+                    height: 30vh;
+                }
+                @include MediaQuery(s) {
+                    height: 30vh;
+                }
+                @include MediaQuery(M) {
+                    height: 30vh;
+                }
+                overflow-y: auto;
                 // float: left;
                 color:white !important;
                .songs{
                    padding-bottom:20px !important;
+                   @include MediaQuery(M){
+                       font-size: 19px;
+                   }
+                   .icons{
+                    @include MediaQuery(xs) {
+                       display: inline-flex;
+                    }
+                    i{
+                        @media screen and (max-width:319px){ 
+                            font-size: 12px;
+                            padding-top: 6px;
+                        }
+                      }
+                  }
+                  .list{
+                    cursor: pointer;
+                      span{
+                        @media screen and (max-width:319px){ font-size: 12px;}
+                      }
+                  }
                }
             }
             img{ width: 183px;}
@@ -239,9 +329,53 @@
                 color: white;
                 text-align: center;
             }
+            .backicon{
+                i{
+                    transform: rotateY(180deg);
+                    font-size: 25px;
+                    padding-top: 20px;
+                }
+                cursor: pointer;
+            }
         }
+
+        
+    }
+    .myalbumsong::-webkit-scrollbar{
+        display: none;
+    }
+    .myalbumsong{
+        -ms-overflow-style:none;
+        scrollbar-width: none;
+    }
+    .box::-webkit-scrollbar{
+        display: none;
+    }
+    .box{
+        -ms-overflow-style:none;
+        scrollbar-width: none;
     }
 }
+// @media(min-width: 768px){
+//     .LgScreen {
+//         overflow: inherit !important;
+//     }
+//     .SmScreen {
+//         overflow-y: auto !important;
+//     }
+ 
+// }
+
+// @media(max-width: 767px){
+//     .LgScreen {
+//         overflow: auto !important;
+//     }
+//     .SmScreen {
+//         overflow-y: inherit !important;
+//     }
+// }
+
+
 
 ::-webkit-scrollbar {
     width: 10px;
