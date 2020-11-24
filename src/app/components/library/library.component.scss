@@ -356,15 +356,15 @@
         scrollbar-width: none;
     }
 }
-// @media(min-width: 768px){
-//     .LgScreen {
-//         overflow: inherit !important;
-//     }
-//     .SmScreen {
-//         overflow-y: auto !important;
-//     }
- 
-// }
+
+@media(max-width: 767px){
+    .stopScrolMobile {
+        overflow: inherit !important;
+        min-height: auto;
+        max-height: inherit;
+        height: auto !important;
+    }
+}
 
 // @media(max-width: 767px){
 //     .LgScreen {

@@ -41,14 +41,14 @@
                                 </div>
                                 <div class="col-2  float-right icons">
                                     <i class="fas fa-download" (click)="DownloadAudio($event , prop.id)"></i>               
-                                    <i class="fas fa-heart mr-3" *ngIf="hideheart" (click)="changeheart()"></i> 
+                                    <i class="fas fa-heart mr-3" *ngIf="hideheart" (click)="like()"></i> 
                                     <i class="far fa-heart mr-3" *ngIf="showanotherheart"></i> 
                                 </div>
                                 <div class="clearfix"></div>
                             </div>    
                             <div class="clearfix"></div>
                             <!-- المزيد  -->
-                            <div class="more col-xs-3">
+                            <div class="more col-xs-3" *ngIf="moresongs">
                                 <a  (click)="loadmoresongs()">المزيد</a>
                             </div>
                         </div> 
@@ -62,7 +62,6 @@
         <!-- start albums sections  -->
         <div class="row justify-content-center" *ngIf="showAlbums">
             <div class="box  col-xs-12">
-
                 <div class=" row albumsitems LgScreen"  *ngIf="hideAlbums">
                     <div class="col-xs-4 col-4 smallalb" *ngFor="let propimg of albumList;">
                         <img [src]="'http://188.225.184.108:9091/'+propimg.image" alt="" (click)="GetSongsOfAlbum(propimg.id)" >
@@ -72,7 +71,7 @@
                 </div>
                  <!-- المزيد  -->
                  <div class="row" *ngIf="hideAlbums">
-                    <div class="more col-xs-3">
+                    <div class="more col-xs-3" *ngIf="morealbums">
                         <a  (click)="loadmorealbums()">المزيد</a>
                     </div>
                  </div>
@@ -100,7 +99,7 @@
                                     </div> -->
 
                             <!-- <div class="col-xs-10 col-sm-10"> -->
-                                <div class="myalbumsong SmScreen n_listScroll col-md-12 mt-sm-5 p-0">
+                                <div class="myalbumsong SmScreen stopScrolMobile n_listScroll col-md-12 mt-sm-5 p-0">
                                     <div class="songs" *ngFor="let props of songsalbumsList;">                                                                       
                                         <div class="col-9 float-left list" (click)="openmusicmodel(props.id , props.title)">
                                             <span> {{props.title}}</span>
@@ -115,8 +114,9 @@
                                         <div class="clearfix"></div>
                                     </div> 
                                      <!-- المزيد  -->
-                                    <div class="more col-xs-3" style="text-align: center;">
-                                        <a >المزيد</a>
+                                    <div class="more col-xs-3" *ngIf="morealbsong"
+                                     style="text-align: center;">
+                                        <a (click)="loadalbumssongs()">المزيد</a>
                                     </div>   
                                     <div class="clearfix"></div>
                                 </div> 
@@ -147,7 +147,7 @@
                   
                 </div>
                 <div class="row">
-                    <div class="more col-xs-3">
+                    <div class="more col-xs-3" *ngIf="moreartist">
                         <a  (click)="loadartisits()">المزيد</a>
                     </div>
                 </div>

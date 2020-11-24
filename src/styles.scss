@@ -129,3 +129,13 @@ body {
 
 $white:#fff;
 $basicColor:#106666;
+
+
+@media(max-width: 767px){
+    .stopScrolMobile {
+        overflow: inherit !important;
+        min-height: auto;
+        max-height: inherit;
+        height: auto !important;
+    }
+}

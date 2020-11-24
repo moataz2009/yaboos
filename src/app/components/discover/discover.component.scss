@@ -536,9 +536,9 @@
               //
               overflow-y: auto;
             //   height: 590px !important;
-            height: 470px !important;
+            height: 470px;
             @media screen and (max-width:767px){
-                height: 330px !important;
+                // height: 330px !important;
             }
             @media screen and (min-width:1200px){
                 height: 409px !important;
@@ -714,7 +714,7 @@
         }
         font-size: 25px;
         transform: rotateY(180deg);
-        color:white;
+        color:#106666;
         a{cursor: pointer;}
         @include MediaQuery(L){
             bottom: 67px;
@@ -1109,5 +1109,14 @@
     @include MediaQuery( M){
         left: 96%;
         top: 43px;
+    }
+}
+
+@media(max-width: 767px){
+    .stopScrolMobile {
+        overflow: inherit !important;
+        min-height: auto;
+        max-height: inherit;
+        height: auto !important;
     }
 }
