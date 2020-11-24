@@ -373,4 +373,14 @@ a.remove();
   }
 
 
+backtomain(){
+  this.showmyprograms=false;
+  this.hideprograms=true;
+  this.hideprogrameer=true;
+}
+  loadmoreEposides(){
+ //
+  }
+
+
 }
