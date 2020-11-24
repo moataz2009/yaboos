@@ -88,42 +88,77 @@ font-size: 17px;
         height: 50vh !important;
         overflow-x: hidden;
         .songitems {
-            padding-bottom: 50px;
-            @media screen  and (max-width:319px) {
-                width: 100%;
-             } 
-            a {
-                color: #fff;
+            .songs{  padding-bottom: 20px;
+               
+                .icons{
+                    @include MediaQuery(xs) {
+                       display: inline-flex;
+                    }
+                    i{
+                        @media screen and (max-width:319px){ 
+                            font-size: 12px;
+                            padding-top: 6px;
+                        }
+                      }
+                  }
+                  .list{
+                      cursor: pointer;
+                      span{
+                        @media screen and (max-width:319px){ font-size: 12px;}
+                      }
+                  }
             }
-            .one {
-                float: left;
+            color: #fff;
+            .more{
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                margin: 0 auto;
+                a{
+                    color:white;
+                    display: flex;
+                    justify-content: center;
+                font-size:22px;
                 cursor: pointer;
-                @media screen  and (max-width:319px) {
-                   width: 100%;
-                } 
-                span{
-                    @media screen  and (max-width:319px) {
-                        font-size: 10px;
-                    } 
-                    @media screen and (min-width:320px) and (max-width:343px) {
-                        font-size: 10px;
-                    } 
-                    @media screen and (min-width:344px) and (max-width:359px) {
-                        font-size: 11px;
-                    } 
-                    @media screen and (min-width:360px) and (max-width:400px) {
-                        font-size: 11px;
-                    } 
-                    @media screen and (min-width:401px) and (max-width:460px) {
-                        font-size: 12px;
-                    } 
-
                 }
+                margin-bottom: 20px;
             }
-            .two {
-                float: right;
-                cursor: pointer;
-            }
+            // padding-bottom: 50px;
+            // @media screen  and (max-width:319px) {
+            //     width: 100%;
+            //  } 
+            // a {
+            //     color: #fff;
+            // }
+            // .one {
+            //     float: left;
+            //     cursor: pointer;
+            //     @media screen  and (max-width:319px) {
+            //        width: 100%;
+            //     } 
+            //     span{
+            //         @media screen  and (max-width:319px) {
+            //             font-size: 10px;
+            //         } 
+            //         @media screen and (min-width:320px) and (max-width:343px) {
+            //             font-size: 10px;
+            //         } 
+            //         @media screen and (min-width:344px) and (max-width:359px) {
+            //             font-size: 11px;
+            //         } 
+            //         @media screen and (min-width:360px) and (max-width:400px) {
+            //             font-size: 11px;
+            //         } 
+            //         @media screen and (min-width:401px) and (max-width:460px) {
+            //             font-size: 12px;
+            //         } 
+
+            //     }
+            // }
+            // .two {
+            //     float: right;
+            //     cursor: pointer;
+            // }
         }
         // .albumsitems,
         // .artistsitems {

@@ -145,6 +145,10 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
    
   }
 
+  loadmoresongs(){
+    
+  }
+
   // showone:boolean = true;
   // showtwo:boolean = false;
   // showthree:boolean = false;
