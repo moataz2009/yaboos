@@ -1,0 +1,400 @@
+@import"../../../../styles.scss";
+
+::ng-deep {
+    .changeColor {
+        background-color: #1a5356 !important;
+        width: 90% !important;
+    }
+}
+
+.artist_library {
+    // width: 100%;
+    margin-top: -2%;
+    @include MediaQuery(xs + s + M) {
+        margin-top: 18%;
+    }
+    @include MediaQuery(L) {
+        margin-top: 17%;
+    }
+    .box {
+        // margin-top: 3%;
+        // width: 90%;
+        @include MediaQuery(xs + s + M) {
+            width: 100%;
+        }
+        @include MediaQuery(L) {
+            width: 100%;
+        }
+        border-radius: 10px;
+        background-color: $basicColor;
+        // padding: 2% 4% 0%;
+        overflow-y: auto;
+        height: 50vh !important;
+        overflow-x: hidden;
+        .songitems {
+            .songs{  padding-bottom: 20px;
+               
+                .icons{
+                    @include MediaQuery(xs) {
+                       display: inline-flex;
+                    }
+                    i{
+                        @media screen and (max-width:319px){ 
+                            font-size: 12px;
+                            padding-top: 6px;
+                        }
+                      }
+                  }
+                  .list{
+                      cursor: pointer;
+                      span{
+                        @media screen and (max-width:319px){ font-size: 12px;}
+                      }
+                  }
+            }
+            color: #fff;
+            .more{
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                margin: 0 auto;
+                a{
+                    color:white;
+                    display: flex;
+                    justify-content: center;
+                font-size:22px;
+                cursor: pointer;
+                }
+                margin-bottom: 20px;
+            }
+
+
+        }
+        
+        .artistsitems {
+
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+            margin-bottom: 4%;
+            margin-top: 2%;
+            text-align: center;
+            .smallalb{
+                cursor: pointer;
+                padding-right: 0px;padding-left: 0px;
+            }
+            img {
+                // width: 189px;
+                @media screen and  (max-width:319px ) {
+                    width: 68px; 
+                    //
+                    height: 68px;
+                }
+                @media screen and  (min-width:320px ) and  (max-width:575.98px ) {
+                    width: 80px;
+                    //
+                    height: 80px; 
+                }
+                @include MediaQuery(s) {
+                    width: 80px;
+                     //
+                     height: 80px;
+                }
+            }
+            p {
+                color: #fff;
+                @include MediaQuery(xs + s) {
+                    font-size: 12px;
+                }
+            }
+            
+        }
+        .row{
+            .more{
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                margin: 0 auto;
+                a{
+                    color:white;
+                    display: flex;
+                    justify-content: center;
+                font-size:22px;
+                cursor: pointer;
+                }
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+        }
+        // 
+        .songsinalbums{
+            // display: flex;
+            // justify-content: space-around;
+            // a{display: block;}
+            width:100%;
+            max-width: 100;
+            
+            .mysongicons{
+                // float: right;
+            }
+            .two{
+                i{
+                    color:white; padding-bottom:24px !important;
+                }
+            }
+            .myalbumsong{
+                height: 42vh;
+                @include MediaQuery(xs) {
+                    height: 30vh;
+                }
+                @include MediaQuery(s) {
+                    height: 30vh;
+                }
+                @include MediaQuery(M) {
+                    height: 30vh;
+                }
+                overflow-y: auto;
+                // float: left;
+                color:white !important;
+               .songs{
+                   padding-bottom:20px !important;
+                   @include MediaQuery(M){
+                       font-size: 19px;
+                   }
+                   .icons{
+                    @include MediaQuery(xs) {
+                       display: inline-flex;
+                    }
+                    i{
+                        @media screen and (max-width:319px){ 
+                            font-size: 12px;
+                            padding-top: 6px;
+                        }
+                      }
+                  }
+                  .list{
+                    cursor: pointer;
+                      span{
+                        @media screen and (max-width:319px){ font-size: 12px;}
+                      }
+                  }
+               }
+            }
+            img{ width: 183px;}
+            h3{
+                color: white;
+                text-align: center;
+            }
+            .backicon{
+                i{
+                    transform: rotateY(180deg);
+                    font-size: 25px;
+                    padding-top: 20px;
+                }
+                cursor: pointer;
+            }
+        }
+
+        
+    }
+    .myalbumsong::-webkit-scrollbar{
+        display: none;
+    }
+    .myalbumsong{
+        -ms-overflow-style:none;
+        scrollbar-width: none;
+    }
+    .box::-webkit-scrollbar{
+        display: none;
+    }
+    .box{
+        -ms-overflow-style:none;
+        scrollbar-width: none;
+    }
+}
+
+@media(max-width: 767px){
+    .stopScrolMobile {
+        overflow: inherit !important;
+        min-height: auto;
+        max-height: inherit;
+        height: auto !important;
+    }
+}
+
+// @media(max-width: 767px){
+//     .LgScreen {
+//         overflow: auto !important;
+//     }
+//     .SmScreen {
+//         overflow-y: inherit !important;
+//     }
+// }
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #239298;
+    border-radius: 20px;
+    padding-right: 40px;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #239298;
+    border-radius: 20px;
+    padding-right: 40px;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #1a5356;
+}
+
+//   music model
+.secondModal {
+    top: 33%;
+    @include MediaQuery(M) {
+        top: 41%;
+    }
+    .modal-content {
+        background-color: #3EB7BA;
+        border-radius: 25px;
+        width: 80%;
+        @include MediaQuery(xs + s) {
+            width: 90%;
+            margin: 0 auto;
+        }
+        @include MediaQuery(L) {
+            width: 90%;
+        }
+        padding: 1% 2%;
+    }
+    .modal-body {
+        padding-top: 0%;
+    }
+    .c-player {
+        .firstimage {
+            width: 40%;
+            height: auto !important;
+            padding-bottom: 20px;
+            margin-top: -15px;
+        }
+    }
+    h5 {
+        text-align: center;
+        display: block;
+        color: #fff;
+        padding-bottom: 10px;
+    }
+    span {
+        text-align: center;
+        display: block;
+        color: #fff;
+        padding-bottom: 10px;
+    }
+    .audio {
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 10px;
+        box-shadow: 0;
+    }
+    audio:focus {
+        outline: none;
+    }
+    audio::-webkit-media-controls-panel {
+        background-color: #3EB7BA !important;
+        border: 0;
+        outline: 0;
+    }
+    audio::-webkit-media-controls-enclosure {
+        background-color: #3EB7BA !important;
+    }
+    audio::-webkit-media-controls-current-time-display {
+        color: white;
+    }
+    audio::-webkit-media-controls-time-remaining-display {
+        color: white;
+    }
+    aaudio::-webkit-media-controls-volume-slider-container {
+        color: white !important;
+    }
+    .navigation {
+        display: flex;
+        margin-bottom: 10px;
+        a {
+            color: #fff;
+            font-size: 25px;
+            @media screen and (max-width:319px){
+                font-size: 15px;
+            }
+            @media screen and (min-width:320px)and (max-width:348px){
+                font-size: 20px;
+            }
+        }
+        a:first-child {
+            margin-top: 14px;
+        }
+        a:nth-child(2) {
+            margin: 20px 25px 0;
+            color: #1a5356 !important;
+        }
+        .secondimage {
+            width: 70px;
+            @media screen and (max-width:319px){
+                width: 59px;
+            }
+            @media screen and (min-width:320px)and (max-width:348px){
+                width: 60px;
+            }
+        }
+        a:nth-child(4) {
+            color: #1a5356 !important;
+            margin: 20px 25px 0;
+        }
+        a:nth-child(5),
+        a:nth-child(6) {
+            margin-top: 20px;
+        }
+    }
+    .mymini {
+        position: fixed;
+        right: 58%;
+        @include MediaQuery(xs + s) {
+            right: 82%;
+        }
+        @include MediaQuery(M) {
+            right: 64%;
+        }
+        @include MediaQuery(L) {
+            right: 65%;
+        }
+        @media screen and (min-width:1600px) {
+            right: 56%;
+        }
+    }
+    .myminilast {
+        position: fixed;
+        // right: 65%;
+        right:61%;
+        @include MediaQuery(xs + s ){  right: 89%;}
+        @include MediaQuery(M){  right: 78%;}
+        @include MediaQuery(L){  right: 68%;}
+        // @media screen and (min-width:1600px) {right: 56%;}
+        @media screen and (min-width:1600px) and(max-width:1900px) {right: 56%;}
+        @media screen and (min-width:1901px) {right: 58%;}
+
+    }
+}

@@ -19,8 +19,8 @@ import { PlayerService } from 'src/app/shared/player.service';
 })
 export class SongsComponent implements OnInit {
 
-  [x: string]: any;
-  headerMessage : string;
+  // [x: string]: any;
+  // headerMessage : string;
   showSongs:boolean = true;
   showAlbums:boolean = false;
   showArtists:boolean = false;
@@ -65,36 +65,36 @@ export class SongsComponent implements OnInit {
   }
  
 
-  fillHeader(message , url)
-  {
-    this.IsMobileHeader = true;
-    this.headerMessage =message;
-    this.mobileAppUrl =url;
-  }
-  getMobileOperatingSystem() {
-    var userAgent = navigator.userAgent || navigator.vendor;
-      // Windows Phone must come first because its UA also contains "Android"
-      if (/android/i.test(userAgent)) {
-        this.mobileAppUrl="https://play.google.com/";
-        this.fillHeader("Get Yaboos  Mobile App" ,  this.mobileAppUrl);
-          return "Android";
+  // fillHeader(message , url)
+  // {
+  //   this.IsMobileHeader = true;
+  //   this.headerMessage =message;
+  //   this.mobileAppUrl =url;
+  // }
+  // getMobileOperatingSystem() {
+  //   var userAgent = navigator.userAgent || navigator.vendor;
+  //     // Windows Phone must come first because its UA also contains "Android"
+  //     if (/android/i.test(userAgent)) {
+  //       this.mobileAppUrl="https://play.google.com/";
+  //       this.fillHeader("Get Yaboos  Mobile App" ,  this.mobileAppUrl);
+  //         return "Android";
 
-      }
+  //     }
   
-      // iOS detection from: http://stackoverflow.com/a/9039885/177710
-     else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-     this.mobileAppUrl="https://www.apple.com/lae/ios/app-store/";
-      this.fillHeader("Get Yaboos  Mobile App" ,  this.mobileAppUrl);
-          return "iOS";
-      }
-      else{
-        // this.mobileAppUrl="https://play.anghami.com/";
-        // this.fillHeader("Get Yaboos ios Mobile App" ,  this.mobileAppUrl);
-        return "PC";
-      }
+  //     // iOS detection from: http://stackoverflow.com/a/9039885/177710
+  //    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+  //    this.mobileAppUrl="https://www.apple.com/lae/ios/app-store/";
+  //     this.fillHeader("Get Yaboos  Mobile App" ,  this.mobileAppUrl);
+  //         return "iOS";
+  //     }
+  //     else{
+  //       // this.mobileAppUrl="https://play.anghami.com/";
+  //       // this.fillHeader("Get Yaboos ios Mobile App" ,  this.mobileAppUrl);
+  //       return "PC";
+  //     }
   
      
-  }
+  // }
 
 
   opensongsection(){
@@ -200,11 +200,11 @@ showwindowofplaying(){
 }
 showmodalhere(){
   this.isPlaying=true;
-  this.hideshow=false;
+  // this.hideshow=false;
 }
 showminiwindow2(){
   this.isPlaying=false;
-  this.hideshow=true;
+  // this.hideshow=true;
 }
 
 hidenow:boolean=false;
@@ -316,7 +316,7 @@ backalbums(){
 
   ngOnInit(): void {
 
-    this.getMobileOperatingSystem();
+    // this.getMobileOperatingSystem();
 
     // this.Aroute.queryParams.subscribe(params => {
     // this.searchText=  params['searchText'];

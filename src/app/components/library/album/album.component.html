@@ -1,40 +1,41 @@
-<div class="justify-content-center">
-    <div class="box  col-xs-12"> 
-        <div class=" row albumsitems LgScreen"  *ngIf="hideAlbums">
-            <div class="col-xs-4 text-center col-4 smallalb mt-3" *ngFor="let propimg of albumList;">
-                <img [src]="'http://188.225.184.108:9091/'+propimg.image" alt="" class="imageSong" (click)="GetSongsOfAlbum(propimg.id)" >
-                <p> {{propimg.title}}</p>
+<div class="library">
+    <div class="justify-content-center">
+        <div class="box  col-xs-12"> 
+            <div class=" row albumsitems LgScreen"  *ngIf="hideAlbums">
+                <div class="col-xs-4 text-center col-4 smallalb mt-3" *ngFor="let propimg of albumList;">
+                    <img [src]="'http://188.225.184.108:9091/'+propimg.image" alt="" class="imageSong" (click)="GetSongsOfAlbum(propimg.id)" >
+                    <p> {{propimg.title}}</p>
+                </div>
+                <br>
             </div>
+            <!-- المزيد  -->
+            <div class="clearfix"></div>
+
+            <div class="mt-5 mb-5" *ngIf="hideAlbums">
+                <div class="more col-12 text-center" *ngIf="morealbums">
+                    <a class="btnReadMore" (click)="loadmorealbums()">المزيد</a>
+                </div>
+            </div>
+
             <br>
-        </div>
-        <!-- المزيد  -->
-        <div class="clearfix"></div>
 
-        <div class="mt-5 mb-5" *ngIf="hideAlbums">
-            <div class="more col-12 text-center" *ngIf="morealbums">
-                <a class="btnReadMore" (click)="loadmorealbums()">المزيد</a>
-            </div>
-        </div>
+            <div class="clearfix"></div>
+            <!-- songs inside album -->
 
-        <br>
-
-        <div class="clearfix"></div>
-        <!-- songs inside album -->
-
-        <div class="songsinalbums" *ngIf="showAlbumsongs">                   
-            <div class="col-sm-4 text-center float-left col-xs-12 col-sm-12 col-lg-4">
-                <div *ngFor="let AlbData of songsalbumsData;" >
-                    <div class="mt-3 mt-lg-5 mb-5 statialbum">
-                        <img class="mb-4" class="imageArtist" [src]="'http://188.225.184.108:9091/'+AlbData.album.image">
-                        <h3> {{AlbData.album.title}} </h3>
-                    </div>
+            <div class="songsinalbums" *ngIf="showAlbumsongs">                   
+                <div class="col-sm-4 text-center float-left col-xs-12 col-sm-12 col-lg-4">
+                    <div *ngFor="let AlbData of songsalbumsData;" >
+                        <div class="mt-3 mt-lg-5 mb-5 statialbum">
+                            <img class="mb-4" class="imageArtist" [src]="'http://188.225.184.108:9091/'+AlbData.album.image">
+                            <h3> {{AlbData.album.title}} </h3>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div> 
                     <div class="clearfix"></div>
-                </div> 
-                <div class="clearfix"></div>
 
-            </div>  
-            <div class="col-sm-8 float-right col-xs-12 col-sm-12 col-lg-8">
-                <div class="row">
+                </div>  
+                <div class="col-sm-8 float-right col-xs-12 col-sm-12 col-lg-8">
+                    <div class="row">
 
                         <div class="myalbumsong SmScreen stopScrolMobile n_listScroll col-md-12 mt-sm-5 p-0">
                             <div class="songs" *ngFor="let props of songsalbumsList;">                                                                       
@@ -59,30 +60,28 @@
                         </div> 
                         <div class="clearfix"></div>
                         
-                    <!-- </div> -->
-                </div>
+                        <!-- </div> -->
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="backicon">
+                        <div class="mt-3">
+                            <a (click)="backalbums()">
+                                <i class="fa fa-share" style="color: white;"></i>
+                            </a>
+                        </div>
+                    </div>  
+                </div> 
+ 
                 <div class="clearfix"></div>
 
-                <div class="backicon">
-                    <div class="mt-3">
-                        <a (click)="backalbums()">
-                            <i class="fa fa-share" style="color: white;"></i>
-                        </a>
-                    </div>
-                </div>  
-            </div> 
-
-           
-            
-        <div class="clearfix"></div>
+            </div>
+        
+            <div class="clearfix"></div>
 
         </div>
-        
-
         <div class="clearfix"></div>
 
     </div>
-    <div class="clearfix"></div>
-
 </div>
 <div class="clearfix"></div>
