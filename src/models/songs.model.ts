@@ -5,8 +5,8 @@ export class Songs {
        title   :    string   ;
        titleAr   :    string   ;
        lowQuality   :    string  ;
-        highQuality   :    string  ;
-image:string;
+       highQuality   :    string  ;
+       image:string;
        albumId   : number;
 
        album :{

@@ -1,6 +1,7 @@
 
 export const BaseURL = "http://188.225.184.108:9091";
 export const API_URL = BaseURL+'/api/Account';
+export const MainURL = 'http://188.225.184.108:9091';
 
 export const API_URL_Yaboos = BaseURL+'/api';
 
@@ -10,8 +11,9 @@ export class END_POINTS {
     public static login = API_URL+"/login";
     public static albumCategories = API_URL_Yaboos+"/albumCategories/admin";
 
-    
+
     public static albums = API_URL_Yaboos+"/albums/admin";
+    public static GetAlbumsOfArtist = API_URL_Yaboos+"/albums/GetAlbumsOfArtist";
 
     public static allAlbums = API_URL_Yaboos+"/albums/Search";
 

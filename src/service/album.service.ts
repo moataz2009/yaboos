@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 
 const API_URL = END_POINTS.albums;
 const APIURL = END_POINTS.allAlbums;
+const GetArtistAlbum = END_POINTS.GetAlbumsOfArtist;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -40,12 +42,29 @@ export class AlbumService {
   }
 
 
-  Search(offset: string , limit: string , Term:string):  Observable<DataWithRanking<Album>>{
-    let params = new HttpParams();
-    params = params.append('offset' , offset);
-    params = params.append('limit' , limit);
-    params = params.append('filter' , Term);
-    return this.http.get<DataWithRanking<Album>>(APIURL , {params:params} );
+  Search(offset: string , limit: string , Term:string, ArId?: any):  Observable<DataWithRanking<Album>>{
+    if(ArId === null){
+
+      let params = new HttpParams();
+      params = params.append('offset' , offset);
+      params = params.append('limit' , limit);
+      params = params.append('filter' , Term);
+      console.log(params);
+      console.log("End Params");
+      return this.http.get<DataWithRanking<Album>>(APIURL , {params:params} );
+
+
+    }else{
+
+      let params = new HttpParams();
+      params = params.append('offset' , offset);
+      params = params.append('limit' , limit);
+      params = params.append('artist' , ArId);
+      return this.http.get<DataWithRanking<Album>>(GetArtistAlbum , {params:params} );
+
+    }
+    
+    
   }
 
   GetAlbumsOfArtist(offset: string , limit: string ,id:number):Observable<DataWithRanking<Album>> {

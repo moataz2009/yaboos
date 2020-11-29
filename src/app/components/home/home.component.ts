@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from 'src/models/user.model';
 import { ToastrService } from 'ngx-toastr';   
+import { PlayerService } from 'src/app/shared/player.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -34,7 +35,15 @@ export class HomeComponent {
   notificationCounter :number;
   currentUser:boolean;
 PlayerURl = "http://188.225.182.10:8000/live";
-  constructor( private http: HttpClient ,  private RadioService :RadioService ,     private route: Router, private UsersService: UsersService ,private router: Router ,private toastr: ToastrService ) { 
+  constructor( 
+    private playerUrlTrack : PlayerService,
+      private http: HttpClient ,
+        private RadioService :RadioService , 
+          private route: Router, 
+          private UsersService: UsersService ,
+          private router: Router ,
+          private toastr: ToastrService 
+          ) { 
     this.notificationCounter = 0;
   }
 
@@ -130,16 +139,25 @@ Register(user:User)
 
   HomeSearch(searchTxt)
   {
+    localStorage.setItem('searchTxt',searchTxt);
     this.route.navigate([`/Libaray/`], { queryParams: { searchText: searchTxt } })
   }
-  closesection(clock1 , clock2 , min1 , min2){
+  closesection(clock1:String , clock2:String , min1 , min2){
     debugger;
     this.prevlive =false;
     let date: Date = new Date(); 
-    let hours = clock1 +'' + clock2;
+    console.log("Start");
+    if(clock1 === ""){
+      clock1 ="0";
+    }
+    console.log(clock1);
+    console.log("end");
+
+    let hours = `${clock1}` + `${clock2}`;
     let x :number = date.getHours();
     let y :number = parseInt(hours);
     if(x < y)
+    //currentSongURL
     {
       this.toastr.error("لا يمكن الرجوع لوقت أكبر من الوقت الحالي");
     }
@@ -147,10 +165,13 @@ Register(user:User)
       var day = ("0" + date.getDate()).slice(-2);
       var month = ("0" + (date.getMonth() + 1)).slice(-2);
       var today = date.getFullYear()+"-"+(month)+"-"+(day);
+      
       this.PlayerURl =`http://188.225.184.108:9091/api/Radio/PlayHistory?datetime=${today}&hour=${hours}`;
-      var audio= document.querySelector("audio");
-    audio.src = this.PlayerURl;
-    audio.play();
+      this.playerUrlTrack.changeUrlPlayer(this.PlayerURl);
+
+    //   var audio= document.querySelector("audio");
+    // audio.src = this.PlayerURl;
+    // audio.play();
     $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-05.png");
     $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD_GIF.gif");
     }

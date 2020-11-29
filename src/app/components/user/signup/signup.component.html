@@ -1,0 +1,80 @@
+
+
+
+<form class="bg-white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)"> 
+    <div class="form-group text-right">
+        <label for="username">البريد الالكتروني</label>
+        <input  type="email" name="username" #username="ngModel" [(ngModel)]="user.username"  [className]="UsernameValidationBool ? 'form-control' : 'form-control is-invalid'" id="username" placeholder="البريد الالكتروني" required email >
+        <div *ngIf="UsernameValidation != ''"  class="alert alert-danger alertMessage">
+            {{UsernameValidation}}
+        </div>
+        <div *ngIf="username.invalid && (username.dirty || username.touched)"  class="alert alert-danger alertMessage">
+
+            <div *ngIf="username.errors.required">
+                البريد الالكتروني لا يمكن تركه فارغا
+            </div>
+            <div *ngIf="username.errors.email">
+                 يجب ان يكون تنسيقه مثل name@domin.com
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group text-right">
+        <label for="name">الاسم الكامل</label>
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control validate" id="name" placeholder="الاسم الكامل" required>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"  class="alert alert-danger alertMessage">
+
+            <div *ngIf="name.errors.required">
+                الاسم لا يمكن تركه فارغا
+            </div>
+        </div>
+    </div>
+    
+    <div class="clearfix"></div>
+    
+    <div class="row">
+        <div class="col-6 float-right">
+            <div class="form-group text-right">
+                <label for="regPassword">كلمة المرور</label>
+                <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password"  class="form-control" id="regPassword" placeholder="كلمة المرور" required>
+        
+                <div *ngIf="password.invalid && (password.dirty || password.touched)"  class="alert alert-danger alertMessage">
+        
+                    <div *ngIf="password.errors.required">
+                        كلمةالمرور لا يمكن تركه فارغا
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+    
+        <div class="col-6 float-left">
+            <div class="form-group text-right">
+                <label for="confirmPassword">تاكيد كلمة المرور</label>
+                <input type="password" name="confirmPassword" #confirmPassword="ngModel" [(ngModel)]="user.confirmPassword"  class="form-control" id="confirmPassword" placeholder="تاكيد كلمة المرور" required>
+        
+                <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"  class="alert alert-danger alertMessage">
+        
+                    <div *ngIf="confirmPassword.errors.required">
+                        تاكيد كلمة المرور لا يمكن تركه فارغا
+                    </div>
+                </div>
+        
+                <div *ngIf="user.confirmPassword != user.password && user.password != '' && user.confirmPassword != ''" class="alert alert-danger alertMessage">
+                    يجب ان تطابق كلمة المرور
+                </div>
+        
+            </div>
+        
+        </div>
+    </div>
+
+    
+    <div class="text-right">
+        <button type="submit" [disabled]="userRegistrationForm.invalid || user.confirmPassword != user.password" class="btn btn-primary">انشاء حساب</button>
+        <div *ngIf="isLoading != false" class="loadinSection">
+           <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        </div>
+    </div>
+  </form>

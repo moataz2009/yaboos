@@ -1,0 +1,44 @@
+<div *ngIf="UsernameValidation != ''"  class="alert alert-danger text-right alertMessage">
+    {{UsernameValidation}}
+</div>
+
+<form class="bg-white" #userRegistrationForm="ngForm" (ngSubmit)="loginSubmit(username.value, password.value)"> 
+    <div class="form-group text-right">
+        <label for="username">البريد الالكتروني</label>
+        <input  type="email" name="username" #username="ngModel" ngModel  [className]="UsernameValidationBool ? 'form-control' : 'form-control is-invalid'" id="username" placeholder="البريد الالكتروني" required email >
+        <div *ngIf="username.invalid && (username.dirty || username.touched)"  class="alert alert-danger alertMessage">
+
+            <div *ngIf="username.errors.required">
+                البريد الالكتروني لا يمكن تركه فارغا
+            </div>
+            <div *ngIf="username.errors.email">
+                 يجب ان يكون تنسيقه مثل name@domin.com
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group text-right">
+        <label for="password"> كلمة المرور</label>
+        <input type="password" name="password" #password="ngModel" ngModel  class="form-control" id="password" placeholder=" كلمة المرور" required>
+
+        <div *ngIf="password.invalid && (password.dirty || password.touched)"  class="alert alert-danger alertMessage">
+
+            <div *ngIf="password.errors.required">
+                 كلمة المرور لا يمكن تركه فارغا
+            </div>
+        </div>
+
+
+    </div>
+    
+    <div class="clearfix"></div>
+    
+    
+    <div class="text-right">
+        <button type="submit" [disabled]="userRegistrationForm.invalid" class="btn btn-primary"> دخول</button>
+        <div *ngIf="isLoading" class="loadinSection">
+           <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        </div>
+    </div>
+  </form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare var $: any;
 
 @Component({
@@ -12,16 +13,29 @@ export class NavbarComponent implements OnInit {
   show2:boolean=false;
   show3:boolean;
   userToken:string ;
-username: string;
+  username: string;
   navbt:boolean=false;
   navbtt:boolean=true;
 
-  constructor() { }
+  showLogout: boolean = false;
+  showLogin: boolean = true;
+
+  constructor(private router: Router) { }
 
   ngOnInit():void{
+
+    if(localStorage.getItem('userToken') != null){
+      this.showLogout = true;
+      this.showLogin = false;
+    }else{
+      this.showLogout = false;
+      this.showLogin = true;
+    }
+
+
    this.userToken = localStorage.getItem('usertoken');
    this.username = localStorage.getItem('username');
-   if( this.username != null)
+   if( this.userToken == null)
    {
      this.show3 = false;
      this.show = true;
@@ -37,34 +51,23 @@ username: string;
      $(".navbar-nav").css("position","relative");
      $(".navbar-nav").css("right","12px");
     }
-   var $window = $(window);
+    var $window = $(window);
 
-   $window.on("scroll", function() {
-    if ($(window).width() <= 991) { 
+    $window.on("scroll", function() {
+      if ($(window).width() <= 991) { 
 
-      var scrollTop = $window.scrollTop();
-      if(scrollTop > 80) {
-        // $('.navbar-toggler[aria-expanded="false"] ').hide();
+        var scrollTop = $window.scrollTop();
+        if(scrollTop > 80) {
+          // $('.navbar-toggler[aria-expanded="false"] ').hide();
+        }
+        else{
+            // $('.navbar-toggler[aria-expanded="false"] ').show();
+        }
+        
       }
-      else{
-          // $('.navbar-toggler[aria-expanded="false"] ').show();
-      }
-      
-     }
-      
-   });
-});
-    // $(document).ready(function() {
-    //     if ($(window).width() <= 991) {  
-    //       if($('.navbar-toggler[aria-expanded="false"] ')){
-    //         $('.navbar').css("width" , "0px");
-    //       }
-    //       $('.navbar-toggler[aria-expanded="false"]').click(function(){
-    //         $('.navbar').css("width" , "100px");
-    //       });
-
-    //     }
-    // });
+        
+    });
+  });
   }
   overlay:boolean=false;
 
@@ -103,27 +106,7 @@ username: string;
 
 
   }
-  // savechange(){
-  //   this.navbtt=false;
-  //   this.navbt=true;
-  //   $(".navbar").css("width","100px");
 
-  //   if(this.check===false){
-  //     this.check=true;
-  //   }
-  //   else{
-  //     this.check=false;
-  //   }
-
-  // }
-  // savechange1(){
-  //   this.navbtt=true;
-  //   this.navbt=false;
-  //   $(".navbar").css("width","0px");
-  //   if(this.check===false){this.check=true;}
-  //   else{this.check=false}
-
-  // }
   showinfo(){this.show=true;this.show2=true;this.show3=false}
   signupinfo(){
     this.show2=false;
@@ -131,5 +114,23 @@ username: string;
     this.show3=true;
     localStorage.removeItem('username');
     window.location.reload();
+  }
+
+
+  Logout(){
+    localStorage.removeItem('userToken');
+    if(localStorage.getItem('userToken') != null){
+          
+      this.router.navigate(['/home']).then(() => {
+        window.location.reload();
+      });
+      return true;
+
+    }else{
+      this.router.navigate(['/login']).then(() => {
+        window.location.reload();
+      });
+      return false;
+    }
   }
 }

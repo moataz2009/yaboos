@@ -19,51 +19,24 @@
                     <div class="col-sm-12 float-right  col-xs-12">
                             <div class="row">
                                 <div class="songitems col-md-12 mt-sm-2 p-0">
-                                    <div class="songs">                                                                       
-                                        <div class="col-10 float-left list" (click)="openmusicmodel()">
-                                                <span>أماكن السهر</span>
+
+
+                                    <div class="songs" *ngFor="let item of myFavourites">                                                                       
+                                        <div id=`SongId{{item.song.id}}` class="col-10 float-left list" (click)="openmusicmodel(item.song)">
+                                                <span>{{item.song.title}}</span>
                                             <i class="fas fa-play-circle pr-2"></i>
                                         </div>
                                         <div class="col-2  float-right icons">
-                                            <i class="fas fa-download" ></i>               
+                                            <i class="fas fa-download" ></i> 
+                                            &nbsp;              
+                                            &nbsp;              
+                                            <i class="fas fa-trash" (click)="deleteFromFavorite(item.song.id)" ></i>               
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>   
-                                    <div class="songs">                                                                       
-                                        <div class="col-10 float-left list" (click)="openmusicmodel()">
-                                            <span>أماكن السهر</span>
-                                            <i class="fas fa-play-circle pr-2"></i>
-                                        </div>
-                                        <div class="col-2  float-right icons">
-                                            <i class="fas fa-download" ></i>               
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>   
-                                    <div class="songs">                                                                       
-                                        <div class="col-10 float-left list" (click)="openmusicmodel()">
-                                            <span>أماكن السهر</span>
-                                            <i class="fas fa-play-circle pr-2"></i>
-                                        </div>
-                                        <div class="col-2  float-right icons">
-                                            <i class="fas fa-download" ></i>               
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>    
+    
                                     <div class="clearfix"></div>
-                                    <div class="songs">                                                                       
-                                        <div class="col-10 float-left list" (click)="openmusicmodel()">
-                                            <span>أماكن السهر</span>
-                                            <i class="fas fa-play-circle pr-2"></i>
-                                        </div>
-                                        <div class="col-2  float-right icons">
-                                            <i class="fas fa-download" ></i>               
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>    
-                                    <div class="clearfix"></div>
-
-
-
+                                    
 
 
 
@@ -75,96 +48,7 @@
                             </div>
                         </div>  
 
-                <!-- <div class="songitems">
-                    <a class="one" (click)="openmusicmodel()">
-                        <span>أماكن السهر</span>
-                        <i class="fas fa-play-circle pr-2"></i>
-                    </a>
-                    <a class="two" href="" target="_blank" download>
-                         <i class="fas fa-download"></i>
-                    </a>  
-                </div>
-                <div class="songitems">
-                    <a class="one">
-                        <span>أماكن السهر</span>
-                        <i class="fas fa-play-circle pr-2"></i>
-                    </a>
-                    <a class="two" href="" target="_blank" download>
-                        <i class="fas fa-download"></i>
-                    </a>  
-                </div>
-                <div class="songitems">
-                    <a class="one">
-                        <span>أماكن السهر</span>
-                        <i class="fas fa-play-circle pr-2"></i>
-                    </a>
-                    <a class="two" href="" target="_blank" download>
-                        <i class="fas fa-download"></i>
-                    </a>  
-                </div>
-                <div class="songitems">
-                    <a class="one">
-                        <span>أماكن السهر</span>
-                        <i class="fas fa-play-circle pr-2"></i>
-                    </a>
-                    <a class="two" href="" target="_blank" download>
-                        <i class="fas fa-download"></i>
-                    </a>  
-                </div>
-                <div class="songitems">
-                    <a class="one">
-                        <span>أماكن السهر</span>
-                        <i class="fas fa-play-circle pr-2"></i>
-                    </a>
-                    <a class="two" href="" target="_blank" download>
-                        <i class="fas fa-download"></i>
-                    </a>  
-                </div>
-                <div class="songitems">
-                    <a class="one">
-                        <span>أماكن السهر</span>
-                        <i class="fas fa-play-circle pr-2"></i>
-                    </a>
-                    <a class="two" href="" target="_blank" download>
-                        <i class="fas fa-download"></i>
-                    </a>  
-                </div>
-                <div class="songitems">
-                    <a class="one">
-                        <span>أماكن السهر</span>
-                        <i class="fas fa-play-circle pr-2"></i>
-                    </a>
-                    <a class="two" href="" target="_blank" download>
-                        <i class="fas fa-download"></i>
-                    </a>  
-                </div>
-                <div class="songitems">
-                    <a class="one">
-                        <span>أماكن السهر</span>
-                        <i class="fas fa-play-circle pr-2"></i>
-                    </a>
-                    <a class="two" href="" target="_blank" download>
-                        <i class="fas fa-download"></i>
-                    </a>  
-                </div>
-                <div class="songitems">
-                    <a class="one">
-                        <span>أماكن السهر</span>
-                        <i class="fas fa-play-circle pr-2"></i>
-                    </a>
-                    <a class="two" href="" target="_blank" download>
-                        <i class="fas fa-download"></i>
-                    </a>  
-                </div>
-                <div class="songitems">
-                    <a class="one">
-                        <span>أماكن السهر</span>
-                        <i class="fas fa-play-circle  pr-2"></i>
-                    </a>
-                    <a class="two" href="" target="_blank" download>
-                        <i class="fas fa-download"></i>
-                    </a>  
-                 </div>       -->
+         
             </div>
         </div>
          <!-- end songs sections  -->
@@ -186,9 +70,7 @@
                         <span aria-hidden="true">
               <i *ngIf="hidelate" class="fas fa-chevron-right mymini"  style="transform: rotate(90deg);" (click)="myhello()"></i>
               <i *ngIf="hidenow" class="fas fa-chevron-right myminilast"  style="transform: rotate(270deg);" (click)="opensmodal()"></i>
-              <!-- (click)="showminiwindow()"  aria-label="Close"   data-dismiss="modal"  -->
 
-              <!-- <i (click)="showminiwindow()"><img src="../../../assets/imgs/minimize.png"></i> -->
             </span>
                     </a>
                 </div>
@@ -200,7 +82,7 @@
 
                     <div class="c-player__details">
                         <div class="audio justify-content-center row">
-                            <audio id="songplayer" [src]="currentSongURL" controls controlsList="nodownload" autoplay style="display: none;"></audio>
+                            <audio id="songplayer" [src]="SongUrl" controls controlsList="nodownload" autoplay style="display: none;"></audio>
                         </div>
                         <div class="navigation  row  justify-content-center">
                             <a href="" target="_blank"><i class="fas fa-download"></i></a>
@@ -208,7 +90,6 @@
                             <a id="mybuttonplay">
                                 <img class="secondimage" *ngIf="mainicon" src="../../../assets/imgs/playericon.png" (click)="showanothericon()">
                                 <img class="secondimage" *ngIf="songPlayIcon" src="../../../assets/imgs/playedicon.png" (click)="showamainicon()" >
-
                             </a>
 
                             <a *ngIf="thisicon" (click)="showamainicon()"><img class="secondimage" src="../../../assets/imgs/playedicon.png"></a>
@@ -216,7 +97,7 @@
                             <a *ngIf="hideheart" (click)="changeheart()"><i class="fas fa-heart"></i> </a>
                             <a *ngIf="showanotherheart"><i class="far fa-heart"></i> </a>
                         </div>
-                        <h5>أماكن السهر</h5>
+                        <h5>{{SongDataName}}</h5>
                     </div>
                 </div>
                 <!-- *** -->

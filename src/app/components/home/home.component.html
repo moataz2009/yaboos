@@ -43,7 +43,7 @@
                 <div class="input-group-append" (click)="HomeSearch(searchTxt.value)">
                     <i class="fas fa-search"></i>
                 </div>
-                <input type="text" class="form-control border-right-0" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم....">
+                <input type="text" (keyup.enter)="HomeSearch(searchTxt.value)" class="form-control border-right-0" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم....">
             </div>
         </div>
 

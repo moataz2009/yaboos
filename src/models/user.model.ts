@@ -1,10 +1,10 @@
 export class User {
-    id: string;
     username: string;
-    role: string[];
-    email: string;
-    password :string;
-    deviceToken:string;
     name:string;
+    password :string;
     confirmPassword:string;
+    deviceToken:string;
+    //role: string[];
+    //email: string;
+    //id: string;
 }

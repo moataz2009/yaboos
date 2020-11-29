@@ -69,12 +69,12 @@
                     <span>سياسة الخصوصية</span>
                 </a>
             </li>
-            <li class="nav-item " routerLink="/Home/login" *ngIf="show3">
+            <li class="nav-item" routerLink="/login" routerLinkActive="active" *ngIf="showLogin">
                 <a class="nav-link">
                     <i class="fa fa-sign-in ico"></i> تسجيل الدخول
                 </a>
             </li>
-            <li class="nav-item " *ngIf="show2" (click)="signupinfo()">
+            <li class="nav-item " *ngIf="showLogout" (click)="Logout()">
                 <a class="nav-link">
                     <i class="fa fa-sign-in ico" style="transform: rotate(180deg);"></i> تسجيل الخروج
                 </a>

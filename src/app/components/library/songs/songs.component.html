@@ -1,0 +1,44 @@
+<div class="box col-xs-12">
+
+    <div class="col-sm-12 float-right  col-xs-12">
+        <div class="row">
+            <div class="songitems col-md-12 mt-sm-2 p-0">
+                <div class="songs" *ngFor="let prop of songsList;"> 
+
+                    <div class="col-10 float-left list" (click)="PassUrlToPlayer(prop.id)">
+                        <span> {{prop.title}}</span>
+                        <i class="fas fa-play-circle pr-2"></i>
+                    </div>
+                    <div class="col-2 float-right icons text-center">
+                        <i class="fas fa-download" (click)="DownloadAudio($event , prop.id)"></i>  
+                        <i class="far fa-heart mr-3" (click)="addToFavorite(prop.id)"></i>  
+                    </div>
+
+                    <div class="clearfix mt-3"></div>
+                </div>    
+                <div class="clearfix"></div>
+                <!-- المزيد  -->
+                <div class="col-12 text-center" *ngIf="moresongs">
+                <br>
+                <br>
+                <div class="clearfix"></div>
+
+                    <a class="btnReadMore" (click)="loadmoresongs()">المزيد</a>
+                    
+                <br>
+                <br>
+                <br>
+                <div class="clearfix"></div>
+                </div>
+            </div> 
+<div class="clearfix"></div>
+
+        </div>
+<div class="clearfix"></div>
+
+    </div>  
+<div class="clearfix"></div>
+
+</div>
+
+<div class="clearfix"></div>

@@ -1,5 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as $ from 'jquery'
+import { ToastrService } from 'ngx-toastr';
+import { FavoritesService } from 'src/app/shared/favorites.service';
+
 @Component({
   selector: 'app-favorite',
   templateUrl: './favorite.component.html',
@@ -9,8 +14,10 @@ export class FavoriteComponent implements OnInit {
 
   [x: string]: any;
   headerMessage : string;
+  myFavourites: any;
+  isLogin:boolean ;
+  constructor(private favourites: FavoritesService, private routr: Router, private toastr: ToastrService) { }
 
-  constructor() { }
   fillHeader(message , url)
   {
     this.IsMobileHeader = true;
@@ -18,6 +25,7 @@ export class FavoriteComponent implements OnInit {
     this.mobileAppUrl =url;
   }
   getMobileOperatingSystem() {
+
     var userAgent = navigator.userAgent || navigator.vendor;
       // Windows Phone must come first because its UA also contains "Android"
       if (/android/i.test(userAgent)) {
@@ -41,12 +49,21 @@ export class FavoriteComponent implements OnInit {
   
      
   }
+
   isPlaying: boolean = false;
   thisicon:boolean=false;
   mainicon:boolean=true;
   songPlayIcon: boolean = false;
 
-  openmusicmodel(){ 
+
+  SongUrl:String;
+  SongDataName: String;
+
+  openmusicmodel(SongData: any){ 
+
+    this.SongUrl = SongData.lowQuality;
+    this.SongDataName = SongData.title;
+    
     this.isPlaying= true;
     
   }
@@ -149,33 +166,35 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
     
   }
 
-  // showone:boolean = true;
-  // showtwo:boolean = false;
-  // showthree:boolean = false;
-
-  // opensongsection(){
-  //   this.showone = true;
-  //   this.showtwo = false;
-  //   this.showthree = false;
-  // }
-
-  // openalbumsection(){
-  //   this.showone = false;
-  //   this.showtwo = true;
-  //   this.showthree =false;
-  // }
-
-  // openartistsection(){
-  //   this.showone = false;
-  //   this.showtwo = false;
-  //   this.showthree = true;
-  // }
-
-
-
-
   ngOnInit(): void {
-    this.getMobileOperatingSystem();
+    //this.getMobileOperatingSystem();
+    this.getMyFavourites();
+    
+  }
+
+  deleteFromFavorite(SongId: String){
+    this.favourites.deleteFromFavorite(SongId).subscribe((data: any) => {
+      
+      this.toastr.success('تم الحذف بنجاح');
+      
+      location.reload();
+
+
+    }, (err: HttpErrorResponse) => {
+      this.toastr.error('لم يتم الحذف ');
+
+    });
+  }
+
+  getMyFavourites(){
+    
+    this.favourites.myFavourites().subscribe((data: any) => {
+      this.myFavourites = data.result;
+      console.log(this.myFavourites);
+      
+    }, (err: HttpErrorResponse) => {
+      console.log("Error ::ToDo");
+    });
   }
 
 }

@@ -7,13 +7,25 @@ import { LibraryComponent } from './components/library/library.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { ToolsComponent } from './components/tools/tools.component';
 import { WhoWeAreComponent } from './components/who-we-are/who-we-are.component';
-import { LoginComponent } from './components/login/login.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { UserComponent } from './components/user/user.component';
+import { SignupComponent } from './components/user/signup/signup.component';
+import { AuthGuard } from './auth.guard';
+import { SongsComponent } from './components/library/songs/songs.component';
+import { ArtistComponent } from './components/library/artist/artist.component';
+import { AlbumComponent } from './components/library/album/album.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo:'/Home',
+    pathMatch:'full'
+
+  },
+  {
+    path: 'Libaray',
+    redirectTo:'/Libaray/songs',
     pathMatch:'full'
 
   },
@@ -28,13 +40,7 @@ const routes: Routes = [
     {
       path: 'Programms',
       component: DiscoverComponent
-    }
-    ,
-    {
-      path: 'Libaray',
-      component: LibraryComponent
-    }
-    ,
+    },
     {
       path: 'Privacy',
       component: PrivacyComponent
@@ -49,12 +55,48 @@ const routes: Routes = [
       component: WhoWeAreComponent
     },
     {
-      path: 'Home/login',
-      component: LoginComponent
+      path: 'login',  component: UserComponent,
+      children: [{
+        path: '', component: LoginComponent
+      }]
     },
     {
+      path: 'signup',  component: UserComponent,
+      children: [{
+        path: '', component: SignupComponent
+      }]
+    },
+    {
+      path: 'Libaray', component: LibraryComponent,
+      children: [{
+        path: 'songs', component: SongsComponent
+      }]
+    },
+    
+    {
+      path: 'Libaray', component: LibraryComponent,
+      children: [{
+        path: 'artist', component: ArtistComponent
+      }]
+    },
+
+    {
+      path: 'Libaray', component: LibraryComponent,
+      children: [{
+        path: 'albums', component: AlbumComponent
+      }]
+    },
+    {
+      path: 'Libaray', component: LibraryComponent,
+      children: [{
+        path: 'albums/:id', component: AlbumComponent
+      }]
+    },
+
+    {
       path: 'Favorite',
-      component: FavoriteComponent
+      component: FavoriteComponent,
+      canActivate:[AuthGuard]
     }
 ];
 

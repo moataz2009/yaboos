@@ -24,7 +24,6 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
-import { LoginComponent } from './components/login/login.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';    
 import { ToastrModule } from 'ngx-toastr';
@@ -33,6 +32,14 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
 
 import { ErrorMessageComponent } from './error-message/error-message.component'; 
 import { ValidationService } from './validation.service';
+import { SignupComponent } from './components/user/signup/signup.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { UserComponent } from './components/user/user.component';
+import { AuthGuard } from './auth.guard';
+import { SongsComponent } from './components/library/songs/songs.component';
+import { AlbumComponent } from './components/library/album/album.component';
+import { ArtistComponent } from './components/library/artist/artist.component';
+import { PlayerComponent } from './components/player/player.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +55,12 @@ import { ValidationService } from './validation.service';
     NotificationComponent,
     FavoriteComponent,
     ErrorMessageComponent,
+    UserComponent,
+    SignupComponent,
+    SongsComponent,
+    AlbumComponent,
+    ArtistComponent,
+    PlayerComponent,
     
   ],
   imports: [
@@ -57,7 +70,6 @@ import { ValidationService } from './validation.service';
     AppRoutingModule,
     NgbModule,
 
-    
     HttpClientModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -68,12 +80,17 @@ import { ValidationService } from './validation.service';
     FormsModule,
     ReactiveFormsModule,
 
-    ToastrModule.forRoot()  
+    ToastrModule.forRoot({
+      easeTime: 1000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      positionClass: 'toast-bottom-center'
+    })  
 
    
  
   ],
-  providers: [MessagingService,AsyncPipe , ValidationService ],
+  providers: [MessagingService,AsyncPipe ,AuthGuard , ValidationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

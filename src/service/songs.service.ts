@@ -61,6 +61,18 @@ Search(offset: string , limit: string , filter:string ): Observable<DataWithRank
     
     return this.http.get<DataWithRanking<Songs>>("http://188.225.184.108:9091/api/songs/GetSongsOfAlbum" , {params:params});
   }
+
+  getArtistAlbums(offset: string , limit: string ,ArtistId:string):Observable<DataWithRanking<Songs>> {
+    
+    let params = new HttpParams();
+
+    params = params.append('offset' , offset);
+    params = params.append('limit' , limit);
+    params = params.append('artist' ,ArtistId);
+    
+    return this.http.get<DataWithRanking<Songs>>("http://188.225.184.108:9091/api/albums/GetAlbumsOfArtist" , {params:params});
+  }
+
   GetSongsOfArtist(offset: string , limit: string ,id:number):Observable<DataWithRanking<Songs>> {
     
     let params = new HttpParams();
