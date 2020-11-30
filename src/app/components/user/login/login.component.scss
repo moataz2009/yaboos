@@ -32,6 +32,9 @@ form{
         border: none;
         box-shadow: none;
     }
+    input::placeholder{
+        text-indent: 5px !important;
+    }
     .social{
         margin-top: 17px;
         span{
