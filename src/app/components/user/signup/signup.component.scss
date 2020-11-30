@@ -13,6 +13,9 @@ form{
     label{
         color :white !important;
     }
+    input::placeholder{
+        text-indent: 5px !important;
+    }
     .submitbutton{
         background-color: #32AAB2;
         border:none;
