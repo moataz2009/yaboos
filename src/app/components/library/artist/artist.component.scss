@@ -19,60 +19,20 @@
     .box {
         // margin-top: 3%;
         // width: 90%;
-        @include MediaQuery(xs + s + M) {
-            width: 100%;
-        }
-        @include MediaQuery(L) {
-            width: 100%;
-        }
+        // @include MediaQuery(xs + s + M) {
+        //     width: 100%;
+        // }
+        // @include MediaQuery(L) {
+        //     width: 100%;
+        // }
         border-radius: 10px;
         background-color: $basicColor;
         // padding: 2% 4% 0%;
         overflow-y: auto;
         height: 50vh !important;
         overflow-x: hidden;
-        .songitems {
-            .songs{  padding-bottom: 20px;
-               
-                .icons{
-                    @include MediaQuery(xs) {
-                       display: inline-flex;
-                    }
-                    i{
-                        @media screen and (max-width:319px){ 
-                            font-size: 12px;
-                            padding-top: 6px;
-                        }
-                      }
-                  }
-                  .list{
-                      cursor: pointer;
-                      span{
-                        @media screen and (max-width:319px){ font-size: 12px;}
-                      }
-                  }
-            }
-            color: #fff;
-            .more{
-                width: 50%;
-                display: flex;
-                justify-content: center;
-                margin: 0 auto;
-                a{
-                    color:white;
-                    display: flex;
-                    justify-content: center;
-                font-size:22px;
-                cursor: pointer;
-                }
-                margin-bottom: 20px;
-            }
 
-
-        }
-        
         .artistsitems {
-
             width: 100%;
             display: flex;
             justify-content: space-around;
@@ -85,7 +45,6 @@
                 padding-right: 0px;padding-left: 0px;
             }
             img {
-                // width: 189px;
                 @media screen and  (max-width:319px ) {
                     width: 68px; 
                     //
@@ -99,7 +58,7 @@
                 @include MediaQuery(s) {
                     width: 80px;
                      //
-                     height: 80px;
+                    height: 80px;
                 }
             }
             p {
@@ -127,83 +86,7 @@
                 margin-bottom: 10px;
             }
         }
-        // 
-        .songsinalbums{
-            // display: flex;
-            // justify-content: space-around;
-            // a{display: block;}
-            width:100%;
-            max-width: 100;
-            
-            .mysongicons{
-                // float: right;
-            }
-            .two{
-                i{
-                    color:white; padding-bottom:24px !important;
-                }
-            }
-            .myalbumsong{
-                height: 42vh;
-                @include MediaQuery(xs) {
-                    height: 30vh;
-                }
-                @include MediaQuery(s) {
-                    height: 30vh;
-                }
-                @include MediaQuery(M) {
-                    height: 30vh;
-                }
-                overflow-y: auto;
-                // float: left;
-                color:white !important;
-               .songs{
-                   padding-bottom:20px !important;
-                   @include MediaQuery(M){
-                       font-size: 19px;
-                   }
-                   .icons{
-                    @include MediaQuery(xs) {
-                       display: inline-flex;
-                    }
-                    i{
-                        @media screen and (max-width:319px){ 
-                            font-size: 12px;
-                            padding-top: 6px;
-                        }
-                      }
-                  }
-                  .list{
-                    cursor: pointer;
-                      span{
-                        @media screen and (max-width:319px){ font-size: 12px;}
-                      }
-                  }
-               }
-            }
-            img{ width: 183px;}
-            h3{
-                color: white;
-                text-align: center;
-            }
-            .backicon{
-                i{
-                    transform: rotateY(180deg);
-                    font-size: 25px;
-                    padding-top: 20px;
-                }
-                cursor: pointer;
-            }
-        }
-
         
-    }
-    .myalbumsong::-webkit-scrollbar{
-        display: none;
-    }
-    .myalbumsong{
-        -ms-overflow-style:none;
-        scrollbar-width: none;
     }
     .box::-webkit-scrollbar{
         display: none;
@@ -223,34 +106,19 @@
     }
 }
 
-// @media(max-width: 767px){
-//     .LgScreen {
-//         overflow: auto !important;
-//     }
-//     .SmScreen {
-//         overflow-y: inherit !important;
-//     }
-// }
-
-
-
 ::-webkit-scrollbar {
     width: 10px;
 }
 
-
 /* Track */
-
- ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px #239298;
     border-radius: 20px;
     padding-right: 40px;
 }
 
-
 /* Handle */
-
- ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #239298;
     border-radius: 20px;
     padding-right: 40px;
@@ -258,8 +126,7 @@
 
 
 /* Handle on hover */
-
- ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background: #1a5356;
 }
 

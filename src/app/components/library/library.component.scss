@@ -101,9 +101,7 @@
         .song {
             color: #fff !important;
         }
-    }
-   
-   
+    } 
 }
 
 
@@ -231,64 +229,15 @@
     }
     .myminilast {
         position: fixed;
-        // right: 65%;
         right:61%;
         @include MediaQuery(xs + s ){  right: 89%;}
         @include MediaQuery(M){  right: 78%;}
         @include MediaQuery(L){  right: 68%;}
-        // @media screen and (min-width:1600px) {right: 56%;}
         @media screen and (min-width:1600px) and(max-width:1900px) {right: 56%;}
         @media screen and (min-width:1901px) {right: 58%;}
 
     }
 }
 
-// .showsongalert {
-//     padding-top: 20px;
-//     left: 0;
-//     right: 0;
-//     position: absolute;
-//     align-items: center;
-//     color: white;
-//     font-size: 17px;
-//     z-index: 100000000;
-//     background-color: $basicColor;
-//     width: 40%;
-//     bottom: 0;
-//     @media screen and(min-width: 1440px) and (max-width: 1600px) {
-//         bottom: -43px;
-//     }
-//     @include MediaQuery(xs + s+ M) {
-//         width: 93%;
-//     }
-//     @include MediaQuery(L) {
-//         width: 70%;
-//     }
-//     margin: 0 auto;
-//     border-radius: 20px;
-//     .textslast {
-//         display: inline-flex;
-//         text-align: center;
-//         float: left;
-//         h1 {
-//             font-size: 22px;
-//         }
-//         img {
-//             width: 50%;
-//         }
-//     }
-//     .textstwo {
-//         display: inline;
-//         float: right;
-//         text-align: center;
-//         img {
-//             width: 40%;
-//             @include MediaQuery(xs + s+ M) {
-//                 width: 30%;
-//             }
-//         }
-//         .imgclass {
-//             padding-right: 10px;
-//         }
-//     }
-// }
+
+
