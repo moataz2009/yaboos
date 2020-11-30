@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="songitems col-12 mt-sm-2 p-0">
                     <div class="songs" *ngFor="let prop of songsList;"> 
-                        <div class="col-xs-9 col-10 float-left list" (click)="PassUrlToPlayer(prop.id)">
+                        <div class="col-xs-9 col-10 float-left list" (click)="PlayTrack(prop.id, false)">
                             <span> {{prop.title}}</span>
                             <i class="fas fa-play-circle pr-2"></i>
                         </div>

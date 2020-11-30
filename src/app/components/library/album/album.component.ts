@@ -10,6 +10,7 @@ import { Album } from 'src/models/abum.model';
 import { FavoritesService } from 'src/app/shared/favorites.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import { PlayerService } from 'src/app/shared/player.service';
 
 @Component({
   selector: 'app-album',
@@ -57,8 +58,20 @@ export class AlbumComponent implements OnInit {
     private SongsService : SongsService ,
     private AlbumService : AlbumService ,
     private favorites : FavoritesService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private playerUrl : PlayerService
     ) { }
+
+    PlayTrack(id: any, title, status){
+      if(status === false){
+        this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
+        this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
+        this.playerUrl.changePlayerStatus(true);
+      }else{
+        this.playerUrl.ngStop()
+        this.playerUrl.changePlayerStatus(false);
+      }
+    }
 
 
   fillHeader(message , url)

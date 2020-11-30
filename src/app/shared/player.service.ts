@@ -69,7 +69,7 @@ export class PlayerService {
 
   ngStop(){
     this.audiObg.pause();
-    this.audiObg.currentTime = 0;
+    //this.audiObg.currentTime = 0;
     console.log('ngStop');
   }
 

@@ -23,7 +23,7 @@ export class PlayerComponent implements OnInit {
   constructor(private playerUrl : PlayerService) { }
 
 
-  PlayRadio( status){
+  PlayRadio(status){
     if(status === false){
       this.playerUrl.ngPlay();
       this.playerUrl.changePlayerStatus(true);

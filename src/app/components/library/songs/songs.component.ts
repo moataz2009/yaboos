@@ -59,9 +59,20 @@ export class SongsComponent implements OnInit {
     ) { }
 
 
- PassUrlToPlayer(id: any){
+  PassUrlToPlayer(id: any){
     this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
     this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
+  }
+
+  PlayTrack(id: any, status){
+    if(status === false){
+      this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
+      this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
+      this.playerUrl.changePlayerStatus(true);
+    }else{
+      this.playerUrl.ngStop()
+      this.playerUrl.changePlayerStatus(false);
+    }
   }
  
 
