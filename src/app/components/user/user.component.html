@@ -1,13 +1,17 @@
+<div class="d-xs-block d-lg-none">
+    <a href={{mobileAppUrl}} class="mobileapp">{{headerMessage}}</a>
+</div>
+<img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
+<br><br><br><br><br>
 
-
-<div class="container">
-    <div class="p-3">
-        <div class="containerLogin bg-white p-3">
+<div class="container allcontainer">
+    <div class="p-sm-3">
+        <div class="containerLogin bg-white p-5">
             <nav class="nav nav-pills nav-justified">
-                <a class="nav-item nav-link" [routerLink]="['/login']" routerLinkActive="active">دخول</a>
-                <a class="nav-item nav-link" [routerLink]="['/signup']" routerLinkActive="active">انشاء حساب</a>
-              </nav>
-              <hr>
+                <a class="nav-item nav-link loginlink" [routerLink]="['/login']" routerLinkActive="active">تسجيل دخول</a>
+                <a class="nav-item nav-link" [routerLink]="['/signup']" routerLinkActive="active">إنشاء حساب </a>
+            </nav>
+            <!-- <hr> -->
             <router-outlet></router-outlet>
         </div>
     </div>

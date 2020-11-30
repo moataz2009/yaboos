@@ -1,4 +1,82 @@
+@import "../../../styles.scss";
+
+.mobileapp {
+    left: 0;
+    height: 50px;
+    right: 0;
+    background-image: linear-gradient(#32AAB2, #106666);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 17px;
+}
+
+.logoimage {
+    width: 50%;
+    @include MediaQuery(xs) {
+        width: 50%;
+        position: relative;
+        right: -25%;
+        top: 70px;
+    }
+    @include MediaQuery(s) {
+        width: 50%;
+        position: relative;
+        right: -25%;
+        top: 70px;
+    }
+    @include MediaQuery(M) {
+        width: 50%;
+        position: relative;
+        right: -25%;
+        top: 70px;
+    }
+}
+
+.allcontainer{
+    padding: 0 !important;
+}
 .containerLogin{
-    max-width:550px ;
+    max-width:550px;
     margin: 0 auto;
+    margin-top: 39px;
+
+    @include MediaQuery(xs){
+        margin-top: 40px;
+    }
+    border-radius: 22px;
+    .loginlink{
+        margin-left: 20px;
+        @media screen and (max-width:319px) {
+            margin-left: 5px;
+        }
+    }
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+        color: #32AAB2 !important;
+        background-color: white !important;
+    }
+    a{
+        background-color: #32AAB2 !important;
+        color: white !important;
+        padding: 12px 10px;
+        font-size: 18px;
+        @media screen and (max-width:319px){
+            padding: 12px 3px;
+            font-size: 11px;
+        }
+        @media screen and (min-width:320px) and (max-width:359px){
+            padding: 12px 3px;
+            font-size: 13px;
+        }
+        @media screen and (min-width:360px) and (max-width:380px){
+            padding: 12px 3px;
+            font-size: 16px;
+        }
+        font-weight: bold;
+    }
+}
+.bg-white{
+    background-color: #106666 !important;
 }

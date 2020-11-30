@@ -12,7 +12,7 @@
                 البريد الالكتروني لا يمكن تركه فارغا
             </div>
             <div *ngIf="username.errors.email">
-                 يجب ان يكون تنسيقه مثل name@domin.com
+                يجب ان يكون تنسيقه مثل name@domin.com
             </div>
 
         </div>
@@ -25,7 +25,7 @@
         <div *ngIf="password.invalid && (password.dirty || password.touched)"  class="alert alert-danger alertMessage">
 
             <div *ngIf="password.errors.required">
-                 كلمة المرور لا يمكن تركه فارغا
+                كلمة المرور لا يمكن تركه فارغا
             </div>
         </div>
 
@@ -36,9 +36,23 @@
     
     
     <div class="text-right">
-        <button type="submit" [disabled]="userRegistrationForm.invalid" class="btn btn-primary"> دخول</button>
+        <button type="submit" [disabled]="userRegistrationForm.invalid" class="btn btn-primary submitbutton"> دخول</button>
         <div *ngIf="isLoading" class="loadinSection">
-           <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
         </div>
     </div>
-  </form>
+
+    <div class="text-center social">
+        <span>أو </span>
+        <div class="row">
+                <ul class="icons">
+                    <li>
+                        <i class="fa fa-facebook facebookicon"></i>
+                    </li>
+                    <li>
+                        <i class="fab fa-google-plus googleicon"></i>
+                    </li>
+                </ul>
+        </div>
+    </div>
+</form>
