@@ -34,6 +34,10 @@ export class HomeComponent {
   userObj :User = new User();
   notificationCounter :number;
   currentUser:boolean;
+  
+  playerStatus:boolean = false;
+  PlayerTypes:boolean;
+
 PlayerURl = "http://188.225.182.10:8000/live";
   constructor( 
     private playerUrlTrack : PlayerService,
@@ -42,9 +46,19 @@ PlayerURl = "http://188.225.182.10:8000/live";
           private route: Router, 
           private UsersService: UsersService ,
           private router: Router ,
-          private toastr: ToastrService 
+          private toastr: ToastrService
           ) { 
     this.notificationCounter = 0;
+  }
+
+  PlayRadio(playUrl, status){
+    if(status === false){
+      this.playerUrlTrack.openMusic(playUrl, 'live');
+      this.playerUrlTrack.changePlayerStatus(true);
+    }else{
+      this.playerUrlTrack.ngStop()
+      this.playerUrlTrack.changePlayerStatus(false);
+    }
   }
 
   openimage5(){
@@ -119,18 +133,20 @@ Register(user:User)
   this.userObj.name = user.name;
  // this.userObj.deviceToken = localStorage.getItem('token');
  
-    this.UsersService.register( this.userObj ).subscribe(
-     res=>{
-    var userName =  localStorage.getItem('username' );
-    if(userName != null)
-    {
-      localStorage.setItem('username' ,this.userObj.username );
-    }
-      window.location.reload();
-      $("#Register").hide();
-     },
-(err) => {console.log(err)}
-);
+  this.UsersService.register( this.userObj ).subscribe(
+    res=>{
+      var userName =  localStorage.getItem('username' );
+      if(userName != null)
+      {
+        localStorage.setItem('username' ,this.userObj.username );
+      }
+        window.location.reload();
+        $("#Register").hide();
+      },
+      (err) => {
+        console.log(err)
+      }
+  );
 }
 
    
@@ -230,13 +246,25 @@ Register(user:User)
 }
 
   ngOnInit() { 
-   if( localStorage.getItem('username') != null)
+
+   
+
+    this.playerUrlTrack.PlayerStatus.subscribe(data => {
+      this.playerStatus = data;
+   } );
+       
+
+
+    
+
+   if( localStorage.getItem('userToken') != null)
    {
      this.currentUser = true;
    }
    else{
     this.currentUser = false;
    }
+
 
   this.getMobileOperatingSystem();
 
@@ -259,6 +287,8 @@ Register(user:User)
       $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-05.png");
       $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD_GIF.gif");
     }
+
+
     $('#button').click(function() {
         $(this).toggleClass("down");
 

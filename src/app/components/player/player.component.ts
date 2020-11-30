@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from 'src/app/shared/player.service';
-import { Observable } from 'rxjs';
-import * as moment from 'moment'
+
 
 @Component({
   selector: 'app-player',
@@ -15,111 +14,85 @@ export class PlayerComponent implements OnInit {
 
   playUrl: String;
 
-  currentTime = "00:00:00";
-  duration = "00:00:00";
+  currentTime:String;
+  duration:String;
   durationSeek:any;
   seek = 0;
-
+  playerStatus:boolean ;
+  PlayerTypes:String;
   constructor(private playerUrl : PlayerService) { }
+
+
+  PlayRadio( status){
+    if(status === false){
+      this.playerUrl.ngPlay();
+      this.playerUrl.changePlayerStatus(true);
+    }else{
+      this.playerUrl.ngStop()
+      this.playerUrl.changePlayerStatus(false);
+    }
+  }
 
   ngOnInit(): void {
     
     this.playerUrl.currentUrl.subscribe(data => {
       this.playUrl = data ;
-      this.openMusic();
+      this.openMusic(this.playUrl, '');
+    } );
+
+
+    this.playerUrl.PlayerStatus.subscribe(data => {
+      this.playerStatus = data;
+    });
+  
+    
+
+    this.playerUrl.currentTime.subscribe(data => {
+      this.currentTime = data ;
+    } );
+
+    this.playerUrl.duration.subscribe(data => {
+      this.duration = data ;
+    } );
+
+    this.playerUrl.durationSeek.subscribe(data => {
+      this.durationSeek = data ;
+    } );
+
+    this.playerUrl.seek.subscribe(data => {
+      this.seek = data ;
     } );
 
   }
   
-  audiObg = new Audio();
-  audioEvent = [
-    'ended',
-    'error',
-    'play',
-    'playing',
-    'pause',
-    'timeupdate',
-    'canplay',
-    'loadedmetadata',
-    'loadstart'
-  ];
+  /*  ---- Moataz Al-Ali -----  */
+
+  openMusic(playUrl, title){
+    this.playerUrl.openMusic(playUrl, title)
+  }
+  
+
   ngPlay(){
-    this.audiObg.play();
+    this.playerUrl.ngPlay();
     console.log('play');
   }
 
   ngPause(){
-
-    this.audiObg.pause();
+    this.playerUrl.ngPause();
     console.log('ngPause');
   }
 
   ngStop(){
-    this.audiObg.pause();
-    this.audiObg.currentTime = 0;
+    this.playerUrl.ngStop();
     console.log('ngStop');
   }
 
-  timeFormat(time, format="HH:mm:ss"){
-    const momentTime = time * 1000;
-    return moment.utc(momentTime).format(format);
+  setVolume(event){
+    this.playerUrl.setVolume(event);
   }
 
-  openMusic(){
-    this.streamObserv(this.playUrl).subscribe(event => {});
-    console.log('loded');
+  setSeekTo(event){
+    this.playerUrl.setSeekTo(event);
   }
-
-
-
-  streamObserv(Url){
-    return new Observable(observer => {
-
-      this.audiObg.src = Url;
-      this.audiObg.load();
-      this.audiObg.play();
-
-      const handler = (event: Event) => {
-        //console.log(event);
-        this.seek = this.audiObg.currentTime;
-        this.currentTime = this.timeFormat(this.audiObg.currentTime);
-        this.duration = this.timeFormat(this.audiObg.duration);
-        this.durationSeek = this.audiObg.duration;
-      }
-
-      this.addEvent(this.audiObg, this.audioEvent, handler);
-
-      return () => {
-        this.audiObg.pause();
-        this.audiObg.currentTime = 0;
-        this.removeEvent(this.audiObg, this.audioEvent, handler);
-      }
-
-    });
-  }
-
-  addEvent(obj, events, handler){
-    events.forEach(event => {
-      obj.addEventListener(event, handler);
-    });
-  }
-
-  setSeekTo(ev) {
-    this.audiObg.currentTime = ev.target.value;
-  }
-  removeEvent(obj, events, handler){
-    events.forEach(event => {
-      obj.removeEventListener(event, handler);
-    });
-  }
-
-
-  setVolume(ev){
-    this.audiObg.volume = ev.target.value;
-    //console.log(ev.target.value);
-  }
-
-
-
 
 }

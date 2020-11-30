@@ -8,6 +8,7 @@ declare var $: any;
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  
   check:boolean=false;
   show:boolean=false;
   show2:boolean=false;
