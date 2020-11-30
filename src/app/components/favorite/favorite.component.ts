@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import * as $ from 'jquery'
 import { ToastrService } from 'ngx-toastr';
 import { FavoritesService } from 'src/app/shared/favorites.service';
+import { PlayerService } from 'src/app/shared/player.service';
 
 @Component({
   selector: 'app-favorite',
@@ -16,7 +17,23 @@ export class FavoriteComponent implements OnInit {
   headerMessage : string;
   myFavourites: any;
   isLogin:boolean ;
-  constructor(private favourites: FavoritesService, private routr: Router, private toastr: ToastrService) { }
+  constructor(
+      private favourites: FavoritesService, 
+      private routr: Router, 
+      private toastr: ToastrService,
+      private playerUrl : PlayerService
+    ) { }
+
+  PlayTrack(id: any, title, status){
+    if(status === false){
+      this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
+      this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
+      this.playerUrl.changePlayerStatus(true);
+    }else{
+      this.playerUrl.ngStop()
+      this.playerUrl.changePlayerStatus(false);
+    }
+  }
 
   fillHeader(message , url)
   {

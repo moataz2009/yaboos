@@ -22,7 +22,7 @@
 
 
                                     <div class="songs" *ngFor="let item of myFavourites">                                                                       
-                                        <div id=`SongId{{item.song.id}}` class="col-10 float-left list" (click)="openmusicmodel(item.song)">
+                                        <div id=`SongId{{item.song.id}}` class="col-10 float-left list" (click)="PlayTrack(item.song.id, item.song.title, false )">
                                                 <span>{{item.song.title}}</span>
                                             <i class="fas fa-play-circle pr-2"></i>
                                         </div>
