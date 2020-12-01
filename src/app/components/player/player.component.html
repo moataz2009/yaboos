@@ -1,12 +1,69 @@
-<button  (click)="PlayRadio(playerStatus)"> audio {{playerStatus}}</button>
-<!-- <button  *ngIf="!playerStatus" (click)="ngStop()"> audio stop </button> -->
 
-<div class="col-12">
-    <span>{{currentTime}}</span>
-    <input type="range" min="0" max="{{durationSeek}}" [value]="seek" (input)="setSeekTo($event)"/>
-    <span>{{duration}}</span>
+<div class="modalContainer">
+    <div class="modalBody">
+
+        <div *ngIf="PlayerTypes === 'live'" class="radipTemplate">
+            <div class="textContentLive">
+                <div class="palyerContent text-left">
+                    <h2 >البث المباشر</h2>
+                    {{PlayerTitle}}
+                </div>
+            </div>
+            
+
+            <div class="liveButtonSection">
+                <div class="text-right">
+                    <button class="ngClassPlay ngClassPlayFooter " (click)="PlayRadio(playerStatus)">
+                        <img style="width: 70px;" *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
+                        <img style="width: 70px;" *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+
+        <div *ngIf="PlayerTypes === 'track'" class="trackTemplate">
+
+
+            <div *ngIf="PlayImageVar != ''" class="imageTrack">
+                <img  src="{{Main_URL}}/{{PlayImageVar}}" alt="">
+            </div>
+
+            
+            
+            <div class="trackSeekBar">
+                <div class="TrackTitleText">
+                    {{PlayerTitle}}
+                </div>
+
+                <input class="rangTrack" type="range" min="0" max="{{durationSeek}}" [value]="seek" (input)="setSeekTo($event)"/>
+                <span>{{duration}}</span>/<span>{{currentTime}}</span>
+            </div>
+
+            <div class="trackButtons">
+                <button  class="ngClassPlay ngClassPlayFooter " (click)="PlayRadio(playerStatus)">
+                    <img style="width: 70px;" *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
+                    <img style="width: 70px;" *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
+                </button>
+                <button class="ngClassPlay ngClassPlayFooter " >Fav</button>
+            </div>
+            
+
+        </div>
+
+    </div>
 </div>
-{{playerStatus}}
-<div>
-    <input type="range" min="0" max="1" step="0.01" value="0.5" (input)="setVolume($event)"/>
+
+
+<div style="display: none;">
+    
+{{playerStatus}} //
+{{PlayImageVar}}
+//
+{{playerVolumeVal}} //
+{{PlayerTypes}}
+
+
+    <input type="range" min="0" max="1" step="0.01" value="{{playerVolumeVal}}" (input)="setVolume($event)"/>
 </div>
+

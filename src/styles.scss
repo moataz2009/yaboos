@@ -178,3 +178,167 @@ $basicColor:#106666;
     width: 100%;
     max-width: 200px;
 }
+
+/* Player Sryle Start */
+.modalContainer {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    background: #106666;
+    color: #fff;
+    width: 100%;
+    max-width: 870px;
+    border-radius: 20px 20px 0 0;
+    left: 0;
+    margin: 0 auto;
+    right: 0;
+}
+.ngClassPlay {
+    background: transparent !important;
+    border:  0 !important;
+    outline: none !important;
+    padding: 0 20px;
+}
+.modalBody {
+    position: relative;
+}
+
+.textContentLive {
+    max-width: 80%;
+    float: left;
+}
+
+.liveButtonSection {
+    max-width: 20%;
+    float: revert;
+}
+
+/* track player  */
+.imageTrack {
+    width: 70px;
+    float: left;
+    margin-top: 7px;
+}
+.ngClassPlayFooter {
+    padding: 0 8px;
+    width: 70px;
+    margin-top: 14px;
+}
+.ngClassPlayFooter img {
+    max-width: 100%;
+    /* max-height: 100% !important; */
+}
+
+.imageTrack img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 15px;
+    background: #ccc;
+}
+
+.trackSeekBar {
+    width: calc(100% - 220px);
+    float: left;
+    padding: 0 15px;
+}
+
+/* seek par rang design */
+/* Special styling for WebKit/Blink */
+.rangTrack {
+    width: 100% !important;
+}
+
+
+input[type=range] {
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 12.8px;
+    cursor: pointer;
+    box-shadow: none;
+    background: #3cb8ba;
+    border-radius: 0px; /* rad  25*/
+    border: 0;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: none;
+    border: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 30px;
+    background: #1a9298;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -3.6px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #3cb8ba;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 12.8px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: none;
+    background: #3cb8ba;
+    border-radius: 0px; /* rad  25*/
+    border: 0;
+  }
+  input[type=range]::-moz-range-thumb {
+    box-shadow: none;
+    border: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 30px;
+    background: #1a9298;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 12.8px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    border-width: 39px 0;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #3cb8ba;
+    border: 0;
+    border-radius: 1px; /* rad */
+    box-shadow: none;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #3cb8ba;
+    border: 0;
+    border-radius: 1px; /* rad */
+    box-shadow: none;
+  }
+  input[type=range]::-ms-thumb {
+    box-shadow: none;
+    border: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 30px;
+    background: #1a9298;
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #3cb8ba;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #3cb8ba;
+  }
+  
+  body {
+    padding: 30px;
+  }
+  
+/* Player Sryle End */

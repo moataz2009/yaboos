@@ -62,14 +62,19 @@ export class AlbumComponent implements OnInit {
     private playerUrl : PlayerService
     ) { }
 
-    PlayTrack(id: any, title, status){
+    PlayTrack(id: any, title, image, status){
       if(status === false){
         this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
         this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
         this.playerUrl.changePlayerStatus(true);
+        this.playerUrl.changePlayerTitle(title);
+        this.playerUrl.actionPlayNow("");
+        this.playerUrl.actionPlayerType("track");
+        this.playerUrl.actionPlayImage(image);
       }else{
         this.playerUrl.ngStop()
         this.playerUrl.changePlayerStatus(false);
+        this.playerUrl.changePlayerTitle(title);
       }
     }
 
@@ -298,6 +303,7 @@ GetSongsOfAlbum(albumId)
 //debugger;
     this.SongsService.GetSongsOfAlbum("0" , String(this.mycountalb) , albumId).subscribe(res =>{
       this.songsalbumsList = res.result;
+      console.log(res);
       this.SelectesAlbumID = res.result[0].album.id;
       if( this.songsalbumsList.length <= 9){
           this.morealbsong = false;
@@ -313,6 +319,7 @@ GetSongsOfAlbum(albumId)
 
     });
 
+    
     this.hideAlbums=false;
     this.showAlbumsongs=true;
 }

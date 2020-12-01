@@ -29,9 +29,14 @@ export class FavoriteComponent implements OnInit {
       this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
       this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
       this.playerUrl.changePlayerStatus(true);
+      this.playerUrl.changePlayerTitle(title);
+      this.playerUrl.actionPlayNow("");
+      this.playerUrl.actionPlayerType("track");
     }else{
       this.playerUrl.ngStop()
       this.playerUrl.changePlayerStatus(false);
+      this.playerUrl.changePlayerTitle(title);
+      this.playerUrl.actionPlayerType("track");
     }
   }
 

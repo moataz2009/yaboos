@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from 'src/app/shared/player.service';
+import { MainURL } from 'src/service/globals/global-config';
 
 
 @Component({
@@ -19,7 +20,13 @@ export class PlayerComponent implements OnInit {
   durationSeek:any;
   seek = 0;
   playerStatus:boolean ;
-  PlayerTypes:String;
+  PlayerTitle:String;
+  playerVolumeVal: any;
+  TimePlayer:any;
+  FooterPostion:any;
+  PlayerTypes:any;
+  PlayImageVar:any;
+  Main_URL:any;
   constructor(private playerUrl : PlayerService) { }
 
 
@@ -34,16 +41,39 @@ export class PlayerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.Main_URL = MainURL;
     
     this.playerUrl.currentUrl.subscribe(data => {
       this.playUrl = data ;
       this.openMusic(this.playUrl, '');
     } );
 
+    this.playerUrl.PlayImageVar.subscribe(data => {
+      this.PlayImageVar = data;
+    });
 
     this.playerUrl.PlayerStatus.subscribe(data => {
       this.playerStatus = data;
     });
+
+    this.playerUrl.PlayerTypes.subscribe(data => {
+      this.PlayerTypes = data;
+    });
+
+    this.playerUrl.StopPlayerVar.subscribe(data => {
+      this.TimePlayer = data;
+    });
+
+    this.playerUrl.PlayerTitle.subscribe(data => {
+      this.PlayerTitle = data;
+    });
+
+    this.playerUrl.playerVolumeVal.subscribe(data => {
+      this.playerVolumeVal = data;
+    });
+
+    //playerVolumeVal
   
     
 
@@ -94,5 +124,7 @@ export class PlayerComponent implements OnInit {
   setSeekTo(event){
     this.playerUrl.setSeekTo(event);
   }
+
+  
 
 }

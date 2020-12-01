@@ -39,7 +39,7 @@
 
                         <div class="myalbumsong SmScreen stopScrolMobile n_listScroll col-md-12 mt-sm-5 p-0">
                             <div class="songs" *ngFor="let props of songsalbumsList;">                                                                       
-                                <div class="col-9 float-left list" (click)="PlayTrack(props.id , props.title, false)">
+                                <div class="col-9 float-left list" (click)="PlayTrack(props.id , props.title, props.album.artist.image, false)">
                                     <span> {{props.title}}</span>
                                     <i class="fas fa-play-circle pr-2"></i>
                                 </div>

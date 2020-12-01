@@ -8,7 +8,7 @@
 <div class="homepage m-auto text-center" *ngIf="hideall">
     <div class="container">
         <h1 class="col-xs-6">البث المباشر</h1>
-        <h5 class="col-xs-6">أماكن السهر</h5>
+        <h5 class="col-xs-6"> {{playNowVar}} &nbsp;</h5>
         <div class="m-auto pb-3 d-flex justify-content-center">
             <div class="backimg ">
                 <div class="col-xs-4 cdimag justify-content-center">
@@ -27,8 +27,19 @@
                     </a> -->
 
                     
-                    <button (click)="PlayRadio('http://188.225.182.10:8000/live', playerStatus)">play {{playerStatus}}</button>
+                    
+                    <button class="ngClassPlay" *ngIf="PlayerTypes ==='live'" (click)="PlayRadio('http://188.225.182.10:8000/live', playerStatus)">
+                        <img *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
+                        <img *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
+                         
+                        </button>
              
+                    <!-- Play if is play trak  -->
+                    <button  class="ngClassPlay" *ngIf="PlayerTypes !='live'" (click)="PlayRadio('http://188.225.182.10:8000/live', false)">
+                        <img src="../../../assets/imgs/Materials-04.png" class="small">
+                    </button>
+             
+
                     <img src="../../../assets/imgs/Materials-05.png" class="large" *ngIf="div1" (click)="openimage4()">
                     <img src="../../../assets/imgs/Materials-07.png" class="small" (click)="BackwardMins(PlayerURl)">
                 </div>

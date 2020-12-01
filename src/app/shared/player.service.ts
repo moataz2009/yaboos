@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import * as moment from 'moment'
+import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { MainURL } from 'src/service/globals/global-config';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +11,19 @@ import * as moment from 'moment'
 export class PlayerService {
 
   playUrl: String;
-
+  PlayNowStrind: any;
+  
   private minStatus = new BehaviorSubject<boolean>(false);
   PlayerStatus = this.minStatus.asObservable();
 
+  private minPlayerTitle = new BehaviorSubject<String>(undefined);
+  PlayerTitle = this.minPlayerTitle.asObservable();
+
   private minType = new BehaviorSubject<String>(undefined);
   PlayerTypes = this.minType.asObservable();
+
+  private minPlayerVolumeValue = new BehaviorSubject<number>(0.5);
+  playerVolumeVal = this.minPlayerVolumeValue.asObservable();
 
   private minUrlSource = new BehaviorSubject<string>("");
   currentUrl = this.minUrlSource.asObservable();
@@ -30,20 +40,127 @@ export class PlayerService {
   private mainSeek = new BehaviorSubject<any>(0);
   seek = this.mainSeek.asObservable();
 
-  constructor() { }
+  private mainStopPlayer = new BehaviorSubject<any>(undefined);
+  StopPlayerVar = this.mainStopPlayer.asObservable();
 
-  changeUrlPlayer(UrlPlayer: any){
+  private mainPlayNow = new BehaviorSubject<any>(undefined);
+  playNowVar = this.mainPlayNow.asObservable();
+
+  private mainPlayImage = new BehaviorSubject<any>(undefined);
+  PlayImageVar = this.mainPlayImage.asObservable();
+
+  audiObg = new Audio();
+
+  constructor(private http: HttpClient) {
+
+    
+    if(localStorage.getItem('playerVolumeValue') === null){
+      this.minPlayerVolumeValue.next(0.50);
+      this.setVolumePlayer(0.50);
+    }
+
+
+
+   }
+
+   changeUrlPlayer(UrlPlayer: any){
     this.minUrlSource.next(UrlPlayer);
+  }
+
+  actionPlayNow(NowPlayer: any){
+    this.mainPlayNow.next(NowPlayer);
+  }
+
+  actionPlayImage(vars: any){
+    this.mainPlayImage.next(vars);
+  }
+
+  actionPlayerType(NowPlayer: any){
+    this.PlayNowStrind = NowPlayer;
+    this.minType.next(NowPlayer);
+  }
+
+  ActionStopPlayer(TimePlayer: any){
+    this.mainStopPlayer.next(TimePlayer);
+    this.autoStopPlayerAction(TimePlayer);
+  }
+
+  ActionAutoPlayPlayer(TimePlayer: any){
+    this.autoPlayPlayerAction(TimePlayer);
+  }
+
+  PlayerVolumeValue(UrlPlayer: any){
+    this.minPlayerVolumeValue.next(UrlPlayer);
+    this.setVolumePlayer(UrlPlayer);
   }
 
   changePlayerStatus(UrlPlayer: any){
     this.minStatus.next(UrlPlayer);
   }
 
+  changePlayerTitle(title: any){
+    this.minPlayerTitle.next(title);
+  }
+
   /** plauer actions  */
   
 
-  audiObg = new Audio();
+  autoStopPlayerAction(TimePlayer){
+    console.log("Start auto stop");
+    console.log(TimePlayer);
+    console.log("End auto stop");
+    setTimeout( () => this.ngAutoStop() ,TimePlayer);
+  }
+
+  readonly rootUrl = MainURL;
+  getPlayNow(){
+
+    this.mainPlayNow.next('جاري التحميل ...');
+    this.minPlayerTitle.next('جاري التحميل ...');
+
+    setTimeout( () => {
+      
+      if(this.PlayNowStrind === "live"){
+        //console.log("Play log note");
+        this.http.get(this.rootUrl+'/api/Radio/GetCurrentSong').subscribe((data: any) => {
+          
+          this.mainPlayNow.next(data.date);
+          this.minPlayerTitle.next(data.date);
+          
+        }, (err: HttpErrorResponse) => {
+          //console.log("Error ::ToDo");
+        });
+      }
+
+    } ,5000);
+
+
+    setInterval( () => {
+      
+      if(this.PlayNowStrind === "live"){
+        //console.log("Play log note");
+        this.http.get(this.rootUrl+'/api/Radio/GetCurrentSong').subscribe((data: any) => {
+          
+          this.mainPlayNow.next(data.date);
+          this.minPlayerTitle.next(data.date);
+          
+        }, (err: HttpErrorResponse) => {
+          //console.log("Error ::ToDo");
+        });
+      }
+
+    } ,20000);
+    
+  }
+
+  autoPlayPlayerAction(TimePlayer){
+    console.log("Start auto stop");
+    console.log(TimePlayer);
+    console.log("End auto stop");
+    setTimeout( () => this.ngAutoPlay() ,TimePlayer);
+  }
+
+  
   
   audioEvent = [
     'ended',
@@ -57,8 +174,19 @@ export class PlayerService {
     'loadstart'
   ];
 
-  openMusic(playUrl, title){
-    this.streamObserv(playUrl, title).subscribe(event => {});
+  ngAutoPlay(){
+    
+    this.openMusic('http://188.225.182.10:8000/live', "live");
+
+    this.minStatus.next(true);
+    this.actionPlayerType("live");
+    this.getPlayNow();
+
+    console.log('ng auto Func Play');
+  }
+
+  openMusic(playUrl, PlayType){
+    this.streamObserv(playUrl, PlayType).subscribe(event => {});
     console.log('loded');
   }
 
@@ -73,6 +201,16 @@ export class PlayerService {
     console.log('ngStop');
   }
 
+  ngAutoStop(){
+    this.audiObg.pause();
+    this.audiObg.currentTime = 0;
+    this.minStatus.next(false);
+
+    console.log('ng auto Func Stop');
+  }
+
+  
+
   timeFormat(time, format="HH:mm:ss"){
     const momentTime = time * 1000;
     return moment.utc(momentTime).format(format);
@@ -80,17 +218,23 @@ export class PlayerService {
 
   
 
-  streamObserv(Url, title){
+  streamObserv(Url, PlayType){
+    
     return new Observable(observer => {
 
       this.audiObg.src = Url;
       this.audiObg.load();
+
       this.ngPlay();
 
       const handler = (event: Event) => {
 
-        //console.log(event);
-        if(title === 'live'){
+        
+        if(event.type === 'ended'){
+          this.changePlayerStatus(false);
+        }
+        
+        if(PlayType === 'live'){
 
           this.mainSeek.next(0);
           this.mincurrentTime.next(this.timeFormat(this.audiObg.currentTime));
@@ -140,6 +284,11 @@ export class PlayerService {
 
   setVolume(ev){
     this.audiObg.volume = ev.target.value;
+  }
+  setVolumePlayer(ev){
+    this.audiObg.volume = ev;
+
+
     //console.log(ev.target.value);
   }
 

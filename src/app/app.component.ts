@@ -4,6 +4,8 @@ import { HttpClient  } from '@angular/common/http';
 	
 import { ValidationService } from './validation.service';
 import * as $ from 'jquery'
+import { PlayerOptionsService } from './shared/player-options.service';
+import { PlayerService } from './shared/player.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,11 +20,34 @@ export class AppComponent {
   title = 'Yaboos';
   devicetok :any;
   message:any;
-  constructor(private messagingService: MessagingService ,   private http: HttpClient,) {
+  constructor(
+    private messagingService: MessagingService ,   
+    private http: HttpClient,
+    private PlayerOptions: PlayerOptionsService,
+    private Player: PlayerService
+    ) {
    this.devicetok=  this.messagingService ;
   }
 
    ngOnInit(): void {
+
+    // if(localStorage.getItem('playerVolume') === null){
+    //   this.PlayerOptions.changeVolumePlayer("meduim");
+    // }
+
+    // if(localStorage.getItem('playerVolumeValue') === null){
+    //   this.Player.PlayerVolumeValue("0.50");
+    // }
+
+    this.PlayerOptions.PlayerVolume.subscribe(data => {
+      this.playerVolume = data;
+    });
+
+    if(localStorage.getItem('playerVolume') != null){
+      this.PlayerOptions.changeVolumePlayer(localStorage.getItem('playerVolume'));
+    }
+
+
 
     $(document).ready(function() {
       $('audio').on("play",function() {

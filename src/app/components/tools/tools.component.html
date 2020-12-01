@@ -1,8 +1,8 @@
 <div class="d-xs-block d-lg-none">
-    <a href={{mobileAppUrl}} class="mobileapp">{{headerMessage}}</a>
+    <a class="mobileapp">{{headerMessage}}</a>
 </div>
 <img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
-<br><br><br><br><br>
+<br><br>
 
 <div class="tools">
     <div class="container">
@@ -30,19 +30,31 @@
             <div class=" row">
                 <ul>
                     <li (click)="Highest()">
-                        <a><img id="Highest" src="../../../assets/imgs/Selected.png"></a>
+                        <a>
+                            <img *ngIf="playerVolume != 'Highest'" id="Highest" src="../../../assets/imgs/Selected.png">
+                            <img *ngIf="playerVolume === 'Highest'" id="Highest" src="../../../assets/imgs/btn_open.jpg">
+                        </a>
                         <h5>عالى </h5>
                     </li>
                     <li (click)="meduim()">
-                        <a><img id="meduim" src="../../../assets/imgs/Selected.png"></a>
+                        <a>
+                            <img *ngIf="playerVolume != 'meduim'" id="Highest" src="../../../assets/imgs/Selected.png">
+                            <img *ngIf="playerVolume === 'meduim'" id="Highest" src="../../../assets/imgs/btn_open.jpg">
+                        </a>
                         <h5>عالى <br> متوسط </h5>
                     </li>
                     <li (click)="low()">
-                        <a><img id="low" src="../../../assets/imgs/Selected.png"></a>
+                        <a>
+                            <img *ngIf="playerVolume != 'low'" id="Highest" src="../../../assets/imgs/Selected.png">
+                            <img *ngIf="playerVolume === 'low'" id="Highest" src="../../../assets/imgs/btn_open.jpg">
+                        </a>
                         <h5>منخفض <br> متوسط </h5>
                     </li>
                     <li (click)="lowest()">
-                        <a><img id="lowest" src="../../../assets/imgs/Selected.png"></a>
+                        <a>
+                            <img *ngIf="playerVolume != 'lowest'" id="Highest" src="../../../assets/imgs/Selected.png">
+                            <img *ngIf="playerVolume === 'lowest'" id="Highest" src="../../../assets/imgs/btn_open.jpg">
+                        </a>
                         <h5>عميق</h5>
                     </li>
                 </ul>
@@ -60,15 +72,15 @@
             </div>
             <div class=" row">
                 <ul>
-                    <li (click)="StopLive(1800000)">
+                    <li (click)="AutoStopTime(1800000)">
                         <a><img id="stopThirtyMin" src="../../../assets/imgs/Group 1084.png"></a>
                         <h5>30 دقيقة </h5>
                     </li>
-                    <li (click)="StopLive(3600000)">
+                    <li (click)="AutoStopTime(3600000)">
                         <a><img id="stopSixtyMin" src="../../../assets/imgs/Group 1084.png"></a>
                         <h5>60 دقيقة </h5>
                     </li>
-                    <li (click)="StopLive(5400000)">
+                    <li (click)="AutoStopTime(5400000)">
                         <a><img id="stopNintyMin" src="../../../assets/imgs/Group 1084.png"></a>
                         <h5> 90 دقيقة </h5>
                     </li>
@@ -89,27 +101,36 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-body">
+                                <form  #PlayerAutoPlayForm="ngForm" (ngSubmit)="PlayerAutoPlaySubmit(hour1.value, hour2.value, minute1.value, minute2.value)"> 
+
                                 <div class="alltime pt-4 pb-3" dir="ltr">
-                                    <div class="mylivehours myinputs">
-                                        <input type="number" class="mr-2" placeholder="0" (keyup)="keytab($event)"
-                                           onKeyPress="if(this.value.length==1) return false;" >
-                                        <input type="number"  placeholder="0" (keyup)="keytab($event)"
+                                        <div class="mylivehours myinputs">
+                                            <input type="number" name="hour1" #hour1="ngModel" ngModel
+                                                class="mr-2" placeholder="0" (keyup)="keytab($event)"
                                             onKeyPress="if(this.value.length==1) return false;" >
-                                    </div>
-                                    <span>:</span>
-                                    <div class="mylivehours myinputs">
-                                        <input type="number" class="mr-2" placeholder="0" (keyup)="keytab($event)"
-                                           onKeyPress="if(this.value.length==1) return false;" >
-                                        <input type="number"  placeholder="0" (keyup)="keytab($event)"
+                                            <input type="number" name="hour2" #hour2="ngModel" ngModel
+                                                placeholder="0" (keyup)="keytab($event)"
+                                                onKeyPress="if(this.value.length==1) return false;" >
+                                        </div>
+
+                                        <span>:</span>
+                                        <div class="mylivehours myinputs">
+                                            <input type="number" name="minute1" #minute1="ngModel" ngModel
+                                                class="mr-2" placeholder="0" (keyup)="keytab($event)"
                                             onKeyPress="if(this.value.length==1) return false;" >
-                                    </div>
-                   
+                                            <input type="number" name="minute2" #minute2="ngModel" ngModel
+                                                placeholder="0" (keyup)="keytab($event)"
+                                                onKeyPress="if(this.value.length==1) return false;" >
+                                        </div>
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                    <button class="btn confirmbtn"> 
+                                    <button type="submit" class="btn confirmbtn"> 
                                       تأكيد 
                                     </button>
                                 </div>
+                            </form>
+
+                                
                             </div>
                         </div>
                     </div>
@@ -124,77 +145,6 @@
 </div>
 
 
-
-<!-- start MusicModal -->
-<!-- <div class="modal fade secondModal" id="secondModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" *ngIf="isPlaying" aria-hidden="true" data-backdrop="false" data-keyboard="false" [style.display]="isPlaying ? 'block' : 'none'" [class.show]="isPlaying">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="row">
-                    <a class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">
-              <i class="fas fa-times-circle" (click)="closeMedia()"> </i>
-            </span>
-                    </a>
-                    <a class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">
-              <i class="fas fa-chevron-right mymini" (click)="showminiwindow2()" style="transform: rotate(90deg);"></i>
-            </span>
-                    </a>
-                </div>
-               
-                <div class="c-player">
-                    <div class="row justify-content-center ">
-                        <img class="firstimage" src="../../../assets/imgs/artistimage.png" alt="" srcset="">
-                    </div>
-
-                    <div class="c-player__details">
-                        <div class="audio justify-content-center row">
-                            <audio id="songplayer" src="https://www.computerhope.com/jargon/m/example.mp3" controls controlsList="nodownload" autoplay></audio>
-                        </div>
-                        <div class="navigation  row  justify-content-center">
-                            <a href="" target="_blank" download><i class="fas fa-download"></i></a>
-                            <a><i class="fas fa-forward"></i></a>
-                            <a (click)="showanothericon()" *ngIf="mainicon" id="mybuttonplay"><img class="secondimage" src="../../../assets/imgs/playericon.png"></a>
-
-                            <a *ngIf="thisicon" (click)="showamainicon()"><img class="secondimage" src="../../../assets/imgs/playedicon.png"></a>
-                            <a><i class="fas fa-backward"></i></a>
-                            <a *ngIf="hideheart" (click)="changeheart()"><i class="fas fa-heart"></i> </a>
-                            <a *ngIf="showanotherheart"><i class="far fa-heart"></i> </a>
-                        </div>
-                        <h5> أماكن السهر</h5>
-                    </div>
-                </div>
-               
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<!-- end MusicModal -->
-
-<!-- <div class="showsongalert" *ngIf="hideshow" style="display: none !important;">
-    <div class="container">
-        <div class="box1">
-            <div class="textstwo">
-                <a><img src="../../../assets/imgs/Path 263.png"></a>
-                <a class="imgclass"><img src="../../../assets/imgs/Path 262.png"></a>
-
-            </div>
-            <div class="textslast">
-                <div class="textsone">
-                    <h1>أماكن السهر</h1>
-                    <p>عمرو دياب</p>
-                </div>
-                <a (click)="showmodalhere()"><img src="../../../assets/imgs/arrowicon.png"></a>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-
-<!-- minimize song model -->
 <!-- start MusicModal -->
 <div class="modal fade secondModal" id="secondModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" *ngIf="closmymedia" aria-hidden="true" data-backdrop="false" data-keyboard="false" [style.display]="closmymedia ? 'block' : 'none'" [class.show]="closmymedia">
     <div class="modal-dialog" role="document">
@@ -210,9 +160,7 @@
                         <span aria-hidden="true">
               <i *ngIf="hidelate" class="fas fa-chevron-right mymini"  style="transform: rotate(90deg);" (click)="myhello()"></i>
               <i *ngIf="hidenow" class="fas fa-chevron-right myminilast"  style="transform: rotate(270deg);" (click)="opensmodal()"></i>
-              <!-- (click)="showminiwindow()"  aria-label="Close"   data-dismiss="modal"  -->
 
-              <!-- <i (click)="showminiwindow()"><img src="../../../assets/imgs/minimize.png"></i> -->
             </span>
                     </a>
                 </div>

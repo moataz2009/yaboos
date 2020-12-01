@@ -36,8 +36,8 @@ export class HomeComponent {
   currentUser:boolean;
   
   playerStatus:boolean = false;
-  PlayerTypes:boolean;
-
+  PlayerTypes:any;
+  playNowVar:any;
 PlayerURl = "http://188.225.182.10:8000/live";
   constructor( 
     private playerUrlTrack : PlayerService,
@@ -53,11 +53,14 @@ PlayerURl = "http://188.225.182.10:8000/live";
 
   PlayRadio(playUrl, status){
     if(status === false){
-      this.playerUrlTrack.openMusic(playUrl, 'live');
+      this.playerUrlTrack.openMusic(playUrl, "live");
       this.playerUrlTrack.changePlayerStatus(true);
+      this.playerUrlTrack.actionPlayerType("live");
+      this.playerUrlTrack.getPlayNow();
     }else{
       this.playerUrlTrack.ngStop()
       this.playerUrlTrack.changePlayerStatus(false);
+      this.playerUrlTrack.getPlayNow();
     }
   }
 
@@ -247,15 +250,19 @@ Register(user:User)
 
   ngOnInit() { 
 
-   
-
     this.playerUrlTrack.PlayerStatus.subscribe(data => {
       this.playerStatus = data;
-   } );
+    });
+
+    this.playerUrlTrack.playNowVar.subscribe(data => {
+      this.playNowVar = data;
+    });
+
+    this.playerUrlTrack.PlayerTypes.subscribe(data => {
+      this.PlayerTypes = data;
+    });
        
 
-
-    
 
    if( localStorage.getItem('userToken') != null)
    {

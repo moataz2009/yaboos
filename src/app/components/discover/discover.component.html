@@ -1,19 +1,11 @@
 <div class="d-xs-block d-lg-none">
-    <a href={{mobileAppUrl}} class="mobileapp">{{headerMessage}}</a>
+    <a  class="mobileapp">{{headerMessage}}</a>
 </div>
 <img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
-<br><br><br><br><br>
 
 <div class="discover">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <!-- <div class="form-group has-search" >
-                <div (click)="HomeSearch(searchTxt.value)">
-                    <i class="fa fa-search form-control-feedback" ></i>
-
-                </div>
-                <input type="text" class="form-control" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم....">
-            </div> -->
                  
             <div  class="form-group has-search">
                 <div class="form-group has-search" (click)="HomeSearch(searchTxt.value)" class="mysearchicon">
@@ -92,14 +84,14 @@
                             <a><i class="fa fa-share"></i></a>
                             <a href="" target="_blank" (click)="DownloadAudio($event ,prop.id )"><i class="fas fa-download"></i></a>
                         </div>
-                        <div class="mytexts" (click)="openmusicmodel(prop.id , prop.title)">
+                        <div class="mytexts" (click)="PlayTrack(prop.id , prop.title, false)">
                             <h3> {{prop.titleAr}} </h3>
                             <p> {{programName}}</p>
                         </div>
                         <div class="mimage">
                             <div class="pausedproicon w-20">
                                 <a><img src="../../../assets/imgs/program small icon.png"></a>
-                                <a><span>5.00</span></a>
+                                <a><span>{{calcTime(prop.duration)}}</span></a>
                             </div>
                             <img [src]="programImage" class="imageapi">
                         </div>

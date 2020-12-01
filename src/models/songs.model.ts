@@ -3,6 +3,7 @@ import { title } from "process";
 export class Songs {
        id   : number;
        title   :    string   ;
+       duration   :    any   ;
        titleAr   :    string   ;
        lowQuality   :    string  ;
        highQuality   :    string  ;
@@ -12,10 +13,13 @@ export class Songs {
        album :{
               id:number ,
               title:string,
-              artistId:number
+              artistId:number,
+              artist: {
+                     image: any;
+              }
        };
        offset:number;
        limit:number;
        length:number;
-       result : Songs
+       result : Songs;
 }

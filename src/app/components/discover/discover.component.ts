@@ -17,6 +17,7 @@ import { map, startWith } from 'rxjs/operators';
 import * as $ from 'jquery'
 import { Songs } from 'src/models/songs.model';
 import { Router } from '@angular/router';
+import { PlayerService } from 'src/app/shared/player.service';
 @Component({
   selector: 'app-discover',
   templateUrl: './discover.component.html',
@@ -85,7 +86,39 @@ breakpoints:{  //when make it responsive
     loop:true,
   };
 //object from imports
-  constructor(private http : HttpClient, private programServices: programsService , private SongsService:SongsService , private ArtistService : ArtistService , private route: Router,) { }
+  constructor(
+      private http : HttpClient, 
+      private programServices: programsService , 
+      private SongsService:SongsService , 
+      private ArtistService : ArtistService , 
+      private route: Router,
+      private playerUrl : PlayerService
+    ) { }
+
+    PlayTrack(id: any, title ,status){
+      if(status === false){
+        this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
+        this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
+        this.playerUrl.changePlayerStatus(true);
+        this.playerUrl.changePlayerTitle(title);
+        this.playerUrl.actionPlayNow("");
+        this.playerUrl.actionPlayerType("track");
+      }else{
+        this.playerUrl.ngStop()
+        this.playerUrl.changePlayerStatus(false);
+        this.playerUrl.changePlayerTitle(title);
+        this.playerUrl.actionPlayerType("track");
+      }
+    }
+
+    calcTime(input:any){
+        var input1 = input*1;
+        var minutes = input1/60;
+        var seconds = input1%60;
+    
+        return Math.floor(minutes) + ':' + seconds;
+    }
+
   //end call api
   album :Album;
   programsList: program[]=[];
@@ -210,6 +243,10 @@ changeheart(){
     this.programName = programName;
     this.SongsService.GetSongsOfAlbum("0" , "12" ,programId ).subscribe(res =>{
       this.EposidesList = res.result;
+      console.log("Start  ccccccccccc");
+      console.log(this.EposidesList);
+      console.log("Start  ccccccccccc");
+
       this.programImage = programImg;
      });
 
@@ -294,14 +331,14 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
    
   }
   openmusicmodel(songId , name){
-this.isPlaying=true;
-var audio= document.querySelector("audio");
-audio.pause();
-this.currentSongURL =`http://188.225.184.108:9091/api/songs/playsong/${songId}`;
-this.currentSongId = songId;
-this.currentSongName = name;
-this.mainicon = false;
-this.songPlayIcon = true;
+    this.isPlaying=true;
+    var audio= document.querySelector("audio");
+    audio.pause();
+    this.currentSongURL =`http://188.225.184.108:9091/api/songs/playsong/${songId}`;
+    this.currentSongId = songId;
+    this.currentSongName = name;
+    this.mainicon = false;
+    this.songPlayIcon = true;
   }
   ChangeIcons()
 {
