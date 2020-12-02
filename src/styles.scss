@@ -126,6 +126,7 @@ body {
 // ***********
 .backGround-1 {
     background-image: url(assets/imgs/background.png);
+    padding: 0;
 }
 
 $white:#fff;
@@ -181,7 +182,7 @@ $basicColor:#106666;
 
 /* Player Sryle Start */
 .modalContainer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     padding: 20px;
     background: #106666;
@@ -192,6 +193,8 @@ $basicColor:#106666;
     left: 0;
     margin: 0 auto;
     right: 0;
+    z-index: 9;
+    border: 1px solid #3cb8ba;
 }
 .ngClassPlay {
     background: transparent !important;
@@ -341,4 +344,63 @@ input[type=range] {
     padding: 30px;
   }
   
+  .popUpViewtrue {
+    width: 400px;
+    border: 1px solid #3cb8ba;
+    border-radius: 20px;
+    top: 240px;
+    bottom: auto;
+    box-shadow: 0 0 30px #075252;
+}
+
+.trackTemplatetrue .imageTrack {
+    width: 100%;
+    height: 170px;
+    text-align: center;
+}
+
+.trackTemplatetrue .imageTrack img {
+    width: auto;
+    height: 100%;
+}
+
+.trackTemplatetrue .trackSeekBar {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+
+.trackTemplatetrue .trackButtons {
+    width: 100%;
+    text-align: center;
+}
+
+.btnToggle {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    padding: 0 10px;
+    font-size: 30px;
+    line-height: 10px;
+    outline: none !important;
+}
+.ngClassFav {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 26px;
+    padding-top: 11px;
+    width: 56px;
+    height: 55px;
+    line-height: 49px;
+    position: relative;
+    display: inline-grid;
+    margin: 0 10px;
+    outline: none !important;
+}
+.trackButtons {
+    float: right;
+}
 /* Player Sryle End */

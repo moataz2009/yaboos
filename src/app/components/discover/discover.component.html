@@ -97,8 +97,8 @@
                         </div>
                     </div>
                     <!-- المزيد  -->
-                    <div class="more col-xs-3">
-                        <a (click)="loadmoreEposides()">المزيد</a>
+                    <div *ngIf="viewLoadMore === true" class="more col-xs-3">
+                        <a (click)="progrmslistLoadMore()">المزيد</a>
                     </div>
  
 

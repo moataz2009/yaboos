@@ -57,10 +57,11 @@ PlayerURl = "http://188.225.182.10:8000/live";
       this.playerUrlTrack.changePlayerStatus(true);
       this.playerUrlTrack.actionPlayerType("live");
       this.playerUrlTrack.getPlayNow();
+      this.playerUrlTrack.actionSongId('');
     }else{
       this.playerUrlTrack.ngStop()
       this.playerUrlTrack.changePlayerStatus(false);
-      this.playerUrlTrack.getPlayNow();
+      this.playerUrlTrack.actionPlayerType("");
     }
   }
 
@@ -165,12 +166,10 @@ Register(user:User)
     debugger;
     this.prevlive =false;
     let date: Date = new Date(); 
-    console.log("Start");
+
     if(clock1 === ""){
       clock1 ="0";
     }
-    console.log(clock1);
-    console.log("end");
 
     let hours = `${clock1}` + `${clock2}`;
     let x :number = date.getHours();
@@ -188,9 +187,13 @@ Register(user:User)
       this.PlayerURl =`http://188.225.184.108:9091/api/Radio/PlayHistory?datetime=${today}&hour=${hours}`;
       this.playerUrlTrack.changeUrlPlayer(this.PlayerURl);
 
-    //   var audio= document.querySelector("audio");
-    // audio.src = this.PlayerURl;
-    // audio.play();
+      this.playerUrlTrack.changePlayerStatus(true);
+      this.playerUrlTrack.changePlayerTitle(`تسجيل سابق ${hours}:00 ${today} `);
+      this.playerUrlTrack.actionPlayNow(`تسجيل سابق ${hours}:00 ${today} `);
+      this.playerUrlTrack.actionPlayImage(null);
+      this.playerUrlTrack.actionSongId(null);
+      this.playerUrlTrack.actionPlayerType("track");
+
     $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-05.png");
     $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD_GIF.gif");
     }

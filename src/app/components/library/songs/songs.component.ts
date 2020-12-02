@@ -74,6 +74,7 @@ export class SongsComponent implements OnInit {
       this.playerUrl.changePlayerTitle(title);
       this.playerUrl.actionPlayNow("");
       this.playerUrl.actionPlayImage(image);
+      this.playerUrl.actionSongId(id);
       
       this.playerUrl.actionPlayerType("track");
     }else{
@@ -381,6 +382,8 @@ backalbums(){
       this.toastr.success('لم يتم الحفظ ');
     });
   }
+
+
   SearchArtist(){
     this.ArtistService.SearchAlphapet("0" , String(this.mycountalb), this.searchText).subscribe(res =>{
     this.artistList = res.result;

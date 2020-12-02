@@ -1,4 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { FavoritesService } from 'src/app/shared/favorites.service';
 import { PlayerService } from 'src/app/shared/player.service';
 import { MainURL } from 'src/service/globals/global-config';
 
@@ -27,8 +31,40 @@ export class PlayerComponent implements OnInit {
   PlayerTypes:any;
   PlayImageVar:any;
   Main_URL:any;
-  constructor(private playerUrl : PlayerService) { }
+  popupVar:any;
+  songIdVar:String;
 
+  minUrlPage:any;
+
+
+  constructor(
+    private playerUrl : PlayerService,
+    private favorites : FavoritesService,
+    private toastr: ToastrService,
+    private router: Router
+    ) { 
+
+      router.events.forEach((event) => {
+        if(event instanceof NavigationStart) {
+          this.minUrlPage = event.url;
+        }
+      });
+      
+    }
+
+    ActionclosePlayer(){
+      this.playerUrl.actionPlayerType(null);
+      this.playerUrl.ngPause();
+    }
+
+
+  addToFavorite(){
+    this.favorites.addToFavorite(this.songIdVar).subscribe((data) => {      
+      this.toastr.success('تم الحفظ بنجاح');
+    }, (err: HttpErrorResponse) => {
+      this.toastr.success('لم يتم الحفظ ');
+    });
+  }
 
   PlayRadio(status){
     if(status === false){
@@ -40,8 +76,11 @@ export class PlayerComponent implements OnInit {
     }
   }
 
+
   ngOnInit(): void {
 
+    // var getUrl = window.location.pathname.split('/');
+    // this.minUrlPage = getUrl[1];
     this.Main_URL = MainURL;
     
     this.playerUrl.currentUrl.subscribe(data => {
@@ -49,8 +88,16 @@ export class PlayerComponent implements OnInit {
       this.openMusic(this.playUrl, '');
     } );
 
+    this.playerUrl.songIdVar.subscribe(data => {
+      this.songIdVar = data;
+    });
+
     this.playerUrl.PlayImageVar.subscribe(data => {
       this.PlayImageVar = data;
+    });
+
+    this.playerUrl.popupVar.subscribe(data => {
+      this.popupVar = data;
     });
 
     this.playerUrl.PlayerStatus.subscribe(data => {
@@ -123,6 +170,14 @@ export class PlayerComponent implements OnInit {
 
   setSeekTo(event){
     this.playerUrl.setSeekTo(event);
+  }
+
+  setPopUp(){
+    if(this.popupVar === 'true'){
+      this.playerUrl.actionPopUp('false');
+    }else{
+      this.playerUrl.actionPopUp('true');
+    }
   }
 
   

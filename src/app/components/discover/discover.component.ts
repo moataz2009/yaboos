@@ -28,12 +28,15 @@ export class DiscoverComponent implements OnInit {
   [x: string]: any;
   headerMessage : string;
   pagenumber : number =0;
-programName:string;
-programImage:string;
-currentSongURL : any;
-currentSongName:any;
-currentSongId:any;
-songPlayIcon:boolean = false;
+  programName:string;
+  programId:string;
+  programImage:string;
+  currentSongURL : any;
+  currentSongName:any;
+  currentSongId:any;
+  programLimit:any;
+  viewLoadMore: any;
+  songPlayIcon:boolean = false;
   config: SwiperOptions = {
     pagination: { el: '.swiper-pagination', clickable: true },
     navigation: {
@@ -237,20 +240,49 @@ changeheart(){
 
   showprogrmslist(programId , programName , programImg){
     // debugger;
+    
+    this.programLimit = 9; 
     this.hideprograms=false;
     this.hideprogrameer=false;
     this.showmyprograms = true;
     this.programName = programName;
-    this.SongsService.GetSongsOfAlbum("0" , "12" ,programId ).subscribe(res =>{
+    this.programId = programId;
+    this.SongsService.GetSongsOfAlbum("0" , this.programLimit ,programId ).subscribe(res =>{
       this.EposidesList = res.result;
+      console.log(res.length);
+      console.log(this.programLimit);
       console.log("Start  ccccccccccc");
-      console.log(this.EposidesList);
-      console.log("Start  ccccccccccc");
+
+      if(res.length <= this.programLimit){
+        this.viewLoadMore = false;
+      }else {
+        this.viewLoadMore = true;
+      }
 
       this.programImage = programImg;
      });
 
+
   }
+
+  progrmslistLoadMore(){
+    this.programLimit = this.programLimit + 9;
+
+    this.SongsService.GetSongsOfAlbum("0" , this.programLimit , this.programId ).subscribe(res =>{
+
+      this.EposidesList = res.result;
+
+      if(res.length <= this.programLimit){
+        this.viewLoadMore = false;
+      }else {
+        this.viewLoadMore = true;
+      }
+
+      console.log("Start  more");
+
+     });
+  }
+
   hidenow:boolean=false;
 hidelate:boolean=true;
 myhello(){

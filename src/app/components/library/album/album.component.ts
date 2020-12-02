@@ -69,6 +69,9 @@ export class AlbumComponent implements OnInit {
         this.playerUrl.changePlayerStatus(true);
         this.playerUrl.changePlayerTitle(title);
         this.playerUrl.actionPlayNow("");
+        
+        this.playerUrl.actionSongId(id);
+        
         this.playerUrl.actionPlayerType("track");
         this.playerUrl.actionPlayImage(image);
       }else{

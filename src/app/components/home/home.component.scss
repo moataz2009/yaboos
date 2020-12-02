@@ -140,22 +140,22 @@ font-size: 17px;
         top: 40px;
     }
 
-    @include MediaQuery(s){
+    /*@include MediaQuery(s){
         // top:3%; 
         top:40px;
     }
     @include MediaQuery(M){
         // top:10%;
-        top:70px; 
+        top:60px; 
     }
     @include MediaQuery(L){
         // top:-9%;
-        top:187px;
+        top:70px;
     }
-    @include MediaQuery(XL-XXL){top:7%;}
+    @include MediaQuery(XL-XXL){top:70px;}
     @include MediaQuery(XXL){
-        top:7%;
-    }
+        top:70px;
+    }*/
     h1,h5{
         margin-right: 10%;
         text-align: right;
@@ -1066,4 +1066,112 @@ input[type=number] {
     }
 }
 
+.modalContainer {
+    display: none !important;
+}
+
+.homeContent {
+    -ms-transform: translateY(-50%);
+    align-items: left;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    padding-top: 100px;
+}
+.homepage  {
+    top: 0 !important;
+}
+.imagCdPlay {
+    width: 310px;
+    float: left;
+    position: relative;
+    height: 100%;
+    text-align: center;
+    margin-left: 30px;
+}
+
+.imagCdPlay img {
+    width: 100%;
+    bottom: 14px;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.cdButtonPlay{
+    right: 20px;
+    float: right;
+}
+
+.playerTitlesHome h1 {
+    font-size: 40px !important;
+}
+
+.playerTitlesHome h5 {font-size: 21px !important;}
+
+.playerTitlesHome {
+    width: 777px;
+    margin: 0 auto;
+    padding-left: 350px;
+}
+
+.playerTitlesHome * {
+    margin: 12px 0 !important;
+}
+@media(max-width: 991px){
+    .imagCdPlay {
+        display: none;
+    }
+    .playerTitlesHome {
+        padding-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .playerTitlesHome * {
+        margin: 0 !important;
+        text-align: center !important;
+        width: 100%;
+        position: relative;
+        left: 0;
+        right: 0;
+        padding: 2px;
+    }
+
+    .cdButtonPlay {
+        width: 100%;
+        max-width: 100%;
+        left: 0;
+        right: 0;
+        top: 26px;
+        padding-left: 46px;
+    }
+
+    .HomeLogo {
+        text-align: center;
+        position: relative;
+        height: 90px;
+        top: 70px;
+    }
+    
+    .HomeLogo * {
+        max-width: 200px;
+        right: auto !important;
+        left: auto;
+        position: relative !important;
+        top: 0 !important;
+    }
+    
+}
+app-navbar {
+    z-index: 10;
+}
 

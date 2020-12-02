@@ -12,6 +12,7 @@ export class PlayerService {
 
   playUrl: String;
   PlayNowStrind: any;
+  PlayNowType: any;
   
   private minStatus = new BehaviorSubject<boolean>(false);
   PlayerStatus = this.minStatus.asObservable();
@@ -19,7 +20,7 @@ export class PlayerService {
   private minPlayerTitle = new BehaviorSubject<String>(undefined);
   PlayerTitle = this.minPlayerTitle.asObservable();
 
-  private minType = new BehaviorSubject<String>(undefined);
+  private minType = new BehaviorSubject<String>(null);
   PlayerTypes = this.minType.asObservable();
 
   private minPlayerVolumeValue = new BehaviorSubject<number>(0.5);
@@ -49,6 +50,12 @@ export class PlayerService {
   private mainPlayImage = new BehaviorSubject<any>(undefined);
   PlayImageVar = this.mainPlayImage.asObservable();
 
+  private mainPopUp = new BehaviorSubject<any>('true');
+  popupVar = this.mainPopUp.asObservable();
+
+  private mainSongId = new BehaviorSubject<String>(null);
+  songIdVar = this.mainSongId.asObservable();
+
   audiObg = new Audio();
 
   constructor(private http: HttpClient) {
@@ -65,6 +72,14 @@ export class PlayerService {
 
    changeUrlPlayer(UrlPlayer: any){
     this.minUrlSource.next(UrlPlayer);
+  }
+
+  actionSongId(attr: any){
+    this.mainSongId.next(attr);
+  }
+
+  actionPopUp(attr: any){
+    this.mainPopUp.next(attr);
   }
 
   actionPlayNow(NowPlayer: any){
@@ -115,6 +130,7 @@ export class PlayerService {
   readonly rootUrl = MainURL;
   getPlayNow(){
 
+    
     this.mainPlayNow.next('جاري التحميل ...');
     this.minPlayerTitle.next('جاري التحميل ...');
 
@@ -197,7 +213,12 @@ export class PlayerService {
 
   ngStop(){
     this.audiObg.pause();
-    //this.audiObg.currentTime = 0;
+
+    if(this.PlayNowStrind === 'live'){
+      this.audiObg.currentTime = 0;
+      console.log('ngStop zero');
+    }
+    
     console.log('ngStop');
   }
 

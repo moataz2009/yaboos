@@ -28,32 +28,32 @@
                 <h3>معادل الصوت </h3>
             </div>
             <div class=" row">
-                <ul>
+                <ul class="btnToolOpt">
                     <li (click)="Highest()">
                         <a>
                             <img *ngIf="playerVolume != 'Highest'" id="Highest" src="../../../assets/imgs/Selected.png">
-                            <img *ngIf="playerVolume === 'Highest'" id="Highest" src="../../../assets/imgs/btn_open.jpg">
+                            <img *ngIf="playerVolume === 'Highest'" id="Highest" src="../../../assets/imgs/playedImg.png">
                         </a>
                         <h5>عالى </h5>
                     </li>
                     <li (click)="meduim()">
                         <a>
                             <img *ngIf="playerVolume != 'meduim'" id="Highest" src="../../../assets/imgs/Selected.png">
-                            <img *ngIf="playerVolume === 'meduim'" id="Highest" src="../../../assets/imgs/btn_open.jpg">
+                            <img *ngIf="playerVolume === 'meduim'" id="Highest" src="../../../assets/imgs/playedImg.png">
                         </a>
                         <h5>عالى <br> متوسط </h5>
                     </li>
                     <li (click)="low()">
                         <a>
                             <img *ngIf="playerVolume != 'low'" id="Highest" src="../../../assets/imgs/Selected.png">
-                            <img *ngIf="playerVolume === 'low'" id="Highest" src="../../../assets/imgs/btn_open.jpg">
+                            <img *ngIf="playerVolume === 'low'" id="Highest" src="../../../assets/imgs/playedImg.png">
                         </a>
                         <h5>منخفض <br> متوسط </h5>
                     </li>
                     <li (click)="lowest()">
                         <a>
                             <img *ngIf="playerVolume != 'lowest'" id="Highest" src="../../../assets/imgs/Selected.png">
-                            <img *ngIf="playerVolume === 'lowest'" id="Highest" src="../../../assets/imgs/btn_open.jpg">
+                            <img *ngIf="playerVolume === 'lowest'" id="Highest" src="../../../assets/imgs/playedImg.png">
                         </a>
                         <h5>عميق</h5>
                     </li>

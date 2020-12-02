@@ -31,6 +31,9 @@ export class FavoriteComponent implements OnInit {
       this.playerUrl.changePlayerStatus(true);
       this.playerUrl.changePlayerTitle(title);
       this.playerUrl.actionPlayNow("");
+      
+      this.playerUrl.actionSongId(id);
+      
       this.playerUrl.actionPlayerType("track");
     }else{
       this.playerUrl.ngStop()

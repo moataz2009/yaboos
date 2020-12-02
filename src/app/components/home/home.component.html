@@ -2,99 +2,109 @@
     <a href={{mobileAppUrl}} class="mobileapp">{{headerMessage}}</a>
 </div>
 
-<img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
-<br><br><br><br><br>
-
-<div class="homepage m-auto text-center" *ngIf="hideall">
-    <div class="container">
-        <h1 class="col-xs-6">البث المباشر</h1>
-        <h5 class="col-xs-6"> {{playNowVar}} &nbsp;</h5>
-        <div class="m-auto pb-3 d-flex justify-content-center">
-            <div class="backimg ">
-                <div class="col-xs-4 cdimag justify-content-center">
-                    <a id="button2">
-                        <img src="../../../assets/imgs/CD.png" class="cd img-responsive">
-                    </a>
-                    <img src="../../../assets/imgs/CD_GIF.gif" class="cd img-responsive" *ngIf="playerStatus">
-                </div>
-
-                <!-- <audio id="player" [src]="PlayerURl" controls style="display:none;"> </audio> -->
-
-                <div class="col-xs-4 images justify-content-center">
-                    <img src="../../../assets/imgs/Materials-06.png" class="small" (click)="ForwardMins(PlayerURl)">
-                    <!-- <a id="button">
-                        <img src="../../../assets/imgs/Materials-04.png" class="large">
-                    </a> -->
-
+<div class="HomeLogo">
+    <img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
+</div>
+<div class="homeContent">
+    <div class="homepage m-auto text-center" *ngIf="hideall">
+        <div class="container">
+            <div class="playerTitlesHome">
+                <h1 class="col-xs-6">البث المباشر</h1>
+                <h5 class="col-xs-6"> {{playNowVar}} &nbsp;</h5>
+            </div>
+            <div class="m-auto pb-3 d-flex justify-content-center">
+                <div class="backimg position-relative">
+                    <!-- <div class="col-xs-4 cdimag justify-content-center">
+                        
+                    </div> -->
                     
+                    <div class="imagCdPlay">
+                        <a id="button2">
+                            <img src="../../../assets/imgs/CD.png" class="cd img-responsive">
+                        </a>
+                        <img src="../../../assets/imgs/CD_GIF.gif" class="cd img-responsive" *ngIf="playerStatus">
+                    </div>
                     
-                    <button class="ngClassPlay" *ngIf="PlayerTypes ==='live'" (click)="PlayRadio('http://188.225.182.10:8000/live', playerStatus)">
-                        <img *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
-                        <img *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
-                         
+                    <!-- <audio id="player" [src]="PlayerURl" controls style="display:none;"> </audio> -->
+    
+                    <div class="col-xs-4 cdButtonPlay images justify-content-center">
+                        <img src="../../../assets/imgs/Materials-06.png" class="small" (click)="ForwardMins(PlayerURl)">
+                        <!-- <a id="button">
+                            <img src="../../../assets/imgs/Materials-04.png" class="large">
+                        </a> -->
+    
+                        
+                        
+                        <button class="ngClassPlay" *ngIf="PlayerTypes ==='live'" (click)="PlayRadio('http://188.225.182.10:8000/live', playerStatus)">
+                            <img *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
+                            <img *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
                         </button>
-             
-                    <!-- Play if is play trak  -->
-                    <button  class="ngClassPlay" *ngIf="PlayerTypes !='live'" (click)="PlayRadio('http://188.225.182.10:8000/live', false)">
-                        <img src="../../../assets/imgs/Materials-04.png" class="small">
-                    </button>
-             
-
-                    <img src="../../../assets/imgs/Materials-05.png" class="large" *ngIf="div1" (click)="openimage4()">
-                    <img src="../../../assets/imgs/Materials-07.png" class="small" (click)="BackwardMins(PlayerURl)">
+                 
+                        <!-- Play if is play trak  -->
+                        <button  class="ngClassPlay" *ngIf="PlayerTypes !='live'" (click)="PlayRadio('http://188.225.182.10:8000/live', false)">
+                            <img src="../../../assets/imgs/Materials-04.png" class="small">
+                        </button>
+                 
+    
+                        <img src="../../../assets/imgs/Materials-05.png" class="large" *ngIf="div1" (click)="openimage4()">
+                        <img src="../../../assets/imgs/Materials-07.png" class="small" (click)="BackwardMins(PlayerURl)">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-8 col-md-12 col-sm-12 m-auto pb-3 ">
-            <div class="last w-100 d-flex justify-content-center fdash">
-                <a class="btn btn-simple btn-danger btn-round ml-4" (click)="previouslive()" data-toggle="modal" data-target="#examModal">
-                    <span>الرجوع للخلف</span>
-                    <i class="fa fa-angle-down"></i>
-                </a>
-            </div>
-        </div>
-        <div class="col-xs-10 col-sm-9 col-md-9 col-lg-6  m-auto pb-3 mysearchinput">
-            <div class="input-group w-100 d-flex justify-content-center ">
-                <div class="input-group-append" (click)="HomeSearch(searchTxt.value)">
-                    <i class="fas fa-search"></i>
+            <div class="col-lg-8 col-md-12 col-sm-12 m-auto pb-3 ">
+                <div class="last w-100 d-flex justify-content-center fdash">
+                    <a class="btn btn-simple btn-danger btn-round ml-4" (click)="previouslive()" data-toggle="modal" data-target="#examModal">
+                        <span>الرجوع للخلف</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
                 </div>
-                <input type="text" (keyup.enter)="HomeSearch(searchTxt.value)" class="form-control border-right-0" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم....">
             </div>
-        </div>
-
-        <div class="col-sm-12 col-md-12 col-lg-12  m-auto pb-3 " style="padding-right:0;padding-left: 0;" *ngIf="!currentUser">
-            <div class="last w-100 d-flex justify-content-center sdash">
-                <a class="btn btn-simple btn-danger btn-round sagel" aria-disabled="false" routerLink="/Home/login">
-                    <span>سجل الأن</span>
-                </a>
-                <!-- <a class="btn btn-simple btn-danger btn-round">
-                    <span>سجل لاحقا</span>
-                </a> -->
+            <div class="col-xs-10 col-sm-9 col-md-9 col-lg-6  m-auto pb-3 mysearchinput">
+                <div class="input-group w-100 d-flex justify-content-center ">
+                    <div class="input-group-append" (click)="HomeSearch(searchTxt.value)">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" (keyup.enter)="HomeSearch(searchTxt.value)" class="form-control border-right-0" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم....">
+                </div>
             </div>
-        </div>
-        <div class="col-lg-6 col-md-12 col-sm-12 m-auto mylastdiv">
-            <div class="last w-100 d-flex justify-content-center social">
-                <a class="btn btn-simple btn-danger btn-round sagel" aria-disabled="false">
-                    <span> Apple Store </span>
-                    <i class="fab fa-apple"> </i>
-                </a>
-                <a class="btn btn-simple btn-danger btn-round">
-                    <span> Google Play  </span>
-                    <i class="fab fa-google-play"> </i>
-                </a>
+    
+            <div class="col-sm-12 col-md-12 col-lg-12  m-auto pb-3 " style="padding-right:0;padding-left: 0;" *ngIf="!currentUser">
+                <div class="last w-100 d-flex justify-content-center sdash">
+                    <a class="btn btn-simple btn-danger btn-round sagel" aria-disabled="false" routerLink="/Home/login">
+                        <span>سجل الأن</span>
+                    </a>
+                    <!-- <a class="btn btn-simple btn-danger btn-round">
+                        <span>سجل لاحقا</span>
+                    </a> -->
+                </div>
             </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 m-auto mylastdiv">
+                <div class="last w-100 d-flex justify-content-center social">
+                    <a class="btn btn-simple btn-danger btn-round sagel" aria-disabled="false">
+                        <span> Apple Store </span>
+                        <i class="fab fa-apple"> </i>
+                    </a>
+                    <a class="btn btn-simple btn-danger btn-round">
+                        <span> Google Play  </span>
+                        <i class="fab fa-google-play"> </i>
+                    </a>
+                </div>
+            </div>
+    
         </div>
-
+    </div>
+    
+    <!-- song request -->
+    <div class="footer" *ngIf="hideall">
+        <a class="songOrder " data-toggle="modal" href="#SongOrder">
+            <i class="fas fa-microphone-alt"></i>
+            <span class="text-nowrap"> طلب أغنيه </span>
+        </a>
     </div>
 </div>
 
-<!-- song request -->
-<div class="footer" *ngIf="hideall">
-    <a class="songOrder " data-toggle="modal" href="#SongOrder">
-        <i class="fas fa-microphone-alt"></i>
-        <span class="text-nowrap"> طلب أغنيه </span>
-    </a>
-</div>
+
+
 <!-- start song reguest model -->
 <div class="modal sr SongOrderModal" id="SongOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

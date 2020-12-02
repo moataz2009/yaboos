@@ -1,62 +1,144 @@
 
-<div class="modalContainer">
-    <div class="modalBody">
 
-        <div *ngIf="PlayerTypes === 'live'" class="radipTemplate">
-            <div class="textContentLive">
-                <div class="palyerContent text-left">
-                    <h2 >البث المباشر</h2>
-                    {{PlayerTitle}}
+<div *ngIf=" minUrlPage != '/Home'" class="Home">
+    <div *ngIf="PlayerTypes != null" class="modalContainer popUpView{{popupVar}}">
+
+        <div class="modalBody">
+            <button (click)="setPopUp()" class="btnToggle">
+                <i *ngIf="popupVar === 'true'" class="fa fa-angle-down" aria-hidden="true"></i>
+                <i *ngIf="popupVar != 'true'" class="fa fa-angle-up" aria-hidden="true"></i>
+                 
+            </button>
+            <button (click)="ActionclosePlayer()" class="btnToggle">
+                <i class="fa fa-times" aria-hidden="true"></i>                
+            </button>
+            <div *ngIf="PlayerTypes === 'live'" class="radipTemplate radioTemplate{{popupVar}}">
+    
+                <div class="textContentLive">
+                    <div class="palyerContent text-left">
+                        <h2 >البث المباشر</h2>
+                        {{PlayerTitle}}
+                    </div>
                 </div>
+                
+    
+                <div class="liveButtonSection">
+                    <div class="text-right">
+                        <button class="ngClassPlay ngClassPlayFooter " (click)="PlayRadio(playerStatus)">
+                            <img style="width: 70px;" *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
+                            <img style="width: 70px;" *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
+                        </button>
+                    </div>
+                </div>
+                
             </div>
-            
-
-            <div class="liveButtonSection">
-                <div class="text-right">
-                    <button class="ngClassPlay ngClassPlayFooter " (click)="PlayRadio(playerStatus)">
+    
+            <div *ngIf="PlayerTypes === 'track'" class="trackTemplate trackTemplate{{popupVar}}">
+    
+    
+                <div *ngIf="PlayImageVar != null" class="imageTrack">
+                    <img  src="{{Main_URL}}/{{PlayImageVar}}" alt="">
+    
+                </div>
+    
+                <div *ngIf="PlayImageVar === null" class="imageTrack bg-transparent">
+                    <img  src="../../../assets/imgs/CD_GIF.gif" alt="">
+                </div>
+    
+                
+    
+                
+                
+                <div class="trackSeekBar">
+                    <div class="TrackTitleText">
+                        {{PlayerTitle}}
+                    </div>
+    
+                    <input class="rangTrack" type="range" min="0" max="{{durationSeek}}" [value]="seek" (input)="setSeekTo($event)"/>
+                    <span>{{duration}}</span>/<span>{{currentTime}}</span>
+                </div>
+    
+                <div class="trackButtons">
+                    <button  class="ngClassPlay ngClassPlayFooter " (click)="PlayRadio(playerStatus)">
                         <img style="width: 70px;" *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
                         <img style="width: 70px;" *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
                     </button>
+    
+                    <button *ngIf="songIdVar != null" (click)="addToFavorite()" class="ngClassFav " >
+                        <i class="far fa-heart"></i> 
+                    </button>
                 </div>
+                
+    
             </div>
-            
+    
         </div>
+    </div>
+</div>
 
-        <div *ngIf="PlayerTypes === 'track'" class="trackTemplate">
 
 
-            <div *ngIf="PlayImageVar != ''" class="imageTrack">
-                <img  src="{{Main_URL}}/{{PlayImageVar}}" alt="">
-            </div>
+<div *ngIf=" minUrlPage === '/Home' && PlayerTypes === 'track'" class="Home">
+    <div *ngIf="PlayerTypes != null" class="modalContainer popUpView{{popupVar}}">
 
+        <div class="modalBody">
+            <button (click)="setPopUp()" class="btnToggle">
+                <i *ngIf="popupVar === 'true'" class="fa fa-angle-down" aria-hidden="true"></i>
+                <i *ngIf="popupVar != 'true'" class="fa fa-angle-up" aria-hidden="true"></i>
+                 
+            </button>
+
+            <button (click)="ActionclosePlayer()" class="btnToggle">
+                <i class="fa fa-times" aria-hidden="true"></i>               
+            </button>
             
-            
-            <div class="trackSeekBar">
-                <div class="TrackTitleText">
-                    {{PlayerTitle}}
+            <div *ngIf="PlayerTypes === 'track'" class="trackTemplate trackTemplate{{popupVar}}">
+    
+    
+                <div *ngIf="PlayImageVar != null" class="imageTrack">
+                    <img  src="{{Main_URL}}/{{PlayImageVar}}" alt="">
+    
                 </div>
-
-                <input class="rangTrack" type="range" min="0" max="{{durationSeek}}" [value]="seek" (input)="setSeekTo($event)"/>
-                <span>{{duration}}</span>/<span>{{currentTime}}</span>
+    
+                <div *ngIf="PlayImageVar === null" class="imageTrack bg-transparent">
+                    <img  src="../../../assets/imgs/CD_GIF.gif" alt="">
+                </div>
+    
+                
+    
+                
+                
+                <div class="trackSeekBar">
+                    <div class="TrackTitleText">
+                        {{PlayerTitle}}
+                    </div>
+    
+                    <input class="rangTrack" type="range" min="0" max="{{durationSeek}}" [value]="seek" (input)="setSeekTo($event)"/>
+                    <span>{{duration}}</span>/<span>{{currentTime}}</span>
+                </div>
+    
+                <div class="trackButtons">
+                    <button  class="ngClassPlay ngClassPlayFooter " (click)="PlayRadio(playerStatus)">
+                        <img style="width: 70px;" *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
+                        <img style="width: 70px;" *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
+                    </button>
+    
+                    <button *ngIf="songIdVar != null" (click)="addToFavorite()" class="ngClassFav " >
+                        <i class="far fa-heart"></i> 
+                    </button>
+                </div>
+                
+    
             </div>
-
-            <div class="trackButtons">
-                <button  class="ngClassPlay ngClassPlayFooter " (click)="PlayRadio(playerStatus)">
-                    <img style="width: 70px;" *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
-                    <img style="width: 70px;" *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
-                </button>
-                <button class="ngClassPlay ngClassPlayFooter " >Fav</button>
-            </div>
-            
-
+    
         </div>
-
     </div>
 </div>
 
 
 <div style="display: none;">
     
+    {{PlayerTypes}}
 {{playerStatus}} //
 {{PlayImageVar}}
 //
