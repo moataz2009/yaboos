@@ -374,11 +374,34 @@ backalbums(){
     });
   }
 
+  deleteFromFavorite(SongId: String){
+    this.favorites.deleteFromFavorite(SongId).subscribe((data: any) => {
+      
+      this.toastr.success('تم الحذف بنجاح');
+      
+      location.reload();
+
+
+    }, (err: HttpErrorResponse) => {
+      if(localStorage.getItem('userToken') != null){
+      }else{
+         this.router.navigate(['/login']);
+         return false;
+      }
+      this.toastr.error('لم يتم الحذف ');
+
+    });
+  }
 
   addToFavorite(SongId: String){
     this.favorites.addToFavorite(SongId).subscribe((data) => {      
       this.toastr.success('تم الحفظ بنجاح');
     }, (err: HttpErrorResponse) => {
+      if(localStorage.getItem('userToken') != null){
+      }else{
+         this.router.navigate(['/login']);
+         return false;
+      }
       this.toastr.success('لم يتم الحفظ ');
     });
   }

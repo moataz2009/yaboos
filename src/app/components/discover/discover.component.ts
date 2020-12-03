@@ -98,13 +98,16 @@ breakpoints:{  //when make it responsive
       private playerUrl : PlayerService
     ) { }
 
-    PlayTrack(id: any, title ,status){
+    PlayTrack(id: any, title, image ,status){
       if(status === false){
         this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
         this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
         this.playerUrl.changePlayerStatus(true);
         this.playerUrl.changePlayerTitle(title);
         this.playerUrl.actionPlayNow("");
+        this.playerUrl.actionPlayImage(image);
+        this.playerUrl.actionSongId(id);
+        
         this.playerUrl.actionPlayerType("track");
       }else{
         this.playerUrl.ngStop()
@@ -250,7 +253,7 @@ changeheart(){
     this.SongsService.GetSongsOfAlbum("0" , this.programLimit ,programId ).subscribe(res =>{
       this.EposidesList = res.result;
       console.log(res.length);
-      console.log(this.programLimit);
+      console.log(this.EposidesList);
       console.log("Start  ccccccccccc");
 
       if(res.length <= this.programLimit){

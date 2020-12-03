@@ -206,6 +206,11 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
 
 
     }, (err: HttpErrorResponse) => {
+      if(localStorage.getItem('userToken') != null){
+      }else{
+         this.router.navigate(['/login']);
+         return false;
+      }
       this.toastr.error('لم يتم الحذف ');
 
     });
@@ -215,10 +220,9 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
     
     this.favourites.myFavourites().subscribe((data: any) => {
       this.myFavourites = data.result;
-      console.log(this.myFavourites);
       
     }, (err: HttpErrorResponse) => {
-      console.log("Error ::ToDo");
+      //console.log("Error ::ToDo");
     });
   }
 

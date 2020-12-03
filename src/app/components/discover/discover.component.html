@@ -1,13 +1,21 @@
 <div class="d-xs-block d-lg-none">
     <a  class="mobileapp">{{headerMessage}}</a>
 </div>
-<img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
+
 
 <div class="discover">
     <div class="container">
+
+        
+
         <div class="row d-flex justify-content-center">
                  
             <div  class="form-group has-search">
+
+                <div class="HomeLogo">
+                    <img src="../../../assets/imgs/logo.png " class="">
+                </div>
+
                 <div class="form-group has-search" (click)="HomeSearch(searchTxt.value)" class="mysearchicon">
                     <i class="fas fa-search"></i>
                 </div>
@@ -81,10 +89,10 @@
                 <div class="contain stopScrolMobile col-xs-12 ">
                     <div class="textpro" *ngFor="let prop of EposidesList">
                         <div class="socialpro">
-                            <a><i class="fa fa-share"></i></a>
+                            <!-- <a><i class="fa fa-share"></i></a> -->
                             <a href="" target="_blank" (click)="DownloadAudio($event ,prop.id )"><i class="fas fa-download"></i></a>
                         </div>
-                        <div class="mytexts" (click)="PlayTrack(prop.id , prop.title, false)">
+                        <div class="mytexts" (click)="PlayTrack(prop.id , prop.title, prop.album.image,  false)">
                             <h3> {{prop.titleAr}} </h3>
                             <p> {{programName}}</p>
                         </div>

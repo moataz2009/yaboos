@@ -61,7 +61,6 @@ PlayerURl = "http://188.225.182.10:8000/live";
     }else{
       this.playerUrlTrack.ngStop()
       this.playerUrlTrack.changePlayerStatus(false);
-      this.playerUrlTrack.actionPlayerType("");
     }
   }
 

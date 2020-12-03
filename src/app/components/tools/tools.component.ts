@@ -20,12 +20,12 @@ export class ToolsComponent implements OnInit {
   stoplivesection:boolean=false;
   alarmsection:boolean=false;
   playerVolume: String;
-
+  stopImage: String;
   constructor( private PlayerOptions: PlayerOptionsService, private playerUrl: PlayerService ) { }
 
 
-  AutoStopTime(time){
-    this.playerUrl.ActionStopPlayer(time);
+  AutoStopTime(time, status){
+    this.playerUrl.ActionStopPlayer(time, status);
   }
 
   fillHeader(message , url)
@@ -180,6 +180,10 @@ export class ToolsComponent implements OnInit {
 
     this.PlayerOptions.PlayerVolume.subscribe(data => {
       this.playerVolume = data;
+    });
+
+    this.playerUrl.StopImage.subscribe(data => {
+      this.stopImage = data;
     });
 
     if(localStorage.getItem('playerVolume') != null){

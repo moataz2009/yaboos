@@ -9,11 +9,12 @@ export class Songs {
        highQuality   :    string  ;
        image:string;
        albumId   : number;
-
+       isFavourite: any;
        album :{
               id:number ,
               title:string,
               artistId:number,
+              image: any,
               artist: {
                      image: any;
               }

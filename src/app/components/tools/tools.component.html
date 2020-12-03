@@ -72,16 +72,19 @@
             </div>
             <div class=" row">
                 <ul>
-                    <li (click)="AutoStopTime(1800000)">
-                        <a><img id="stopThirtyMin" src="../../../assets/imgs/Group 1084.png"></a>
+                    <li (click)="AutoStopTime(1800000, '30mn')">
+                        <a><img *ngIf="stopImage != '30mn'" id="stopThirtyMin" src="../../../assets/imgs/Group 1084.png"></a>
+                        <a><img *ngIf="stopImage === '30mn'" id="stopThirtyMin" src="../../../assets/imgs/stop.png"></a>
                         <h5>30 دقيقة </h5>
                     </li>
-                    <li (click)="AutoStopTime(3600000)">
-                        <a><img id="stopSixtyMin" src="../../../assets/imgs/Group 1084.png"></a>
+                    <li (click)="AutoStopTime(3600000, '60mn')">
+                        <a><img *ngIf="stopImage != '60mn'" id="stopSixtyMin" src="../../../assets/imgs/Group 1084.png"></a>
+                        <a><img *ngIf="stopImage === '60mn'" id="stopSixtyMin" src="../../../assets/imgs/stop.png"></a>
                         <h5>60 دقيقة </h5>
                     </li>
-                    <li (click)="AutoStopTime(5400000)">
-                        <a><img id="stopNintyMin" src="../../../assets/imgs/Group 1084.png"></a>
+                    <li (click)="AutoStopTime(5400000, '90mn')">
+                        <a><img *ngIf="stopImage != '90mn'" id="stopNintyMin" src="../../../assets/imgs/Group 1084.png"></a>
+                        <a><img *ngIf="stopImage === '90mn'" id="stopNintyMin" src="../../../assets/imgs/stop.png"></a>
                         <h5> 90 دقيقة </h5>
                     </li>
                 </ul>

@@ -219,77 +219,31 @@ font-size: 17px;
        @include MediaQuery(XL-XXL){ font-size: 40px;}
        @include MediaQuery(XXL){ font-size: 40px;}
     }
-    .cdimag{
-        .cd{
-            // position: fixed;
-            position: absolute;
-            //
-            @media screen and (max-width:319px){
-                width: 36%;
-               top:24px;left: 8%;
-           }
-          
-            @media screen and (min-width:320px) and (max-width:360px){
-                 width: 33%;
-                //  top:29%;left: 10%;
-                top:24px;left: 12%;
+    .playerTitlesHome{
+        width: 777px;
+        margin: 0 auto;
+        padding-left: 350px;
+
+        h1 {
+            font-size: 32px !important;
+        }
+        
+        h5 {font-size: 21px !important;}
+        
+        * {
+            margin: 12px 0 !important;
+        }
+        @media screen and (max-width: 1200px) {
+            width: 70% !important;
+            
+        }
+        @media screen and (max-width: 767px) {
+            width: 90% !important;
+            h1 {
+                font-size: 18px !important;
             }
-            @media screen and (min-width:361px) and (max-width:375px){
-                width: 36%;
-                // top:29%;left: 10%;
-                top:24px;left: 12%;
-            }
-            @media screen and (min-width:376px) and (max-width:411px){
-                width: 36%; left: 10%;
-                // top:31%;
-                top:0%;
-               
-            }
-            @media screen and (min-width:412px) and (max-width:539px){
-                width: 36%;left: 10%;
-                // top:28%;
-                top:0%;
-            }
-            @media screen and (min-width:540px) and (max-width:575.98px){
-                width: 36%;left: 10%;
-                // top:28%;
-                top:-12%;
-            }
-          
-            @media screen and (width:375px) and (height:812px){
-                width: 36%;left: 10%;
-                // top:32%;
-                top:3%;
-            }
-            @include MediaQuery(s){ 
-                width: 40%;left: 10%;
-                // top:25%;
-                top:-10%;
-            }
-            @include MediaQuery(M){
-                 width: 25%; left: 21%;
-                //  top:42%;
-                top:10%;
-            }
-            @include MediaQuery(L){
-                width: 24%; left: 21%;
-                top:10%; 
-              }
-            @media screen and (min-width:1200px) and (max-width:1354.98px){
-                width: 24%; left: 21%;
-                // top:24%; 
-                top:0%;
-            }
-            @media screen and (min-width:1355px) and (max-width:1700px){
-                 width: 18%; left: 25%;
-                //  top:28%;
-                top:0%;
-            }
-            @media screen and (min-width:1701px){
-                 width: 18%; left: 30%;
-                //  top:22%;
-                top:-10%;
-            }
+            
+            h5 {font-size: 14px !important;}
         }
     }
     .backimg{
@@ -1087,17 +1041,25 @@ input[type=number] {
     bottom: 0;
     overflow-y: auto;
     padding-top: 100px;
+
+    @media screen and (max-width: 767px){
+        padding: 0;
+    }
 }
 .homepage  {
     top: 0 !important;
 }
 .imagCdPlay {
-    width: 310px;
+    width: 31%;
     float: left;
     position: relative;
     height: 100%;
     text-align: center;
     margin-left: 30px;
+    @media screen and (max-width: 500px){
+        padding: 0;
+        margin-left: 10px;
+    }
 }
 
 .imagCdPlay img {
@@ -1112,54 +1074,60 @@ input[type=number] {
     float: right;
 }
 
-.playerTitlesHome h1 {
-    font-size: 40px !important;
-}
 
-.playerTitlesHome h5 {font-size: 21px !important;}
-
-.playerTitlesHome {
-    width: 777px;
-    margin: 0 auto;
-    padding-left: 350px;
-}
-
-.playerTitlesHome * {
-    margin: 12px 0 !important;
-}
 @media(max-width: 991px){
-    .imagCdPlay {
-        display: none;
-    }
-    .playerTitlesHome {
-        padding-left: 0 !important;
-        width: 100% !important;
+    
+    .backimg.position-relative {
+        height: 90px !important;
+        @media screen and (max-width: 400px){
+            height: 70px !important;
+        }
     }
     
-    .playerTitlesHome * {
-        margin: 0 !important;
-        text-align: center !important;
-        width: 100%;
-        position: relative;
-        left: 0;
-        right: 0;
-        padding: 2px;
-    }
-
     .cdButtonPlay {
-        width: 100%;
-        max-width: 100%;
-        left: 0;
-        right: 0;
-        top: 26px;
-        padding-left: 46px;
-    }
+        top: 20px;
+        height: 50px;
 
+        @media screen and (max-width: 400px){
+            top: 15px;
+        }
+
+        @media screen and (max-width: 350px){
+            top: 20px;
+        }
+    }
+    
+    .cdButtonPlay img {
+        height: 50px !important;
+        width: 50px !important;
+
+        @media screen and (max-width: 400px){
+            height: 37px !important;
+            width: 37px !important;
+        }
+
+        @media screen and (max-width: 350px){
+            height: 30px !important;
+            width: 30px !important;
+        }
+    }
+    .playerTitlesHome h1 {
+        font-size: 18px !important;
+    }
+    .playerTitlesHome h5 {
+        font-size: 14px !important;
+    }
+    .playerTitlesHome {
+        padding-left: 30% !important;
+    }    
     .HomeLogo {
         text-align: center;
         position: relative;
         height: 90px;
-        top: 70px;
+        margin-top: 50px;
+        @media screen and (max-width: 767px){
+            margin-top: 0;
+        }
     }
     
     .HomeLogo * {
@@ -1170,6 +1138,12 @@ input[type=number] {
         top: 0 !important;
     }
     
+}
+@media(max-width: 767px){
+    .playerTitlesHome {
+        width: 90% !important;
+        padding: 0 !important;
+    }  
 }
 app-navbar {
     z-index: 10;

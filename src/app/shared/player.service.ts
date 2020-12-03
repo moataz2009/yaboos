@@ -56,6 +56,9 @@ export class PlayerService {
   private mainSongId = new BehaviorSubject<String>(null);
   songIdVar = this.mainSongId.asObservable();
 
+  private mainStopImage = new BehaviorSubject<String>(null);
+  StopImage = this.mainStopImage.asObservable();
+
   audiObg = new Audio();
 
   constructor(private http: HttpClient) {
@@ -78,6 +81,10 @@ export class PlayerService {
     this.mainSongId.next(attr);
   }
 
+  actionChangeStopImage(attr: any){
+    this.mainStopImage.next(attr);
+  }
+
   actionPopUp(attr: any){
     this.mainPopUp.next(attr);
   }
@@ -95,9 +102,10 @@ export class PlayerService {
     this.minType.next(NowPlayer);
   }
 
-  ActionStopPlayer(TimePlayer: any){
+  ActionStopPlayer(TimePlayer: any, status: any){
     this.mainStopPlayer.next(TimePlayer);
     this.autoStopPlayerAction(TimePlayer);
+    this.actionChangeStopImage(status);
   }
 
   ActionAutoPlayPlayer(TimePlayer: any){
@@ -124,7 +132,10 @@ export class PlayerService {
     console.log("Start auto stop");
     console.log(TimePlayer);
     console.log("End auto stop");
-    setTimeout( () => this.ngAutoStop() ,TimePlayer);
+    setTimeout( () => {
+      this.ngAutoStop();
+      this.actionChangeStopImage(null);
+    },TimePlayer);
   }
 
   readonly rootUrl = MainURL;
@@ -160,6 +171,7 @@ export class PlayerService {
           this.mainPlayNow.next(data.date);
           this.minPlayerTitle.next(data.date);
           
+          //console.log('Do change');
         }, (err: HttpErrorResponse) => {
           //console.log("Error ::ToDo");
         });

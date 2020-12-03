@@ -345,12 +345,17 @@ input[type=range] {
   }
   
   .popUpViewtrue {
-    width: 400px;
+      width: 100%;
+    max-width: 400px;
     border: 1px solid #3cb8ba;
     border-radius: 20px;
     top: 240px;
     bottom: auto;
     box-shadow: 0 0 30px #075252;
+    z-index: 999 !important;
+    @media screen and(max-height: 800px) {
+        top: 140px;
+    }
 }
 
 .trackTemplatetrue .imageTrack {

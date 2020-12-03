@@ -50,9 +50,14 @@ font-size: 17px;
             a{
                 img{
                     width:90%;
-                    @include MediaQuery(xs + s + M){
+                    @include MediaQuery(M){
                         width:49%;
 
+                    }
+
+                    @media screen and (max-width: 767px) {
+                        width: 100px;
+                        margin-bottom: 15px;
                     }
                 }
             }
@@ -91,11 +96,31 @@ font-size: 17px;
                 justify-content: center;
                 width: 100%;
                 img{
-                    @include MediaQuery(xs + s + M){width:50%;margin: 0 auto;margin-top: 30px;}
+                    @include MediaQuery(M){width:50%;margin: 0 auto;margin-top: 30px;}
                     @include MediaQuery(xl){width:50%;}
+                    @media screen and (max-width: 767px) {
+                        width: 100px;
+                        margin-bottom: 15px;
+                        margin-top: 50px;
+                    }
                 }
             }
           
+        }
+        .row {
+            .btnToolOpt {
+                li {
+                    @media screen and (max-width: 767px) {
+                        padding: 0;
+                    }
+
+                    a {
+                        img {
+                            height: 60px ;
+                        }
+                    }
+                }
+            }
         }
         .sepratealarm{
             a{

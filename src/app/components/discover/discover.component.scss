@@ -12,6 +12,23 @@
     font-size: 17px;
 }
 
+
+.HomeLogo {
+    width: 100%;
+    text-align: center;
+    margin-top: 70px;
+    display: none;
+    @media screen and (max-width: 991px) {
+        display: block;
+    }
+
+    img {
+        width: auto;
+        height: 80px;
+    }
+
+}
+
 .logoimage {
     width: 50%;
     @include MediaQuery(xs) {
@@ -43,13 +60,13 @@
         // z-index: 100000000;
     }
     @media screen and (min-width:501px)and (max-width:575.98px) {
-        margin-top: 2%;
+        margin-top: 0;
     }
     @include MediaQuery(s) {
-        margin-top: 18%;
+        margin-top: 0;
     }
     @include MediaQuery(M) {
-        margin-top: 15%;
+        margin-top: 0;
     }
     .has-search {
         width: 40%;
