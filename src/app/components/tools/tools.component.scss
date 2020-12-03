@@ -24,7 +24,14 @@ font-size: 17px;
           padding-left: 0px;padding-right:0px;
         }
     }
-    @include MediaQuery(xs + s + M){margin-top: 80px;}
+    @include MediaQuery(xs + s + M){
+        // margin-top: 80px;
+        margin-top: 110px;
+    }
+    @media screen and (min-width:1200px) {
+        margin-top: 70px;
+    }
+    
     .tools-tab {
         list-style-type: none;
         display: flex;
@@ -80,8 +87,12 @@ font-size: 17px;
     .firstdiv{
         width: 100%;
         margin: 0 auto;
-        @include MediaQuery(xs+ s){margin-top: -60px;}
+        @include MediaQuery(xs+ s){
+            // margin-top: -60px;
+            margin-top: -31px;
+        }
         @include MediaQuery(M){margin-top: 70px;}
+        @include MediaQuery(L){margin-top: 114px;}
         
         .seprate{
             margin-bottom: 5%;
@@ -180,7 +191,11 @@ font-size: 17px;
             position: relative;
             // right:20%;
           
-            @include MediaQuery(xs + s + M ){right:0%;top:17px;}
+            @include MediaQuery(xs + s + M ){
+                right:0%;
+                // top:17px;
+                top:71px;
+            }
             @media screen and (min-width:1200px)and (max-width:1900px) {
                 bottom:20px;
                 right:5% !important;
