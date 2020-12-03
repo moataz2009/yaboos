@@ -3,7 +3,7 @@ import { END_POINTS } from './globals/global-config';
 import { Songs } from 'src/models/songs.model';
 import {  DataWithRanking } from 'src/models/data-with-ranking.model';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 const API_URL = END_POINTS.songs;
 const API_SearchSongs = END_POINTS.Searchsongs;
@@ -28,16 +28,17 @@ export class SongsService {
     params = params.append('Title' , "");
     params = params.append('TitleAr' , "");
 
-    return this.http.get<DataWithRanking<Songs>>(API_URL , {params:params});
+    return this.http.get<DataWithRanking<Songs>>(API_URL , {params:params, headers: new HttpHeaders({ 'Content-Type':  'application/json',  'Authorization':'Bearer '+localStorage.getItem('userToken') })});
 
   }
-Search(offset: string , limit: string , filter:string ): Observable<DataWithRanking<Songs>> {
-  let params = new HttpParams();
-  params = params.append('offset' , offset);
-  params = params.append('limit' , limit);
-  params = params.append('filter' ,filter);
-  return this.http.get<DataWithRanking<Songs>>(API_SearchSongs  , {params:params});
-}
+
+  Search(offset: string , limit: string , filter:string ): Observable<DataWithRanking<Songs>> {
+    let params = new HttpParams();
+    params = params.append('offset' , offset);
+    params = params.append('limit' , limit);
+    params = params.append('filter' ,filter);
+    return this.http.get<DataWithRanking<Songs>>(API_SearchSongs  , {params:params, headers: new HttpHeaders({ 'Content-Type':  'application/json',  'Authorization':'Bearer '+localStorage.getItem('userToken') })});
+  }
 
   
   get(id: number): Observable<Songs[]> {
@@ -59,7 +60,7 @@ Search(offset: string , limit: string , filter:string ): Observable<DataWithRank
     params = params.append('limit' , limit);
     params = params.append('album' ,id);
     
-    return this.http.get<DataWithRanking<Songs>>("http://188.225.184.108:9091/api/songs/GetSongsOfAlbum" , {params:params});
+    return this.http.get<DataWithRanking<Songs>>("http://188.225.184.108:9091/api/songs/GetSongsOfAlbum" , {params:params, headers: new HttpHeaders({ 'Content-Type':  'application/json',  'Authorization':'Bearer '+localStorage.getItem('userToken') })});
   }
 
   getArtistAlbums(offset: string , limit: string ,ArtistId:string):Observable<DataWithRanking<Songs>> {
@@ -70,7 +71,7 @@ Search(offset: string , limit: string , filter:string ): Observable<DataWithRank
     params = params.append('limit' , limit);
     params = params.append('artist' ,ArtistId);
     
-    return this.http.get<DataWithRanking<Songs>>("http://188.225.184.108:9091/api/albums/GetAlbumsOfArtist" , {params:params});
+    return this.http.get<DataWithRanking<Songs>>("http://188.225.184.108:9091/api/albums/GetAlbumsOfArtist" , {params:params, headers: new HttpHeaders({ 'Content-Type':  'application/json',  'Authorization':'Bearer '+localStorage.getItem('userToken') })});
   }
 
   GetSongsOfArtist(offset: string , limit: string ,id:number):Observable<DataWithRanking<Songs>> {
@@ -81,7 +82,7 @@ Search(offset: string , limit: string , filter:string ): Observable<DataWithRank
     params = params.append('limit' , limit);
     params = params.append('artist' ,id.toString());
     
-    return this.http.get<DataWithRanking<Songs>>(API_SearchAristSongs  , {params:params});
+    return this.http.get<DataWithRanking<Songs>>(API_SearchAristSongs  , {params:params, headers: new HttpHeaders({ 'Content-Type':  'application/json',  'Authorization':'Bearer '+localStorage.getItem('userToken') })});
   }
 
 }

@@ -41,7 +41,7 @@ export class AlbumComponent implements OnInit {
   songPlayIcon:boolean = false;
 
   count = 10;
-  mycountalb = 9;
+  mycountalb:any = 9;
   moresongs:boolean = true;
   morealbums:boolean = true;
   moreartist:boolean = true;
@@ -62,24 +62,66 @@ export class AlbumComponent implements OnInit {
     private playerUrl : PlayerService
     ) { }
 
-    PlayTrack(id: any, title, image, status){
+    /**
+     * 
+     * Moataz Code Final
+     */
+    PlayTrack(id: any, title, image, status, isFavorite ){
       if(status === false){
-        this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
+        this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`;
+        
         this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
         this.playerUrl.changePlayerStatus(true);
         this.playerUrl.changePlayerTitle(title);
         this.playerUrl.actionPlayNow("");
-        
+        this.playerUrl.actionIsFavorite(isFavorite);
         this.playerUrl.actionSongId(id);
-        
         this.playerUrl.actionPlayerType("track");
         this.playerUrl.actionPlayImage(image);
+
       }else{
         this.playerUrl.ngStop()
         this.playerUrl.changePlayerStatus(false);
         this.playerUrl.changePlayerTitle(title);
       }
     }
+
+    deleteFromFavorite(SongId: String){
+      this.favorites.deleteFromFavorite(SongId).subscribe((data: any) => {
+        
+        this.toastr.success('تم الحذف بنجاح');
+        
+        location.reload();
+  
+  
+      }, (err: HttpErrorResponse) => {
+        if(localStorage.getItem('userToken') != null){
+        }else{
+           this.router.navigate(['/login']);
+           return false;
+        }
+        this.toastr.error('لم يتم الحذف ');
+  
+      });
+    }
+  
+    addToFavorite(SongId: String){
+      this.favorites.addToFavorite(SongId).subscribe((data) => {      
+        this.toastr.success('تم الحفظ بنجاح');
+      }, (err: HttpErrorResponse) => {
+        if(localStorage.getItem('userToken') != null){
+        }else{
+           this.router.navigate(['/login']);
+           return false;
+        }
+        this.toastr.success('لم يتم الحفظ ');
+      });
+    }
+
+    /**
+     * 
+     * Moataz Final Code Ended 
+     */
 
 
   fillHeader(message , url)
@@ -304,6 +346,7 @@ showAlbumsongs:boolean=false;
 GetSongsOfAlbum(albumId)
 {
 //debugger;
+
     this.SongsService.GetSongsOfAlbum("0" , String(this.mycountalb) , albumId).subscribe(res =>{
       this.songsalbumsList = res.result;
       console.log(res);
@@ -316,32 +359,61 @@ GetSongsOfAlbum(albumId)
     });
 
 
-
     this.SongsService.GetSongsOfAlbum("0" , "1" , albumId).subscribe(res =>{
       this.songsalbumsData = res.result;
 
     });
-
     
     this.hideAlbums=false;
     this.showAlbumsongs=true;
+
 }
 
 // load more albums
 loadmorealbums(){
 
   this.mycountalb=this.mycountalb + 9;
-  if(this.searchText != null) 
-  {
-    this.SearchAlbums("0", String(this.mycountalb),this.artistList[0].id );
-  }
-  else{
-    this.AlbumService.Search("0" , String(this.mycountalb) , "")
-    .subscribe(res =>{
-      this.albumList = res.result;
+  console.log("Load more ");
 
+  // if(this.searchText != null) 
+  // {
+  //   this.SearchAlbums("0", String(this.mycountalb),this.artistList[0].id );
+  // }
+  // else{
+  //   this.AlbumService.Search("0" , String(this.mycountalb) , "")
+  //   .subscribe(res =>{
+  //     this.albumList = res.result;      
+  //    });
+  // }
+
+  if(localStorage.getItem('searchTxt') != null){
+    if(this.Aroute.snapshot.params.id != null ){
       
-     });
+      this.AlbumService.Search("0" , String(this.mycountalb) , localStorage.getItem('searchTxt'), this.Aroute.snapshot.params.id).subscribe(res =>{
+        this.albumList = res.result;
+      });
+    }else{
+      this.AlbumService.Search("0" , String(this.mycountalb) , localStorage.getItem('searchTxt'), null).subscribe(res =>{
+        this.albumList = res.result;
+        
+      });
+    }
+  }else
+  {
+
+    if(this.Aroute.snapshot.params.id != null ){
+      this.AlbumService.Search("0" , String(this.mycountalb) , "", this.Aroute.snapshot.params.id).subscribe(res =>{
+        this.albumList = res.result;
+      });
+    }else{
+      this.AlbumService.Search("0" , String(this.mycountalb) , "", null).subscribe(res =>{
+        this.albumList = res.result;
+      });
+    }
+
+    console.log("title Of load more");
+
+
   }
  
 }
@@ -372,7 +444,6 @@ backalbums(){
             
           });
         }
-        console.log("title Of search");
       }else
       {
 
@@ -385,6 +456,9 @@ backalbums(){
             this.albumList = res.result;
           });
         }
+
+        console.log("title Of qweqweqwe");
+
 
       }
       // ToDo::Search
@@ -416,37 +490,7 @@ backalbums(){
     });
   }
 
-  deleteFromFavorite(SongId: String){
-    this.favourites.deleteFromFavorite(SongId).subscribe((data: any) => {
-      
-      this.toastr.success('تم الحذف بنجاح');
-      
-      location.reload();
-
-
-    }, (err: HttpErrorResponse) => {
-      if(localStorage.getItem('userToken') != null){
-      }else{
-         this.router.navigate(['/login']);
-         return false;
-      }
-      this.toastr.error('لم يتم الحذف ');
-
-    });
-  }
-
-  addToFavorite(SongId: String){
-    this.favorites.addToFavorite(SongId).subscribe((data) => {      
-      this.toastr.success('تم الحفظ بنجاح');
-    }, (err: HttpErrorResponse) => {
-      if(localStorage.getItem('userToken') != null){
-      }else{
-         this.router.navigate(['/login']);
-         return false;
-      }
-      this.toastr.success('لم يتم الحفظ ');
-    });
-  }
+  
   SearchArtist(){
     this.ArtistService.SearchAlphapet("0" , String(this.mycountalb), this.searchText).subscribe(res =>{
     this.artistList = res.result;

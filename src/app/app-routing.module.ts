@@ -35,20 +35,20 @@ const routes: Routes = [
     },
     {
       path: 'Home',
-      component:  HomeComponent
+      component:  HomeComponent 
     },
     {
       path: 'Programms',
-      component: DiscoverComponent
+      component: DiscoverComponent , canActivate:[AuthGuard]
     },
     {
       path: 'Privacy',
-      component: PrivacyComponent
+      component: PrivacyComponent 
     }
     ,
     {
       path: 'Tools',
-      component: ToolsComponent
+      component: ToolsComponent , canActivate:[AuthGuard]
     },
     {
       path: 'WhoWeAre',
@@ -67,29 +67,29 @@ const routes: Routes = [
       }]
     },
     {
-      path: 'Libaray', component: LibraryComponent,
+      path: 'Libaray', component: LibraryComponent , canActivate:[AuthGuard] ,
       children: [{
-        path: 'songs', component: SongsComponent
+        path: 'songs', component: SongsComponent , canActivate:[AuthGuard]
       }]
     },
     
     {
-      path: 'Libaray', component: LibraryComponent,
+      path: 'Libaray', component: LibraryComponent , canActivate:[AuthGuard],
       children: [{
-        path: 'artist', component: ArtistComponent
+        path: 'artist', component: ArtistComponent , canActivate:[AuthGuard]
       }]
     },
 
     {
-      path: 'Libaray', component: LibraryComponent,
+      path: 'Libaray', component: LibraryComponent , canActivate:[AuthGuard],
       children: [{
-        path: 'albums', component: AlbumComponent
+        path: 'albums', component: AlbumComponent , canActivate:[AuthGuard]
       }]
     },
     {
-      path: 'Libaray', component: LibraryComponent,
+      path: 'Libaray', component: LibraryComponent, canActivate:[AuthGuard],
       children: [{
-        path: 'albums/:id', component: AlbumComponent
+        path: 'albums/:id', component: AlbumComponent , canActivate:[AuthGuard]
       }]
     },
 

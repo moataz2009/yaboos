@@ -24,17 +24,17 @@ export class FavoriteComponent implements OnInit {
       private playerUrl : PlayerService
     ) { }
 
-  PlayTrack(id: any, title, status){
+  PlayTrack(id: any, title, status, image){
     if(status === false){
       this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
       this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
       this.playerUrl.changePlayerStatus(true);
       this.playerUrl.changePlayerTitle(title);
       this.playerUrl.actionPlayNow("");
-      
+      this.playerUrl.actionIsFavorite(true);
       this.playerUrl.actionSongId(id);
-      
       this.playerUrl.actionPlayerType("track");
+      this.playerUrl.actionPlayImage(image);
     }else{
       this.playerUrl.ngStop()
       this.playerUrl.changePlayerStatus(false);
@@ -220,7 +220,7 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
     
     this.favourites.myFavourites().subscribe((data: any) => {
       this.myFavourites = data.result;
-      
+      console.log(data.result);
     }, (err: HttpErrorResponse) => {
       //console.log("Error ::ToDo");
     });

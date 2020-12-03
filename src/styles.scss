@@ -105,6 +105,22 @@
     }
 }
 
+.HomeLogo {
+    width: 100%;
+    text-align: center;
+    margin-top: 70px;
+    display: none;
+    @media screen and (max-width: 991px) {
+        display: block;
+    }
+
+    img {
+        width: auto;
+        height: 80px;
+    }
+
+}
+
 //*************************************************
 a:hover {
     text-decoration: none;

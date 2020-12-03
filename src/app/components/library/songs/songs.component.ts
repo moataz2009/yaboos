@@ -49,6 +49,8 @@ export class SongsComponent implements OnInit {
   isLogin:boolean;
   PlayUrlTrack:String;
   Main_URL: any;
+
+
   constructor( 
     private Aroute: ActivatedRoute,
     private router: Router , 
@@ -66,7 +68,7 @@ export class SongsComponent implements OnInit {
     this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
   }
 
-  PlayTrack(id: any, title, image, status){
+  PlayTrack(id: any, title, image, status, favorite){
     if(status === false){
       this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
       this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
@@ -75,7 +77,7 @@ export class SongsComponent implements OnInit {
       this.playerUrl.actionPlayNow("");
       this.playerUrl.actionPlayImage(image);
       this.playerUrl.actionSongId(id);
-      
+      this.playerUrl.actionIsFavorite(favorite);
       this.playerUrl.actionPlayerType("track");
     }else{
       this.playerUrl.ngStop()
@@ -341,12 +343,16 @@ backalbums(){
     if(localStorage.getItem('searchTxt') != null){
       this.SongsService.Search( "0",String(this.count) , localStorage.getItem('searchTxt') ).subscribe(res =>{
         this.songsList = res.result;
+
+        
         console.log(this.songsList);
       });
     }else{
       this.SongsService.Search( "0",String(this.count) , "").subscribe(res =>{
         this.songsList = res.result;
         console.log(this.songsList);
+        
+        
       });
     }
     

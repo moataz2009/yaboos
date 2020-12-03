@@ -64,7 +64,11 @@
                         <img style="width: 70px;" *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
                     </button>
     
-                    <button *ngIf="songIdVar != null" (click)="addToFavorite()" class="ngClassFav " >
+                    <button *ngIf="isFavorite === true && songIdVar != null" (click)="deleteFromFavorite()" class="ngClassFav " >
+                        <i class="fas fa-heart"></i> 
+                    </button>
+
+                    <button *ngIf="isFavorite != true && songIdVar != null" (click)="addToFavorite()" class="ngClassFav " >
                         <i class="far fa-heart"></i> 
                     </button>
                 </div>

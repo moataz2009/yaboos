@@ -36,7 +36,7 @@ export class PlayerComponent implements OnInit {
 
   minUrlPage:any;
 
-
+  isFavorite: any;
   constructor(
     private playerUrl : PlayerService,
     private favorites : FavoritesService,
@@ -59,11 +59,32 @@ export class PlayerComponent implements OnInit {
 
 
   addToFavorite(){
+
+    if(localStorage.getItem('userToken') === null){
+       this.router.navigate(['/login']);
+       return false;
+    }
+
     this.favorites.addToFavorite(this.songIdVar).subscribe((data) => {      
       this.toastr.success('تم الحفظ بنجاح');
     }, (err: HttpErrorResponse) => {
       this.toastr.success('لم يتم الحفظ ');
     });
+  }
+
+  deleteFromFavorite(){
+    if(localStorage.getItem('userToken') === null){
+      this.router.navigate(['/login']);
+      return false;
+    }
+
+    this.favorites.deleteFromFavorite(this.songIdVar).subscribe((data: any) => {
+      this.toastr.success('تم الحذف بنجاح');
+      location.reload();
+    }, (err: HttpErrorResponse) => {
+      this.toastr.error('لم يتم الحذف ');
+    });
+
   }
 
   PlayRadio(status){
@@ -87,6 +108,10 @@ export class PlayerComponent implements OnInit {
       this.playUrl = data ;
       this.openMusic(this.playUrl, '');
     } );
+
+    this.playerUrl.IsFavorite.subscribe(data => {
+      this.isFavorite = data;
+    });
 
     this.playerUrl.songIdVar.subscribe(data => {
       this.songIdVar = data;
@@ -122,8 +147,6 @@ export class PlayerComponent implements OnInit {
 
     //playerVolumeVal
   
-    
-
     this.playerUrl.currentTime.subscribe(data => {
       this.currentTime = data ;
     } );

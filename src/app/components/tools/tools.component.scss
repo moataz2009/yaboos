@@ -24,8 +24,10 @@ font-size: 17px;
           padding-left: 0px;padding-right:0px;
         }
     }
-    @include MediaQuery(xs + s + M){margin-top: 80px;}
+    @include MediaQuery(xs + s + M){margin-top: 0px; 
+        padding-top: 1px; }
     .tools-tab {
+        margin-top: 50px;
         list-style-type: none;
         display: flex;
         @include MediaQuery(xs + s){display: block;}
@@ -36,9 +38,9 @@ font-size: 17px;
         width: 100%;
         position: relative;
         top:100px;
-        @include MediaQuery(xs){top:10px;}
-        @include MediaQuery(s){top:93px;}
-        @include MediaQuery(M){top:93px;}
+        @include MediaQuery(xs){top:0px;}
+        @include MediaQuery(s){text-outline: 0px;}
+        @include MediaQuery(M){top:0px;}
         h3{
             color: white;font-weight: bold;
             @include MediaQuery(xs + s ){
@@ -53,6 +55,11 @@ font-size: 17px;
                     @include MediaQuery(M){
                         width:49%;
 
+                    }
+
+                    @media screen and (max-width: 991px) {
+                        width: 100px;
+                        margin-bottom: 15px;
                     }
 
                     @media screen and (max-width: 767px) {
