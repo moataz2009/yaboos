@@ -152,20 +152,20 @@
         }
         
     }
-    .myalbumsong::-webkit-scrollbar{
-        display: none;
-    }
-    .myalbumsong{
-        -ms-overflow-style:none;
-        scrollbar-width: none;
-    }
-    .box::-webkit-scrollbar{
-        display: none;
-    }
-    .box{
-        -ms-overflow-style:none;
-        scrollbar-width: none;
-    }
+    // .myalbumsong::-webkit-scrollbar{
+    //     display: none;
+    // }
+    // .myalbumsong{
+    //     -ms-overflow-style:none;
+    //     scrollbar-width: none;
+    // }
+    // .box::-webkit-scrollbar{
+    //     display: none;
+    // }
+    // .box{
+    //     -ms-overflow-style:none;
+    //     scrollbar-width: none;
+    // }
 }
 
 @media(max-width: 767px){
