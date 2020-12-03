@@ -91,15 +91,25 @@ font-size: 17px;
             .songs{  padding-bottom: 20px;
                
                 .icons{
+                    display: flex;
                     @include MediaQuery(xs) {
                        display: inline-flex;
                     }
                     i{
+                        cursor: pointer;
                         @media screen and (max-width:319px){ 
                             font-size: 12px;
                             padding-top: 6px;
                         }
-                      }
+                    }
+                    .deleteicon{
+                        @include MediaQuery(xs) {
+                           padding-right: 10px !important;
+                        } 
+                        @include MediaQuery(M) {
+                            padding-right: 10px !important;
+                         }
+                    }
                   }
                   .list{
                       cursor: pointer;

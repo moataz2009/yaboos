@@ -67,6 +67,9 @@ import { PlayerComponent } from './components/player/player.component';
     BrowserModule,
     BrowserAnimationsModule,
     
+    FormsModule,
+    ReactiveFormsModule,
+    
     AppRoutingModule,
     NgbModule,
 
@@ -77,8 +80,7 @@ import { PlayerComponent } from './components/player/player.component';
     AngularFireModule.initializeApp(environment.firebase),
     NgxUsefulSwiperModule,
    
-    FormsModule,
-    ReactiveFormsModule,
+ 
 
     ToastrModule.forRoot({
       easeTime: 1000,

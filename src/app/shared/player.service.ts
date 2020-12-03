@@ -59,6 +59,11 @@ export class PlayerService {
   private mainStopImage = new BehaviorSubject<String>(null);
   StopImage = this.mainStopImage.asObservable();
 
+
+  private mianPlaySearch = new BehaviorSubject<any>(null);
+  PlaySearch = this.mianPlaySearch.asObservable();
+
+
   audiObg = new Audio();
 
   constructor(private http: HttpClient) {
@@ -79,6 +84,10 @@ export class PlayerService {
 
   actionSongId(attr: any){
     this.mainSongId.next(attr);
+  }
+
+  actionPlayerSearch(attr: any){
+    this.mianPlaySearch.next(attr);
   }
 
   actionChangeStopImage(attr: any){

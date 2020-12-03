@@ -74,6 +74,7 @@
                         display: inline-flex;
                     }
                         i{
+                            cursor: pointer;
                             @media screen and (max-width:319px){ 
                                 font-size: 12px;
                                 padding-top: 6px;

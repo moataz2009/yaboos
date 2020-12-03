@@ -1,15 +1,16 @@
 <div class="d-xs-block d-lg-none">
     <a href={{mobileAppUrl}} class="mobileapp">{{headerMessage}}</a>
 </div>
-
+<img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
+<br><br><br><br><br>
 
 <div class="homeContent">
     <div class="homepage m-auto text-center" *ngIf="hideall">
-        <div class="container">
+        <div class="container ourhomecontainer">
 
-            <div class="HomeLogo">
+            <!-- <div class="HomeLogo">
                 <img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
-            </div>
+            </div> -->
 
             <div class="playerTitlesHome">
                 <h1 class="col-xs-6">البث المباشر</h1>
@@ -73,7 +74,7 @@
     
             <div class="col-sm-12 col-md-12 col-lg-12  m-auto pb-3 " style="padding-right:0;padding-left: 0;" *ngIf="!currentUser">
                 <div class="last w-100 d-flex justify-content-center sdash">
-                    <a class="btn btn-simple btn-danger btn-round sagel" aria-disabled="false" routerLink="/Home/login">
+                    <a class="btn btn-simple btn-danger btn-round sagel" (click)="openloginpage()">
                         <span>سجل الأن</span>
                     </a>
                     <!-- <a class="btn btn-simple btn-danger btn-round">

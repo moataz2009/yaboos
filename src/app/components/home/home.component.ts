@@ -58,11 +58,17 @@ PlayerURl = "http://188.225.182.10:8000/live";
       this.playerUrlTrack.actionPlayerType("live");
       this.playerUrlTrack.getPlayNow();
       this.playerUrlTrack.actionSongId('');
+      this.playerUrlTrack.actionPopUp(false);
     }else{
       this.playerUrlTrack.ngStop()
       this.playerUrlTrack.changePlayerStatus(false);
     }
   }
+  //
+  openloginpage(){
+    this.router.navigate(['/login']);
+  }
+  //
 
   openimage5(){
     this.div1=true;
@@ -161,6 +167,8 @@ Register(user:User)
     localStorage.setItem('searchTxt',searchTxt);
     this.route.navigate([`/Libaray/`], { queryParams: { searchText: searchTxt } })
   }
+
+  
   closesection(clock1:String , clock2:String , min1 , min2){
     debugger;
     this.prevlive =false;
