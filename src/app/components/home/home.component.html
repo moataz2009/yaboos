@@ -2,7 +2,7 @@
     <a href={{mobileAppUrl}} class="mobileapp">{{headerMessage}}</a>
 </div>
 <img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
-<br><br><br><br><br>
+
 
 <div class="homeContent">
     <div class="homepage m-auto text-center" *ngIf="hideall">
@@ -32,11 +32,8 @@
                     <!-- <audio id="player" [src]="PlayerURl" controls style="display:none;"> </audio> -->
     
                     <div class="col-xs-4 cdButtonPlay images justify-content-center">
-                        <img src="../../../assets/imgs/Materials-06.png" class="small" (click)="ForwardMins(PlayerURl)">
-                        <!-- <a id="button">
-                            <img src="../../../assets/imgs/Materials-04.png" class="large">
-                        </a> -->
-    
+                        <img src="../../../assets/imgs/Materials-06.png" class="small" (click)="setNext30()">
+                        
                         
                         
                         <button class="ngClassPlay" *ngIf="PlayerTypes ==='live'" (click)="PlayRadio('http://188.225.182.10:8000/live', playerStatus)">
@@ -50,8 +47,7 @@
                         </button>
                  
     
-                        <img src="../../../assets/imgs/Materials-05.png" class="large" *ngIf="div1" (click)="openimage4()">
-                        <img src="../../../assets/imgs/Materials-07.png" class="small" (click)="BackwardMins(PlayerURl)">
+                        <img src="../../../assets/imgs/Materials-07.png" class="small" (click)="setBack30()">
                     </div>
                 </div>
             </div>
@@ -211,16 +207,6 @@
 <!-- song request -->
 
 
-<!-- popup -->
-<div class="modal" tabindex="-1" role="dialog" id="myModal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <p>حتى تتمكن من التمتع بمزايا المكتبة الموسيقيه يرجى التسجيل </p>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- start back to livestream before -->
 <div class="modal modal1" *ngIf="prevlive" id="examModal" tabindex="-1" role="dialog">

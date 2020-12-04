@@ -193,7 +193,7 @@ export class PlayerService {
         });
       }
 
-    } ,20000);
+    } ,10000);
     
   }
 
@@ -235,7 +235,14 @@ export class PlayerService {
   }
 
   ngPlay(){
+    
+    if(this.PlayNowStrind === 'live'){
+      this.audiObg.load();
+      console.log('ngStop zero');
+    }
+    
     this.audiObg.play();
+
     console.log('play');
   }
 
@@ -273,7 +280,6 @@ export class PlayerService {
 
       this.audiObg.src = Url;
       this.audiObg.load();
-
       this.ngPlay();
 
       const handler = (event: Event) => {
@@ -323,6 +329,18 @@ export class PlayerService {
 
   setSeekTo(ev) {
     this.audiObg.currentTime = ev.target.value;
+  }
+
+  setNext30() {
+    this.audiObg.currentTime = this.audiObg.currentTime + 30;
+  }
+
+  setBack30() {
+    if(this.audiObg.currentTime <= 30){
+      this.audiObg.currentTime = 0;
+    }else {
+      this.audiObg.currentTime = this.audiObg.currentTime - 30;
+    }
   }
 
   removeEvent(obj, events, handler){

@@ -64,6 +64,16 @@ PlayerURl = "http://188.225.182.10:8000/live";
       this.playerUrlTrack.changePlayerStatus(false);
     }
   }
+
+  setNext30(){
+    this.playerUrlTrack.setNext30();
+  }
+
+  setBack30(){
+    this.playerUrlTrack.setBack30();
+  }
+
+
   //
   openloginpage(){
     this.router.navigate(['/login']);

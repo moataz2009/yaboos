@@ -201,16 +201,16 @@ $basicColor:#106666;
     position: fixed;
     bottom: 0;
     padding: 20px;
-    background: #106666;
-    color: #fff;
+    background: #ffffff;
+    color: #106666;
     width: 100%;
-    max-width: 870px;
-    border-radius: 20px 20px 0 0;
+    max-width: 100%;
+    border-radius: 0;
     left: 0;
     margin: 0 auto;
     right: 0;
     z-index: 9;
-    border: 1px solid #3cb8ba;
+    border: 0;
 }
 .ngClassPlay {
     background: transparent !important;
@@ -255,10 +255,23 @@ $basicColor:#106666;
     background: #ccc;
 }
 
+.palyerContent  {
+    margin-top: 12px;
+    h2 {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
 .trackSeekBar {
-    width: calc(100% - 220px);
+    width: calc(100% - 360px);
     float: left;
     padding: 0 15px;
+    font-size: 14px;
+    margin-top: 5px;
+    .TrackTitleText{
+        font-size: 14px;
+    }
 }
 
 /* seek par rang design */
@@ -272,13 +285,14 @@ input[type=range] {
     -webkit-appearance: none;
     margin: 10px 0;
     width: 100%;
+    direction: ltr;
   }
   input[type=range]:focus {
     outline: none;
   }
   input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 12.8px;
+    height: 4px;
     cursor: pointer;
     box-shadow: none;
     background: #3cb8ba;
@@ -288,8 +302,8 @@ input[type=range] {
   input[type=range]::-webkit-slider-thumb {
     box-shadow: none;
     border: 0;
-    height: 20px;
-    width: 20px;
+    height: 12px;
+    width: 12px;
     border-radius: 30px;
     background: #1a9298;
     cursor: pointer;
@@ -301,7 +315,7 @@ input[type=range] {
   }
   input[type=range]::-moz-range-track {
     width: 100%;
-    height: 12.8px;
+    height: 4px;
     cursor: pointer;
     animate: 0.2s;
     box-shadow: none;
@@ -320,7 +334,7 @@ input[type=range] {
   }
   input[type=range]::-ms-track {
     width: 100%;
-    height: 12.8px;
+    height: 4px;
     cursor: pointer;
     animate: 0.2s;
     background: transparent;
@@ -397,29 +411,50 @@ input[type=range] {
     width: 100%;
     text-align: center;
 }
+.popUpViewfalse {
+    padding: 7px 20px;
+}
 
+.modalBody {
+    float: left;
+    width: 100%;
+}
+
+.btnHeaderTogfalse {
+    float: left;
+    margin-top: 14px;
+    padding: 10px;
+}
 .btnToggle {
     background: transparent;
     border: 0;
-    color: #fff;
-    padding: 0 10px;
+    color: inherit;
+    padding: 0;
+    margin: 0 5px;
     font-size: 30px;
     line-height: 10px;
     outline: none !important;
+    height: 32px;
+    img {
+        width: 32px;
+    }
 }
 .ngClassFav {
     background: transparent;
     border: 0;
-    color: #fff;
+    color: inherit;
     font-size: 26px;
     padding-top: 11px;
-    width: 56px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
     line-height: 49px;
     position: relative;
     display: inline-grid;
-    margin: 0 10px;
+    margin: 8px 0px;
     outline: none !important;
+    img {
+        width: 100%;
+    }
 }
 .trackButtons {
     float: right;

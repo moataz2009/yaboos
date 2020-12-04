@@ -97,6 +97,13 @@ export class PlayerComponent implements OnInit {
     }
   }
 
+  setNext30(){
+    this.playerUrl.setNext30();
+  }
+
+  setBack30(){
+    this.playerUrl.setBack30();
+  }
 
   ngOnInit(): void {
 

@@ -4,14 +4,18 @@
     <div *ngIf="PlayerTypes != null" class="modalContainer popUpView{{popupVar}}">
 
         <div class="modalBody">
-            <button (click)="setPopUp()" class="btnToggle">
-                <i *ngIf="popupVar === 'true'" class="fa fa-angle-down" aria-hidden="true"></i>
-                <i *ngIf="popupVar != 'true'" class="fa fa-angle-up" aria-hidden="true"></i>
-                 
-            </button>
-            <button (click)="ActionclosePlayer()" class="btnToggle">
-                <i class="far fa-times-circle"></i>               
-            </button>
+            <div class="btnHeaderTog{{popupVar}}">
+                <button (click)="setPopUp()" class="btnToggle">
+                    <img *ngIf="popupVar === 'true'" src="../../../assets/imgs/scr_f1.png" >
+                    <img *ngIf="popupVar != 'true'" src="../../../assets/imgs/scr_f2.png" >
+                </button>
+    
+                <button (click)="ActionclosePlayer()" class="btnToggle">
+                    <img src="../../../assets/imgs/close-s1.png" >   
+                </button>
+            </div>
+            
+
             <div *ngIf="PlayerTypes === 'live'" class="radipTemplate radioTemplate{{popupVar}}">
     
                 <div class="textContentLive">
@@ -24,9 +28,9 @@
     
                 <div class="liveButtonSection">
                     <div class="text-right">
-                        <button class="ngClassPlay ngClassPlayFooter " (click)="PlayRadio(playerStatus)">
-                            <img style="width: 70px;" *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
-                            <img style="width: 70px;" *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
+                        <button class="ngClassFav" (click)="PlayRadio(playerStatus)">
+                            <img *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" >
+                            <img *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" >
                         </button>
                     </div>
                 </div>
@@ -59,17 +63,28 @@
                 </div>
     
                 <div class="trackButtons">
-                    <button  class="ngClassPlay ngClassPlayFooter " (click)="PlayRadio(playerStatus)">
-                        <img style="width: 70px;" *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
-                        <img style="width: 70px;" *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
-                    </button>
-    
+                    
                     <button *ngIf="isFavorite === true && songIdVar != null" (click)="deleteFromFavorite()" class="ngClassFav " >
-                        <i class="fas fa-heart"></i> 
+                        
+                        <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s1.png" >
                     </button>
 
                     <button *ngIf="isFavorite != true && songIdVar != null" (click)="addToFavorite()" class="ngClassFav " >
-                        <i class="far fa-heart"></i> 
+                        <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s2.png" >
+                    </button>
+
+                    <button (click)="setNext30()" class="ngClassFav ">
+                        <img src="../../../assets/imgs/Materials-06.png">  
+                    </button>
+
+                    <button  class="ngClassFav" (click)="PlayRadio(playerStatus)">
+                        <img  *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" >
+                        <img  *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png">
+                    </button>
+    
+
+                    <button (click)="setBack30()" class="ngClassFav ">
+                        <img src="../../../assets/imgs/Materials-07.png">  
                     </button>
                 </div>
                 
@@ -86,15 +101,18 @@
     <div *ngIf="PlayerTypes != null" class="modalContainer popUpView{{popupVar}}">
 
         <div class="modalBody">
-            <button (click)="setPopUp()" class="btnToggle">
-                <i *ngIf="popupVar === 'true'" class="fa fa-angle-down" aria-hidden="true"></i>
-                <i *ngIf="popupVar != 'true'" class="fa fa-angle-up" aria-hidden="true"></i>
-                 
-            </button>
+            
+            <div class="btnHeaderTog{{popupVar}}">
+                <button (click)="setPopUp()" class="btnToggle">
+                    <img *ngIf="popupVar === 'true'" src="../../../assets/imgs/scr_f1.png" >
+                    <img *ngIf="popupVar != 'true'" src="../../../assets/imgs/scr_f2.png" >
+                </button>
+    
+                <button (click)="ActionclosePlayer()" class="btnToggle">
+                    <img src="../../../assets/imgs/close-s1.png" >   
+                </button>
 
-            <button (click)="ActionclosePlayer()" class="btnToggle">
-                <i class="far fa-times-circle"></i>                        
-            </button>
+            </div>
             
             <div *ngIf="PlayerTypes === 'track'" class="trackTemplate trackTemplate{{popupVar}}">
     
@@ -108,9 +126,7 @@
                     <img  src="../../../assets/imgs/CD_GIF.gif" alt="">
                 </div>
     
-                
-    
-                
+ 
                 
                 <div class="trackSeekBar">
                     <div class="TrackTitleText">
@@ -119,18 +135,35 @@
     
                     <input class="rangTrack" type="range" min="0" max="{{durationSeek}}" [value]="seek" (input)="setSeekTo($event)"/>
                     <span>{{duration}}</span>/<span>{{currentTime}}</span>
+
                 </div>
     
                 <div class="trackButtons">
-                    <button  class="ngClassPlay ngClassPlayFooter " (click)="PlayRadio(playerStatus)">
-                        <img style="width: 70px;" *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
-                        <img style="width: 70px;" *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
-                    </button>
+                    
     
-                    <button *ngIf="songIdVar != null" (click)="addToFavorite()" class="ngClassFav " >
-                        <i class="far fa-heart"></i> 
+                    <button *ngIf="isFavorite === true && songIdVar != null" (click)="deleteFromFavorite()" class="ngClassFav " >
+                        
+                        <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s1.png" >
+                    </button>
+
+                    <button *ngIf="isFavorite != true && songIdVar != null" (click)="addToFavorite()" class="ngClassFav " >
+                        <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s2.png" >
+                    </button>
+
+                    <button (click)="setNext30()" class="ngClassFav ">
+                        <img src="../../../assets/imgs/Materials-06.png">  
+                    </button>
+
+                    <button  class="ngClassFav" (click)="PlayRadio(playerStatus)">
+                        <img  *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" >
+                        <img  *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png">
+                    </button>
+
+                    <button (click)="setBack30()" class="ngClassFav ">
+                        <img src="../../../assets/imgs/Materials-07.png">  
                     </button>
                 </div>
+                
                 
     
             </div>
@@ -138,6 +171,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 
 <div style="display: none;">

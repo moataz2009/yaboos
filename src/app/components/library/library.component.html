@@ -1,12 +1,15 @@
 <div class="d-xs-block d-lg-none">
         <a href={{mobileAppUrl}} class="mobileapp">{{headerMessage}}</a>
 </div>
-<img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
-<br><br><br><br><br>
+
 
 <div class="alllibrary">
     <div class="container librarycontainer">
         <!-- start libaray tabs  -->
+
+        <div class="HomeLogo">
+            <img src="../../../assets/imgs/logo.png " class="">
+        </div>
 
         <div class="col-12 text-center">
             <a (click)="clenStoragSearch()" *ngIf="searchTxt != ''" class="btn btn-primary">
