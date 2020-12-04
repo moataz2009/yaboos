@@ -28,7 +28,7 @@ export class ArtistComponent implements OnInit {
   showanotherheart: boolean = false;
   hideheart: boolean = true;
   searchText:string;
-  artistList: Artist[];
+  artistList: Artist[] = [];
   songsList: Songs[];
   songsalbumsList: Songs[];
   songsalbumsData: Songs[];
@@ -41,6 +41,7 @@ export class ArtistComponent implements OnInit {
 
   count = 10;
   mycountalb = 9;
+  pagination: any =0 ;
   moresongs:boolean = true;
   morealbums:boolean = true;
   moreartist:boolean = true;
@@ -447,8 +448,11 @@ a.remove();
 
 SearchloadArtist(){
   this.ArtistService.SearchAlphapet("0" , String(this.mycountalb), this.searchText).subscribe(res =>{
-   this.artistList = res.result;
-  //console.log(this.artistList);
+
+    for(var i in res.result){
+      this.artistList.push(res.result[i]);
+    }
+    
   })
 
 }
@@ -498,17 +502,21 @@ loadmorealbums(){
 }
 // load more artists
 loadartisits(){
-  this.mycountalb=this.mycountalb + 9;
+  this.pagination = this.pagination+1;
+
   if(this.searchText != null) 
   {
     this.SearchloadArtist();
     ////console.log("hello");
   }
   else{
-    this.ArtistService.SearchArtist("0" , String(this.mycountalb) ,"").subscribe(res =>{
-      this.artistList = res.result;
-     //console.log( this.artistList);
-      });
+    this.ArtistService.SearchArtist(String(this.pagination ), String(this.mycountalb), "").subscribe(res =>{
+
+      for(var i in res.result){
+        this.artistList.push(res.result[i]);
+      }
+
+    });
     
   }
 }

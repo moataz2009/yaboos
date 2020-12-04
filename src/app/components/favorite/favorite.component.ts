@@ -15,8 +15,10 @@ export class FavoriteComponent implements OnInit {
 
   [x: string]: any;
   headerMessage : string;
-  myFavourites: any;
+  myFavourites: any = [];
   isLogin:boolean ;
+  offset: any = 0;
+  loadMoreSong:any = true ;
   constructor(
       private favourites: FavoritesService, 
       private routr: Router, 
@@ -188,7 +190,8 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
   }
 
   loadmoresongs(){
-    
+    this.offset = this.offset + 1;
+    this.getMyFavourites();
   }
 
   ngOnInit(): void {
@@ -197,13 +200,14 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
     
   }
 
-  deleteFromFavorite(SongId: String){
+  deleteFromFavorite(SongId: String, i){
+
+ 
     this.favourites.deleteFromFavorite(SongId).subscribe((data: any) => {
       
       this.toastr.success('تم الحذف بنجاح');
-      
-      location.reload();
-
+      this.myFavourites.splice(i, 1);
+    
 
     }, (err: HttpErrorResponse) => {
       if(localStorage.getItem('userToken') != null){
@@ -218,9 +222,19 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
 
   getMyFavourites(){
     
-    this.favourites.myFavourites().subscribe((data: any) => {
-      this.myFavourites = data.result;
-     //console.log(data.result);
+    this.favourites.myFavourites(this.offset).subscribe((res: any) => {
+
+      for(var i in res.result) {
+        this.myFavourites.push(res.result[i]);
+      }
+      
+      if( this.myFavourites.length >= res.length ){
+        this.loadMoreSong = false;
+      }else{
+          this.loadMoreSong = true;
+      }
+
+
     }, (err: HttpErrorResponse) => {
       //console.log("Error ::ToDo");
     });

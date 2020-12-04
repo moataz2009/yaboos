@@ -4,6 +4,7 @@ import { UserService } from 'src/app/shared/user.service';
 import { User } from 'src/models/user.model';
 
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -19,7 +20,11 @@ export class SignupComponent implements OnInit {
   passwordValidation:string;
   isLoading:boolean = false;
 
-  constructor(private userService: UserService, private toastr: ToastrService) { }
+  constructor(
+    private userService: UserService, 
+    private toastr: ToastrService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.resetForm();
@@ -47,7 +52,7 @@ export class SignupComponent implements OnInit {
         this.resetForm(form);
         this.UsernameValidationBool = true;
         this.toastr.success('تم الحفظ بنجاح');
-
+        this.router.navigate(['/login']);
       }else{
 
         if(data.errors == "Username is already taken"){

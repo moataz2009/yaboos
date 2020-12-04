@@ -13,10 +13,11 @@ export class FavoritesService {
   readonly rootUrl = MainURL;
   constructor(private http: HttpClient) { }
 
-  myFavourites(){
+  myFavourites(offset: any){
 
-    return this.http.get(this.rootUrl+'/api/favourites?limit=1000', 
+    return this.http.get(this.rootUrl+`/api/favourites?limit=9&offset=${offset}`, 
     {headers: new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('userToken')})});
+
 
   }
 

@@ -135,7 +135,6 @@ mylogsection(){
         localStorage.setItem('usertoken' ,userToken );
         localStorage.setItem('username' ,this.userObj.username );
         $("#signneIn").hide();
-        window.location.reload();
        // this.route.navigate([`//`]);
        }
       // this.closeSingup();
@@ -159,7 +158,6 @@ Register(user:User)
       {
         localStorage.setItem('username' ,this.userObj.username );
       }
-        window.location.reload();
         $("#Register").hide();
       },
       (err) => {

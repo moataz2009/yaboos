@@ -67,6 +67,7 @@ export class PlayerComponent implements OnInit {
 
     this.favorites.addToFavorite(this.songIdVar).subscribe((data) => {      
       this.toastr.success('تم الحفظ بنجاح');
+      this.isFavorite = true;
     }, (err: HttpErrorResponse) => {
       this.toastr.success('لم يتم الحفظ ');
     });
@@ -80,7 +81,7 @@ export class PlayerComponent implements OnInit {
 
     this.favorites.deleteFromFavorite(this.songIdVar).subscribe((data: any) => {
       this.toastr.success('تم الحذف بنجاح');
-      location.reload();
+      this.isFavorite = false;
     }, (err: HttpErrorResponse) => {
       this.toastr.error('لم يتم الحذف ');
     });

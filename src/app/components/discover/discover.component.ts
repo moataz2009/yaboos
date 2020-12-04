@@ -34,7 +34,7 @@ export class DiscoverComponent implements OnInit {
   currentSongURL : any;
   currentSongName:any;
   currentSongId:any;
-  programLimit:any;
+  programLimit:any = 9;
   viewLoadMore: any;
   songPlayIcon:boolean = false;
   config: SwiperOptions = {
@@ -88,6 +88,8 @@ breakpoints:{  //when make it responsive
    },
     loop:true,
   };
+
+  offset: any = 0;
 //object from imports
   constructor(
       private http : HttpClient, 
@@ -242,46 +244,51 @@ changeheart(){
 }
 
   showprogrmslist(programId , programName , programImg){
-    // debugger;
     
+    
+    this.offset = 0;
+    this.EposidesList = [];
     this.programLimit = 9; 
     this.hideprograms=false;
     this.hideprogrameer=false;
     this.showmyprograms = true;
     this.programName = programName;
     this.programId = programId;
-    this.SongsService.GetSongsOfAlbum("0" , this.programLimit ,programId ).subscribe(res =>{
-      this.EposidesList = res.result;
-     //console.log(res.length);
-     //console.log(this.EposidesList);
-     //console.log("Start  ccccccccccc");
 
-      if(res.length <= this.programLimit){
+    this.SongsService.GetSongsOfAlbum(this.offset , this.programLimit ,programId ).subscribe(res =>{
+      
+      for(var i in res.result) {
+        this.EposidesList.push(res.result[i]);
+      }
+
+      if(res.length <= this.EposidesList.length ){
         this.viewLoadMore = false;
       }else {
         this.viewLoadMore = true;
       }
 
       this.programImage = programImg;
+      
      });
 
 
   }
 
   progrmslistLoadMore(){
-    this.programLimit = this.programLimit + 9;
+    this.offset = this.offset + 1;
 
-    this.SongsService.GetSongsOfAlbum("0" , this.programLimit , this.programId ).subscribe(res =>{
+    this.SongsService.GetSongsOfAlbum(this.offset , this.programLimit , this.programId ).subscribe(res =>{
 
-      this.EposidesList = res.result;
+      for(var i in res.result) {
+        this.EposidesList.push(res.result[i]);
+      }
 
-      if(res.length <= this.programLimit){
+      if(res.length <= this.EposidesList.length ){
         this.viewLoadMore = false;
       }else {
         this.viewLoadMore = true;
       }
 
-     //console.log("Start  more");
 
      });
   }
@@ -449,6 +456,7 @@ backtomain(){
   this.showmyprograms=false;
   this.hideprograms=true;
   this.hideprogrameer=true;
+  this.offset = 0;
 }
   loadmoreEposides(){
  //

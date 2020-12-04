@@ -30,7 +30,7 @@ export class SongsComponent implements OnInit {
   hideheart: boolean = true;
   searchText:string;
   artistList: Artist[];
-  songsList: Songs[];
+  songsList: Songs[] = [];
   songsalbumsList: Songs[];
   songsalbumsData: Songs[];
   albumList : any;
@@ -42,6 +42,7 @@ export class SongsComponent implements OnInit {
 
   count = 10;
   mycountalb = 9;
+  pagination: any = 0;
   moresongs:boolean = true;
   morealbums:boolean = true;
   moreartist:boolean = true;
@@ -49,7 +50,7 @@ export class SongsComponent implements OnInit {
   isLogin:boolean;
   PlayUrlTrack:String;
   Main_URL: any;
-
+  loadMoreSong: any = true;
 
   constructor( 
     private Aroute: ActivatedRoute,
@@ -342,15 +343,24 @@ backalbums(){
 
     if(localStorage.getItem('searchTxt') != null){
       this.SongsService.Search( "0",String(this.count) , localStorage.getItem('searchTxt') ).subscribe(res =>{
-        this.songsList = res.result;
 
-        
-       //console.log(this.songsList);
+        this.songsList = res.result;
+  
+        if( this.songsList.length >= res.length ){
+          this.loadMoreSong = false;
+        }else{
+            this.loadMoreSong = true;
+        }
+
       });
     }else{
       this.SongsService.Search( "0",String(this.count) , "").subscribe(res =>{
         this.songsList = res.result;
-       //console.log(this.songsList);
+        if( this.songsList.length >= res.length ){
+          this.loadMoreSong = false;
+        }else{
+            this.loadMoreSong = true;
+        }
         
         
       });
@@ -380,12 +390,12 @@ backalbums(){
     });
   }
 
-  deleteFromFavorite(SongId: String){
+  deleteFromFavorite(SongId: String,index){
+
     this.favorites.deleteFromFavorite(SongId).subscribe((data: any) => {
       
-      this.toastr.success('تم الحذف بنجاح');
-      
-      location.reload();
+      this.toastr.success('تم الحذف بنجاح');      
+      this.songsList[index].isFavourite = false;
 
 
     }, (err: HttpErrorResponse) => {
@@ -397,11 +407,18 @@ backalbums(){
       this.toastr.error('لم يتم الحذف ');
 
     });
+
   }
 
-  addToFavorite(SongId: String){
+  addToFavorite(SongId: String, index: any){
+
     this.favorites.addToFavorite(SongId).subscribe((data) => {      
       this.toastr.success('تم الحفظ بنجاح');
+
+      this.songsList[index].isFavourite = true;
+      //const targetIdx = this.songsList[index];
+
+
     }, (err: HttpErrorResponse) => {
       if(localStorage.getItem('userToken') != null){
       }else{
@@ -410,6 +427,7 @@ backalbums(){
       }
       this.toastr.success('لم يتم الحفظ ');
     });
+
   }
 
 
@@ -498,26 +516,58 @@ SearchloadArtist(){
 }
 SearchloadSongs(offset , limit , artistId){
   this.SongsService.GetSongsOfArtist( offset, limit , artistId).subscribe(res =>{
-    this.songsList = res.result;
-    //console.log(this.songsList);
+    
+    for(var i in res.result) {
+      this.songsList.push(res.result[i]);
+    }
+
+    if( this.songsList.length >= res.length ){
+      this.loadMoreSong = false;
+    }else{
+        this.loadMoreSong = true;
+    }
+
+
   })
 }
 
 // load more songs
 loadmoresongs (){
-this.count=this.count + 9;
 
-this.Aroute.queryParams.subscribe(params => {
-  this.searchText=  params['searchText'];
-  if(this.searchText != null) 
+  this.pagination = this.pagination + 1;
+  this.Aroute.queryParams.subscribe(params => {
+
+  if(localStorage.getItem('searchTxt')  != null) 
   {
-   this.SearchloadSongs("0", String(this.count),this.artistList[0].id );
+    this.SongsService.Search( "0",String(this.count) , localStorage.getItem('searchTxt') ).subscribe(res =>{
+      
+      for(var i in res.result) {
+        this.songsList.push(res.result[i]);
+      }
+      
+      if( this.songsList.length >= res.length ){
+        this.loadMoreSong = false;
+      }else{
+          this.loadMoreSong = true;
+      }
+
+     //console.log(this.songsList);
+    });
    
   }
   else{
-     this.SongsService.Search( "0",String(this.count) , "").subscribe(res =>{
-       this.songsList = res.result;
-      ////console.log(this.songsList);
+     this.SongsService.Search( String(this.pagination) ,String(this.count) , "").subscribe(res =>{
+
+        for(var i in res.result) {
+          this.songsList.push(res.result[i]);
+        }
+
+        if( this.songsList.length >= res.length ){
+          this.loadMoreSong = false;
+        }else{
+            this.loadMoreSong = true;
+        }
+        
       });
   }
  }); 

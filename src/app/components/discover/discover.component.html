@@ -1,146 +1,148 @@
-<div class="d-xs-block d-lg-none">
-    <a  class="mobileapp">{{headerMessage}}</a>
-</div>
-
-<div class="discover">
-    <div class="container">
-
-        <div class="HomeLogo">
-            <img src="../../../assets/imgs/logo.png " class="">
-        </div>
-
-        <div class="row d-flex justify-content-center">
-                 
-            <div  class="form-group has-search">
-
-                <!-- <div class="HomeLogo">
-                    <img src="../../../assets/imgs/logo.png " class="">
-                </div> -->
-
-                <div class="form-group has-search" (click)="HomeSearch(searchTxt.value)" class="mysearchicon">
-                    <i class="fas fa-search"></i>
-                </div>
-                <input type="text" class="form-control border-right-0" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم....">
-            </div>
-                <!-- <div class="form-group has-search" (click)="HomeSearch(searchTxt.value)">
-                    <i class="fas fa-search"></i>
-                </div>
-                <input type="text" class="form-control border-right-0" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم...."> -->
-
-
-            <div class="newsongs" *ngIf="hideprograms">
-                <h1> البرامج </h1>
-                <div class="swiper-button-next">
-                    <img src="../../../assets/imgs/swipernext.png">
-                </div>
-                <swiper [config]="config">
-
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"  *ngFor="let prop of programsList">
-                            <img [src]="prop.image" (click)="showprogrmslist(prop.id , prop.titleAr , prop.image)">
-                             <p>{{prop.title}}</p>
-                        </div>
-                    </div>
-                </swiper>
-                <div class="swiper-button-prev">
-                    <img src="../../../assets/imgs/swipprev.png">
-                </div>
-            </div>
-            <!-- programs -->
-
-            <div class="newprograms" *ngIf="hideprogrameer">
-                <h1> مقدمين البرامج </h1>
-                <div class="swiper-button-next1">
-                    <img src="../../../assets/imgs/swipernext.png">
-                </div>
-                <swiper [config]="configer">
-
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide" *ngFor="let prop of Reporters">
-                            <img [src]="prop.image">
-                             <p>{{prop.name}}</p>
-                        </div>
-
-                    </div>
-                </swiper>
-                <div class="swiper-button-prev1">
-                    <img src="../../../assets/imgs/swipprev.png">
-                </div>
-            </div>
-
-
-
-        </div>
+<div class="ProContainer">
+    <div class="d-xs-block d-lg-none">
+        <a  class="mobileapp">{{headerMessage}}</a>
     </div>
-
-</div>
-<!-- programms section -->
-<div class="progrmaslist w-100" *ngIf="showmyprograms">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="prosubject">
-                <p>موضوع البرنامج</p>
-                <a (click)="opentextsection()"><img src="../../../assets/imgs/minimize.png" *ngIf="endtext"></a>
-                <a (click)="openmaunsection()"><img src="../../../assets/imgs/minimize2.png" *ngIf="stext"></a>
+    
+    <div class="discover">
+        <div class="container">
+    
+            <div class="HomeLogo">
+                <img src="../../../assets/imgs/logo.png " class="">
             </div>
-        </div>
-        <div class="row  d-flex justify-content-center" *ngIf="allcontent">
-
-            <div class="floatdiv col-xs-12">
-                <div class="contain stopScrolMobile col-xs-12 ">
-                    <div class="textpro" *ngFor="let prop of EposidesList">
-                        <div class="socialpro">
-                            <!-- <a><i class="fa fa-share"></i></a> -->
-                            <a href="" target="_blank" (click)="DownloadAudio($event ,prop.id )"><i class="fas fa-download"></i></a>
-                        </div>
-                        <div class="mytexts" (click)="PlayTrack(prop.id , prop.title, prop.album.image,  false)">
-                            <h3> {{prop.titleAr}} </h3>
-                            <p> {{programName}}</p>
-                        </div>
-                        <div class="mimage">
-                            <div class="pausedproicon w-20">
-                                <a><img src="../../../assets/imgs/program small icon.png"></a>
-                                <a><span>{{calcTime(prop.duration)}}</span></a>
+    
+            <div class="row d-flex justify-content-center">
+                     
+                <div  class="form-group has-search">
+    
+                    <!-- <div class="HomeLogo">
+                        <img src="../../../assets/imgs/logo.png " class="">
+                    </div> -->
+    
+                    <div class="form-group has-search" (click)="HomeSearch(searchTxt.value)" class="mysearchicon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" class="form-control border-right-0" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم....">
+                </div>
+                    <!-- <div class="form-group has-search" (click)="HomeSearch(searchTxt.value)">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" class="form-control border-right-0" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم...."> -->
+    
+    
+                <div class="newsongs" *ngIf="hideprograms">
+                    <h1> البرامج </h1>
+                    <div class="swiper-button-next">
+                        <img src="../../../assets/imgs/swipernext.png">
+                    </div>
+                    <swiper [config]="config">
+    
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"  *ngFor="let prop of programsList">
+                                <img [src]="prop.image" (click)="showprogrmslist(prop.id , prop.titleAr , prop.image)">
+                                 <p>{{prop.title}}</p>
                             </div>
-                            <img [src]="programImage" class="imageapi">
                         </div>
+                    </swiper>
+                    <div class="swiper-button-prev">
+                        <img src="../../../assets/imgs/swipprev.png">
                     </div>
-                    <!-- المزيد  -->
-                    <div *ngIf="viewLoadMore === true" class="more col-xs-3">
-                        <a (click)="progrmslistLoadMore()">المزيد</a>
-                    </div>
- 
-
                 </div>
-
-                <div class="mymainimg">
-                    <img [src]="programImage" >
+                <!-- programs -->
+    
+                <div class="newprograms" *ngIf="hideprogrameer">
+                    <h1> مقدمين البرامج </h1>
+                    <div class="swiper-button-next1">
+                        <img src="../../../assets/imgs/swipernext.png">
+                    </div>
+                    <swiper [config]="configer">
+    
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" *ngFor="let prop of Reporters">
+                                <img [src]="prop.image">
+                                 <p>{{prop.name}}</p>
+                            </div>
+    
+                        </div>
+                    </swiper>
+                    <div class="swiper-button-prev1">
+                        <img src="../../../assets/imgs/swipprev.png">
+                    </div>
+                </div>
+    
+    
+    
+            </div>
+        </div>
+    
+    </div>
+    <!-- programms section -->
+    <div class="progrmaslist w-100" *ngIf="showmyprograms">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="prosubject">
+                    <p>موضوع البرنامج</p>
+                    <a (click)="opentextsection()"><img src="../../../assets/imgs/minimize.png" *ngIf="endtext"></a>
+                    <a (click)="openmaunsection()"><img src="../../../assets/imgs/minimize2.png" *ngIf="stext"></a>
                 </div>
             </div>
-            <div class="backtomain">
-                <a (click)="backtomain()">
-                    <i class="fas fa-share"></i>
-                </a>
+            <div class="row  d-flex justify-content-center" *ngIf="allcontent">
+    
+                <div class="floatdiv col-xs-12">
+                    <div class="contain stopScrolMobile col-xs-12 ">
+                        <div class="textpro" *ngFor="let prop of EposidesList">
+                            <div class="socialpro">
+                                <!-- <a><i class="fa fa-share"></i></a> -->
+                                <a href="" target="_blank" (click)="DownloadAudio($event ,prop.id )"><i class="fas fa-download"></i></a>
+                            </div>
+                            <div class="mytexts" (click)="PlayTrack(prop.id , prop.title, prop.album.image,  false)">
+                                <h3> {{prop.titleAr}} </h3>
+                                <p> {{programName}}</p>
+                            </div>
+                            <div class="mimage">
+                                <div class="pausedproicon w-20">
+                                    <a><img src="../../../assets/imgs/program small icon.png"></a>
+                                    <a><span>{{calcTime(prop.duration)}}</span></a>
+                                </div>
+                                <img [src]="programImage" class="imageapi">
+                            </div>
+                        </div>
+                        <!-- المزيد  -->
+                        <div *ngIf="viewLoadMore" class="more col-xs-3">
+                            <a (click)="progrmslistLoadMore()">المزيد</a>
+                        </div>
+     
+    
+                    </div>
+    
+                    <div class="mymainimg">
+                        <img [src]="programImage" >
+                    </div>
+                </div>
+                <div class="backtomain">
+                    <a (click)="backtomain()">
+                        <i class="fas fa-share"></i>
+                    </a>
+                </div>
+    
+    
+    
             </div>
-
-
-
         </div>
     </div>
-</div>
-
-<div class="mytext" *ngIf="myalltext">
-    <div class="container">
-        <div class="row col-xs-12 col-lg-9" style="margin: 0 auto;padding: 0;">
-            <!-- <p style="color: white;text-align: center;">
-                بعد أن عادت قيادة منظمة التحرير الفلسطينية الى ارض فلسطين بعد إتفاقيات اوسلو بين منظمة التحرير الفلسطينية واسرائيل , وبسطت نفوذها على أجزاء من الأراضى الفلسطينية التى اصبحت تحت مسؤولية السلطة الوطنية الفلسطينية , سعت الى تكوين وإنشاء وزارات ومؤسسات حكومية
-                متعددة وضرورية لإدارة شئون البلاد فى هذة الفترة الإنتقالية التى نصت عليها الإتفاقيات. وكان الإعلام ووسائله المتعددة من ضمن مااهتمت به السلطة الوطنية الفلسطينية , وأنشأت هيئة الاذاعه والتليفزيون عام 1994 من استوديوهاتها فى مدينة اريحا حيث
-                كانت نقطة البداية.
-            </p> -->
-            <p style="color: white;text-align: center;" *ngFor="let prop of programsList; let i=index">
-             {{prop.titleAr}}
-            </p>
-
+    
+    <div class="mytext" *ngIf="myalltext">
+        <div class="container">
+            <div class="row col-xs-12 col-lg-9" style="margin: 0 auto;padding: 0;">
+                <!-- <p style="color: white;text-align: center;">
+                    بعد أن عادت قيادة منظمة التحرير الفلسطينية الى ارض فلسطين بعد إتفاقيات اوسلو بين منظمة التحرير الفلسطينية واسرائيل , وبسطت نفوذها على أجزاء من الأراضى الفلسطينية التى اصبحت تحت مسؤولية السلطة الوطنية الفلسطينية , سعت الى تكوين وإنشاء وزارات ومؤسسات حكومية
+                    متعددة وضرورية لإدارة شئون البلاد فى هذة الفترة الإنتقالية التى نصت عليها الإتفاقيات. وكان الإعلام ووسائله المتعددة من ضمن مااهتمت به السلطة الوطنية الفلسطينية , وأنشأت هيئة الاذاعه والتليفزيون عام 1994 من استوديوهاتها فى مدينة اريحا حيث
+                    كانت نقطة البداية.
+                </p> -->
+                <p style="color: white;text-align: center;" *ngFor="let prop of programsList; let i=index">
+                 {{prop.titleAr}}
+                </p>
+    
+            </div>
         </div>
     </div>
 </div>

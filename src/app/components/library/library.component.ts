@@ -63,7 +63,7 @@ export class LibraryComponent implements OnInit {
     clenStoragSearch(){
 
       localStorage.removeItem('searchTxt');
-      location.reload();
+      this.router.navigate(['/Home']);
 
     }
 

@@ -21,7 +21,7 @@
                                     <div class="songitems col-md-12 mt-sm-2 p-0">
     
     
-                                        <div class="songs" *ngFor="let item of myFavourites">                                                                       
+                                        <div class="songs" *ngFor="let item of myFavourites;let i=index">                                                                       
                                             <div id=`SongId{{item.song.id}}` class="col-10 float-left list" (click)="PlayTrack(item.song.id, item.song.title, false, item.song.album.image )">
                                                     <span>{{item.song.title}}</span>
                                                 <i class="fas fa-play-circle pr-2"></i>
@@ -30,7 +30,7 @@
                                                 <i class="fas fa-download" ></i> 
                                                 &nbsp;              
                                                 &nbsp;              
-                                                <i class="fas fa-trash deleteicon" (click)="deleteFromFavorite(item.song.id)" ></i>               
+                                                <i class="fas fa-trash deleteicon" (click)="deleteFromFavorite(item.song.id, i)" ></i>               
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>   
@@ -41,7 +41,7 @@
     
     
                                         <!-- المزيد  -->
-                                        <div class="more col-xs-3">
+                                        <div *ngIf="loadMoreSong" class="more col-xs-3">
                                             <a  (click)="loadmoresongs()">المزيد</a>
                                         </div>
                                     </div> 

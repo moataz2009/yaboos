@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from 'src/models/user.model';
 import { BaseURL } from '../../service/globals/global-config';
@@ -13,7 +13,17 @@ map
 })
 export class UserService {
   readonly rootUrl = BaseURL;
+  
+  private mianIsLogedIn = new BehaviorSubject<any>(null);
+  isLogedIn = this.mianIsLogedIn.asObservable();
+
+
   constructor(private http: HttpClient) { }
+
+  actionChangeStatus(attr: any){
+    this.mianIsLogedIn.next(attr);
+  }
+
 
   regestarUser(user: User){
     const body: User = {

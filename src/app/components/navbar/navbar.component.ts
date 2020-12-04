@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/user.service';
 declare var $: any;
 
 @Component({
@@ -20,10 +21,24 @@ export class NavbarComponent implements OnInit {
 
   showLogout: boolean = false;
   showLogin: boolean = true;
-
-  constructor(private router: Router) { }
+  isLogedIn: boolean ;
+  constructor(
+    private router: Router,
+    private userService: UserService
+    ) { }
 
   ngOnInit():void{
+
+    this.userService.isLogedIn.subscribe(data => {
+      this.isLogedIn = data ;
+    } );
+
+    if(localStorage.getItem('userToken') != null){
+      this.userService.actionChangeStatus(true)
+    }else{
+      this.userService.actionChangeStatus(false)
+    }
+
 
     if(localStorage.getItem('userToken') != null){
       this.showLogout = true;
@@ -114,24 +129,14 @@ export class NavbarComponent implements OnInit {
     this.show=false;
     this.show3=true;
     localStorage.removeItem('username');
-    window.location.reload();
   }
 
 
   Logout(){
     localStorage.removeItem('userToken');
-    if(localStorage.getItem('userToken') != null){
-          
-      this.router.navigate(['/home']).then(() => {
-        window.location.reload();
-      });
-      return true;
-
-    }else{
-      this.router.navigate(['/login']).then(() => {
-        window.location.reload();
-      });
+    this.router.navigate(['/login']).then(() => {
+      this.userService.actionChangeStatus(false);
       return false;
-    }
+    })
   }
 }

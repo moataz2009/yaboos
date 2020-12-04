@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
     this.userService.loginAuth(username, password).subscribe((data: any) => {
       localStorage.setItem('userToken', data)
       this.router.navigate(['/Home']).then(() => {
-        window.location.reload();
+
+        this.userService.actionChangeStatus(true);
+        
       });
     }, (err: HttpErrorResponse) => {
       this.UsernameValidation = 'اسم المستخدم او كلمة المرور غير صحيحة';
