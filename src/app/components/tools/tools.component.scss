@@ -24,10 +24,10 @@ font-size: 17px;
           padding-left: 0px;padding-right:0px;
         }
     }
-<<<<<<< HEAD
+
     @include MediaQuery(xs + s + M){margin-top: 0px; 
         padding-top: 1px; }
-=======
+
     @include MediaQuery(xs + s + M){
         // margin-top: 80px;
         margin-top: 110px;
@@ -36,7 +36,6 @@ font-size: 17px;
         margin-top: 70px;
     }
     
->>>>>>> 65d001ca19def786caac01aa8138120179176d6c
     .tools-tab {
         margin-top: 50px;
         list-style-type: none;
