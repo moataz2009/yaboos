@@ -21,7 +21,7 @@ export class AppComponent {
   devicetok :any;
   message:any;
   constructor(
-    private messagingService: MessagingService ,   
+    //private messagingService: MessagingService ,   
     private http: HttpClient,
     private PlayerOptions: PlayerOptionsService,
     private Player: PlayerService
@@ -62,23 +62,22 @@ export class AppComponent {
 
 
 
-
-    // document.body.classList.remove();
     document.body.classList.add('backGround-1');
+/*
+    // document.body.classList.remove();
     this.messagingService.requestPermission();
-  this.messagingService.receiveMessage();
-  this.message = this.messagingService.currentMessage;
-  let token = localStorage.getItem('token');
+    this.messagingService.receiveMessage();
+    this.message = this.messagingService.currentMessage;
+    let token = localStorage.getItem('token');
  
-  if(token) {
-  console.log(token.toString());
-const headers = { 'Content-Type':'application/json'}
-const body = { title: 'Angular POST Request Example' }
-this.http.post<any>('http://188.225.184.108:9091/api/notifications/RefreshToken', '"'+token+'"', { headers }).subscribe(data => {
-});
-
-
-  }
+    if(token) {
+     //console.log(token.toString());
+      const headers = { 'Content-Type':'application/json'}
+      const body = { title: 'Angular POST Request Example' }
+      this.http.post<any>('http://188.225.184.108:9091/api/notifications/RefreshToken', '"'+token+'"', { headers }).subscribe(data => {
+    
+      });
+    }*/
   }
   ngOnDestroy(){
     document.body.classList.remove('backGround-1');

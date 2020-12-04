@@ -49,8 +49,8 @@ export class AlbumService {
       params = params.append('offset' , offset);
       params = params.append('limit' , limit);
       params = params.append('filter' , Term);
-      console.log(params);
-      console.log("End Params");
+     //console.log(params);
+     //console.log("End Params");
       return this.http.get<DataWithRanking<Album>>(APIURL , {params:params} );
 
 

@@ -2,56 +2,58 @@
     <a class="mobileapp">{{headerMessage}}</a>
   </div>  
   <img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
-  <br><br><br><br><br> 
 
-<div class="library">
-    <div class="container">
-        <!-- start libaray tabs  -->
-        <div class="row ">
-            <ul class="row ">
-               <li class="song" ><a >الاغانى المفضلة</a></li>
-              </ul>
-        </div>
-        <!-- end libaray tabs  -->
-        <!-- start songs sections  -->
-        <div class="row justify-content-center">
-            <div class="box col-xs-12">
-                    <div class="col-sm-12 float-right  col-xs-12">
-                            <div class="row">
-                                <div class="songitems col-md-12 mt-sm-2 p-0">
-
-
-                                    <div class="songs" *ngFor="let item of myFavourites">                                                                       
-                                        <div id=`SongId{{item.song.id}}` class="col-10 float-left list" (click)="PlayTrack(item.song.id, item.song.title, false, item.song.album.image )">
-                                                <span>{{item.song.title}}</span>
-                                            <i class="fas fa-play-circle pr-2"></i>
-                                        </div>
-                                        <div class="col-2  float-right icons">
-                                            <i class="fas fa-download" ></i> 
-                                            &nbsp;              
-                                            &nbsp;              
-                                            <i class="fas fa-trash deleteicon" (click)="deleteFromFavorite(item.song.id)" ></i>               
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>   
-    
-                                    <div class="clearfix"></div>
-                                    
-
-
-
-                                    <!-- المزيد  -->
-                                    <div class="more col-xs-3">
-                                        <a  (click)="loadmoresongs()">المزيد</a>
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>  
-
-         
+<div class="homepage">
+    <div class="library">
+        <div class="container">
+            <!-- start libaray tabs  -->
+            <div class="row mt-5">
+                <ul class="row ">
+                   <li class="song" ><a >الاغانى المفضلة</a></li>
+                  </ul>
             </div>
+            <!-- end libaray tabs  -->
+            <!-- start songs sections  -->
+            <div class="row justify-content-center">
+                <div class="box col-xs-12">
+                        <div class="col-sm-12 float-right  col-xs-12">
+                                <div class="row">
+                                    <div class="songitems col-md-12 mt-sm-2 p-0">
+    
+    
+                                        <div class="songs" *ngFor="let item of myFavourites">                                                                       
+                                            <div id=`SongId{{item.song.id}}` class="col-10 float-left list" (click)="PlayTrack(item.song.id, item.song.title, false, item.song.album.image )">
+                                                    <span>{{item.song.title}}</span>
+                                                <i class="fas fa-play-circle pr-2"></i>
+                                            </div>
+                                            <div class="col-2  float-right icons">
+                                                <i class="fas fa-download" ></i> 
+                                                &nbsp;              
+                                                &nbsp;              
+                                                <i class="fas fa-trash deleteicon" (click)="deleteFromFavorite(item.song.id)" ></i>               
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>   
+        
+                                        <div class="clearfix"></div>
+                                        
+    
+    
+    
+                                        <!-- المزيد  -->
+                                        <div class="more col-xs-3">
+                                            <a  (click)="loadmoresongs()">المزيد</a>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>  
+    
+             
+                </div>
+            </div>
+             <!-- end songs sections  -->
         </div>
-         <!-- end songs sections  -->
     </div>
 </div>
+
 

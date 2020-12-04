@@ -320,7 +320,7 @@ GetSongsOfAlbum(albumId)
 
     this.SongsService.GetSongsOfAlbum("0" , "1" , albumId).subscribe(res =>{
       this.songsalbumsData = res.result;
-//      console.log(res.result);
+//     //console.log(res.result);
       });
 
     // this.showArtists = false;
@@ -345,12 +345,12 @@ backalbums(){
         this.songsList = res.result;
 
         
-        console.log(this.songsList);
+       //console.log(this.songsList);
       });
     }else{
       this.SongsService.Search( "0",String(this.count) , "").subscribe(res =>{
         this.songsList = res.result;
-        console.log(this.songsList);
+       //console.log(this.songsList);
         
         
       });
@@ -517,7 +517,7 @@ this.Aroute.queryParams.subscribe(params => {
   else{
      this.SongsService.Search( "0",String(this.count) , "").subscribe(res =>{
        this.songsList = res.result;
-      // console.log(this.songsList);
+      ////console.log(this.songsList);
       });
   }
  }); 
@@ -546,7 +546,7 @@ loadartisits(){
   if(this.searchText != null) 
   {
     this.SearchloadArtist();
-    // console.log("hello");
+    ////console.log("hello");
   }
   else{
     this.ArtistService.SearchArtist("0" , String(this.mycountalb) ,"").subscribe(res =>{
@@ -562,7 +562,7 @@ loadalbumssongs(){
   // this.mycountalb=this.mycountalb + 9;
   // this.SongsService.GetSongsOfAlbum("0" , String(this.mycountalb) ,"").subscribe(res =>{
   //   this.songsalbumsList = res.result;
-  //   console.log( this.songsalbumsList);
+  //  //console.log( this.songsalbumsList);
   //   });
 }
 

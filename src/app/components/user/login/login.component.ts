@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     }, (err: HttpErrorResponse) => {
       this.UsernameValidation = 'اسم المستخدم او كلمة المرور غير صحيحة';
       this.UsernameValidationBool = false;
-      console.log(err.status);
+     //console.log(err.status);
     } );
 
     this.isLoading = false;

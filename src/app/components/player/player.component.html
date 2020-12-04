@@ -40,12 +40,12 @@
             <div *ngIf="PlayerTypes === 'track'" class="trackTemplate trackTemplate{{popupVar}}">
     
     
-                <div *ngIf="PlayImageVar != null" class="imageTrack">
+                <div *ngIf="PlayImageVar != null" class="imageTrack imageTrack{{popupVar}}">
                     <img  src="{{Main_URL}}/{{PlayImageVar}}" alt="">
     
                 </div>
     
-                <div *ngIf="PlayImageVar === null" class="imageTrack bg-transparent">
+                <div *ngIf="PlayImageVar === null" class="imageTrack imageTrack{{popupVar}} bg-transparent">
                     <img  src="../../../assets/imgs/CD_GIF.gif" alt="">
                 </div>
     
@@ -64,16 +64,16 @@
     
                 <div class="trackButtons">
                     
-                    <button *ngIf="isFavorite === true && songIdVar != null" (click)="deleteFromFavorite()" class="ngClassFav " >
+                    <button *ngIf="isFavorite === true && songIdVar != null" (click)="deleteFromFavorite()" class="ngClassFav ngClassFav{{popupVar}}" >
                         
                         <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s1.png" >
                     </button>
 
-                    <button *ngIf="isFavorite != true && songIdVar != null" (click)="addToFavorite()" class="ngClassFav " >
+                    <button *ngIf="isFavorite != true && songIdVar != null" (click)="addToFavorite()" class="ngClassFav ngClassFav{{popupVar}}" >
                         <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s2.png" >
                     </button>
 
-                    <button (click)="setNext30()" class="ngClassFav ">
+                    <button (click)="setNext30()" class="ngClassFav ngClassFav{{popupVar}}">
                         <img src="../../../assets/imgs/Materials-06.png">  
                     </button>
 
@@ -83,7 +83,7 @@
                     </button>
     
 
-                    <button (click)="setBack30()" class="ngClassFav ">
+                    <button (click)="setBack30()" class="ngClassFav ngClassFav{{popupVar}}">
                         <img src="../../../assets/imgs/Materials-07.png">  
                     </button>
                 </div>
@@ -117,12 +117,12 @@
             <div *ngIf="PlayerTypes === 'track'" class="trackTemplate trackTemplate{{popupVar}}">
     
     
-                <div *ngIf="PlayImageVar != null" class="imageTrack">
+                <div *ngIf="PlayImageVar != null" class="imageTrack imageTrack{{popupVar}}">
                     <img  src="{{Main_URL}}/{{PlayImageVar}}" alt="">
     
                 </div>
     
-                <div *ngIf="PlayImageVar === null" class="imageTrack bg-transparent">
+                <div *ngIf="PlayImageVar === null" class="imageTrack imageTrack{{popupVar}} bg-transparent">
                     <img  src="../../../assets/imgs/CD_GIF.gif" alt="">
                 </div>
     
@@ -141,16 +141,16 @@
                 <div class="trackButtons">
                     
     
-                    <button *ngIf="isFavorite === true && songIdVar != null" (click)="deleteFromFavorite()" class="ngClassFav " >
+                    <button *ngIf="isFavorite === true && songIdVar != null" (click)="deleteFromFavorite()" class="ngClassFav ngClassFav{{popupVar}}" >
                         
                         <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s1.png" >
                     </button>
 
-                    <button *ngIf="isFavorite != true && songIdVar != null" (click)="addToFavorite()" class="ngClassFav " >
+                    <button *ngIf="isFavorite != true && songIdVar != null" (click)="addToFavorite()" class="ngClassFav ngClassFav{{popupVar}}" >
                         <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s2.png" >
                     </button>
 
-                    <button (click)="setNext30()" class="ngClassFav ">
+                    <button (click)="setNext30()" class="ngClassFav ngClassFav{{popupVar}}">
                         <img src="../../../assets/imgs/Materials-06.png">  
                     </button>
 
@@ -159,7 +159,7 @@
                         <img  *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png">
                     </button>
 
-                    <button (click)="setBack30()" class="ngClassFav ">
+                    <button (click)="setBack30()" class="ngClassFav ngClassFav{{popupVar}}">
                         <img src="../../../assets/imgs/Materials-07.png">  
                     </button>
                 </div>

@@ -39,14 +39,15 @@
     padding: 0 !important;
 }
 .containerLogin{
-    max-width:550px;
+    max-width: 480px;
     margin: 0 auto;
-    margin-top: 39px;
+    margin-top: 0;
+    border-radius: 15px;
+    padding: 15px !important;
 
     @include MediaQuery(xs){
         margin-top: 40px;
     }
-    border-radius: 22px;
     .loginlink{
         margin-left: 20px;
         @media screen and (max-width:319px) {

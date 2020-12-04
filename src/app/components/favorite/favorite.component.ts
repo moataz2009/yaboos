@@ -220,7 +220,7 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
     
     this.favourites.myFavourites().subscribe((data: any) => {
       this.myFavourites = data.result;
-      console.log(data.result);
+     //console.log(data.result);
     }, (err: HttpErrorResponse) => {
       //console.log("Error ::ToDo");
     });

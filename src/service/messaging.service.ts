@@ -17,7 +17,7 @@ _messaging.onTokenRefresh = _messaging.onTokenRefresh.bind(_messaging);
  requestPermission() {
     this.angularFireMessaging.requestToken.subscribe(
     (token) => {
-    console.log("devicetoken" , token);
+   //console.log("devicetoken" , token);
     localStorage.setItem('token' ,token );
     },
     (err) => {

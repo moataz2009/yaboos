@@ -163,7 +163,7 @@ Register(user:User)
         $("#Register").hide();
       },
       (err) => {
-        console.log(err)
+       //console.log(err)
       }
   );
 }
@@ -382,7 +382,7 @@ Register(user:User)
     if( data.song.trim() != ""){
 
       let header = {}
-      let token = localStorage.getItem('token');
+      let token = localStorage.getItem('userToken');
 
       if(token) {
         header['Authorization'] = "Bearer" + " "+  token;
@@ -398,6 +398,7 @@ Register(user:User)
           this.errorShow = true;
           this.ErrorMessage =  "لم يتم أرسال طلبك "
           this.done = false;
+          data.song = '';
           return ;
         }
 

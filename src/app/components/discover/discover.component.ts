@@ -147,7 +147,7 @@ breakpoints:{  //when make it responsive
    
     this.ArtistService.GetReporters('0','100').subscribe(res =>{
         this.Reporters = res.result;
-        console.log( res.result);
+       //console.log( res.result);
        this.Reporters.forEach(function (i , item) {
         i.image = `http://188.225.184.108:9091/${i.image}`;
        }); 
@@ -252,9 +252,9 @@ changeheart(){
     this.programId = programId;
     this.SongsService.GetSongsOfAlbum("0" , this.programLimit ,programId ).subscribe(res =>{
       this.EposidesList = res.result;
-      console.log(res.length);
-      console.log(this.EposidesList);
-      console.log("Start  ccccccccccc");
+     //console.log(res.length);
+     //console.log(this.EposidesList);
+     //console.log("Start  ccccccccccc");
 
       if(res.length <= this.programLimit){
         this.viewLoadMore = false;
@@ -281,7 +281,7 @@ changeheart(){
         this.viewLoadMore = true;
       }
 
-      console.log("Start  more");
+     //console.log("Start  more");
 
      });
   }
@@ -438,7 +438,7 @@ a.remove();
     this.getMobileOperatingSystem();
     this.getReporters();
 
-    // this.http.get('http://www.mocky.io/v2/5ea172973100002d001eeada').subscribe(Response => { console.log(Response)});
+    // this.http.get('http://www.mocky.io/v2/5ea172973100002d001eeada').subscribe(Response => {//console.log(Response)});
 
 
 

@@ -142,12 +142,11 @@ font-size: 17px;
     align-items: center;
     // position: fixed;
     position: relative;
-    top:5%;
+    top: 0;
+    padding-bottom: 80px;
     
-    // @include MediaQuery(xs){
-    //     // top:3%;
-    //     top:40px;
-    // }
+    padding-top: 0px;
+
     @media screen and (max-width:319px) {
         top: 16px;
     }
@@ -161,22 +160,6 @@ font-size: 17px;
         top: 40px;
     }
 
-    /*@include MediaQuery(s){
-        // top:3%; 
-        top:40px;
-    }
-    @include MediaQuery(M){
-        // top:10%;
-        top:60px; 
-    }
-    @include MediaQuery(L){
-        // top:-9%;
-        top:70px;
-    }
-    @include MediaQuery(XL-XXL){top:70px;}
-    @include MediaQuery(XXL){
-        top:70px;
-    }*/
     h1,h5{
         margin-right: 10%;
         text-align: right;
@@ -536,7 +519,7 @@ input{
     }
       //
       @include MediaQuery(XL){
-        bottom: 30px;
+        bottom: 90px;
        
     }
     .songOrder {
@@ -1067,9 +1050,7 @@ input[type=number] {
         padding: 0;
     }
 }
-.homepage  {
-    top: 0 !important;
-}
+
 .ourhomecontainer{
     @include MediaQuery(xs) {
         margin-top: 70px !important;

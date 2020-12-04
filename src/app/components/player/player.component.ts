@@ -181,17 +181,17 @@ export class PlayerComponent implements OnInit {
 
   ngPlay(){
     this.playerUrl.ngPlay();
-    console.log('play');
+   //console.log('play');
   }
 
   ngPause(){
     this.playerUrl.ngPause();
-    console.log('ngPause');
+   //console.log('ngPause');
   }
 
   ngStop(){
     this.playerUrl.ngStop();
-    console.log('ngStop');
+   //console.log('ngStop');
   }
 
   setVolume(event){

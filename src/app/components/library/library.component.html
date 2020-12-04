@@ -1,70 +1,47 @@
 <div class="d-xs-block d-lg-none">
-        <a href={{mobileAppUrl}} class="mobileapp">{{headerMessage}}</a>
+        <a  class="mobileapp">{{headerMessage}}</a>
 </div>
 
-
-<div class="alllibrary">
-    <div class="container librarycontainer">
-        <!-- start libaray tabs  -->
-
-        <div class="HomeLogo">
-            <img src="../../../assets/imgs/logo.png " class="">
-        </div>
-
-        <div class="col-12 text-center">
-            <a (click)="clenStoragSearch()" *ngIf="searchTxt != ''" class="btn btn-primary">
-                الغاء البحث بـ {{searchTxt}}
-            </a>
-            <br><br>
-        
-        </div>
-        <div class="row ">
-            <ul class="row ">
-                <li>
-                    <a [routerLink]="['/Libaray/songs']" routerLinkActive="text-white" >الأغانى</a>
-                </li>
-                <li>
-                    <a [routerLink]="['/Libaray/albums']" routerLinkActive="text-white"> الالبومات</a>
-                </li>
-                <li>
-                    <a [routerLink]="['/Libaray/artist']" routerLinkActive="text-white">الفنانين</a>
-                </li>
-                
-            </ul>
-        </div>
-        <!-- end libaray tabs  -->
-
-        
-        <div class="mt-5 mb-5 greenBox">
-            <router-outlet></router-outlet>
-        </div>
-
-
-        
-</div>
-
-<!-- start MusicModal -->
-
-<!-- end MusicModal -->
-
-
-
-<!-- minimized window -->
-<!-- <div class="showsongalert" *ngIf="showsongalertlib">
-    <div class="container">
-        <div class="box1">
-            <div class="textstwo">
-                <a><img src="../../../assets/imgs/Path 263.png"></a>
-                <a class="imgclass"><img src="../../../assets/imgs/Path 262.png"></a>
-
+<div class="homepage">
+    <div class="alllibrary">
+        <div class="container librarycontainer">
+            <!-- start libaray tabs  -->
+    
+            <div class="HomeLogo">
+                <img src="../../../assets/imgs/logo.png " class="">
             </div>
-            <div class="textslast">
-                <div class="textsone">
-                    <h1>أماكن السهر</h1>
-                    <p>عمرو دياب</p>
-                </div>
-                <a (click)="showwindowofplaying()"><img src="../../../assets/imgs/arrowicon.png"></a>
+    
+            <div class="col-12 text-center">
+                <a (click)="clenStoragSearch()" *ngIf="searchTxt != ''" class="btn btn-primary">
+                    الغاء البحث بـ {{searchTxt}}
+                </a>
+                <br><br>
+            
             </div>
-        </div>
+            <div class="">
+                <ul>
+                    <li>
+                        <a [routerLink]="['/Libaray/songs']" routerLinkActive="text-white" >الأغانى</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/Libaray/albums']" routerLinkActive="text-white"> الالبومات</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/Libaray/artist']" routerLinkActive="text-white">الفنانين</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- end libaray tabs  -->
+    
+            
+            <div class="mt-5 mb-5 greenBox">
+                <router-outlet></router-outlet>
+            </div>
+    
+    
+            
     </div>
-</div> -->
+    
+    
+</div>

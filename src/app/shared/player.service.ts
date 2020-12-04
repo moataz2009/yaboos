@@ -145,9 +145,9 @@ export class PlayerService {
   
 
   autoStopPlayerAction(TimePlayer){
-    console.log("Start auto stop");
-    console.log(TimePlayer);
-    console.log("End auto stop");
+   //console.log("Start auto stop");
+   //console.log(TimePlayer);
+   //console.log("End auto stop");
     setTimeout( () => {
       this.ngAutoStop();
       this.actionChangeStopImage(null);
@@ -198,9 +198,9 @@ export class PlayerService {
   }
 
   autoPlayPlayerAction(TimePlayer){
-    console.log("Start auto stop");
-    console.log(TimePlayer);
-    console.log("End auto stop");
+   //console.log("Start auto stop");
+   //console.log(TimePlayer);
+   //console.log("End auto stop");
     setTimeout( () => this.ngAutoPlay() ,TimePlayer);
   }
 
@@ -226,24 +226,24 @@ export class PlayerService {
     this.actionPlayerType("live");
     this.getPlayNow();
 
-    console.log('ng auto Func Play');
+   //console.log('ng auto Func Play');
   }
 
   openMusic(playUrl, PlayType){
     this.streamObserv(playUrl, PlayType).subscribe(event => {});
-    console.log('loded');
+   //console.log('loded');
   }
 
   ngPlay(){
     
     if(this.PlayNowStrind === 'live'){
       this.audiObg.load();
-      console.log('ngStop zero');
+     //console.log('ngStop zero');
     }
     
     this.audiObg.play();
 
-    console.log('play');
+   //console.log('play');
   }
 
   ngStop(){
@@ -251,10 +251,10 @@ export class PlayerService {
 
     if(this.PlayNowStrind === 'live'){
       this.audiObg.currentTime = 0;
-      console.log('ngStop zero');
+     //console.log('ngStop zero');
     }
     
-    console.log('ngStop');
+   //console.log('ngStop');
   }
 
   ngAutoStop(){
@@ -262,7 +262,7 @@ export class PlayerService {
     this.audiObg.currentTime = 0;
     this.minStatus.next(false);
 
-    console.log('ng auto Func Stop');
+   //console.log('ng auto Func Stop');
   }
 
   
@@ -361,7 +361,7 @@ export class PlayerService {
 
   ngPause(){
     this.audiObg.pause();
-    console.log('ngPause');
+   //console.log('ngPause');
   }
 
 
