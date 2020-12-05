@@ -41,6 +41,8 @@ import { AlbumComponent } from './components/library/album/album.component';
 import { ArtistComponent } from './components/library/artist/artist.component';
 import { PlayerComponent } from './components/player/player.component';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,7 +94,16 @@ import { PlayerComponent } from './components/player/player.component';
    
  
   ],
-  providers: [MessagingService,AsyncPipe ,AuthGuard , ValidationService ],
+  providers: [
+    MessagingService,
+    AsyncPipe ,
+    AuthGuard , 
+    ValidationService,   
+    {
+      provide: LocationStrategy, 
+      useClass: HashLocationStrategy
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
