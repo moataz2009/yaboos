@@ -20,10 +20,10 @@ export class PlayerService {
   private minPlayerTitle = new BehaviorSubject<String>(undefined);
   PlayerTitle = this.minPlayerTitle.asObservable();
 
-  private minType = new BehaviorSubject<String>(null);
+  private minType = new BehaviorSubject<String>('track');
   PlayerTypes = this.minType.asObservable();
 
-  private minPlayerVolumeValue = new BehaviorSubject<number>(0.5);
+  private minPlayerVolumeValue = new BehaviorSubject<number>(0.50);
   playerVolumeVal = this.minPlayerVolumeValue.asObservable();
 
   private minUrlSource = new BehaviorSubject<string>("");

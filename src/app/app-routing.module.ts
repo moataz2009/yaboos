@@ -28,7 +28,7 @@ const routes: Routes = [
     redirectTo:'/Libaray/songs',
     pathMatch:'full'
 
-  },
+  },  
   {
     path: 'NavBar',
     component:  NavbarComponent
