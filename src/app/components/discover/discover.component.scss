@@ -41,19 +41,28 @@
 .discover {
     display: flex;
     justify-content: center;
-    margin-top: 0%;
+    // margin-top: 0%;
+    margin-top: -7%;
     @include MediaQuery(xs + s +M) {
         position: relative;
         // z-index: 100000000;
     }
     @media screen and (min-width:501px)and (max-width:575.98px) {
-        margin-top: 0;
+        // margin-top: 0;
+        margin-top: 7%;
+
+    }
+    @include MediaQuery(xs) {
+        // margin-top: 0;
+        margin-top: 7%;
     }
     @include MediaQuery(s) {
-        margin-top: 0;
+        // margin-top: 0;
+        margin-top: 7%;
     }
     @include MediaQuery(M) {
-        margin-top: 0;
+        // margin-top: 0;
+        margin-top: 7%;
     }
     .has-search {
         width: 40%;
