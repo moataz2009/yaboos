@@ -374,6 +374,7 @@ Register(user:User)
       this.errorShow = true;
       this.ErrorMessage =  " من فضلك ادخل الاغنيه"
       this.done = false;
+      setTimeout(() => { this.errorShow = false;}, 3000)
       return ;
       // alert( " من فضلك ادخل الاغنيه"); 
     }
@@ -391,12 +392,16 @@ Register(user:User)
         res=>{  this.errorShow = false;
           this.Message =  "تم إرسال طلبك بنجاح "
           this.done = true;
-          return ;},
+          setTimeout(() => { this.done = false;}, 3000)
+          $('.songSend textarea').val('');
+          return ;
+        },
         err=>{
           this.errorShow = true;
           this.ErrorMessage =  "لم يتم أرسال طلبك "
           this.done = false;
           data.song = '';
+          setTimeout(() => { this.errorShow = false;}, 3000)
           return ;
         }
 
@@ -406,6 +411,7 @@ Register(user:User)
         this.errorShow = true;
         this.ErrorMessage =  "من فضلك لابد من تسجيل الدخول "
         this.done = false;
+        setTimeout(() => { this.errorShow = false;}, 3000)
         return ;
         // alert("من فضلك لابد من تسجيل الدخول ");
       }
