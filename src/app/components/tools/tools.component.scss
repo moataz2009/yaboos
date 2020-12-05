@@ -29,8 +29,8 @@ font-size: 17px;
         padding-top: 1px; }
 
     @include MediaQuery(xs + s + M){
-        // margin-top: 80px;
-        margin-top: 0px;
+        // margin-top: 0px;
+        margin-top: 18%;
     }
     @media screen and (min-width:1200px) {
         margin-top: 0px;
@@ -99,8 +99,8 @@ font-size: 17px;
         width: 100%;
         margin: 0 auto;
         @include MediaQuery(xs+ s){
-            // margin-top: -60px;
-            margin-top: -31px;
+            // margin-top: -31px;
+            margin-top: 0px;
         }
         @include MediaQuery(M){margin-top: 70px;}
         @include MediaQuery(L){margin-top: 114px;}
@@ -207,9 +207,9 @@ font-size: 17px;
                 // top:17px;
                 top:71px;
             }
-            @media screen and (min-width:1200px)and (max-width:1900px) {
-                bottom:20px;
-                right:5% !important;
+            @media screen and (min-width:992px)and (max-width:1900px) {
+                bottom:-72px !important;
+                right:0% !important;
             }
             @media screen and (min-width:1901px){
                  right:30% !important;
