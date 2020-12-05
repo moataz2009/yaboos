@@ -181,6 +181,7 @@ font-size: 17px;
             width: 100%;
             @include MediaQuery(XXL){ justify-content:center;}
             li{
+                 cursor: pointer;
                 h5{
                     color: #106666;font-weight: bolder;
                     font-size: 25px;

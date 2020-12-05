@@ -522,7 +522,8 @@ input{
     }
       //
       @include MediaQuery(XL){
-        bottom: 90px;
+        bottom: 22px;
+        right:15px;
        
     }
     .songOrder {
@@ -612,25 +613,27 @@ input{
                 background-color: transparent;
                 border-radius: 10px;
                 color: #fff;
-                border: 2px solid #09D3D8;
+                border: 2px solid #106666;
                 font-size: 15px;
                 padding: 6px;
-                
+                box-shadow: none;
+                outline:none;
                 // width: 200px;
                 // height: 50px;
                 width: 100%; max-width: 100%; height: 100%;
                 // box-sizing: border-box;
             }
             textarea:focus {
-                border: 2px solid #09D3D8 !important ;
+                border: 2px solid #106666 !important ;
             }
             input{
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 padding: 0px !important; 
-
-                background-color: #09D3D8 ;
+                background-color: #106666 ;
+                outline: none;
+                box-shadow: none;
                 color:  white;
                 margin: auto;
                 font-weight : bold;
