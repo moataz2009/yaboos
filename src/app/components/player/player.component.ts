@@ -55,6 +55,7 @@ export class PlayerComponent implements OnInit {
     ActionclosePlayer(){
       this.playerUrl.actionPlayerType(null);
       this.playerUrl.ngPause();
+      this.playerUrl.changePlayerStatus(false);
     }
 
 

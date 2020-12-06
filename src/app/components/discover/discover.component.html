@@ -96,7 +96,7 @@
                                 <!-- <a><i class="fa fa-share"></i></a> -->
                                 <a href="" target="_blank" (click)="DownloadAudio($event ,prop.id )"><i class="fas fa-download"></i></a>
                             </div>
-                            <div class="mytexts" (click)="PlayTrack(prop.id , prop.title, prop.album.image,  false)">
+                            <div class="mytexts" (click)="PlayTrack(prop.id , prop.title, prop.album.image,  false, prop.isFavourite)">
                                 <h3> {{prop.titleAr}} </h3>
                                 <p> {{programName}}</p>
                             </div>

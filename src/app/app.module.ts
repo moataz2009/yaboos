@@ -9,7 +9,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { MessagingService } from '../service/messaging.service';
 import { environment } from '../environments/environment';
-import { AsyncPipe, PathLocationStrategy } from '../../node_modules/@angular/common';
+import { AsyncPipe } from '../../node_modules/@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReactiveFormsModule} from '@angular/forms' 
 
@@ -99,8 +99,10 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     AsyncPipe ,
     AuthGuard , 
     ValidationService,   
-    Location, {provide: LocationStrategy, useClass: PathLocationStrategy}
-
+    { 
+      provide:  LocationStrategy, 
+      useClass: HashLocationStrategy
+    }
   ],
   bootstrap: [AppComponent]
 })

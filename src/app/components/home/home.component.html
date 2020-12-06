@@ -1,27 +1,22 @@
 <div class="d-xs-block d-lg-none">
     <a class="mobileapp">{{headerMessage}}</a>
 </div>
-<img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
-<br><br><br><br><br>
+
 
 <div class="homeContent">
     <div class="homepage m-auto text-center" *ngIf="hideall">
         <div class="container ourhomecontainer">
 
-            <!-- <div class="HomeLogo m-0">
+            <div class="HomeLogo m-0">
                 <img src="../../../assets/imgs/logo.png " class="">
-            </div> -->
+            </div>
 
             <div class="playerTitlesHome">
                 <h1 class="col-xs-6">البث المباشر</h1>
                 <h5 class="col-xs-6"> {{playNowVar}} &nbsp;</h5>
             </div>
             <div class="m-auto pb-3 d-flex justify-content-center">
-                <div class="backimg position-relative">
-                    <!-- <div class="col-xs-4 cdimag justify-content-center">
-                        
-                    </div> -->
-                    
+                <div class="backimg mt-2 position-relative">                    
                     <div class="imagCdPlay">
                         <a id="button2">
                             <img src="../../../assets/imgs/CD.png" class="cd img-responsive">
@@ -29,8 +24,7 @@
                         <img src="../../../assets/imgs/CD_GIF.gif" class="cd img-responsive" *ngIf="playerStatus">
                     </div>
                     
-                    <!-- <audio id="player" [src]="PlayerURl" controls style="display:none;"> </audio> -->
-    
+         
                     <div class="col-xs-4 cdButtonPlay images justify-content-center">
                         <img *ngIf="PlayerTypes != 'live'"  src="../../../assets/imgs/Materials-06.png" class="small" (click)="setNext30()">
                         

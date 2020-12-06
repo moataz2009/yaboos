@@ -19,12 +19,12 @@ font-size: 17px;
 .library {
     width: 100%;
     // margin-top: 1%;
-    margin-top: -2%;
+    margin-top: 0;
     @include MediaQuery(xs + s + M) {
-        margin-top: 18%;
+        margin-top: 0;
     }
     @include MediaQuery(L) {
-        margin-top: 17%;
+        margin-top: 0;
     }
     ul {
         list-style-type: none;

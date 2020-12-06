@@ -100,7 +100,7 @@ breakpoints:{  //when make it responsive
       private playerUrl : PlayerService
     ) { }
 
-    PlayTrack(id: any, title, image ,status){
+    PlayTrack(id: any, title, image ,status, favorite){
       if(status === false){
         this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
         this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
@@ -109,6 +109,7 @@ breakpoints:{  //when make it responsive
         this.playerUrl.actionPlayNow("");
         this.playerUrl.actionPlayImage(image);
         this.playerUrl.actionSongId(id);
+        this.playerUrl.actionIsFavorite(favorite);
         
         this.playerUrl.actionPlayerType("track");
       }else{
@@ -261,6 +262,7 @@ changeheart(){
         this.EposidesList.push(res.result[i]);
       }
 
+      console.log(this.EposidesList);
       if(res.length <= this.EposidesList.length ){
         this.viewLoadMore = false;
       }else {

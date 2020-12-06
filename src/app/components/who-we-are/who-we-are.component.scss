@@ -13,6 +13,9 @@ font-size: 17px;
     @include MediaQuery(s){width: 50%;position: relative;right: -25%;top: 70px;}
     @include MediaQuery(M){width: 50%;position: relative;right: -25%;top: 70px;}
 }
+.paddingTop1 {
+    padding-top: 1px;
+}
 .privacy{
     @include MediaQuery(xs){position: relative;top: 25%;}
     padding: 1% 2%;

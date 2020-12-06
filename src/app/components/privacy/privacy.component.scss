@@ -14,7 +14,7 @@ font-size: 17px;
     @include MediaQuery(M){width: 50%;position: relative;right: -25%;top: 70px;}
 }
 .privacy{
-    padding: 1% 2%;
+    padding:0 ;
     background-color: #106666;
     border-radius: 10px;
     text-align: center !important;
@@ -44,6 +44,9 @@ font-size: 17px;
     }
 }
 
+.paddingTop1 {
+    padding-top: 1px;
+}
 
 // minimize song model
 //   music model
