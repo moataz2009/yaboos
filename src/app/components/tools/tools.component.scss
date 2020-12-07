@@ -32,6 +32,9 @@ font-size: 17px;
         // margin-top: 0px;
         margin-top: 18%;
     }
+    @media screen and (max-width:320px){
+        margin-top: 60%;
+    }
     @media screen and (min-width:1200px) {
         margin-top: 0px;
     }

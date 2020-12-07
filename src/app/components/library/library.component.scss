@@ -46,7 +46,14 @@
 
 .alllibrary {
     .librarycontainer{
-        @include MediaQuery(xs + s){
+        @include MediaQuery(xs){
+            padding: 0;
+            margin-top: 20px;
+        }
+        @media screen and (max-width:320px){
+            margin-top: 120px;
+        }
+        @include MediaQuery(s){
             padding: 0;
             margin-top: 20px;
         }

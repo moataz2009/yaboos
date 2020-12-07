@@ -23,6 +23,9 @@ font-size: 17px;
     @include MediaQuery(xs + s + M) {
         margin-top: 0;
     }
+    @media screen and (max-width:320px){
+        margin-top: 122px;
+    }
     @include MediaQuery(L) {
         margin-top: 0;
     }

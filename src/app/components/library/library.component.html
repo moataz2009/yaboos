@@ -1,8 +1,12 @@
-<div class="d-xs-block d-lg-none">
+<div class="d-xs-block d-lg-none p-1">
         <a  class="mobileapp">{{headerMessage}}</a>
 </div>
-<img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
-<br><br><br><br><br>
+
+<div class="HomeLogo mt-3">
+
+    <img src="../../../assets/imgs/logo.png " class="mt-5">
+</div>
+
 
 <div class="homepage">
     <div class="alllibrary">
@@ -13,8 +17,8 @@
                 <img src="../../../assets/imgs/logo.png " class="">
             </div> -->
     
-            <div class="col-12 text-center">
-                <a (click)="clenStoragSearch()" *ngIf="searchTxt != ''" class="btn btn-primary">
+            <div class="col-12 text-center mt-5">
+                <a (click)="clenStoragSearch()" *ngIf="searchTxt != ''" class="btn mt-5 btn-primary">
                     الغاء البحث بـ {{searchTxt}}
                 </a>
                 <br><br>

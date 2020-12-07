@@ -8,6 +8,10 @@ justify-content: center;
 align-items: center;color:white;
 font-size: 17px;
 }
+.HomeLogo{
+    
+
+}
 .logoimage {
     width: 50%;
     @include MediaQuery(xs) {
@@ -1059,7 +1063,7 @@ input[type=number] {
 
 .ourhomecontainer{
     @include MediaQuery(xs) {
-        margin-top: 70px !important;
+        margin-top: 150px !important;
     }
 }
 .imagCdPlay {
