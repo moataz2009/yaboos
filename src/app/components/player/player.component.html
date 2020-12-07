@@ -1,6 +1,5 @@
 
-
-<div *ngIf=" minUrlPage != '/Home'" class="Home">
+<div *ngIf=" minUrlPage != '/Home' && minUrlPage != '/'" class="Home">
     <div *ngIf="PlayerTypes != null" class="modalContainer popUpView{{popupVar}}">
 
         <div class="modalBody">
@@ -107,7 +106,6 @@
                     <img *ngIf="popupVar === 'true'" src="../../../assets/imgs/scr_f1.png" >
                     <img *ngIf="popupVar != 'true'" src="../../../assets/imgs/scr_f2.png" >
                 </button>
-    
                 <button (click)="ActionclosePlayer()" class="btnToggle">
                     <img src="../../../assets/imgs/close-s1.png" >   
                 </button>

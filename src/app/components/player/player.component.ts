@@ -109,8 +109,8 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // var getUrl = window.location.pathname.split('/');
-    // this.minUrlPage = getUrl[1];
+    var getUrl = window.location.pathname.split('/');
+    this.minUrlPage = getUrl[1];
     this.Main_URL = MainURL;
     
     this.playerUrl.currentUrl.subscribe(data => {

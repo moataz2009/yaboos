@@ -270,9 +270,9 @@ font-size: 17px;
             height: 82px;
         }
         @include MediaQuery(M){height: 115px;width:70%;}
-        @include MediaQuery(L){height: 127px;width:70%;}
-        @include MediaQuery(XL-XXL){height: 127px;width:70%;}
-        @include MediaQuery(XXL){height: 127px;width:70%;}
+        @include MediaQuery(L){height: 90px;width:70%;}
+        @include MediaQuery(XL-XXL){height: 90px;width:70%;}
+        @include MediaQuery(XXL){height: 90px;width:70%;}
     }
      //
      .mylastdiv{padding-left: 0px !important;padding-right:0px !important;}
@@ -432,8 +432,8 @@ input{
 }
 .images{
     position: relative;
-    left: 25%;
-    bottom: -13px;
+    right: 20px;
+    top: 18px;
     .large{
         width: 100px;
         height:100px;
@@ -461,23 +461,23 @@ input{
         width: 50px;height:50px;
         @include MediaQuery(xs){width: 35px;height:35px;}
         @include MediaQuery(s){width: 47px;height:47px;}
-        @include MediaQuery(M){width: 60px;height:60px;}
-        @include MediaQuery(L){width: 65px;height:65px;}
-        @include MediaQuery(XL-XXL){width: 65px;height:65px;}
-        @include MediaQuery(XXL){width: 75px;height:75px;}
+        @include MediaQuery(M){width: 55px;height:55px;}
+        @include MediaQuery(L){width: 55px;height:55px;}
+        @include MediaQuery(XL-XXL){width: 55px;height:55px;}
+        @include MediaQuery(XXL){width: 55px;height:55px;}
     }
     //
     @media screen and (max-width:319px) {
        left: 19%;
     }
     @media screen and (min-width:320px)and (max-width:359px) {
-        left: 20%;
+        right: 15px; 
     }
 
-    @include MediaQuery(M){bottom: -24px;}
-    @include MediaQuery(L){bottom: -24px;}
-    @include MediaQuery(XL-XXL){bottom: -24px;}
-    @include MediaQuery(XXL){bottom: -24px;}
+    @include MediaQuery(M){top: 18px;}
+    @include MediaQuery(L){top: 18px;}
+    @include MediaQuery(XL-XXL){top: 18px;}
+    @include MediaQuery(XXL){top: 18px;}
 }
 .social{position: relative;
     // left:5%;
@@ -1064,7 +1064,7 @@ input[type=number] {
 }
 .imagCdPlay {
     // width: 31%;
-    width:34%;
+    width:30%;
     float: left;
     position: relative;
     height: 100%;
