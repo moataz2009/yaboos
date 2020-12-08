@@ -38,7 +38,10 @@ export class HomeComponent {
   playerStatus:boolean = false;
   PlayerTypes:any;
   playNowVar:any;
-PlayerURl = "http://188.225.182.10:8000/live";
+  PlayerURl = "http://188.225.182.10:8000/live";
+
+  clockBack: any = 5;
+  errorClock:any = '';
   constructor( 
     private playerUrlTrack : PlayerService,
       private http: HttpClient ,
@@ -48,7 +51,32 @@ PlayerURl = "http://188.225.182.10:8000/live";
           private router: Router ,
           private toastr: ToastrService
           ) { 
-    this.notificationCounter = 0;
+              this.notificationCounter = 0;
+            }
+
+  
+  addToClock(){
+    if(this.clockBack == 23){
+      this.clockBack = 0;
+    }else{
+      this.clockBack = this.clockBack + 1;
+    }
+  }
+
+  removeFromClock(){
+    if(this.clockBack == 0){
+      this.clockBack = 23;
+    }else{
+      this.clockBack = this.clockBack - 1;
+    }
+  }
+
+  keytabcheck(ev){
+    if(ev.target.value > 23){
+      this.errorClock = 'لايمكن ادخال قيمة اكبر من 23 او اقل من صفر';
+    }else {
+      this.errorClock = '';
+    }
   }
 
   PlayRadio(playUrl, status){
@@ -177,16 +205,22 @@ Register(user:User)
   }
 
   
-  closesection(clock1:String , clock2:String , min1 , min2){
+  closesection(clock1:any , min1 , min2){
     debugger;
     this.prevlive =false;
     let date: Date = new Date(); 
 
     if(clock1 === ""){
-      clock1 ="0";
+      clock1 ="00";
     }
+    let hours;
+    if(clock1 <= 9){
+      hours = '0' + `${clock1}`;
+    }else{
+      hours = `${clock1}`;
+    }
+    
 
-    let hours = `${clock1}` + `${clock2}`;
     let x :number = date.getHours();
     let y :number = parseInt(hours);
     if(x < y)
@@ -259,6 +293,10 @@ Register(user:User)
     else{
       nextInput.focus();   // focus if not null
     }     
+ }
+
+ dataChange(event){
+
  }
 
 //close back to behind section

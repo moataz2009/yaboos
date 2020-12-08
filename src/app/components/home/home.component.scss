@@ -8,10 +8,13 @@ justify-content: center;
 align-items: center;color:white;
 font-size: 17px;
 }
-.HomeLogo{
-    
 
+.inputNum {
+    width: 100px !important;
+    height: 80px !important;
 }
+
+
 .logoimage {
     width: 50%;
     @include MediaQuery(xs) {
@@ -140,7 +143,7 @@ font-size: 17px;
   
     margin:auto;
     width: 100%;
-   height: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -389,38 +392,47 @@ font-size: 17px;
     }
 }
 ::placeholder{ 
-    text-indent: 30px;font-size:20px;color: white;
+    text-indent: inherit;font-size:20px;color: #30a7ae;
+    text-align: center;
     @include MediaQuery(xs){font-size:14px;}
-    @include MediaQuery(s){font-size:17px; text-indent: 40px;}
-    @include MediaQuery(M){font-size:17px; text-indent: 50px;}
-    @include MediaQuery(L){font-size:19px; text-indent: 50px;}
-     @include MediaQuery(XL-XXL){font-size:19px; text-indent: 50px;}
-     @include MediaQuery(XXL){font-size:19px; text-indent: 50px;}
+    @include MediaQuery(s){font-size:17px; text-indent: inherit;}
+    @include MediaQuery(M){font-size:17px; text-indent: inherit;}
+    @include MediaQuery(L){font-size:19px; text-indent: inherit;}
+     @include MediaQuery(XL-XXL){font-size:19px; text-indent: inherit;}
+     @include MediaQuery(XXL){font-size:19px; text-indent: inherit;}
+}
+
+.inputNum::placeholder{ 
+    text-indent: inherit !important;
+    font-size:50px !important;
+    color: #30a7ae !important;
+    text-align: center !important;
+
 }
 
 input{
     background-color:#106666;border:none;border-radius:10px; color:white !important;
-    text-indent: 40px;
+    text-indent: inherit;
     outline:none !important;box-shadow:none !important;
     @include MediaQuery(xs){
         // left:6%;
         left:4%;
-        text-indent: 20px;
+        text-indent: inherit;
     }
     @include MediaQuery(s){
         // left:6%;
         left:4%;
-        text-indent: 20px;
+        text-indent: inherit;
     }
     @include MediaQuery(M){
         // left:6%;
         left:4%;
-        text-indent: 23px;
+        text-indent: inherit;
     }
     @include MediaQuery(L){
         // left:6%;
         left:4%;
-        text-indent: 23px;
+        text-indent: inherit;
     }
     @include MediaQuery(XL-XXL){
         // left:6%;
@@ -431,7 +443,7 @@ input{
         left:4%;
     }
     @media screen and (min-width:1200px){
-        text-indent: 26px; 
+        text-indent: inherit; 
     }
 }
 .images{
@@ -816,7 +828,7 @@ input:not([type="submit"])
         background-color: #106666 !important;
         border:none;
         outline: none !important;box-shadow: none !important;
-        cursor:none;
+        cursor: unset;
     }
     .alltime{
         display: flex !important;
@@ -1167,3 +1179,37 @@ app-navbar {
     z-index: 10;
 }
 
+.blockView {
+    display: block !important;
+    background: #3cb8ba;
+    border-radius: 15px;
+}
+
+.btnClockPopup {
+       
+    border: 0;
+    background: transparent;
+    outline: none !important;
+    top: 0;
+    display: inline;
+    padding: 0;
+    color: #fff;
+    font-size: 39px;
+    background: #12696a;
+    float: right;
+    border-radius: 10px;
+    margin: 0 10px;
+    width: 58px;
+    line-height: 11px !important;
+    height: 80px;
+    padding-bottom: 14px;
+
+}
+
+.mylivehoursContainer {
+    width: 256px;
+    margin: 0 auto;
+}
+.errorClock {
+    font-size: 14px !important;
+}
