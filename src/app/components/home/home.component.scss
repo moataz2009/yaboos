@@ -362,6 +362,9 @@ font-size: 17px;
         @media screen and (max-width:319px) {
             padding-right: 0px;padding-left:0px;
         } 
+        input{
+            text-indent: 28px !important;
+        }
     }
 .input-group-append{
     position: relative;right:30px;z-index:100;top:10px;cursor: pointer;
