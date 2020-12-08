@@ -21,7 +21,7 @@ font-size: 17px;
     // margin-top: 1%;
     margin-top: 0;
     @include MediaQuery(xs + s + M) {
-        margin-top: 0;
+        margin-top: 17%;
     }
     @media screen and (max-width:320px){
         margin-top: 122px;
