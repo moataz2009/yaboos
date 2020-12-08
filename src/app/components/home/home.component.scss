@@ -808,6 +808,9 @@ input:not([type="submit"])
    
 }
 .modal1{
+    @include MediaQuery(xs){
+        padding-top: 30px;
+    }
     .modal-content{
         background-color: #106666 !important;
         span{
