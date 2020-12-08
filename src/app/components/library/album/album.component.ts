@@ -69,7 +69,7 @@ export class AlbumComponent implements OnInit {
      * 
      * Moataz Code Final
      */
-    PlayTrack(id: any, title, image, status, isFavorite ){
+    PlayTrack(id: any, title, image, status, isFavorite, index ){
       if(status === false){
         this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`;
         
@@ -81,6 +81,10 @@ export class AlbumComponent implements OnInit {
         this.playerUrl.actionSongId(id);
         this.playerUrl.actionPlayerType("track");
         this.playerUrl.actionPlayImage(image);
+
+        // indexs
+      this.playerUrl.ActionPlayList(this.songsList);
+      this.playerUrl.ActionPlayerIndex(index);
 
       }else{
         this.playerUrl.ngStop()

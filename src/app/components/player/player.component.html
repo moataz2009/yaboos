@@ -72,8 +72,8 @@
                         <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s2.png" >
                     </button>
 
-                    <button (click)="setNext30()" class="ngClassFav ngClassFav{{popupVar}}">
-                        <img src="../../../assets/imgs/Materials-06.png">  
+                    <button (click)="nextPrevPlay('next')" class="ngClassFav ngClassFav{{popupVar}}">
+                        <img src="../../../assets/imgs/ng_next.png">  
                     </button>
 
                     <button  class="ngClassFav" (click)="PlayRadio(playerStatus)">
@@ -82,8 +82,8 @@
                     </button>
     
 
-                    <button (click)="setBack30()" class="ngClassFav ngClassFav{{popupVar}}">
-                        <img src="../../../assets/imgs/Materials-07.png">  
+                    <button (click)="nextPrevPlay('back')" class="ngClassFav ngClassFav{{popupVar}}">
+                        <img src="../../../assets/imgs/ng_back.png">  
                     </button>
                 </div>
                 
@@ -148,17 +148,18 @@
                         <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s2.png" >
                     </button>
 
-                    <button (click)="setNext30()" class="ngClassFav ngClassFav{{popupVar}}">
-                        <img src="../../../assets/imgs/Materials-06.png">  
+                    <button (click)="nextPrevPlay('next')" class="ngClassFav ngClassFav{{popupVar}}">
+                        <img src="../../../assets/imgs/ng_next.png">  
                     </button>
 
                     <button  class="ngClassFav" (click)="PlayRadio(playerStatus)">
                         <img  *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" >
                         <img  *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png">
                     </button>
+    
 
-                    <button (click)="setBack30()" class="ngClassFav ngClassFav{{popupVar}}">
-                        <img src="../../../assets/imgs/Materials-07.png">  
+                    <button (click)="nextPrevPlay('back')" class="ngClassFav ngClassFav{{popupVar}}">
+                        <img src="../../../assets/imgs/ng_back.png">  
                     </button>
                 </div>
                 

@@ -4,6 +4,7 @@ import { NavigationStart, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FavoritesService } from 'src/app/shared/favorites.service';
 import { PlayerService } from 'src/app/shared/player.service';
+import { Songs } from 'src/models/songs.model';
 import { MainURL } from 'src/service/globals/global-config';
 
 
@@ -35,8 +36,11 @@ export class PlayerComponent implements OnInit {
   songIdVar:String;
 
   minUrlPage:any;
-
   isFavorite: any;
+  PlayIndex: any;
+  PlayList: Songs[] = [];
+
+  PlayUrlTrack: any;
   constructor(
     private playerUrl : PlayerService,
     private favorites : FavoritesService,
@@ -49,7 +53,47 @@ export class PlayerComponent implements OnInit {
           this.minUrlPage = event.url;
         }
       });
+    }
+
+
+    // next to play
+
+    nextPrevPlay(varNP: any){
+
+      let nextToPlay = this.PlayIndex;
       
+      
+        if(varNP === 'next'){
+          if(nextToPlay >= 0 && nextToPlay < this.PlayList.length - 1){
+            nextToPlay  = this.PlayIndex + 1;
+          }
+        }
+        
+        if(varNP === 'back'){
+          if(nextToPlay > 0 && nextToPlay <= this.PlayList.length){
+            nextToPlay  = this.PlayIndex - 1;
+          }
+        }
+
+
+      let list        = this.PlayList[nextToPlay];
+      let title       = list.titleAr;
+      let id           = list.id;
+
+      this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
+      this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
+      this.playerUrl.changePlayerStatus(true);
+      this.playerUrl.changePlayerTitle(title);
+      this.playerUrl.actionPlayNow("");
+      this.playerUrl.actionPlayImage(list.album.artist.image);
+      this.playerUrl.actionSongId(id);
+      this.playerUrl.actionIsFavorite(list.isFavourite);
+      this.playerUrl.actionPlayerType("track");
+
+      // indexs
+      this.playerUrl.ActionPlayList(this.PlayList);
+      this.playerUrl.ActionPlayerIndex(nextToPlay);
+
     }
 
     ActionclosePlayer(){
@@ -120,6 +164,14 @@ export class PlayerComponent implements OnInit {
 
     this.playerUrl.IsFavorite.subscribe(data => {
       this.isFavorite = data;
+    });
+
+    this.playerUrl.PlayIndexVar.subscribe(data => {
+      this.PlayIndex = data;
+    });
+
+    this.playerUrl.PlayListVar.subscribe(data => {
+      this.PlayList = data;
     });
 
     this.playerUrl.songIdVar.subscribe(data => {

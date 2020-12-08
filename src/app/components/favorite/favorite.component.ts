@@ -16,6 +16,7 @@ export class FavoriteComponent implements OnInit {
   [x: string]: any;
   headerMessage : string;
   myFavourites: any = [];
+  playFavourites: any = []; 
   isLogin:boolean ;
   offset: any = 0;
   loadMoreSong:any = true ;
@@ -26,7 +27,7 @@ export class FavoriteComponent implements OnInit {
       private playerUrl : PlayerService
     ) { }
 
-  PlayTrack(id: any, title, status, image){
+  PlayTrack(id: any, title, status, image, index){
     if(status === false){
       this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
       this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
@@ -37,6 +38,12 @@ export class FavoriteComponent implements OnInit {
       this.playerUrl.actionSongId(id);
       this.playerUrl.actionPlayerType("track");
       this.playerUrl.actionPlayImage(image);
+
+      // indexs
+      this.playerUrl.ActionPlayList(this.playFavourites);
+      this.playerUrl.ActionPlayerIndex(index);
+
+      console.log(this.myFavourites);
     }else{
       this.playerUrl.ngStop()
       this.playerUrl.changePlayerStatus(false);
@@ -226,14 +233,19 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
 
       for(var i in res.result) {
         this.myFavourites.push(res.result[i]);
+        
+        this.playFavourites.push(res.result[i].song);
+        res.result[i].song['isFavorite'] =  true;
       }
-      
+
+
       if( this.myFavourites.length >= res.length ){
         this.loadMoreSong = false;
       }else{
           this.loadMoreSong = true;
       }
 
+      this.offset = this.offset + 1;
 
     }, (err: HttpErrorResponse) => {
       //console.log("Error ::ToDo");

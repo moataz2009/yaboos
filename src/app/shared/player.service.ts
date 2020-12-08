@@ -66,6 +66,12 @@ export class PlayerService {
   private mianIsFavorite = new BehaviorSubject<any>(null);
   IsFavorite = this.mianIsFavorite.asObservable();
 
+  private mianPlayList = new BehaviorSubject<any>([]);
+  PlayListVar = this.mianPlayList.asObservable();
+
+  private mianPlayIndex = new BehaviorSubject<any>(null);
+  PlayIndexVar = this.mianPlayIndex.asObservable();
+
 
   audiObg = new Audio();
 
@@ -83,6 +89,14 @@ export class PlayerService {
 
    changeUrlPlayer(UrlPlayer: any){
     this.minUrlSource.next(UrlPlayer);
+  }
+
+  ActionPlayerIndex(PlayIndex: any){
+    this.mianPlayIndex.next(PlayIndex);
+  }
+
+  ActionPlayList(PlayList: any){
+    this.mianPlayList.next(PlayList);
   }
 
   actionSongId(attr: any){

@@ -69,7 +69,7 @@ export class SongsComponent implements OnInit {
     this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
   }
 
-  PlayTrack(id: any, title, image, status, favorite){
+  PlayTrack(id: any, title, image, status, favorite, index){
     if(status === false){
       this.PlayUrlTrack = `http://188.225.184.108:9091/api/songs/playsong/${id}`
       this.playerUrl.changeUrlPlayer(this.PlayUrlTrack);
@@ -80,6 +80,10 @@ export class SongsComponent implements OnInit {
       this.playerUrl.actionSongId(id);
       this.playerUrl.actionIsFavorite(favorite);
       this.playerUrl.actionPlayerType("track");
+
+      // indexs
+      this.playerUrl.ActionPlayList(this.songsList);
+      this.playerUrl.ActionPlayerIndex(index);
     }else{
       this.playerUrl.ngStop()
       this.playerUrl.changePlayerStatus(false);

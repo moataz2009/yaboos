@@ -95,12 +95,12 @@
     
                 <div class="floatdiv col-xs-12">
                     <div class="contain stopScrolMobile col-xs-12 ">
-                        <div class="textpro" *ngFor="let prop of EposidesList">
+                        <div class="textpro" *ngFor="let prop of EposidesList; let index =index">
                             <div class="socialpro">
                                 <!-- <a><i class="fa fa-share"></i></a> -->
                                 <a href="" target="_blank" (click)="DownloadAudio($event ,prop.id )"><i class="fas fa-download"></i></a>
                             </div>
-                            <div class="mytexts" (click)="PlayTrack(prop.id , prop.title, prop.album.image,  false, prop.isFavourite)">
+                            <div class="mytexts" (click)="PlayTrack(prop.id , prop.title, prop.album.image,  false, prop.isFavourite, index)">
                                 <h3> {{prop.titleAr}} </h3>
                                 <p> {{programName}}</p>
                             </div>
