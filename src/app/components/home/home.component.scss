@@ -816,6 +816,9 @@ input:not([type="submit"])
     }
     .modal-content{
         background-color: #106666 !important;
+        @media screen and(max-width:320px) {
+            width: 100%; 
+        }
         span{
             color: white !important;
             font-weight: bolder;
@@ -1209,12 +1212,19 @@ app-navbar {
     line-height: 11px !important;
     height: 80px;
     padding-bottom: 14px;
+    @media screen and (max-width: 320px){
+        width: 32px;
+    }
 
 }
 
 .mylivehoursContainer {
     width: 256px;
     margin: 0 auto;
+    @media screen and (max-width: 320px){
+        width: 204px;
+    }
+
 }
 .errorClock {
     font-size: 14px !important;
