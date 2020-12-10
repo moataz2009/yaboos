@@ -2,16 +2,25 @@
 
 .mobileapp{
     left:0;height:50px;
-right:0; background-image: linear-gradient(#32AAB2,#106666);
-position: absolute;display: flex;
-justify-content: center;
-align-items: center;color:white;
-font-size: 17px;
+    right:0; background-image: linear-gradient(#32AAB2,#106666);
+    position: absolute;display: flex;
+    justify-content: center;
+    align-items: center;color:white;
+    font-size: 17px;
 }
 
 .inputNum {
+
     width: 100px !important;
     height: 80px !important;
+
+    @media screen and (max-width: 500px){
+        width: 90px !important;
+        height: 58px !important;
+        font-size:30px !important;
+        font-family: tahoma !important;
+    }
+
 }
 
 
@@ -410,6 +419,10 @@ font-size: 17px;
     font-size:50px !important;
     color: #30a7ae !important;
     text-align: center !important;
+
+    @media screen and (max-width: 500px){
+        font-size:30px !important;
+    }
 
 }
 
@@ -816,6 +829,8 @@ input:not([type="submit"])
     }
     .modal-content{
         background-color: #106666 !important;
+        border: 3px solid #fff;
+        box-shadow: 0 0 30px  $basicColor;
         @media screen and(max-width:320px) {
             width: 100%; 
         }
@@ -830,7 +845,7 @@ input:not([type="submit"])
     input{
         width: 44px;
         height: 90px;
-        font-size: 62px !important;
+        font-size: 62px;
         text-align: center;
         color:white;
         font-family: "29lt-bukra-bold";
@@ -910,6 +925,7 @@ input[type=number] {
     overflow-y: hidden;
     .modal-content{
         background-color: $basicColor !important;
+        
        
     }
     .loginform{
@@ -1212,6 +1228,14 @@ app-navbar {
     line-height: 11px !important;
     height: 80px;
     padding-bottom: 14px;
+
+    @media screen and (max-width: 500px){
+        width: 45px;
+        height: 55px;
+        margin: 0 6px;
+        padding-bottom: 10px;
+    }
+
     @media screen and (max-width: 320px){
         width: 32px;
     }
@@ -1221,8 +1245,12 @@ app-navbar {
 .mylivehoursContainer {
     width: 256px;
     margin: 0 auto;
+    margin-top: 10px;
+    @media screen and (max-width: 500px){
+        width: 205px;
+    }
     @media screen and (max-width: 320px){
-        width: 204px;
+        width: 180px;
     }
 
 }

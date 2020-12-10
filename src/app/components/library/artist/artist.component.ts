@@ -42,11 +42,14 @@ export class ArtistComponent implements OnInit {
   count = 10;
   mycountalb = 9;
   pagination: any =0 ;
-  moresongs:boolean = true;
-  morealbums:boolean = true;
-  moreartist:boolean = true;
-  morealbsong:boolean = true;
+  moresongs:boolean = false;
+  morealbums:boolean = false;
+  moreartist:boolean = false;
+  morealbsong:boolean = false;
   isLogin:boolean;
+
+  
+  isLoading: boolean = true;
 
   constructor( 
     private Aroute: ActivatedRoute,
@@ -319,8 +322,17 @@ backalbums(){
         this.SearchArtist();
       }
       else{
+
+        
+        this.isLoading = true;
+
         this.ArtistService.SearchArtist("0" , String(this.mycountalb) ,"").subscribe(res =>{
-          this.artistList = res.result;
+          //this.artistList = res.result;
+          for(var i in res.result){
+            this.artistList.push(res.result[i]);
+          }
+          
+          this.isLoading = false;
         })
           this.SongsService.Search( "0",String(this.count) , "").subscribe(res =>{
             this.songsList = res.result;
@@ -447,12 +459,16 @@ a.remove();
 ///////////////////////////////////// all load functions
 
 SearchloadArtist(){
+  this.isLoading = true;
+
   this.ArtistService.SearchAlphapet("0" , String(this.mycountalb), this.searchText).subscribe(res =>{
 
     for(var i in res.result){
       this.artistList.push(res.result[i]);
     }
     
+    this.isLoading = false;
+
   })
 
 }
@@ -510,12 +526,15 @@ loadartisits(){
     ////console.log("hello");
   }
   else{
+    this.isLoading = true;
+
     this.ArtistService.SearchArtist(String(this.pagination ), String(this.mycountalb), "").subscribe(res =>{
 
       for(var i in res.result){
         this.artistList.push(res.result[i]);
       }
 
+      this.isLoading = false;
     });
     
   }

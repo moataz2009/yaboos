@@ -50,8 +50,8 @@ export class SongsComponent implements OnInit {
   isLogin:boolean;
   PlayUrlTrack:String;
   Main_URL: any;
-  loadMoreSong: any = true;
-
+  loadMoreSong: any = false;
+  isLoading: boolean = true;
   constructor( 
     private Aroute: ActivatedRoute,
     private router: Router , 
@@ -348,23 +348,34 @@ backalbums(){
     if(localStorage.getItem('searchTxt') != null){
       this.SongsService.Search( "0",String(this.count) , localStorage.getItem('searchTxt') ).subscribe(res =>{
 
-        this.songsList = res.result;
-  
+        for(var i in res.result) {
+          this.songsList.push(res.result[i]);
+        }
+        
         if( this.songsList.length >= res.length ){
           this.loadMoreSong = false;
         }else{
             this.loadMoreSong = true;
         }
+        
+        this.isLoading = false;
 
       });
     }else{
       this.SongsService.Search( "0",String(this.count) , "").subscribe(res =>{
-        this.songsList = res.result;
+        
+        for(var i in res.result) {
+          this.songsList.push(res.result[i]);
+        }
+        
         if( this.songsList.length >= res.length ){
           this.loadMoreSong = false;
         }else{
             this.loadMoreSong = true;
         }
+        
+        this.isLoading = false;
+
         
         
       });
@@ -392,6 +403,7 @@ backalbums(){
 
     });
     });
+
   }
 
   deleteFromFavorite(SongId: String,index){
@@ -519,6 +531,7 @@ SearchloadArtist(){
 
 }
 SearchloadSongs(offset , limit , artistId){
+  this.isLoading = true;
   this.SongsService.GetSongsOfArtist( offset, limit , artistId).subscribe(res =>{
     
     for(var i in res.result) {
@@ -531,8 +544,9 @@ SearchloadSongs(offset , limit , artistId){
         this.loadMoreSong = true;
     }
 
+  this.isLoading = false;
 
-  })
+  });
 }
 
 // load more songs
@@ -540,6 +554,7 @@ loadmoresongs (){
 
   this.pagination = this.pagination + 1;
   this.Aroute.queryParams.subscribe(params => {
+  this.isLoading = true;
 
   if(localStorage.getItem('searchTxt')  != null) 
   {
@@ -554,6 +569,8 @@ loadmoresongs (){
       }else{
           this.loadMoreSong = true;
       }
+      
+      this.isLoading = false;
 
      //console.log(this.songsList);
     });
@@ -572,6 +589,8 @@ loadmoresongs (){
             this.loadMoreSong = true;
         }
         
+        this.isLoading = false;
+
       });
   }
  }); 

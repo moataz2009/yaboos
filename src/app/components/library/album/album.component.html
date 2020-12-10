@@ -1,7 +1,18 @@
+
 <div class="library">
+
+    <div *ngIf="isLoading === true" class="loadingSection">
+        <div>
+            
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        </div>
+    </div>
+    
     <div class="justify-content-center">
         <div class="box  col-xs-12"> 
             <div class=" row albumsitems LgScreen"  *ngIf="hideAlbums">
+
+                
                 <div class="col-xs-4 text-center col-4 smallalb mt-3" *ngFor="let propimg of albumList;">
                     <img [src]="'http://188.225.184.108:9091/'+propimg.image" alt="" class="imageSong" (click)="GetSongsOfAlbum(propimg.id)" >
                     <p> {{propimg.title}}</p>

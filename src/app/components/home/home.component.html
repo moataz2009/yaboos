@@ -1,4 +1,4 @@
-<div class="d-xs-block d-lg-none p-1">
+<div class="d-xs-block d-lg-none px1">
     <a class="mobileapp">{{headerMessage}}</a>
 </div>
 <!-- <img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
@@ -14,7 +14,7 @@
         <div class="container ourhomecontainer">
 
            
-
+            
             <div class="playerTitlesHome">
                 <h1 class="col-xs-6">البث المباشر</h1>
                 <h5 class="col-xs-6"> {{playNowVar}} &nbsp;</h5>
@@ -210,50 +210,71 @@
 <div class="modal modal1 homepage" *ngIf="prevlive" id="examModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-body">
+            <div class="modal-body ">
                 <!-- close media -->
                 <div class="row">
                     <a class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">
-                      <i class="fas fa-times-circle" (click)="closeMedia()"> </i>
-                    </span>
+                            <i class="fas fa-times-circle" (click)="closeMedia()"> </i>
+                        </span>
                     </a>
                     <a class="close" class="mini">
                         <span aria-hidden="true"></span>
                     </a>
                 </div>
                 <!-- close media -->
-                <div class="blockView text-center pt-4 pb-4" dir="ltr">
-                    <div class="mylivehours">
-                        <p class="backtext">الرجوع إلى الساعه</p>
-                        <span class="text-white  errorClock pb-2">نظام 24 ساعة</span>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="mylivehours myinputs mylivehoursContainer">
-
-                        <button class="btnClockPopup" (click)="removeFromClock()">-</button>
+                <div *ngIf="ifLogin === true">
+                    <div class="blockView text-center pt-4 pb-4" dir="ltr">
+                        <div class="mylivehours">
+                            <p class="backtext">الرجوع إلى الساعه</p>
+                            <span class="text-white  errorClock pb-2">نظام 24 ساعة</span>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="mylivehours myinputs mylivehoursContainer">
+    
+                            <button class="btnClockPopup" (click)="removeFromClock()">-</button>
                             <input type="number" class="inputNum float-right" [value]="clockBack" placeholder="0" (keyup)="keytabcheck($event)"
                             #InputClock1  onKeyPress="if(this.value.length==2) return false;" >
-                         <button class="btnClockPopup" (click)="addToClock()">+</button>
-                        
+                            <button class="btnClockPopup" (click)="addToClock()">+</button>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+    
+                    </div>
+    
                     <div class="clearfix"></div>
+                    <div class="text-center">
+                        <span class="text-white  errorClock">{{errorClock}}</span>
                     </div>
                     <div class="clearfix"></div>
-
+    
+                    <div class="d-flex justify-content-center mt-0" *ngIf="ifLogin === true">
+                        <button class="btn confirmbtn mt-0" aria-disabled="false" (click)="closesection(InputClock1.value )" data-dismiss="modal" aria-label="Close"> 
+                           تأكيد 
+                        </button>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
 
-                <div class="clearfix"></div>
-                        <div class="text-center">
-                            <span class="text-white  errorClock">{{errorClock}}</span>
+                <div *ngIf="ifLogin != true">
+                    <div class="blockView  text-center pt-4 pb-4" dir="ltr">
+                        <div class="mylivehours">
+                            <p class="backtext "> للحصول على هذه الخدمة والعديد من الخدمات الاضافية مجانا اضغط على تسجيل الدخول او أنشيء حساب الان </p>
                         </div>
-
-                <div class="clearfix"></div>
-
-                <div class="d-flex justify-content-center mt-3">
-                    <button class="btn confirmbtn" aria-disabled="false" (click)="closesection(InputClock1.value )"> 
-                       تأكيد 
-                    </button>
+                        
+                        <div class="clearfix"></div>
+    
+                    </div>
                 </div>
+
+                
+
+                <div class="d-flex justify-content-center mt-3" *ngIf="ifLogin != true">
+                    <a routerLink="/login" class="btn btn-link text-white" data-dismiss="modal" aria-label="Close">تسجيل الدخول</a>
+                    <a routerLink="/signup" class="btn text-white" data-dismiss="modal" aria-label="Close"> انشاء حساب</a>
+                </div>
+
             </div>
         </div>
     </div>

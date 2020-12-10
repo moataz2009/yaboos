@@ -327,6 +327,31 @@ $basicColor:#106666;
         white-space: pre;
     }
 }
+.px1 {
+    padding-top: 1px;
+}
+.loadingSection {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: rgb(0 0 0 / 50%);
+    z-index: 9;
+    bottom: 0;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.TrackTitleTextfalse{
+    font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre;
+}
+
+
 .iconTools {
     max-width: 100px;
     width: 100%;

@@ -40,8 +40,10 @@ export class HomeComponent {
   playNowVar:any;
   PlayerURl = "http://188.225.182.10:8000/live";
 
-  clockBack: any = 5;
+  clockBack: any = 0;
   errorClock:any = '';
+
+  ifLogin:boolean ;
   constructor( 
     private playerUrlTrack : PlayerService,
       private http: HttpClient ,
@@ -87,6 +89,10 @@ export class HomeComponent {
       this.playerUrlTrack.getPlayNow();
       this.playerUrlTrack.actionSongId('');
       this.playerUrlTrack.actionPopUp(false);
+
+      // indexs
+      this.playerUrlTrack.ActionPlayList(null);
+      this.playerUrlTrack.ActionPlayerIndex(0);
     }else{
       this.playerUrlTrack.ngStop()
       this.playerUrlTrack.changePlayerStatus(false);
@@ -134,7 +140,6 @@ export class HomeComponent {
   this.hideall=true;
   }
   previouslive(){
-   
     this.prevlive = true;
   }
 //login
@@ -205,8 +210,9 @@ Register(user:User)
   }
 
   
-  closesection(clock1:any , min1 , min2){
-    debugger;
+  closesection(clock1){
+    console.log("Done");
+  
     this.prevlive =false;
     let date: Date = new Date(); 
 
@@ -317,6 +323,13 @@ Register(user:User)
     this.playerUrlTrack.PlayerTypes.subscribe(data => {
       this.PlayerTypes = data;
     });
+
+    
+    if(localStorage.getItem('userToken') != null){
+      this.ifLogin = true;
+    }else {
+      this.ifLogin = false;
+    }
        
 
 

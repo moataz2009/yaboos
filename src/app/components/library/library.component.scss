@@ -48,18 +48,18 @@
     .librarycontainer{
         @include MediaQuery(xs){
             padding: 0;
-            margin-top: 22%;
+            margin-top: 0px;
         }
         @media screen and (max-width:320px){
             margin-top: 120px;
         }
         @include MediaQuery(s){
             padding: 0;
-            margin-top: 20px;
+            margin-top: 100px;
         }
         @include MediaQuery(M){
             padding: 0;
-            margin-top: 30px;
+            margin-top: 100px;
         }
     }
     ul {

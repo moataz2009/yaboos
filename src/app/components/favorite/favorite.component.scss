@@ -21,7 +21,7 @@ font-size: 17px;
     // margin-top: 1%;
     margin-top: 0;
     @include MediaQuery(xs + s + M) {
-        margin-top: 17%;
+        margin-top: 120px;
     }
     @media screen and (max-width:320px){
         margin-top: 122px;
@@ -48,6 +48,9 @@ font-size: 17px;
             padding: 0;
         }
         li {
+            @include MediaQuery(xs + s) {
+                margin-bottom: 20px;
+            }
             a {
                 padding: 10px 50px;
                 @include MediaQuery(xs) {
@@ -57,7 +60,7 @@ font-size: 17px;
                 border-radius: 10px;
                 cursor: pointer;
                 // font-size: 20px;
-                font-size: 31px;
+                font-size: 25px;
                 color : #fff;
                 &:hover,
                 &:active,
@@ -65,7 +68,7 @@ font-size: 17px;
                     color: #fff !important;
                     outline: 0 !important;
                 }
-                @include MediaQuery(xs + s) {
+                @include MediaQuery(xs + s + M) {
                     font-size: 15px;
                 }
             }
@@ -91,7 +94,8 @@ font-size: 17px;
         height: 50vh !important;
         overflow-x: hidden;
         .songitems {
-            .songs{  padding-bottom: 20px;
+            .songs{  
+                padding-bottom: 10px;
                
                 .icons{
                     display: flex;

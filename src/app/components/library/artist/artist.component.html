@@ -4,6 +4,13 @@
 <div class="justify-content-center">
     <div class="box col-xs-12">
         <div class="row artistsitems">
+            <div *ngIf="isLoading === true" class="loadingSection">
+                <div>
+                    
+                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                </div>
+            </div>
+            
             <div class="col-xs-4 col-4 smallalb mt-3 text-center" *ngFor="let prop of artistList;">
                 <div (click)="getArtistAlbums(prop.id)">
                     <img class="imageSong" [src]="'http://188.225.184.108:9091/'+prop.image" alt="">

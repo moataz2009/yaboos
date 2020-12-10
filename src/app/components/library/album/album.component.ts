@@ -52,7 +52,9 @@ export class AlbumComponent implements OnInit {
   isLogin:boolean;
 
   SelectesAlbumID:any;
-  AlbumSongsOffcet = 9;
+  AlbumSongsOffcet = 9;  
+
+  isLoading: boolean = true;
 
   constructor( 
     private Aroute: ActivatedRoute,
@@ -357,6 +359,7 @@ GetSongsOfAlbum(albumId)
 //debugger;
     this.paginationSong = 0;
     this.songsList = [];
+    this.isLoading = true;
     this.SongsService.GetSongsOfAlbum(this.paginationSong , String(this.mycountalb) , albumId).subscribe(res =>{
       
       
@@ -372,6 +375,7 @@ GetSongsOfAlbum(albumId)
 
       this.SelectesAlbumID = res.result[0].album.id;
 
+      this.isLoading = false;
     });
 
 
@@ -390,6 +394,7 @@ loadmorealbums(){
   if(localStorage.getItem('searchTxt') != null){
     if(this.Aroute.snapshot.params.id != null ){
       
+      this.isLoading = true;
       this.AlbumService.Search(String(this.pagination) , String(this.mycountalb) , localStorage.getItem('searchTxt'), this.Aroute.snapshot.params.id).subscribe(res =>{
         for(var i in res.result){
           this.albumList.push(res.result[i]);
@@ -401,9 +406,10 @@ loadmorealbums(){
             this.morealbums = true;
         }
 
-
+        this.isLoading = false;
       });
     }else{
+      this.isLoading = true;
       this.AlbumService.Search(String(this.pagination) , String(this.mycountalb) , localStorage.getItem('searchTxt'), null).subscribe(res =>{
 
         for(var i in res.result){
@@ -415,6 +421,8 @@ loadmorealbums(){
         }else{
             this.morealbums = true;
         }
+
+        this.isLoading = false;
         
       });
     }
@@ -422,6 +430,7 @@ loadmorealbums(){
   {
 
     if(this.Aroute.snapshot.params.id != null ){
+      this.isLoading = true;
       this.AlbumService.Search("0" , String(this.mycountalb) , "", this.Aroute.snapshot.params.id).subscribe(res =>{
         for(var i in res.result){
           this.albumList.push(res.result[i]);
@@ -432,11 +441,13 @@ loadmorealbums(){
         }else{
             this.morealbums = true;
         }
-
+        this.isLoading = false;
       });
     }else{
+      this.isLoading = true;
       this.AlbumService.Search("0" , String(this.mycountalb) , "", null).subscribe(res =>{
         for(var i in res.result){
+          
           this.albumList.push(res.result[i]);
         }
 
@@ -445,6 +456,8 @@ loadmorealbums(){
         }else{
             this.morealbums = true;
         }
+
+        this.isLoading = false;
 
       });
     }
@@ -482,6 +495,8 @@ backalbums(){
                 this.morealbums = true;
             }
 
+            this.isLoading = false;
+
           });
 
           
@@ -495,6 +510,7 @@ backalbums(){
                 this.morealbums = true;
             }
             
+            this.isLoading = false;
           });
         }
       }else
@@ -510,6 +526,9 @@ backalbums(){
                 this.morealbums = true;
             }
 
+            this.isLoading = false;
+
+
           });
         }else{
           this.AlbumService.Search("0" , String(this.mycountalb) , "", null).subscribe(res =>{
@@ -520,6 +539,8 @@ backalbums(){
             }else{
                 this.morealbums = true;
             }
+            
+            this.isLoading = false;
             
           });
         }
@@ -697,6 +718,7 @@ loadalbumssongs(){
 
   this.paginationSong = this.paginationSong+1;
   console.log(this.paginationSong);
+  this.isLoading = true;
   this.SongsService.GetSongsOfAlbum(this.paginationSong  , String(this.AlbumSongsOffcet) , this.SelectesAlbumID ).subscribe(res =>{
 
     for(var i in res.result){
@@ -713,6 +735,7 @@ loadalbumssongs(){
         this.morealbsong = true;
     }
 
+    this.isLoading = false;
 });
   
 }

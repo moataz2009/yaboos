@@ -17,12 +17,15 @@
 
             <div *ngIf="PlayerTypes === 'live'" class="radipTemplate radioTemplate{{popupVar}}">
     
-                <div class="textContentLive">
-                    <div class="palyerContent text-left">
-                        <h2 >البث المباشر</h2>
-                        {{PlayerTitle}}
+                <div class="trackSeekBar">
+                    <div class="textContentLive1">
+                        <div class="palyerContent text-left">
+                            <h2 >البث المباشر</h2>
+                            <p class="TrackTitleText{{popupVar}} m-0">{{PlayerTitle}}</p>
+                        </div>
                     </div>
                 </div>
+                
                 
     
                 <div class="liveButtonSection">
