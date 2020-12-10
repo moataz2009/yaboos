@@ -897,6 +897,9 @@ input:not([type="submit"])
     outline: none;
     box-shadow: none;
 }
+.close{
+    cursor: pointer;
+}
 }
 
 ::ng-deep{
@@ -1256,4 +1259,35 @@ app-navbar {
 }
 .errorClock {
     font-size: 14px !important;
+}
+
+// telephone number
+.telephonenumber{
+    input{
+        width: 96%;
+        margin: 0 auto;
+        height: 60px;
+        font-size: 25px;
+        background-image: url(../../../assets/imgs/Plusicon.png);
+        background-position: left 10px center;
+        text-align: left;
+        background-size: 23px !important;
+        background-repeat: no-repeat;
+        text-indent: 30px;
+
+    }
+    .tele{
+        color:white !important;
+        width: 100%;
+        text-align: right !important;
+        padding-right: 13px !important;
+    }
+}
+.soonsubmit{
+    color: white;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 25px;
 }

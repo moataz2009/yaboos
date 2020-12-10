@@ -594,4 +594,18 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
 //  minimize song model
 //   music model
 
+soon:boolean = false;
+
+opensoon(){
+  this.soon= true;
+}
+closesoonsection(){
+  this.soon= false;
+}
+
+savetelephone(){
+
+}
+
+
 }
