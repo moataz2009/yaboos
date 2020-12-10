@@ -104,7 +104,7 @@ font-size: 17px;
         margin: 0 auto;
         @include MediaQuery(xs+ s){
             // margin-top: -31px;
-            margin-top: 0px;
+            margin-top: -121px;
         }
         @include MediaQuery(M){margin-top: 70px;}
         @include MediaQuery(L){margin-top: 114px;}
@@ -660,4 +660,11 @@ input[type=number] {
 .btnToolOpt li {
     padding: 0 27px;
     text-align: center;
+}
+
+.alarmdiv{
+    @include MediaQuery(xs+ s){
+        // margin-top: -31px;
+        margin-top: -30px !important;
+    }
 }
