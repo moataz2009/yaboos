@@ -268,6 +268,7 @@
             cursor:pointer;
             img {
                 width: 130px;
+                border-radius: 50%;
                 @media screen and (max-width: 319px) {
                     width: 48px;
                 }
@@ -440,6 +441,7 @@
         }
         .swiper-slide {
             img {
+                border-radius: 50%;
                 width: 130px;
                  //
                  height: 130px;
@@ -493,6 +495,7 @@
     width: 100%;
     @include MediaQuery(xs + s +M) {
         position: relative !important;
+        margin-bottom: 60px;
         // z-index: 1000000000000000000000;
         // z-index: 1;
     }
@@ -520,6 +523,9 @@
         .mymainimg {
             margin-top: 32px;
             width: 80%;
+            img{
+                border-radius: 50% !important;
+            }
             @include MediaQuery(xs + s + M) {
                 width: 100% !important;
                 img {
@@ -589,7 +595,7 @@
             // margin-top: 40px;
             margin-top: 25px;
             width: 100%;
-            @include MediaQuery(xs + s M) {
+            @include MediaQuery(xs + s + M) {
                 justify-content: center;
                 margin-right: 6px;
             }
@@ -597,16 +603,17 @@
                 justify-content: space-around;
             }
             .socialpro {
-                float: right;
+                // float: right;
+                font-size: 25px;
                 @include MediaQuery(xs + s + M) {
-                    margin-right: 20px;
-                    margin-left: 20px;
+                    // margin-right: 20px;
+                    // margin-left: 20px;
                 }
                 @include MediaQuery(s) {
-                    font-size: 25px
+                    // font-size: 25px
                 }
                 @include MediaQuery(M) {
-                    font-size: 25px
+                    // font-size: 25px
                 }
                 @include MediaQuery(xs + s + M) {
                     margin-top: 20px;
@@ -631,12 +638,17 @@
             .mytexts {
                 text-align: center;
                 cursor: pointer;
+                // padding-left: 49px;
+                // margin-right: -45px;
                 @include MediaQuery(xs + s + M) {
                     margin-top: 17px;
-                    width: 300px;
+                    // padding-left: 10px;
+                    // margin-right: -45px;
+                    // width: 300px;
                 }
                 @include MediaQuery(L) {
                     margin-top: 16px;
+                    // width: 225px;
                 }
                 @include MediaQuery(XL-XXL) {
                     margin-top: 20px;
@@ -645,7 +657,7 @@
                     margin-top: 20px;
                 }
                 @media screen and (min-width:1200px){
-                   width: 251px;
+                //    width: 251px;
                 }
                 h3 {
                     color: #106666;
@@ -655,7 +667,8 @@
                     // }
                   
                     @media screen and (max-width:319px) {
-                        font-size: 12px;
+                        // font-size: 12px;
+                        font-size: 14px;
                     }
                     @media screen and  (min-width:320px) and  (max-width:359px){
                         // font-size: 12px;
@@ -665,7 +678,8 @@
                         font-size: 17px;
                     }
                     @include MediaQuery(s) {
-                        font-size: 22px;
+                        // font-size: 22px;
+                        font-size: 27px;
                     }
                     @include MediaQuery( M) {
                         font-size: 35px;
@@ -675,21 +689,89 @@
                     color: #fff;
                      //
                      padding-top:10px;
-                     @include MediaQuery(xs + s){font-size:12px;}
+                     @include MediaQuery(xs){
+                         font-size:12px;
+                    }
+                    @include MediaQuery(s + M){
+                        font-size:17px;
+                   }
                 }
+                // .myimage {
+                //     float: left;
+                //     display: inline-flex;
+                //     @include MediaQuery(xs + s) {
+                //         // margin-top: -11px;
+                //         margin-top: -84px !important;
+                //     }
+                //     @include MediaQuery( M) {
+                //         margin-top: -100px;
+                //     }
+                //     .pausedproicon {
+                //         // margin-left: 30px;
+                //         margin-top: 15px;
+                //         @include MediaQuery(xs + s){
+                //             margin-left: 30px;  
+                //         }
+                //         @include MediaQuery(xs + s + M) {
+                //             // margin-left: 13px;
+                //             // margin-right: 10px;
+                //             // margin-top: 29px;
+                //         }
+                //         // @include MediaQuery(s) {
+                //         //     margin-top: 29px;
+                //         // }
+                //         // @include MediaQuery(M) {
+                //         //     margin-top: 29px;
+                //         // }
+                //         @include MediaQuery(L) {
+                //             // margin-top: 29px;
+                //             margin-top: -73px;
+                //         }
+                //         @include MediaQuery(XL) {
+                //             // margin-top: 29px;
+                //             margin-top: -76px;
+                //         }
+                //         // @include MediaQuery(XXL) {
+                //         //     margin-top: 29px;
+                //         // }
+                //         a {
+                //             display: block;
+                //             color: white;
+                //         }
+                //         img {
+                //             width: 27px;
+                //             @include MediaQuery(M) {
+                //                 width: 32px;
+                //             }
+                //         }
+                //         .protime{
+                //             padding-top: 10px;
+                //         }
+                //     }
+                // }
             }
             .mimage {
-                float: left;
+                // float: left;
                 display: inline-flex;
                 @include MediaQuery(xs + s + M) {
                     margin-top: -11px;
                 }
                 .pausedproicon {
-                    margin-left: 30px;
-                    margin-top: 15px;
+                    .protime{
+                        padding-top: 10px;
+                        text-align: center;
+                        @include MediaQuery(s){
+                            font-size: 21px;
+                        }
+                        @include MediaQuery(M){
+                            font-size: 21px;
+                        }
+                    }
+                    // margin-left: 30px;
+                    // margin-top: 15px;
                     @include MediaQuery(xs + s + M) {
-                        margin-left: 13px;
-                        margin-right: 10px;
+                        // margin-left: 13px;
+                        // margin-right: 10px;
                         margin-top: 29px;
                     }
                     @include MediaQuery(s) {
@@ -713,8 +795,11 @@
                     }
                     img {
                         width: 27px;
+                        @include MediaQuery(s) {
+                            width: 37px;
+                        }
                         @include MediaQuery(M) {
-                            width: 32px;
+                            width: 45px;
                         }
                     }
                 }
@@ -722,18 +807,31 @@
         }
     }
     .backtomain{
-        position: absolute;
+        position: relative;
+        right: 47%;
         bottom: 0;
+        top: 75px;
+        margin-bottom: 100px;
         left: 30px;
+        // position: absolute;
+        
+       
         // font-size: 25px;
         font-size: 36px;
         transform: rotateY(180deg);
         color:#106666;
         a{cursor: pointer;}
         @media screen and (max-width:991px){
-            bottom: -50px;
+            //
+            // position: absolute;
+            top:57px;
+            margin-bottom: 0px;
+            // bottom: -50px;
             left: 20px;
             font-size: 37px;
+        }
+        @include MediaQuery(M){
+            margin-bottom: 20px;
         }
         @include MediaQuery(L){
             bottom: 67px;
@@ -1082,20 +1180,35 @@
 }
 //
 .imageapi{
-    width:123px;
+    // width:123px;
+    width: 112px;
     height: 112px;
+    border-radius: 50%;
     @media screen and  (max-width:319px) {
         // width: 100px;
         // height: 98px;
-        width: 99px;
-        height: 89px;
+        width: 79px;
+        height: 79px;
         padding-left: 16px;
+        margin-top: 15px;
     }
-    @media screen and  (min-width:320px) and  (max-width:991.98px) {
+    @media screen and  (min-width:320px) and  (max-width:359px) {
+        width: 80px;
+        height: 84px;
+        margin-top: 17px;
+    }
+    @media screen and  (min-width:360px) and  (max-width:991.98px) {
         // width: 100px;
         // height: 98px;
         width: 97px;
-        height: 102px;
+        // height: 102px;
+        height: 97px;
+        // margin-top: 10px;
+    }
+    @include MediaQuery(M) {
+        width: 110px;
+        height: 110px;
+        margin-top: 10px;
     }
 }
 //
@@ -1128,6 +1241,9 @@
     color: white;
     @media screen and (max-width:319px) {
         left: 89%;
+    }
+    @include MediaQuery(s){
+        left: 95%;
     }
     @include MediaQuery( M){
         left: 96%;

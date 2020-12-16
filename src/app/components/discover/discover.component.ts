@@ -147,7 +147,13 @@ breakpoints:{  //when make it responsive
     this.programServices.getAll('0','100').subscribe(res =>{
         this.programsList = res.result;
        this.programsList.forEach(function (i , item) {
-        i.image = `http://188.225.184.108:9091/${i.image}`;
+        // i.image = `http://188.225.184.108:9091/${i.image}`;
+        if(i.image === null){
+          i.image='../../../assets/imgs/myproimg.png';
+        }  
+        else{
+          i.image = `http://188.225.184.108:9091/${i.image}`;
+        }
        }); 
       });
   }
@@ -158,7 +164,13 @@ breakpoints:{  //when make it responsive
         this.Reporters = res.result;
        //console.log( res.result);
        this.Reporters.forEach(function (i , item) {
-        i.image = `http://188.225.184.108:9091/${i.image}`;
+        // i.image = `http://188.225.184.108:9091/${i.image}`;
+        if(i.image === null){
+          i.image='../../../assets/imgs/myproimg.png';
+        }  
+        else{
+          i.image = `http://188.225.184.108:9091/${i.image}`;
+        }
        }); 
       });
   }

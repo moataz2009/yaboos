@@ -46,6 +46,15 @@
 
 .alllibrary {
     .librarycontainer{
+        .cancelsearch{
+            a{
+                background-color: #106666;
+                border-color: #106666;
+                outline: none;
+                box-shadow: none;
+                cursor: pointer;
+            }
+        }
         @include MediaQuery(xs){
             padding: 0;
             margin-top: 0px;

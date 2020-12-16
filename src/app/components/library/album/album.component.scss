@@ -47,7 +47,9 @@
                 padding-right: 0px;padding-left: 0px;
             }
             img {
-                // width: 189px;
+                width: 130px;
+                height: 130px;
+                border-radius:50%;
                 @media screen and  (max-width:319px ) {
                     width: 68px; 
                     //
@@ -62,6 +64,11 @@
                     width: 80px;
                      //
                     height: 80px;
+                }
+                @include MediaQuery(M) {
+                    width: 117px;
+                     //
+                    height: 117px;
                 }
             }
             p {
@@ -132,7 +139,11 @@
                 }
             }
             }
-            img{ width: 183px;}
+            img{
+                width: 183px;
+                height: 183px;
+                border-radius: 50%;
+            }
             h3{
                 color: white;
                 text-align: center;

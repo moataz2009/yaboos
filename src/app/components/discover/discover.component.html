@@ -96,21 +96,62 @@
                 <div class="floatdiv col-xs-12">
                     <div class="contain stopScrolMobile col-xs-12 ">
                         <div class="textpro" *ngFor="let prop of EposidesList; let index =index">
-                            <div class="socialpro">
-                                <!-- <a><i class="fa fa-share"></i></a> -->
-                                <a href="" target="_blank" (click)="DownloadAudio($event ,prop.id )"><i class="fas fa-download"></i></a>
+                            <!-- <div class="socialpro">
+                               <a><i class="fa fa-share"></i></a> 
+                                <a href="" target="_blank" (click)="DownloadAudio($event ,prop.id )"><i class="fas fa-download"></i></a> 
+                            </div> -->
+                            <div class="row col-xs-12" style="margin: 0;flex-wrap:nowrap;width: 100%;
+                            display: flex;
+                            justify-content: space-around;">
+                                <div class="col-1 pr-0">
+                                    <div class="socialpro">
+                                        <!-- <a><i class="fa fa-share"></i></a> -->
+                                        <a href="" target="_blank" (click)="DownloadAudio($event ,prop.id )"><i class="fas fa-download"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-11 pr-0"  (click)="PlayTrack(prop.id , prop.title, prop.album.image,  false, prop.isFavourite, index)"
+                                style="display: inline-flex;justify-content: space-around;cursor: pointer;">
+                                    <div class="col-6">
+                                        <div class="mytexts">
+                                            <h3> {{prop.titleAr}} </h3>
+                                            <p> {{programName}}</p>
+                                        </div>
+                                    </div>
+                                    <div class=" col-2 mimage p-0">
+                                        <div class="pausedproicon">
+                                            <a><img src="../../../assets/imgs/program small icon.png"></a>
+                                            <a class="protime"><span>{{calcTime(prop.duration)}}</span></a>                                              
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-0">
+                                        <div class="mimage">
+                                            <img [src]="programImage" class="imageapi">     
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mytexts" (click)="PlayTrack(prop.id , prop.title, prop.album.image,  false, prop.isFavourite, index)">
+                           
+
+                           
+                            <!-- <div class="mytexts" (click)="PlayTrack(prop.id , prop.title, prop.album.image,  false, prop.isFavourite, index)">
                                 <h3> {{prop.titleAr}} </h3>
                                 <p> {{programName}}</p>
-                            </div>
-                            <div class="mimage">
-                                <div class="pausedproicon w-20">
-                                    <a><img src="../../../assets/imgs/program small icon.png"></a>
-                                    <a><span>{{calcTime(prop.duration)}}</span></a>
+                                <div class="myimage">
+                                    <div class="pausedproicon w-20">
+                                        <a><img src="../../../assets/imgs/program small icon.png"></a>
+                                        <a class="protime"><span>{{calcTime(prop.duration)}}</span></a>
+                                        <img [src]="programImage" class="imageapi">
+                                    </div>
+                                   
                                 </div>
+                            </div> -->
+<!--                            
+                            <div class="mimage">
                                 <img [src]="programImage" class="imageapi">
-                            </div>
+                            </div> -->
+
+                        
+
                         </div>
                         <!-- المزيد  -->
                         <div *ngIf="viewLoadMore" class="more col-xs-3">
