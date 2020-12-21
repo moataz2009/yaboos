@@ -1,4 +1,4 @@
-@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+// @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 ::ng-deep{
     .text-danger{
         color: white !important;
@@ -336,7 +336,7 @@ $basicColor:#106666;
     left: 0;
     right: 0;
     text-align: center;
-    background: rgb(0 0 0 / 50%);
+    background: rgba(0, 0 ,0 ,0.5);
     z-index: 9;
     bottom: 0;
     justify-content: center;

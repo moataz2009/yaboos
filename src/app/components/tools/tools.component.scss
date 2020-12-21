@@ -95,7 +95,8 @@ font-size: 17px;
                 margin:0 auto;
                 margin-top: 45px;
                 // width:91%;
-                width:100%;
+                // width:100%;
+                width:50%;
             }
         }
     }
@@ -672,4 +673,114 @@ input[type=number] {
     @include MediaQuery(xs+ s + M){
         margin-bottom: 154px;
     }
+}
+::ng-deep{
+    #time-picker-wrapper #time-picker .time-picker-header{
+        direction: ltr !important;
+        }
+        #time-picker-wrapper #time-picker .time-picker-content .time-picker-clock .time-picker-clock-origin
+        {
+        display : none !important;
+        }
+        #time-picker-wrapper #time-picker .time-picker-content .time-picker-clock .time-picker-clock-arrow
+        {
+        display : none !important;
+        }
+        
+        #time-picker-wrapper.dark #time-picker .time-picker-header
+        {
+        position: absolute !important;
+            top: 108px !important;
+            z-index: 10000000000000000 !important;
+            background: none !important;
+            width: 39% !important;
+            right: 31% !important;
+            direction: ltr !important;
+           
+        }
+        #time-picker-wrapper.dark #time-picker {
+            background: #32AAB2 !important;
+        }
+        #time-picker-wrapper.dark #time-picker .time-picker-clock{
+            background: #106666 !important;
+        }
+        #time-picker-wrapper.dark #time-picker .time-picker-footer {
+            display: flex;
+            justify-content: center;
+            margin-top: 62px;
+            direction: ltr;
+            button{
+                background-color: #106666 !important;
+                font-size: 25px !important;
+                box-shadow: none;
+                outline: none;
+                border: none;
+            }
+        }
+        #time-picker-wrapper #time-picker.active{
+            border-radius: 50px !important;
+        }
+        #time-picker-wrapper #time-picker .time-picker-content .time-picker-clock{
+            top:50px;
+        }
+        #time-picker-wrapper #time-picker.active{
+           position: relative;
+        //    top: 100px;
+        top:50px;
+        }
+        #timepicker-item-id-1,#timepicker-item-id-2,#timepicker-item-id-3,
+        #timepicker-item-id-4,#timepicker-item-id-5,#timepicker-item-id-6,
+        #timepicker-item-id-7,#timepicker-item-id-8,#timepicker-item-id-9,
+        #timepicker-item-id-10,#timepicker-item-id-11,#timepicker-item-id-12
+        {
+            box-shadow: none;
+            outline: none;
+        }
+        #timepicker-item-id-0,#timepicker-item-id-5,#timepicker-item-id-10,
+        #timepicker-item-id-15,#timepicker-item-id-20,#timepicker-item-id-25,
+        #timepicker-item-id-30,#timepicker-item-id-35,#timepicker-item-id-40,
+        #timepicker-item-id-45,#timepicker-item-id-50,#timepicker-item-id-55
+        {
+            box-shadow: none;
+            outline: none;
+        }
+
+
+        #timepicker-item-id-1.active,#timepicker-item-id-2.active,#timepicker-item-id-3.active,
+        #timepicker-item-id-4.active,#timepicker-item-id-5.active,#timepicker-item-id-6.active,
+        #timepicker-item-id-7.active,#timepicker-item-id-8.active,#timepicker-item-id-9.active,
+        #timepicker-item-id-10.active,#timepicker-item-id-11.active,#timepicker-item-id-12.active
+        {
+            background: #32AAB2 !important;
+            box-shadow: none;
+            outline: none;
+        }
+        #timepicker-item-id-0.active,#timepicker-item-id-5.active,#timepicker-item-id-10.active,
+        #timepicker-item-id-15.active,#timepicker-item-id-20.active,#timepicker-item-id-25.active,
+        #timepicker-item-id-30.active,#timepicker-item-id-35.active,#timepicker-item-id-40.active,
+        #timepicker-item-id-45.active,#timepicker-item-id-50.active,#timepicker-item-id-55.active
+        {
+            background: #32AAB2 !important;
+            box-shadow: none;
+            outline: none;
+        }
+        #time-picker-wrapper.dark #time-picker .time-picker-header .time-picker-selected-time
+        {
+            color: #32AAB2 !important;
+        }
+        #time-picker-wrapper.dark #time-picker .time-picker-header .time-picker-selected-ampm{
+            color: #32AAB2 !important;
+        }
+        #time-picker-wrapper #time-picker{
+            @include MediaQuery(xs){
+               width: 90% !important;
+            }
+        }   
+        #time-picker-wrapper.dark #time-picker .time-picker-header .time-picker-selected-ampm div.selected
+        {
+            background-color: #32AAB2;
+            border-radius: 14%;
+        }
+        
+        
 }

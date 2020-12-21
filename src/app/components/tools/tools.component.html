@@ -14,7 +14,11 @@
             <!-- <div class="HomeLogo">
                 <img src="../../../assets/imgs/logo.png " class="iconTools">
             </div> -->
-    
+            
+            <!-- <div dir="ltr">
+                <button (click)="open()">Time</button>
+            </div> -->
+          
     
             <div class="">
                 <ul class="tools-tab" *ngIf="hidesection">
@@ -26,7 +30,8 @@
                         <a><img src="../../../assets/imgs/Group 646.png"></a>
                         <h3>إيقاف البث </h3>
                     </li>
-                    <li (click)="sohwalarm()" class="alarmimage">
+                    <li (click)="open()" class="alarmimage">
+                        <!--  (click)="sohwalarm()" -->
                         <a><img src="../../../assets/imgs/alarm.png"></a>
                         <h3>المنبه </h3>
                     </li>

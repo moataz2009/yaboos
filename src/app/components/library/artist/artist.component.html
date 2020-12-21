@@ -13,7 +13,8 @@
             
             <div class="col-xs-4 col-4 smallalb mt-3 text-center" *ngFor="let prop of artistList;">
                 <div (click)="getArtistAlbums(prop.id)">
-                    <img class="imageSong" [src]="'http://188.225.184.108:9091/'+prop.image" alt="">
+                    <img class="imageSong" *ngIf="prop.image !== null" [src]="'http://188.225.184.108:9091/'+prop.image" alt="">
+                    <img class="imageSong" *ngIf="prop.image === null" [src]="'../../../../assets/imgs/myproimg.png'">
                     <p> {{prop.name}}</p>
                 </div>
             </div>

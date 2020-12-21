@@ -3,8 +3,9 @@ import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 import * as $ from 'jquery';
 import { PlayerOptionsService } from 'src/app/shared/player-options.service';
 import { PlayerService } from 'src/app/shared/player.service';
+import { AmazingTimePickerService } from 'amazing-time-picker';
+import { ToastrService } from 'ngx-toastr';
 
-//import * as moment from 'moment'
 @Component({
   selector: 'app-tools',
   templateUrl: './tools.component.html',
@@ -21,8 +22,11 @@ export class ToolsComponent implements OnInit {
   alarmsection:boolean=false;
   playerVolume: String;
   stopImage: String;
-  constructor( private PlayerOptions: PlayerOptionsService, private playerUrl: PlayerService ) { }
+  constructor( private PlayerOptions: PlayerOptionsService,private atp: AmazingTimePickerService,
+  private playerUrl: PlayerService , private toastr: ToastrService, ) { }
 
+  public selectedTime: string;
+   
 
   AutoStopTime(time, status){
     this.playerUrl.ActionStopPlayer(time, status);
@@ -282,4 +286,86 @@ export class ToolsComponent implements OnInit {
 
 
 
+   toTime(timeString){
+    var timeTokens = timeString.split(':');
+    return new Date(1970,0,1, timeTokens[0], timeTokens[1], timeTokens[2]);
+}
+  open() {
+    let configTimer = this.atp.open({
+      time:  this.selectedTime,
+      theme: 'dark',
+      preference: { 
+        labels: { 
+          ok: "تأكيد",
+          cancel: "إلغاء"
+        },
+      },
+      arrowStyle: {
+            background: 'red',
+            color: 'white',
+      },
+      changeToMinutes: true,
+    });
+    configTimer.afterClose().subscribe(time => {
+      this.selectedTime = time;
+      // console.log(typeof(time));
+      //
+      var timeArr =  this.selectedTime.split(':');
+      var hours = Number(timeArr[0]);
+      var minutes = Number(timeArr[1]);
+
+      var CurrentDate = new Date();
+      var currenthour = CurrentDate.getHours();
+      var currentminute = CurrentDate.getMinutes();
+
+      if(((hours - currenthour)==0) &&((minutes - currentminute) < 0)){
+        var one = ((minutes - currentminute)+(24 * 60)); //minutes
+        var resultone = 60000 * one; //milliseconds
+        console.log(resultone);
+        this.playerUrl.ActionAutoPlayPlayer(resultone);
+
+        var totalh= Math.floor(one/60);
+        var totalm = one%60;
+        this.toastr.success(' سيتم تشغيل البث المباشر تلقائيا بعد '+ totalh +' ساعه و   '+
+        totalm +' دقيقة من الأن  ');
+      }
+      else if (((hours - currenthour) == 0) &&((minutes - currentminute) > 0)){
+        var two =(minutes - currentminute); //minutes
+        var resulttwo = 60000 * two; //milliseconds
+        console.log(resulttwo);
+        this.playerUrl.ActionAutoPlayPlayer(resulttwo);
+        this.toastr.success(' سيتم تشغيل البث المباشر تلقائيا بعد '+ two +' دقيقة من الأن  ');
+      }
+
+      else if ((hours - currenthour)< 0){
+        var three =(((hours - currenthour) + 24)*60) + (minutes - currentminute); //minutes
+        var resultthree = 60000 * three; //milliseconds
+  
+          console.log(resultthree);
+          this.playerUrl.ActionAutoPlayPlayer(resultthree);
+          var totalh= Math.floor(three/60);
+          var totalm = three%60;
+          this.toastr.success(' سيتم تشغيل البث المباشر تلقائيا بعد '+ totalh +' ساعه و   '+
+          totalm +' دقيقة من الأن  ');
+      }
+      else if ((hours - currenthour)> 0){
+        var four=((hours - currenthour) * 60) + (minutes - currentminute);
+        var resultfour = 60000 * four; 
+        console.log(resultfour);
+        this.playerUrl.ActionAutoPlayPlayer(resultfour);
+        if (four <= 60){
+          this.toastr.success(' سيتم تشغيل البث المباشر تلقائيا بعد '+ four +' دقيقة من الأن  ');
+        }
+        else{
+          var totalh= Math.floor(four/60);
+          var totalm = four%60;
+          this.toastr.success(' سيتم تشغيل البث المباشر تلقائيا بعد '+ totalh +' ساعه و   '+
+          totalm +' دقيقة من الأن  ');
+        }
+
+      }
+
+    }
+  );
+  }
 }

@@ -12,7 +12,7 @@ import { environment } from '../environments/environment';
 import { AsyncPipe } from '../../node_modules/@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReactiveFormsModule} from '@angular/forms' 
-
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
@@ -42,6 +42,7 @@ import { ArtistComponent } from './components/library/artist/artist.component';
 import { PlayerComponent } from './components/player/player.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     AngularFireMessagingModule,
     AngularFireModule.initializeApp(environment.firebase),
     NgxUsefulSwiperModule,
+    AmazingTimePickerModule,
    
  
 
