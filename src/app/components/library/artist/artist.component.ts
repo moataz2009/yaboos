@@ -315,35 +315,44 @@ backalbums(){
 
     this.getMobileOperatingSystem();
 
-    this.Aroute.queryParams.subscribe(params => {
-    this.searchText=  params['searchText'];
-      if(this.searchText != null) 
-      {
-        this.SearchArtist();
-      }
-      else{
 
+    if(localStorage.getItem('searchTxt') != null){
+      this.isLoading = true;
+
+      this.ArtistService.SearchArtist("0" , String(this.mycountalb) , localStorage.getItem('searchTxt')  ).subscribe(res =>{
         
-        this.isLoading = true;
+        for(var i in res.result){
+          this.artistList.push(res.result[i]);
+        }
 
-        this.ArtistService.SearchArtist("0" , String(this.mycountalb) ,"").subscribe(res =>{
-          //this.artistList = res.result;
-          for(var i in res.result){
-            this.artistList.push(res.result[i]);
-          }
-          
-          this.isLoading = false;
-        })
-          this.SongsService.Search( "0",String(this.count) , "").subscribe(res =>{
-            this.songsList = res.result;
-           //console.log(this.songsList);
-          });
-          this.AlbumService.Search("0" , String(this.mycountalb) , "")
-        .subscribe(res =>{
-        this.albumList = res.result;
-      });
-      }
-    }); 
+        if( this.artistList.length >= res.length ){
+          this.moreartist = false;
+        }else{
+            this.moreartist = true;
+        }
+
+        this.isLoading = false;
+      })
+    }else{
+      this.isLoading = true;
+
+      this.ArtistService.SearchArtist("0" , String(this.mycountalb) ,"").subscribe(res =>{
+        
+        for(var i in res.result){
+          this.artistList.push(res.result[i]);
+        }
+
+        if( this.artistList.length >= res.length ){
+          this.moreartist = false;
+        }else{
+            this.moreartist = true;
+        }
+
+        this.isLoading = false;
+      })
+    }
+
+
 
 
     if(localStorage.getItem('userToken') != null){
@@ -395,66 +404,26 @@ backalbums(){
     })
 
   }
-  SearchSongs(offset , limit , artistId){
-    this.SongsService.GetSongsOfArtist( offset, limit, artistId).subscribe(res =>{
-     this.songsList = res.result;
-     // start 2411
-     if(this.songsList.length < 9 ){
-       this.moresongs = false;
-     }
-     else{
-      this.moresongs = true;
-     }
-      // end 2411
-    })
-    this.SearchAlbums(offset , limit , artistId);
+
+
+  getArtistAlbums(SetArtistId:any){
+    this.router.navigate([`/Libaray/albums/${SetArtistId}`]);
+    return true;
   }
-  SearchAlbums(offset , limit , artistId)
+
+  DownloadAudio(e ,song)
   {
-    this.AlbumService.GetAlbumsOfArtist(offset , limit , artistId)
-    .subscribe(res =>{
-       this.albumList = res.result;
-     if(this.albumList.length < 9 ){
-       this.morealbums = false;
-     }
-     else{
-      this.morealbums = true;
-     }
-      // end 2411
-     });
-}
-// moataz
-getArtistAlbums(SetArtistId:any){
+    e.preventDefault();
+    var songURL = `http://188.225.184.108:9091/api/songs/playsong/${song}`
+    var a = $("<a>")
+      .attr("href", songURL)
+      .attr("download", "audio.mp3")
+      .appendTo("body");
 
-   this.router.navigate([`/Libaray/albums/${SetArtistId}`]);
-   return true;
-  /*this.SongsService.getArtistAlbums("0" , String(this.mycountalb) , SetArtistId ).subscribe((data) =>{
-    this.showAlbums = true;
-    this.showArtists = false;
-    
-    this.albumList = data.result;
+  a[0].click();
 
-   //console.log("Alo list");
-    
-   //console.log(data);
-  }, (err: HttpErrorResponse) => {
-   //console.log("Eroooooooor 545");
-  });*/
-}
-
-DownloadAudio(e ,song)
-{
-  e.preventDefault();
-  var songURL = `http://188.225.184.108:9091/api/songs/playsong/${song}`
-  var a = $("<a>")
-    .attr("href", songURL)
-    .attr("download", "audio.mp3")
-    .appendTo("body");
-
-a[0].click();
-
-a.remove();
-}
+  a.remove();
+  }
 
 ///////////////////////////////////// all load functions
 

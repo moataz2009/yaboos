@@ -339,15 +339,45 @@ backalbums(){
   this.showAlbumsongs=false;
 }
 
+  SearchPlay(textSr){
+    this.songsList = [];
+    localStorage.setItem('usertoken' ,textSr );
+    this.SongsService.Search( "0",String(this.count) , textSr ).subscribe(res =>{
+      
+      for(var i in res.result) {
+        this.songsList.push(res.result[i]);
+      }
+    
 
+      if( this.songsList.length >= res.length ){
+        this.loadMoreSong = false;
+      }else{
+          this.loadMoreSong = true;
+      }
+      
+      this.isLoading = false;
+
+    });
+
+
+
+    
+  }
 
   ngOnInit(): void {
 
     
+    this.songsList = [];
+    
+    this.playerUrl.PlayTextSearchVar.subscribe(data => {
+ 
+      this.SearchPlay(data) ;
+    });
+
 
     if(localStorage.getItem('searchTxt') != null){
       this.SongsService.Search( "0",String(this.count) , localStorage.getItem('searchTxt') ).subscribe(res =>{
-
+        
         for(var i in res.result) {
           this.songsList.push(res.result[i]);
         }
@@ -608,7 +638,7 @@ loadmorealbums(){
     this.AlbumService.Search("0" , String(this.mycountalb) , "")
     .subscribe(res =>{
       this.albumList = res.result;
-      //console.log( this.albumList);
+   
      });
   }
  

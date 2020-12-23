@@ -258,5 +258,41 @@
     }
 }
 
+.mysearchinput {
+    background: #106666;
+    height: auto;
+    padding: 0 25px !important;
+    border-radius: 50px;
+}
+
+input.form-control.border-right-0 {
+    margin: 0 !important;
+}
+
+.input-group-append i {
+    color: #fff;
+    padding: 21px 0  13px 11px;
+    cursor: pointer;
+}
+
+
+.mysearchinput input {background: transparent !important; text-align: center; color: #fff !important;border: 0;outline: transparent  !important;border: 0 !important;box-shadow: none !important;}
+
+input.form-control.border-right-0 {
+    padding: 20px  !important;
+    height: 55px;
+}
+
+::placeholder{ 
+    text-indent: inherit;font-size:20px;color: #30a7ae;
+    text-align: center;
+    @include MediaQuery(xs){font-size:14px;}
+    @include MediaQuery(s){font-size:17px; text-indent: inherit;}
+    @include MediaQuery(M){font-size:17px; text-indent: inherit;}
+    @include MediaQuery(L){font-size:19px; text-indent: inherit;}
+     @include MediaQuery(XL-XXL){font-size:19px; text-indent: inherit;}
+     @include MediaQuery(XXL){font-size:19px; text-indent: inherit;}
+}
+
 
 

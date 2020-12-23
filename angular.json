@@ -30,14 +30,16 @@
             ],
             "styles": [
              
-              "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/swiper/swiper-bundle.min.css",
-              "node_modules/ngx-toastr/toastr.css" 
+              "node_modules/ngx-toastr/toastr.css" ,
+              "src/styles.scss",
+              "src/assets/timer/css/roundslider.min.css"
             
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/timer/js/roundslider.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },

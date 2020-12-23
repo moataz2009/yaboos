@@ -31,10 +31,10 @@ font-size: 17px;
 
     @include MediaQuery(xs + s + M){
         // margin-top: 0px;
-        margin-top: 27%;
+        margin-top: 0;
     }
     @media screen and (max-width:320px){
-        margin-top: 60%;
+        margin-top: 0;
     }
     @media screen and (min-width:1200px) {
         margin-top: 0px;

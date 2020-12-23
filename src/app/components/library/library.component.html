@@ -10,16 +10,24 @@
 <div class="homepage">
     <div class="alllibrary">
         <div class="container librarycontainer">
-            <!-- start libaray tabs  -->
-    
-            <!-- <div class="HomeLogo">
-                <img src="../../../assets/imgs/logo.png " class="">
-            </div> -->
+           
     
             <div class="col-12 text-center mt-5 cancelsearch">
-                <a (click)="clenStoragSearch()" *ngIf="searchTxt != ''" class="btn mt-5 btn-primary">
+                <!-- <a (click)="clenStoragSearch()" *ngIf="searchTxt != ''" class="btn mt-5 btn-primary">
                     الغاء البحث بـ {{searchTxt}}
-                </a>
+                </a> -->
+
+                <div class="clearfix"></div>
+                
+                <div class="col-xs-10 col-sm-9 col-md-9 col-lg-6  m-auto pb-3 mysearchinput">
+                    <div class="input-group w-100 d-flex justify-content-center ">
+                        <div class="input-group-append" (click)="HomeSearch(searchTxtx.value)">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <input type="text" [value]="searchTxt" (keyup.enter)="HomeSearch(searchTxtx.value)" class="form-control border-right-0" #searchTxtx placeholder="أغانى،فنانين،كلمات،قوائم....">
+                    </div>
+                </div>
+
                 <br><br>
             
             </div>

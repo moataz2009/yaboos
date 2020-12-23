@@ -72,6 +72,8 @@ export class PlayerService {
   private mianPlayIndex = new BehaviorSubject<any>(null);
   PlayIndexVar = this.mianPlayIndex.asObservable();
 
+  private mianPlayTextSearch = new BehaviorSubject<any>(null);
+  PlayTextSearchVar = this.mianPlayTextSearch.asObservable();
 
   audiObg = new Audio();
 
@@ -89,6 +91,10 @@ export class PlayerService {
 
    changeUrlPlayer(UrlPlayer: any){
     this.minUrlSource.next(UrlPlayer);
+  }
+
+  ActionPlayTextSearch(TextSearch: any){
+    this.mianPlayTextSearch.next(TextSearch);
   }
 
   ActionPlayerIndex(PlayIndex: any){

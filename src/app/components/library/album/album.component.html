@@ -13,11 +13,17 @@
             <div class=" row albumsitems LgScreen"  *ngIf="hideAlbums">
 
                 
-                <div class="col-xs-4 text-center col-4 smallalb mt-3" *ngFor="let propimg of albumList;">
-                    <img *ngIf="propimg.image !== null" [src]="'http://188.225.184.108:9091/'+propimg.image" alt="" class="imageSong" (click)="GetSongsOfAlbum(propimg.id)" >
-                    <img *ngIf="propimg.image == null" [src]="'../../../../assets/imgs/myproimg.png'" alt="" class="imageSong" (click)="GetSongsOfAlbum(propimg.id)" >
-                    <p> {{propimg.title}}</p>
+                <div class="col-xs-4 text-center col-md-4 smallalb mt-3" *ngFor="let propimg of albumList;" >
+                    <div (click)="GetSongsOfAlbum(propimg.id)" class="">
+                        <img *ngIf="propimg.image == null && propimg.artist.image == null" [src]="'../../../../assets/imgs/myproimg.png'" alt="" class="imageSong"  >
+
+                        <img *ngIf="propimg.image !== null" [src]="'http://188.225.184.108:9091/'+propimg.image" alt="" class="imageSong"  >
+                        <img *ngIf="propimg.artist.image !== null" [src]="'http://188.225.184.108:9091/'+propimg.artist.image" alt="" class="imageSong"  >
+
+                        <p> {{propimg.title}}</p>
+                    </div>
                 </div>
+
                 <br>
             </div>
             <!-- المزيد  -->
@@ -56,8 +62,7 @@
                                     <span> {{props.title}}</span>
                                     <i class="fas fa-play-circle pr-2"></i>
                                 </div>
-                                <div class="col-3 float-right icons">
-                                    <i class="fas fa-download" (click)="DownloadAudio($event , props.id)"></i>               
+                                <div class="col-3 float-right icons">           
                                     <i *ngIf="props.isFavourite != true" class="far fa-heart mr-3" (click)="addToFavorite(props.id, index)"></i>  
                                     <i *ngIf="props.isFavourite === true" class="fas fa-heart mr-3" (click)="deleteFromFavorite(props.id, index)"></i>  
                                 </div>

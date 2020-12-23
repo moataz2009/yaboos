@@ -524,17 +524,14 @@ input{
     // position: fixed;
     position: absolute;
     left: auto;
-    right: 0;
+    right: 30px;
     bottom: 20px;
     width: auto;
     background-color: transparent;
     text-align: center;
     display: flex;
     font-weight:bold;
-    // @include MediaQuery(xs){ 
-    //     // bottom: 50px;
-    //     bottom: 22px;
-    // }
+
     @media screen and (max-width:319px) {
         bottom: 26px;
     }
@@ -594,7 +591,7 @@ input{
         }   
     }
     @include MediaQuery(xs+s){
-        height: 30px;
+        height: auto;
     }
 }
 .songorder{
@@ -1291,3 +1288,5 @@ app-navbar {
     box-shadow: none;
     font-size: 25px;
 }
+
+

@@ -17,7 +17,6 @@
                             <i class="fas fa-play-circle pr-2"></i>
                         </div>
                         <div class="col-xs-3 col-2 float-right icons text-center">
-                            <i class="fas fa-download" (click)="DownloadAudio($event , prop.id)"></i>  
                             
                             <i *ngIf="prop.isFavourite != true" class="far fa-heart mr-3" (click)="addToFavorite(prop.id, i)"></i>  
                             <i *ngIf="prop.isFavourite === true" class="fas fa-heart mr-3" (click)="deleteFromFavorite(prop.id, i)"></i>  

@@ -1,13 +1,10 @@
 <div class="d-xs-block d-lg-none px1">
     <a class="mobileapp">{{headerMessage}}</a>
 </div>
-<!-- <img src="../../../assets/imgs/logo.png " class="d-xs-block d-lg-none  logoimage">
-<br><br><br><br><br> -->
 
 <div class="HomeLogo mt-3">
     <img src="../../../assets/imgs/logo.png " class="mt-5">
 </div>
-
 
 <div class="homeContent">
     <div class="homepage m-auto text-center" *ngIf="hideall">
@@ -58,10 +55,10 @@
             </div>
             <div class="col-xs-10 col-sm-9 col-md-9 col-lg-6  m-auto pb-3 mysearchinput">
                 <div class="input-group w-100 d-flex justify-content-center ">
-                    <div class="input-group-append" (click)="HomeSearch(searchTxt.value)">
+                    <div class="input-group-append" (click)="HomeSearch(searchTxtx.value)">
                         <i class="fas fa-search"></i>
                     </div>
-                    <input type="text" (keyup.enter)="HomeSearch(searchTxt.value)" class="form-control border-right-0" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم....">
+                    <input type="text" [value]="searchTxt" (keyup.enter)="HomeSearch(searchTxtx.value)" class="form-control border-right-0" #searchTxtx placeholder="أغانى،فنانين،كلمات،قوائم....">
                 </div>
             </div>
     
@@ -70,9 +67,6 @@
                     <a class="btn btn-simple btn-danger btn-round sagel" (click)="openloginpage()">
                         <span>سجل الأن</span>
                     </a>
-                    <!-- <a class="btn btn-simple btn-danger btn-round">
-                        <span>سجل لاحقا</span>
-                    </a> -->
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 m-auto mylastdiv">
@@ -225,15 +219,34 @@
                 <div *ngIf="ifLogin === true">
                     <div class="blockView text-center pt-4 pb-4" dir="ltr">
                         <div class="mylivehours">
-                            <p class="backtext">الرجوع إلى الساعه</p>
-                            <span class="text-white  errorClock pb-2">نظام 24 ساعة</span>
+                            
                         </div>
                         <div class="clearfix"></div>
-                        <div class="mylivehours myinputs mylivehoursContainer">
+
+                        <div class="clookContainer">
+
+                            <div id="slider"></div>
+                            <div class="contentBackTo">
+                                <h3 class="contentBackToH3">رجوع الى الساعة</h3>
+                                <div class="clookTime">
+                                    <label>   
+                                        <input type="number" id="ChangTimeFormInputView" class="ChangTimeFormInput" [value]="clockBack" placeholder="0" > 
+                                    </label>
+                                    <label>   :  </label>
+                                    <label>   00 </label>
+                                    <label class="timeType">   AM </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="mylivehours hiddenSection myinputs mylivehoursContainer">
     
                             <button class="btnClockPopup" (click)="removeFromClock()">-</button>
-                            <input type="number" class="inputNum float-right" [value]="clockBack" placeholder="0" (keyup)="keytabcheck($event)"
-                            #InputClock1  onKeyPress="if(this.value.length==2) return false;" >
+
+                            <input type="number" id="ChangTimeFormInput" class="ChangTimeFormInput" [value]="clockBack" placeholder="0" (keyup)="keytabcheck($event)"
+                            #InputClock1  onKeyPress="if(this.value.length==2) return false;" > 
+                            
                             <button class="btnClockPopup" (click)="addToClock()">+</button>
                             
                             <div class="clearfix"></div>
@@ -249,7 +262,7 @@
                     <div class="clearfix"></div>
     
                     <div class="d-flex justify-content-center mt-0" *ngIf="ifLogin === true">
-                        <button class="btn confirmbtn mt-0" aria-disabled="false" (click)="closesection(InputClock1.value )" data-dismiss="modal" aria-label="Close"> 
+                        <button class="btn confirmbtn mt-0" aria-disabled="false" (click)="closesection(InputClock1.value)" data-dismiss="modal" aria-label="Close"> 
                            تأكيد 
                         </button>
                     </div>

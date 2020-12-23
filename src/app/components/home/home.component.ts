@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 import { User } from 'src/models/user.model';
 import { ToastrService } from 'ngx-toastr';   
 import { PlayerService } from 'src/app/shared/player.service';
+
+declare const $: any;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -42,6 +45,8 @@ export class HomeComponent {
 
   clockBack: any = 0;
   errorClock:any = '';
+  
+  searchTxt:string = '';
 
   ifLogin:boolean ;
   constructor( 
@@ -141,6 +146,85 @@ export class HomeComponent {
   }
   previouslive(){
     this.prevlive = true;
+
+    $(document).ready(function(){
+      $("#slider").roundSlider({
+        min: 0,
+        max: 24,
+        step: 1,
+        value: 12,
+        width: 25,
+        sliderType: "min-range",
+        startAngle: 90,
+        beforeCreate:  function traceEvent(e) {
+         
+          changeTime(e);
+        },
+        create:  function traceEvent(e) {
+          changeTime(e);
+        },
+        start:  function traceEvent(e) {
+          changeTime(e);
+        },
+        stop:  function traceEvent(e) {
+          changeTime(e);
+        },
+        change:  function traceEvent(e) {
+          changeTime(e);
+        },
+        drag: function traceEvent(e) {
+          changeTime(e)
+        }
+      });
+
+
+      function changeTime(e){
+
+        var timeH;
+        if(e.value < 12 ){
+          $('.timeType').text('AM');
+
+          if(e.value === 0){
+            timeH = 12;
+          }else {
+            timeH = e.value;
+          }
+
+        }else{
+          $('.timeType').text('PM');
+
+          if(e.value === 24){
+            timeH = 12;
+            $('.timeType').text('AM');
+          }else {
+            if(e.value === 12){
+              timeH = e.value;
+            }else{
+              timeH = e.value - 12;
+            }
+            
+          }
+
+          
+        }
+
+        if(e.value === 24){
+          $("#ChangTimeFormInput").val(0);
+        }else {
+          $("#ChangTimeFormInput").val(e.value);
+        }
+
+        $("#ChangTimeFormInputView").val(timeH);
+        
+      }
+
+
+      
+
+    });
+    
+
+
   }
 //login
 engez:boolean = false;
@@ -203,7 +287,7 @@ Register(user:User)
 
 
 
-  HomeSearch(searchTxt)
+  HomeSearch(searchTxt:any)
   {
     localStorage.setItem('searchTxt',searchTxt);
     this.route.navigate([`/Libaray/`], { queryParams: { searchText: searchTxt } })
@@ -311,6 +395,12 @@ Register(user:User)
 }
 
   ngOnInit() { 
+
+    if(localStorage.getItem('searchTxt') != null){
+      this.searchTxt = localStorage.getItem('searchTxt');
+    }else {
+      this.searchTxt = '';
+    }
 
     this.playerUrlTrack.PlayerStatus.subscribe(data => {
       this.playerStatus = data;

@@ -487,6 +487,13 @@ input[type=range] {
     padding: 20px 0;
 }
 
+.trackSeekBartrue {
+    width: calc(100% - 45px);
+}
+
+.liveButtonSection {
+    float: right;
+}
 
 
 .trackTemplatetrue .trackButtons {
@@ -545,3 +552,95 @@ input[type=range] {
     float: right;
 }
 /* Player Sryle End */
+
+
+/* rang */
+
+div#slider {
+    width: 280px !important;
+    height: 280px !important;
+    margin:  0 auto;
+    .rs-container.full {
+        width: 280px !important;
+        height: 280px !important;
+    }
+}
+
+span.rs-block {
+    border: 0 !important;
+}
+
+.rs-border {
+    border: 0 !important;
+}
+
+.rs-inner.rs-bg-color.rs-border {
+    background-size: 100%;
+    background-image:  url('assets/imgs/bg_back.png');
+}
+.rs-range-color {
+    background-color: #9dfcfc !important;
+}
+.rs-handle {
+    background-color: #116969 !important;
+}
+.hiddenSection {
+    display: none ;
+}
+
+input#ChangTimeFormInputView {
+    width: 31px !important;
+    height: 33px;
+    min-width: auto;
+    display: inline-block;
+    font-size: 14px;
+    background-color: #97f7f8 !important;
+    color: #333 !important;
+}
+
+
+input#ChangTimeFormInputView::placeholder{ 
+    font-size: 14px !important;
+    background-color: #97f7f8 !important;
+    color: #333 !important;
+
+}
+
+.clookTime label {
+    font-size: 12px;
+    color: #333 !important;
+    font-family: "29lt-bukra-bold";
+    margin: 0 2px;
+}
+
+.timeType {
+    min-width: auto;
+    background-color: #97f7f8 !important;
+    padding: 8px 4px 7px 5px;
+    border-radius: 6px;
+}
+
+h3.contentBackToH3 {
+    font-size: 17px;
+    max-width: 150px;
+    text-align: center;
+    font-family: "29lt-bukra-bold";
+}
+
+.contentBackTo {
+    max-width: 116px;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    top: 97px;
+    left: 0;
+    right: 0;
+    float: none;
+    margin: 0 auto;
+    background: #2daab0;
+}
+
+.clookContainer {
+    position: relative;
+    text-align: center;
+}

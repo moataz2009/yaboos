@@ -488,7 +488,8 @@ backalbums(){
           
           this.AlbumService.Search("0" , String(this.mycountalb) , localStorage.getItem('searchTxt'), this.Aroute.snapshot.params.id).subscribe(res =>{
             this.albumList = res.result;
-
+       
+            
             if( this.albumList.length >= res.length ){
               this.morealbums = false;
             }else{
@@ -503,7 +504,7 @@ backalbums(){
         }else{
           this.AlbumService.Search("0" , String(this.mycountalb) , localStorage.getItem('searchTxt'), null).subscribe(res =>{
             this.albumList = res.result;
-
+           
             if( this.albumList.length >= res.length ){
               this.morealbums = false;
             }else{
@@ -519,7 +520,7 @@ backalbums(){
         if(this.Aroute.snapshot.params.id != null ){
           this.AlbumService.Search("0" , String(this.mycountalb) , "", this.Aroute.snapshot.params.id).subscribe(res =>{
             this.albumList = res.result;
-
+  
             if( this.albumList.length >= res.length ){
               this.morealbums = false;
             }else{
@@ -533,7 +534,7 @@ backalbums(){
         }else{
           this.AlbumService.Search("0" , String(this.mycountalb) , "", null).subscribe(res =>{
             this.albumList = res.result;
-
+            
             if( this.albumList.length >= res.length ){
               this.morealbums = false;
             }else{
@@ -545,7 +546,7 @@ backalbums(){
           });
         }
 
-       //console.log("title Of qweqweqwe");
+
 
 
       }
@@ -576,6 +577,8 @@ backalbums(){
 
     });
     });
+
+    
   }
 
   
@@ -717,7 +720,7 @@ loadartisits(){
 loadalbumssongs(){
 
   this.paginationSong = this.paginationSong+1;
-  console.log(this.paginationSong);
+
   this.isLoading = true;
   this.SongsService.GetSongsOfAlbum(this.paginationSong  , String(this.AlbumSongsOffcet) , this.SelectesAlbumID ).subscribe(res =>{
 

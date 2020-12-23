@@ -17,7 +17,7 @@
 
             <div *ngIf="PlayerTypes === 'live'" class="radipTemplate radioTemplate{{popupVar}}">
     
-                <div class="trackSeekBar">
+                <div class="trackSeekBar trackSeekBar{{popupVar}}">
                     <div class="textContentLive1">
                         <div class="palyerContent text-left">
                             <h2 >البث المباشر</h2>
@@ -68,11 +68,11 @@
                     
                     <button *ngIf="isFavorite === true && songIdVar != null" (click)="deleteFromFavorite()" class="ngClassFav ngClassFav{{popupVar}}" >
                         
-                        <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s1.png" >
+                        <img  src="../../../assets/imgs/fav-s1.png" >
                     </button>
 
                     <button *ngIf="isFavorite != true && songIdVar != null" (click)="addToFavorite()" class="ngClassFav ngClassFav{{popupVar}}" >
-                        <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s2.png" >
+                        <img  src="../../../assets/imgs/fav-s2.png" >
                     </button>
 
                     <button (click)="nextPrevPlay('next')" class="ngClassFav ngClassFav{{popupVar}}">
@@ -144,11 +144,11 @@
     
                     <button *ngIf="isFavorite === true && songIdVar != null" (click)="deleteFromFavorite()" class="ngClassFav ngClassFav{{popupVar}}" >
                         
-                        <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s1.png" >
+                        <img   src="../../../assets/imgs/fav-s1.png" >
                     </button>
 
                     <button *ngIf="isFavorite != true && songIdVar != null" (click)="addToFavorite()" class="ngClassFav ngClassFav{{popupVar}}" >
-                        <img *ngIf="playerStatus === true "  src="../../../assets/imgs/fav-s2.png" >
+                        <img   src="../../../assets/imgs/fav-s2.png" >
                     </button>
 
                     <button (click)="nextPrevPlay('next')" class="ngClassFav ngClassFav{{popupVar}}">

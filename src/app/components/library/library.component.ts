@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PlayerService } from 'src/app/shared/player.service';
 
 @Component({
   selector: 'app-library',
@@ -11,7 +12,18 @@ export class LibraryComponent implements OnInit {
   [x: string]: any;
   headerMessage : string;
   searchTxt:string = '';
-  constructor(private router: Router ) { }
+  constructor(
+      private router: Router, 
+      private playerUrl : PlayerService 
+    ) { }
+
+
+  HomeSearch(searchTxt)
+  {
+    localStorage.setItem('searchTxt',searchTxt);
+    this.playerUrl.ActionPlayTextSearch(searchTxt);
+    this.router.navigate([`/Libaray/songs`]);
+  }
 
   fillHeader(message , url)
   {
@@ -50,7 +62,6 @@ export class LibraryComponent implements OnInit {
     ngOnInit(): void {
 
       this.getMobileOperatingSystem();
-
 
       if(localStorage.getItem('searchTxt') != null){
         this.searchTxt = localStorage.getItem('searchTxt');
