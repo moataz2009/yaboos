@@ -55,7 +55,10 @@ font-size: 17px;
         
         @include MediaQuery(xs){top:0px;}
         @include MediaQuery(s){text-outline: 0px;}
-        @include MediaQuery(M){top:0px;}
+        @include MediaQuery(M){
+            // top:0px;
+            top:40px;
+        }
         h3{
             color: white;font-weight: bold;
             @include MediaQuery(xs + s ){
@@ -80,6 +83,12 @@ font-size: 17px;
                     @media screen and (max-width: 767px) {
                         width: 100px;
                         margin-bottom: 15px;
+                    }
+                    @include MediaQuery(s){
+                        width: 155px;
+                    }
+                    @include MediaQuery(M){
+                        width: 155px;
                     }
                 }
             }
@@ -700,6 +709,9 @@ input[type=number] {
         }
         #time-picker-wrapper.dark #time-picker {
             background: #32AAB2 !important;
+            @include MediaQuery(M){
+                width: 366px !important;
+            }
         }
         #time-picker-wrapper.dark #time-picker .time-picker-clock{
             background: #106666 !important;
@@ -722,11 +734,26 @@ input[type=number] {
         }
         #time-picker-wrapper #time-picker .time-picker-content .time-picker-clock{
             top:50px;
+            //
+            @include MediaQuery(M){
+                width: 235px;
+                height: 235px;
+                padding: 12px 6px 0px;
+                button{
+                    font-size: 20px !important;
+                }
+            }
+
         }
         #time-picker-wrapper #time-picker.active{
            position: relative;
         //    top: 100px;
         top:50px;
+        //
+        @include MediaQuery(M){
+            top:115px;
+        }
+        
         }
         #timepicker-item-id-1,#timepicker-item-id-2,#timepicker-item-id-3,
         #timepicker-item-id-4,#timepicker-item-id-5,#timepicker-item-id-6,

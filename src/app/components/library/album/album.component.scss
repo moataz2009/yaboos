@@ -76,6 +76,9 @@
                 @include MediaQuery(xs + s) {
                     font-size: 12px;
                 }
+                @include MediaQuery(s) {
+                    font-size: 15px;
+                }
             }
             
         }

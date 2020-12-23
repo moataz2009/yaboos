@@ -488,6 +488,13 @@
         line-height: 35px;
         text-align: center;
         margin: 0 auto;
+        //
+        @include MediaQuery(s){
+            font-size: 20px;
+        }
+        @include MediaQuery(M) {
+            font-size: 20px;
+        }
     }
 }
 
@@ -617,6 +624,10 @@
                 }
                 @include MediaQuery(xs + s + M) {
                     margin-top: 20px;
+                }
+                //
+                @include MediaQuery(M) {
+                    margin-top: 27px;
                 }
                 @include MediaQuery(L) {
                     margin-top: 20px;

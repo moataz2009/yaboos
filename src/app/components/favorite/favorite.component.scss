@@ -71,6 +71,13 @@ font-size: 17px;
                 @include MediaQuery(xs + s + M) {
                     font-size: 15px;
                 }
+                //
+                @include MediaQuery(s){
+                    font-size: 25px;
+                }
+                @include MediaQuery(M){
+                    font-size: 31px;
+                }
             }
         }
         .song {
@@ -123,6 +130,8 @@ font-size: 17px;
                       span{
                         @media screen and (max-width:319px){ font-size: 12px;}
                       }
+                      //
+                      @include MediaQuery(M) { font-size: 17px;}
                   }
             }
             color: #fff;

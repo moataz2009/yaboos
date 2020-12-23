@@ -92,6 +92,9 @@ export class NavbarComponent implements OnInit {
     this.navbt=true;
     this.overlay=true;
     $(".navbar").css("width","100px");
+    if(($(window).innerWidth() >= 768) &&($(window).innerWidth() < 991.98)){
+      $(".navbar").css("width","112px");
+    }
 
     if(this.check===false){
       this.check=true;

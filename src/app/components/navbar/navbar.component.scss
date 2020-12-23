@@ -123,6 +123,10 @@
 
 }
 @include MediaQuery(M){
+  .navbar-dark .navbar-nav li .nav-link{
+    left: 58%;
+    font-size: 16px;
+  }
   // .navbar-dark .navbar-toggler[aria-expanded="false"] {
   //   left: 46px;top:84px;
   //   span{width:52px;height:7px;}

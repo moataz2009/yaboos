@@ -55,9 +55,13 @@
                 cursor: pointer;
             }
         }
+        //
+        margin-bottom: 100px;
         @include MediaQuery(xs){
             padding: 0;
             margin-top: 0px;
+            //
+            margin-bottom: 130px;
         }
         @media screen and (max-width:320px){
             margin-top: 120px;
@@ -113,7 +117,8 @@
                     font-size: 15px;
                 }
                 @include MediaQuery(s) {
-                    font-size: 15px;
+                    // font-size: 15px;
+                    font-size: 20px;
                 }
             }
         }
@@ -261,8 +266,20 @@
 .mysearchinput {
     background: #106666;
     height: auto;
-    padding: 0 25px !important;
+    // padding: 0 25px !important;
+    padding: 0 12px 0 0 !important;
+
     border-radius: 50px;
+    //
+    margin: 0 auto;
+    margin-top:215px;
+    @media screen and (min-width:320px) and (max-width:359px) {
+        margin-top:370px;
+    }
+    @media screen and (max-width:319px){
+        margin-top: 300px;
+    }
+    margin-bottom: 50px;
 }
 
 input.form-control.border-right-0 {
@@ -276,16 +293,23 @@ input.form-control.border-right-0 {
 }
 
 
-.mysearchinput input {background: transparent !important; text-align: center; color: #fff !important;border: 0;outline: transparent  !important;border: 0 !important;box-shadow: none !important;}
+.mysearchinput input {background: transparent !important; 
+    // text-align: center;
+     color: #fff !important;border: 0;outline: transparent  !important;border: 0 !important;box-shadow: none !important;}
 
 input.form-control.border-right-0 {
     padding: 20px  !important;
     height: 55px;
+    padding-right: 0 !important;
 }
 
 ::placeholder{ 
-    text-indent: inherit;font-size:20px;color: #30a7ae;
-    text-align: center;
+    // text-indent: inherit;
+    // font-size:20px;
+    font-size: 25px;
+    color: #30a7ae;
+    // text-align: center;
+    // text-align: right;
     @include MediaQuery(xs){font-size:14px;}
     @include MediaQuery(s){font-size:17px; text-indent: inherit;}
     @include MediaQuery(M){font-size:17px; text-indent: inherit;}
