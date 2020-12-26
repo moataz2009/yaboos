@@ -1,28 +1,27 @@
 @import"../../../styles.scss";
-
-.mobileapp{
-    left:0;height:50px;
-    right:0; background-image: linear-gradient(#32AAB2,#106666);
-    position: absolute;display: flex;
+.mobileapp {
+    left: 0;
+    height: 50px;
+    right: 0;
+    background-image: linear-gradient(#32AAB2, #106666);
+    position: absolute;
+    display: flex;
     justify-content: center;
-    align-items: center;color:white;
+    align-items: center;
+    color: white;
     font-size: 17px;
 }
 
 .inputNum {
-
     width: 100px !important;
     height: 80px !important;
-
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
         width: 90px !important;
         height: 58px !important;
-        font-size:30px !important;
+        font-size: 30px !important;
         font-family: tahoma !important;
     }
-
 }
-
 
 .logoimage {
     width: 50%;
@@ -45,112 +44,184 @@
         top: 70px;
     }
 }
+
 // .logoimage{width: 50%;
 //     @include MediaQuery(xs){width: 50%;position: relative;right: -25%;top: 70px;}
 //     @include MediaQuery(s){width: 50%;position: relative;right: -25%;top: 70px;}
 //     @include MediaQuery(M){width: 50%;position: relative;right: -25%;top: 70px;}
 // }
-
-
-.socialmedia{
-    
+.socialmedia {
     position: relative;
     top: 100px;
-    @media screen and (min-width:320px)and (max-width:360px){ top: 5px;}
-    @media screen and (min-width:361px)and (max-width:375px){ top: 5px;}
-
-    @media screen and (min-width:376px)and (max-width:411px){ top: 5px;}
-    @media screen and (min-width:412px)and (max-width:575.98px){top: 5px;}
-    @media screen and (width:375px) and (height:812px){top: 5px;}
+    @media screen and (min-width: 320px)and (max-width: 360px) {
+        top: 5px;
+    }
+    @media screen and (min-width:361px)and (max-width:375px) {
+        top: 5px;
+    }
+    @media screen and (min-width:376px)and (max-width:411px) {
+        top: 5px;
+    }
+    @media screen and (min-width:412px)and (max-width:575.98px) {
+        top: 5px;
+    }
+    @media screen and (width:375px) and (height:812px) {
+        top: 5px;
+    }
     // @include MediaQuery(s){top: 59px;}
-    @include MediaQuery(s){top: 100px;}
-    @include MediaQuery(M){ top: 100px;}
- 
-    .first
-    {
-       margin: 0 auto;
-       display: flex;
-       justify-content:space-around !important;
-       @include MediaQuery(xs+s+M){
-        display: block;
-        a img{  
+    @include MediaQuery(s) {
+        top: 100px;
+    }
+    @include MediaQuery(M) {
+        top: 100px;
+    }
+    .first {
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around !important;
+        @include MediaQuery(xs+s+M) {
             display: block;
-            margin: 0 auto;
-        }    
-       }
-       @include MediaQuery(L){
-        a img{  
-            display: flex;
-        justify-content:center;
-        }    
-    }   
-    //    .imgmargin{
-    //     margin-top: 20px;
-    //     margin-right: 25px;
-    //     @include MediaQuery(xs){  width: 27%;margin-bottom:20px;}
-    //     @include MediaQuery(s){  width: 24%;margin-bottom:20px;}
-    //     @include MediaQuery(M){width: 20%;}
-    //     @include MediaQuery(L){width: 60%;}
-    //     @include MediaQuery(XL-XXL){width: 41%;}
-    // }
-    //     .differimage{
-    //         width: 90%;margin-top: 20px;
-    //         @include MediaQuery(xs){width: 40%;margin-bottom:20px;}
-    //         @include MediaQuery(s){width: 37%;margin-bottom:20px;}
-    //         @include MediaQuery(M){width: 25%;}
-    //         @include MediaQuery(L){width: 68%;}
-    //         @include MediaQuery(XL-XXL){width: 53%;}
-    //     }
-        .emailicon{
-            @include MediaQuery(xs + s){width: 24%;margin: 0;padding: 0;margin-bottom: 20px !important;}
-            @include MediaQuery(M){width: 24%;margin: 0;padding: 0;margin-bottom: 20px !important;}
+            a img {
+                display: block;
+                margin: 0 auto;
+            }
         }
-        .telicon{
-            @include MediaQuery(xs + s ){width: 24%;margin: 0;padding: 0;margin-bottom: 6px !important;}
-            @include MediaQuery(M){width: 24%;margin: 0;padding: 0;margin-bottom: 6px !important;}
+        @include MediaQuery(L) {
+            a img {
+                display: flex;
+                justify-content: center;
+            }
         }
-        .googleicon{
-            position: relative;bottom: 26px;
-            @include MediaQuery(xs + s ){width: 33%;margin: 0;padding: 0;margin-bottom: -12px;bottom:0;}
-            @include MediaQuery(M){width: 33%;margin: 0;padding: 0;margin-bottom: -12px;bottom:0;}
+        //    .imgmargin{
+        //     margin-top: 20px;
+        //     margin-right: 25px;
+        //     @include MediaQuery(xs){  width: 27%;margin-bottom:20px;}
+        //     @include MediaQuery(s){  width: 24%;margin-bottom:20px;}
+        //     @include MediaQuery(M){width: 20%;}
+        //     @include MediaQuery(L){width: 60%;}
+        //     @include MediaQuery(XL-XXL){width: 41%;}
+        // }
+        //     .differimage{
+        //         width: 90%;margin-top: 20px;
+        //         @include MediaQuery(xs){width: 40%;margin-bottom:20px;}
+        //         @include MediaQuery(s){width: 37%;margin-bottom:20px;}
+        //         @include MediaQuery(M){width: 25%;}
+        //         @include MediaQuery(L){width: 68%;}
+        //         @include MediaQuery(XL-XXL){width: 53%;}
+        //     }
+        .emailicon {
+            @include MediaQuery(xs + s) {
+                width: 24%;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 20px !important;
+            }
+            @include MediaQuery(M) {
+                width: 24%;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 20px !important;
+            }
         }
-        .instgramicon{
-            position: relative;bottom: 14px;
-            @include MediaQuery(xs + s ){  width: 27%;margin: 0;padding: 0;margin-bottom: 15px !important;bottom:0;}
-            @include MediaQuery(M){ width: 27%;margin: 0;padding: 0;margin-bottom: 15px !important;bottom:0;}
+        .telicon {
+            @include MediaQuery(xs + s) {
+                width: 24%;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 6px !important;
+            }
+            @include MediaQuery(M) {
+                width: 24%;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 6px !important;
+            }
         }
-        .facebookicon
-        {
-            @include MediaQuery(xs + s ){width: 21%;margin: 0;padding: 0;}
-            @include MediaQuery(M){width: 21%;margin: 0;padding: 0;}
+        .googleicon {
+            position: relative;
+            bottom: 26px;
+            @include MediaQuery(xs + s) {
+                width: 33%;
+                margin: 0;
+                padding: 0;
+                margin-bottom: -12px;
+                bottom: 0;
+            }
+            @include MediaQuery(M) {
+                width: 33%;
+                margin: 0;
+                padding: 0;
+                margin-bottom: -12px;
+                bottom: 0;
+            }
         }
-
-
-
-    } 
-    .second{
+        .instgramicon {
+            position: relative;
+            bottom: 14px;
+            @include MediaQuery(xs + s) {
+                width: 27%;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 15px !important;
+                bottom: 0;
+            }
+            @include MediaQuery(M) {
+                width: 27%;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 15px !important;
+                bottom: 0;
+            }
+        }
+        .facebookicon {
+            @include MediaQuery(xs + s) {
+                width: 21%;
+                margin: 0;
+                padding: 0;
+            }
+            @include MediaQuery(M) {
+                width: 21%;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+    .second {
         margin-top: 100px;
-        @include MediaQuery(xs){  margin-top: 37px;}
-        @include MediaQuery(s){  margin-top: 37px;}
-        @include MediaQuery(M){margin-top:59px;}
-        a{  background-color: #106666;
-            color: white;
-            border:none;outline: 0;box-shadow: 0;
-            width: 25%;
-            @include MediaQuery(xs){width: 45%;}
-            @include MediaQuery(s){width: 45%;}
-            @include MediaQuery(M){width: 45%;}
-
-            span{font-size: 25px;}
+        @include MediaQuery(xs) {
+            margin-top: 37px;
         }
-    }  
+        @include MediaQuery(s) {
+            margin-top: 37px;
+        }
+        @include MediaQuery(M) {
+            margin-top: 59px;
+        }
+        a {
+            background-color: #106666;
+            color: white;
+            border: none;
+            outline: 0;
+            box-shadow: 0;
+            width: 25%;
+            @include MediaQuery(xs) {
+                width: 45%;
+            }
+            @include MediaQuery(s) {
+                width: 45%;
+            }
+            @include MediaQuery(M) {
+                width: 45%;
+            }
+            span {
+                font-size: 25px;
+            }
+        }
+    }
 }
- 
 
-
-.homepage{
-  
-    margin:auto;
+.homepage {
+    margin: auto;
     width: 100%;
     height: 100%;
     display: flex;
@@ -160,8 +231,6 @@
     position: relative;
     top: 0;
     padding-bottom: 80px;
-    
-
     @media screen and (max-width: 500px) {
         padding-top: 0;
     }
@@ -177,43 +246,49 @@
     @media screen and (min-width:366px)and (max-width:575.98px) {
         top: 0px;
     }
-
-    h1,h5{
+    h1,
+    h5 {
         margin-right: 10%;
         text-align: right;
         position: relative;
         bottom: 30px;
-        @include MediaQuery(xs){bottom: 5px;
+        @include MediaQuery(xs) {
+            bottom: 5px;
             // margin-right: 3%;
             margin-right: 5%;
         }
-        @include MediaQuery(s){  bottom: 5px; 
+        @include MediaQuery(s) {
+            bottom: 5px;
             // margin-right: 3%;
             margin-right: 5%;
         }
-        @include MediaQuery(M){ bottom: 18px; 
-            // margin-right: 13%;
-            margin-right: 16%;
-            }
-        @include MediaQuery(L){ bottom: 15px; 
+        @include MediaQuery(M) {
+            bottom: 18px;
             // margin-right: 13%;
             margin-right: 16%;
         }
-        @include MediaQuery(XL-XXL){ bottom: 15px; 
+        @include MediaQuery(L) {
+            bottom: 15px;
+            // margin-right: 13%;
+            margin-right: 16%;
+        }
+        @include MediaQuery(XL-XXL) {
+            bottom: 15px;
             //  margin-right: 13%;
             margin-right: 16%;
         }
-        @include MediaQuery(XXL){  bottom: 15px;
+        @include MediaQuery(XXL) {
+            bottom: 15px;
             // margin-right: 13%;
             margin-right: 16%;
         }
     }
-    h1{
-        color:white;
+    h1 {
+        color: white;
         font-weight: bold;
         font-size: 80px;
         // @include MediaQuery(xs){ font-size: 28px;}
-        @media screen and (max-width:319px) {
+        @media screen and (max-width: 319px) {
             font-size: 20px;
         }
         @media screen and (min-width:320px)and (max-width:359px) {
@@ -222,125 +297,211 @@
         @media screen and (min-width:360px)and (max-width:575.98px) {
             font-size: 28px;
         }
-
-        @include MediaQuery(s){ font-size: 42px;}
-        @include MediaQuery(M){ font-size: 48px;}
-        @include MediaQuery(L){ font-size: 61px;}
-        @include MediaQuery(XL-XXL){ font-size: 61px;}
-        @include MediaQuery(XXL){ font-size: 61px;}
+        @include MediaQuery(s) {
+            font-size: 42px;
+        }
+        @include MediaQuery(M) {
+            font-size: 48px;
+        }
+        @include MediaQuery(L) {
+            font-size: 61px;
+        }
+        @include MediaQuery(XL-XXL) {
+            font-size: 61px;
+        }
+        @include MediaQuery(XXL) {
+            font-size: 61px;
+        }
     }
-   h5{
-       color:#106666;
-       font-size: 35px;
-       font-weight: bold;
-       margin-left:40%;
-       @include MediaQuery(xs){ font-size: 15px;}
-       @include MediaQuery(s){ font-size: 26px;}
-       @include MediaQuery(M){ font-size: 37px;}
-       @include MediaQuery(L){ font-size: 40px;}
-       @include MediaQuery(XL-XXL){ font-size: 40px;}
-       @include MediaQuery(XXL){ font-size: 40px;}
+    h5 {
+        color: #106666;
+        font-size: 35px;
+        font-weight: bold;
+        margin-left: 40%;
+        @include MediaQuery(xs) {
+            font-size: 15px;
+        }
+        @include MediaQuery(s) {
+            font-size: 26px;
+        }
+        @include MediaQuery(M) {
+            font-size: 37px;
+        }
+        @include MediaQuery(L) {
+            font-size: 40px;
+        }
+        @include MediaQuery(XL-XXL) {
+            font-size: 40px;
+        }
+        @include MediaQuery(XXL) {
+            font-size: 40px;
+        }
     }
-    .playerTitlesHome{
+    .playerTitlesHome {
         width: 777px;
         margin: 0 auto;
         padding-left: 350px;
-
+        display: block;
+        position: relative;
         h1 {
             font-size: 32px !important;
         }
-        
-        h5 {font-size: 21px !important;}
-        
+        h5 {
+            font-size: 21px !important;
+        }
         * {
             margin: 12px 0 !important;
         }
         @media screen and (max-width: 1200px) {
             width: 70% !important;
-            
         }
         @media screen and (max-width: 767px) {
             width: 90% !important;
             h1 {
                 font-size: 18px !important;
             }
-            
-            h5 {font-size: 14px !important;}
+            h5 {
+                font-size: 14px !important;
+            }
         }
     }
-    .backimg{
-        height:100px;margin-bottom:10px;width:90%;
+    .backimg {
+        height: 100px;
+        margin-bottom: 10px;
+        width: 90%;
         // margin-left: 26px;
-      background-color: #106666;border-radius:10px;
-
+        background-color: #106666;
+        border-radius: 10px;
         // @include MediaQuery(xs){height: 67px;}
-        @media screen and (max-width:319px) {
-            height: 67px;width: 100%;
+        @media screen and (max-width: 319px) {
+            height: 67px;
+            width: 100%;
         }
         @media screen and (min-width:320px)and (max-width:575.98px) {
             height: 67px;
         }
-
-        @include MediaQuery(s){
+        @include MediaQuery(s) {
             // height: 67px;
             height: 82px;
         }
-        @include MediaQuery(M){height: 115px;width:70%;}
-        @include MediaQuery(L){height: 90px;width:70%;}
-        @include MediaQuery(XL-XXL){height: 90px;width:70%;}
-        @include MediaQuery(XXL){height: 90px;width:70%;}
-    }
-     //
-     .mylastdiv{padding-left: 0px !important;padding-right:0px !important;}
-   .last{
-       a{
-        color:white;background-color:#106666;
-        border-color:#106666;border-radius:21px;
-        // @include MediaQuery(xs){ font-size: 15px;}
-        @media screen and (max-width:319px) {
-            font-size: 10px;
+        @include MediaQuery(M) {
+            height: 115px;
+            width: 70%;
         }
-        @media screen and (min-width:320px)and (max-width:359px) {
-            font-size: 12px;
+        @include MediaQuery(L) {
+            height: 90px;
+            width: 70%;
         }
-        @media screen and (min-width:360px)and (max-width:575.98px) {
-            font-size: 15px;
+        @include MediaQuery(XL-XXL) {
+            height: 90px;
+            width: 70%;
         }
-
-
-        @include MediaQuery(s){ font-size: 15px;}
-        @include MediaQuery(M){ font-size: 21px;}
-        @include MediaQuery(L){ font-size: 17px;}
-        @include MediaQuery(XL-XXL){ font-size: 17px;}
-        @include MediaQuery(XXL){ font-size: 17px;}
+        @include MediaQuery(XXL) {
+            height: 90px;
+            width: 70%;
         }
     }
-.sdash{
-     a{
-        border-radius:10px;outline:none;box-shadow:none;
-        span{
-            font-size: 30px;color:#32AAB2;padding: 0 63px;font-weight:bold;
-            @include MediaQuery(xs){ font-size: 13px;}
-            @include MediaQuery(s){ font-size: 18px;}
-            @include MediaQuery(M){ font-size: 30px;}
-            @include MediaQuery(L){ font-size: 26px;}
-            @include MediaQuery(XL-XXL){ font-size: 26px;}
-            @include MediaQuery(XXL){ font-size: 26px;}
-        }
-      } 
-  
-      @include MediaQuery(xs){position: relative;left:2%;}
-      @include MediaQuery(s){position: relative;left:2%;}
-      @include MediaQuery(M){position: relative;left:2%;}
-      @include MediaQuery(L){position: relative;left:2%;}
-      @include MediaQuery(XL-XXL){position: relative;left:2%;}
-      @include MediaQuery(XXL){position: relative;left:2%;}
+    //
+    .mylastdiv {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
     }
-.fdash{
-        span{
-            font-size: 30px;color:#32AAB2;padding: 0 20px;font-weight:bold;
+    .last {
+        a {
+            color: white;
+            background-color: #106666;
+            border-color: #106666;
+            border-radius: 21px;
+            // @include MediaQuery(xs){ font-size: 15px;}
+            @media screen and (max-width: 319px) {
+                font-size: 10px;
+            }
+            @media screen and (min-width:320px)and (max-width:359px) {
+                font-size: 12px;
+            }
+            @media screen and (min-width:360px)and (max-width:575.98px) {
+                font-size: 15px;
+            }
+            @include MediaQuery(s) {
+                font-size: 15px;
+            }
+            @include MediaQuery(M) {
+                font-size: 21px;
+            }
+            @include MediaQuery(L) {
+                font-size: 17px;
+            }
+            @include MediaQuery(XL-XXL) {
+                font-size: 17px;
+            }
+            @include MediaQuery(XXL) {
+                font-size: 17px;
+            }
+        }
+    }
+    .sdash {
+        a {
+            border-radius: 10px;
+            outline: none;
+            box-shadow: none;
+            span {
+                font-size: 30px;
+                color: #32AAB2;
+                padding: 0 63px;
+                font-weight: bold;
+                @include MediaQuery(xs) {
+                    font-size: 13px;
+                }
+                @include MediaQuery(s) {
+                    font-size: 18px;
+                }
+                @include MediaQuery(M) {
+                    font-size: 30px;
+                }
+                @include MediaQuery(L) {
+                    font-size: 26px;
+                }
+                @include MediaQuery(XL-XXL) {
+                    font-size: 26px;
+                }
+                @include MediaQuery(XXL) {
+                    font-size: 26px;
+                }
+            }
+        }
+        @include MediaQuery(xs) {
+            position: relative;
+            left: 2%;
+        }
+        @include MediaQuery(s) {
+            position: relative;
+            left: 2%;
+        }
+        @include MediaQuery(M) {
+            position: relative;
+            left: 2%;
+        }
+        @include MediaQuery(L) {
+            position: relative;
+            left: 2%;
+        }
+        @include MediaQuery(XL-XXL) {
+            position: relative;
+            left: 2%;
+        }
+        @include MediaQuery(XXL) {
+            position: relative;
+            left: 2%;
+        }
+    }
+    .fdash {
+        span {
+            font-size: 30px;
+            color: #32AAB2;
+            padding: 0 20px;
+            font-weight: bold;
             // @include MediaQuery(xs){ font-size: 23px;}
-            @media screen and (max-width:319px) {
+            @media screen and (max-width: 319px) {
                 font-size: 14px;
             }
             @media screen and (min-width:320px)and (max-width:359px) {
@@ -349,174 +510,261 @@
             @media screen and (min-width:360px)and (max-width:575.98px) {
                 font-size: 23px;
             }
-
-            @include MediaQuery(s){ font-size: 23px;}
-            @include MediaQuery(M){ font-size: 23px;}
-            @include MediaQuery(L){ font-size: 23px;}
-            @include MediaQuery(XL-XXL){ font-size: 23px;}
-            @include MediaQuery(XXL){ font-size: 23px;}
-
+            @include MediaQuery(s) {
+                font-size: 23px;
+            }
+            @include MediaQuery(M) {
+                font-size: 23px;
+            }
+            @include MediaQuery(L) {
+                font-size: 23px;
+            }
+            @include MediaQuery(XL-XXL) {
+                font-size: 23px;
+            }
+            @include MediaQuery(XXL) {
+                font-size: 23px;
+            }
         }
-        i{
-            font-size: 30px;color:#32AAB2;
-            @include MediaQuery(xs){ font-size: 23px;}
-            @include MediaQuery(s){ font-size: 23px;}
-            @include MediaQuery(M){ font-size: 23px;}
-            @include MediaQuery(L){ font-size: 23px;}
-            @include MediaQuery(XL-XXL){ font-size: 23px;}
-            @include MediaQuery(XXL){ font-size: 23px;}
+        i {
+            font-size: 30px;
+            color: #32AAB2;
+            @include MediaQuery(xs) {
+                font-size: 23px;
+            }
+            @include MediaQuery(s) {
+                font-size: 23px;
+            }
+            @include MediaQuery(M) {
+                font-size: 23px;
+            }
+            @include MediaQuery(L) {
+                font-size: 23px;
+            }
+            @include MediaQuery(XL-XXL) {
+                font-size: 23px;
+            }
+            @include MediaQuery(XXL) {
+                font-size: 23px;
+            }
         }
     }
-    .mysearchinput{
-        @media screen and (max-width:319px) {
-            padding-right: 0px;padding-left:0px;
-        } 
-        input{
+    .mysearchinput {
+        @media screen and (max-width: 319px) {
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+        input {
             text-indent: 28px !important;
         }
     }
-.input-group-append{
-    position: relative;right:30px;z-index:100;top:10px;cursor: pointer;
-    color:white;outline:none !important;box-shadow:none !important;
-   @include MediaQuery(xs){
-    //    right: 7px !important;
-    right: 13px !important;
+    .input-group-append {
+        position: relative;
+        right: 30px;
+        z-index: 100;
+        top: 10px;
+        cursor: pointer;
+        color: white;
+        outline: none !important;
+        box-shadow: none !important;
+        @include MediaQuery(xs) {
+            //    right: 7px !important;
+            right: 13px !important;
+        }
+        @include MediaQuery(s) {
+            //    right: 7px !important;
+            right: 13px !important;
+        }
+        @include MediaQuery(M) {
+            //    right: 7px !important;
+            right: 13px !important;
+        }
+        @include MediaQuery(L) {
+            //    right: 7px !important;
+            right: 13px !important;
+        }
+        @include MediaQuery(XL-XXL) {
+            //    right: 7px !important;
+            right: 13px !important;
+        }
+        @include MediaQuery(XXL) {
+            //    right: 7px !important;
+            right: 13px !important;
+        }
     }
-   @include MediaQuery(s){
-    //    right: 7px !important;
-    right: 13px !important;
-    }
-   @include MediaQuery(M){
-    //    right: 7px !important;
-    right: 13px !important;
-    }
-   @include MediaQuery(L){
-    //    right: 7px !important;
-    right: 13px !important;
-    }
-   @include MediaQuery(XL-XXL){
-    //    right: 7px !important;
-    right: 13px !important;
-    }
-   @include MediaQuery(XXL){
-    //    right: 7px !important;
-    right: 13px !important;
-    }
-}
-::placeholder{ 
-    text-indent: inherit;font-size:20px;color: #30a7ae;
-    text-align: center;
-    @include MediaQuery(xs){font-size:14px;}
-    @include MediaQuery(s){font-size:17px; text-indent: inherit;}
-    @include MediaQuery(M){font-size:17px; text-indent: inherit;}
-    @include MediaQuery(L){font-size:19px; text-indent: inherit;}
-     @include MediaQuery(XL-XXL){font-size:19px; text-indent: inherit;}
-     @include MediaQuery(XXL){font-size:19px; text-indent: inherit;}
-}
-
-.inputNum::placeholder{ 
-    text-indent: inherit !important;
-    font-size:50px !important;
-    color: #30a7ae !important;
-    text-align: center !important;
-
-    @media screen and (max-width: 500px){
-        font-size:30px !important;
-    }
-
-}
-
-input{
-    background-color:#106666;border:none;border-radius:10px; color:white !important;
-    text-indent: inherit;
-    outline:none !important;box-shadow:none !important;
-    @include MediaQuery(xs){
-        // left:6%;
-        left:4%;
+     ::placeholder {
         text-indent: inherit;
+        font-size: 20px;
+        color: #30a7ae;
+        text-align: center;
+        @include MediaQuery(xs) {
+            font-size: 14px;
+        }
+        @include MediaQuery(s) {
+            font-size: 17px;
+            text-indent: inherit;
+        }
+        @include MediaQuery(M) {
+            font-size: 17px;
+            text-indent: inherit;
+        }
+        @include MediaQuery(L) {
+            font-size: 19px;
+            text-indent: inherit;
+        }
+        @include MediaQuery(XL-XXL) {
+            font-size: 19px;
+            text-indent: inherit;
+        }
+        @include MediaQuery(XXL) {
+            font-size: 19px;
+            text-indent: inherit;
+        }
     }
-    @include MediaQuery(s){
-        // left:6%;
-        left:4%;
+    .inputNum::placeholder {
+        text-indent: inherit !important;
+        font-size: 50px !important;
+        color: #30a7ae !important;
+        text-align: center !important;
+        @media screen and (max-width: 500px) {
+            font-size: 30px !important;
+        }
+    }
+    input {
+        background-color: #106666;
+        border: none;
+        border-radius: 10px;
+        color: white !important;
         text-indent: inherit;
-    }
-    @include MediaQuery(M){
-        // left:6%;
-        left:4%;
-        text-indent: inherit;
-    }
-    @include MediaQuery(L){
-        // left:6%;
-        left:4%;
-        text-indent: inherit;
-    }
-    @include MediaQuery(XL-XXL){
-        // left:6%;
-        left:4%;
-    }
-    @include MediaQuery(XXL){
-        // left:6%;
-        left:4%;
-    }
-    @media screen and (min-width:1200px){
-        text-indent: inherit; 
-    }
-}
-.images{
-    position: relative;
-    right: 20px;
-    top: 18px;
-    .large{
-        width: 100px;
-        height:100px;
-        margin:0 50px;
-        @include MediaQuery(xs){width: 40px;height:40px;
-            margin:0 10px;
+        outline: none !important;
+        box-shadow: none !important;
+        @include MediaQuery(xs) {
+            // left:6%;
+            left: 4%;
+            text-indent: inherit;
         }
-         @include MediaQuery(s){width: 57px;height:57px;
-            margin:0 10px;
+        @include MediaQuery(s) {
+            // left:6%;
+            left: 4%;
+            text-indent: inherit;
         }
-         @include MediaQuery(M){width: 70px;height:70px;
-            margin:0 10px;
+        @include MediaQuery(M) {
+            // left:6%;
+            left: 4%;
+            text-indent: inherit;
         }
-         @include MediaQuery(L){width: 80px;height:80px;
-            margin:0 10px;
+        @include MediaQuery(L) {
+            // left:6%;
+            left: 4%;
+            text-indent: inherit;
         }
-         @include MediaQuery(XL-XXL){width: 80px;height:80px;
-            margin:0 10px;
+        @include MediaQuery(XL-XXL) {
+            // left:6%;
+            left: 4%;
         }
-         @include MediaQuery(XXL){width: 80px;height:80px;
-            margin:0 10px;
+        @include MediaQuery(XXL) {
+            // left:6%;
+            left: 4%;
+        }
+        @media screen and (min-width:1200px) {
+            text-indent: inherit;
         }
     }
-    .small{
-        width: 50px;height:50px;
-        @include MediaQuery(xs){width: 35px;height:35px;}
-        @include MediaQuery(s){width: 47px;height:47px;}
-        @include MediaQuery(M){width: 55px;height:55px;}
-        @include MediaQuery(L){width: 55px;height:55px;}
-        @include MediaQuery(XL-XXL){width: 55px;height:55px;}
-        @include MediaQuery(XXL){width: 55px;height:55px;}
+    .images {
+        position: relative;
+        right: 20px;
+        top: 18px;
+        .large {
+            width: 100px;
+            height: 100px;
+            margin: 0 50px;
+            @include MediaQuery(xs) {
+                width: 40px;
+                height: 40px;
+                margin: 0 10px;
+            }
+            @include MediaQuery(s) {
+                width: 57px;
+                height: 57px;
+                margin: 0 10px;
+            }
+            @include MediaQuery(M) {
+                width: 70px;
+                height: 70px;
+                margin: 0 10px;
+            }
+            @include MediaQuery(L) {
+                width: 80px;
+                height: 80px;
+                margin: 0 10px;
+            }
+            @include MediaQuery(XL-XXL) {
+                width: 80px;
+                height: 80px;
+                margin: 0 10px;
+            }
+            @include MediaQuery(XXL) {
+                width: 80px;
+                height: 80px;
+                margin: 0 10px;
+            }
+        }
+        .small {
+            width: 50px;
+            height: 50px;
+            @include MediaQuery(xs) {
+                width: 35px;
+                height: 35px;
+            }
+            @include MediaQuery(s) {
+                width: 47px;
+                height: 47px;
+            }
+            @include MediaQuery(M) {
+                width: 55px;
+                height: 55px;
+            }
+            @include MediaQuery(L) {
+                width: 55px;
+                height: 55px;
+            }
+            @include MediaQuery(XL-XXL) {
+                width: 55px;
+                height: 55px;
+            }
+            @include MediaQuery(XXL) {
+                width: 55px;
+                height: 55px;
+            }
+        }
+        //
+        @media screen and (max-width:319px) {
+            left: 19%;
+        }
+        @media screen and (min-width:320px)and (max-width:359px) {
+            right: 15px;
+        }
+        @include MediaQuery(M) {
+            top: 18px;
+        }
+        @include MediaQuery(L) {
+            top: 18px;
+        }
+        @include MediaQuery(XL-XXL) {
+            top: 18px;
+        }
+        @include MediaQuery(XXL) {
+            top: 18px;
+        }
     }
-    //
-    @media screen and (max-width:319px) {
-       left: 19%;
+    .social {
+        position: relative;
+        // left:5%;
+        left: 1%;
+        .sagel {
+            margin-left: 20px;
+        }
     }
-    @media screen and (min-width:320px)and (max-width:359px) {
-        right: 15px; 
-    }
-
-    @include MediaQuery(M){top: 18px;}
-    @include MediaQuery(L){top: 18px;}
-    @include MediaQuery(XL-XXL){top: 18px;}
-    @include MediaQuery(XXL){top: 18px;}
-}
-.social{position: relative;
-    // left:5%;
-    left:1%;
-    .sagel{  margin-left: 20px;}
-}
-    
 }
 
 ///////////////////song request
@@ -530,9 +778,8 @@ input{
     background-color: transparent;
     text-align: center;
     display: flex;
-    font-weight:bold;
-
-    @media screen and (max-width:319px) {
+    font-weight: bold;
+    @media screen and (max-width: 319px) {
         bottom: 26px;
     }
     @media screen and (min-width:320px)and (max-width:359px) {
@@ -544,94 +791,90 @@ input{
     @media screen and (min-width:366px)and (max-width:575.98px) {
         bottom: 22px;
     }
-
-    @include MediaQuery(s){ 
+    @include MediaQuery(s) {
         // bottom: 50px;
         bottom: 22px;
     }
-      //
-      @include MediaQuery(XL){
+    //
+    @include MediaQuery(XL) {
         bottom: 22px;
-        right:15px;
-       
+        right: 15px;
     }
     .songOrder {
-        margin-right:3%;
+        margin-right: 3%;
         display: grid;
         outline: 0;
-        border:0;
+        border: 0;
         box-shadow: none;
-      
-        i,span {
-            color:  $basicColor;
+        i,
+        span {
+            color: $basicColor;
             font-size: 28px;
             padding-right: 10px;
-
             @include MediaQuery(xs+s) {
                 font-size: 23px;
                 padding-right: 2px;
                 // bottom: -50px !important;
             }
         }
-        i{ 
+        i {
             font-size: 30px;
-            @media screen and (min-width:320px)and (max-width:359px) {
-               font-size: 21px;
+            @media screen and (min-width: 320px)and (max-width: 359px) {
+                font-size: 21px;
             }
         }
-        span{
-            font-family:"29lt-bukra-bold" ;
-
+        span {
+            font-family: "29lt-bukra-bold";
             @include MediaQuery(xs+s) {
                 font-size: 17px;
             }
             @include MediaQuery(M) {
                 font-size: 20px;
             }
-        }   
+        }
     }
-    @include MediaQuery(xs+s){
+    @include MediaQuery(xs+s) {
         height: auto;
     }
 }
-.songorder{
+
+.songorder {
     form {
-        display: flex; flex-direction: row;
+        display: flex;
+        flex-direction: row;
         .songname {
             margin-bottom: 5px;
             margin-left: 5%;
             div {
-                img{
+                img {
                     width: 90%;
                     margin: auto;
                     padding-bottom: 9px;
-                    @include MediaQuery(xs+s){
+                    @include MediaQuery(xs+s) {
                         width: 75%;
                         padding-bottom: 4px;
                     }
                 }
-                span{
+                span {
                     color: #fff;
                     font-weight: bold;
-                    @include MediaQuery(xs+s){ 
+                    @include MediaQuery(xs+s) {
                         font-size: 13px;
                     }
                 }
             }
-
-          @include MediaQuery(xs+s) {
-            margin-left: 1%;
-          }
+            @include MediaQuery(xs+s) {
+                margin-left: 1%;
+            }
         }
         .songSend {
             width: 100%;
             margin-bottom: 10%;
             width: 300px;
-            @include MediaQuery(XL){
+            @include MediaQuery(XL) {
                 height: 78px;
             }
-
-            @include MediaQuery(xs+s) {  
+            @include MediaQuery(xs+s) {
                 width: 165px;
                 height: 45px;
             }
@@ -646,88 +889,82 @@ input{
                 font-size: 15px;
                 padding: 6px;
                 box-shadow: none;
-                outline:none;
+                outline: none;
                 // width: 200px;
                 // height: 50px;
-                width: 100%; max-width: 100%; height: 100%;
+                width: 100%;
+                max-width: 100%;
+                height: 100%;
                 // box-sizing: border-box;
             }
             textarea:focus {
-                border: 2px solid #106666 !important ;
+                border: 2px solid #106666 !important;
             }
-            input{
+            input {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: 0px !important; 
-                background-color: #106666 ;
+                padding: 0px !important;
+                background-color: #106666;
                 outline: none;
                 box-shadow: none;
-                color:  white;
+                color: white;
                 margin: auto;
-                font-weight : bold;
+                font-weight: bold;
                 font-size: 25px;
                 width: 50%;
-                border:none !important ; 
+                border: none !important;
                 margin-top: 2%;
-                @include MediaQuery(xs+s) 
-                { font-size: 12px !important;
+                @include MediaQuery(xs+s) {
+                    font-size: 12px !important;
                     height: 49% !important;
                     width: 67%;
-                    margin-top: 10px;  
-                  }
-
+                    margin-top: 10px;
+                }
             }
         }
     }
 }
 
-.sr{
+.sr {
     .modal-content {
-    max-width: 600px;
-    margin:0 auto ;
-    background-color:  $basicColor;
-    padding:10px;
-    border-radius: 25px;
-    top:20px;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: $basicColor;
+        padding: 10px;
+        border-radius: 25px;
+        top: 20px;
     }
-
-.loginform {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    
-    form{
+    .loginform {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            font-weight: 500;
+            font-size: 20px;
+            color: #fff;
+        }
+        input:not([type="submit"]) {
+            margin-bottom: 20px;
+            text-align: start;
+            background-color: transparent;
+            border-radius: 10px;
+            color: #fff;
+            border: 0.5px solid white;
+            font-size: 15px;
+            padding: 6px;
+        }
+        input[type=submit] {
+            border-radius: 10px;
+            // width: 50%;
+            margin: 0 auto;
+        }
     }
-    h1{
-        font-weight: 500;
-        font-size: 20px;
-        color: #fff;
-    }
-    
-    
-input:not([type="submit"]) 
-{
-        margin-bottom: 20px;
-        text-align: start;
-        background-color: transparent;
-        border-radius: 10px;
-        color: #fff;
-        border:0.5px solid white;
-        font-size: 15px;
-        padding:6px;
-
-    }
-    input[type=submit]
-    {
-        border-radius: 10px;
-        // width: 50%;
-        margin: 0 auto;
-    }
-}
 }
 
 .errorModal {
@@ -744,94 +981,102 @@ input:not([type="submit"])
             color: #fff;
         }
     }
-    .modal-header  {
-        background-color:  $basicColor; 
-        border-top-left-radius:25px;
-        border-top-right-radius:25px;
-        i{
+    .modal-header {
+        background-color: $basicColor;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        i {
             color: #fff;
             text-align: center;
         }
     }
     .modal-body {
         background-color: #fff;
-        h1,h2,h3{
-        color: #1a5356 ;
+        h1,
+        h2,
+        h3 {
+            color: #1a5356;
         }
-        h1{
-            font-size:40px;
+        h1 {
+            font-size: 40px;
             font-weight: bold;
         }
-        h2{
-            font-size:30px;
+        h2 {
+            font-size: 30px;
             font-weight: 400;
             margin-bottom: 20px;
         }
-
-        .btn-info
-        {
+        .btn-info {
             background-color: #1a5356;
             padding: 10px 40px;
             border-radius: 15px;
             font-size: 20px;
-         
-        } 
-
+        }
     }
 }
+
 .SongOrderModal {
     .modal-content {
-        max-width: 600px;  padding: 10px;
-        @include MediaQuery(xs+s){
+        max-width: 600px;
+        padding: 10px;
+        @include MediaQuery(xs+s) {
             max-width: 300px;
             padding: 0px;
         }
     }
     .modal-dialog {
-        position:fixed;
-        top:auto;
-        right:4%;
-        left:auto;
-        bottom:5%;
-        @include MediaQuery(xs+s){
-            right:2%;
-            bottom:6%;
+        position: fixed;
+        top: auto;
+        right: 4%;
+        left: auto;
+        bottom: 5%;
+        @include MediaQuery(xs+s) {
+            right: 2%;
+            bottom: 6%;
         }
-     } 
-     
+    }
 }
 
 //popup
 .modal {
     top: 30%;
-    @include MediaQuery(M){  top: 41%;}
+    @include MediaQuery(M) {
+        top: 41%;
+    }
     .modal-content {
         background-color: #32AAB2 !important;
         opacity: 0.95;
         border-radius: 25px;
         width: 90%;
-        @include MediaQuery(xs + s){width: 90%;margin:0 auto;}
-        @include MediaQuery(M + L){width: 100%;}
+        @include MediaQuery(xs + s) {
+            width: 90%;
+            margin: 0 auto;
+        }
+        @include MediaQuery(M + L) {
+            width: 100%;
+        }
         // padding: 5% 2%;
     }
-  p{ 
-      text-align:center;color:$basicColor;
-      font-size: 25px;font-weight: bolder;
+    p {
+        text-align: center;
+        color: $basicColor;
+        font-size: 17px;
+        font-weight: bolder;
     }
-   
 }
-.modal1{
-    @include MediaQuery(xs){
+
+.modal1 {
+    @include MediaQuery(xs) {
         padding-top: 30px;
     }
-    .modal-content{
+    .modal-content {
         background-color: #106666 !important;
         border: 3px solid #fff;
-        box-shadow: 0 0 30px  $basicColor;
-        @media screen and(max-width:320px) {
-            width: 100%; 
+        box-shadow: 0 0 30px $basicColor;
+        @media screen and(max-width: 320px) {
+            width: 100%;
         }
-        span{
+        span {
             color: white !important;
             font-weight: bolder;
             font-size: 35px;
@@ -839,111 +1084,138 @@ input:not([type="submit"])
             padding-top: 20px;
         }
     }
-    input{
+    input {
         width: 44px;
         height: 90px;
         font-size: 62px;
         text-align: center;
-        color:white;
+        color: white;
         font-family: "29lt-bukra-bold";
         background-color: #106666 !important;
-        border:none;
-        outline: none !important;box-shadow: none !important;
+        border: none;
+        outline: none !important;
+        box-shadow: none !important;
         cursor: unset;
     }
-    .alltime{
+    .alltime {
         display: flex !important;
         flex-direction: row;
         justify-content: center !important;
         width: 84%;
-        @include MediaQuery(xs + s){width: 100%;}
-        
+        @include MediaQuery(xs + s) {
+            width: 100%;
+        }
         margin: 0 auto !important;
-        background-color: #32AAB2 !important; 
+        background-color: #32AAB2 !important;
         border-radius: 30px;
         padding: 40px 0 !important;
-        .myinputs{
-            @media screen and (max-width:319px) {
-                display: inline-flex;padding-left:5px;
+        .myinputs {
+            @media screen and (max-width: 319px) {
+                display: inline-flex;
+                padding-left: 5px;
             }
             @media screen and (min-width:320px)and (max-width:359px) {
-                display: inline-flex;padding-left:5px;
+                display: inline-flex;
+                padding-left: 5px;
             }
         }
-        .backtext{
-            color:white !important;
+        .backtext {
+            color: white !important;
             font-size: 17px;
             padding-top: 32px;
-            @media screen and (max-width:319px) {
-                padding-top: 20px;font-size:14px;padding-right:5px; 
+            @media screen and (max-width: 319px) {
+                padding-top: 20px;
+                font-size: 14px;
+                padding-right: 5px;
             }
             @media screen and (min-width:320px)and (max-width:359px) {
-                padding-top: 20px;font-size:14px;padding-right:5px; 
+                padding-top: 20px;
+                font-size: 14px;
+                padding-right: 5px;
             }
         }
-
     }
-::placeholder{color: white;text-indent:0px !important;}
-.confirmbtn{
-    background-color: #32AAB2 !important;
-    font-size: 30px !important;
-    padding: 0 50px;
-    border-radius: 10px;
-    color:white;
-    margin-top: 20px;
-    outline: none;
-    box-shadow: none;
-}
-.close{
-    cursor: pointer;
-}
+     ::placeholder {
+        color: white;
+        text-indent: 0px !important;
+    }
+    .confirmbtn {
+        background-color: #32AAB2 !important;
+        font-size: 30px !important;
+        padding: 0 50px;
+        border-radius: 10px;
+        color: white;
+        margin-top: 20px;
+        outline: none;
+        box-shadow: none;
+    }
+    .close {
+        cursor: pointer;
+    }
 }
 
-::ng-deep{
-    .modal-backdrop{display: none !important;}
+::ng-deep {
+    .modal-backdrop {
+        display: none !important;
+    }
 }
+
+
 /* Chrome, Safari, Edge, Opera */
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
+
 
 /* Firefox */
+
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
+
 // ***********************sign in ***********************
-
-.mysmodal{
+.mysmodal {
     position: relative;
-    right:0;
+    right: 0;
     height: 400px;
-    top:-300px;
-    @include MediaQuery(xs + s){  position:absolute;top:197px;}
-    @include MediaQuery(M){  position:absolute;top:430px;}
+    top: -300px;
+    @include MediaQuery(xs + s) {
+        position: absolute;
+        top: 197px;
+    }
+    @include MediaQuery(M) {
+        position: absolute;
+        top: 430px;
+    }
     overflow-y: hidden;
-    .modal-content{
+    .modal-content {
         background-color: $basicColor !important;
-        
-       
     }
-    .loginform{
-        input{
-            outline:none;
-            box-shadow:none;
+    .loginform {
+        input {
+            outline: none;
+            box-shadow: none;
         }
-        ::placeholder{
-            color:white !important;
+         ::placeholder {
+            color: white !important;
         }
     }
-
 }
-.spop{
-    top:-300px !important;
+
+.spop {
+    top: -300px !important;
     height: 500px !important;
-    @include MediaQuery(xs + s){  position:absolute;top:197px;}
-    @include MediaQuery(M){  position:absolute;top:430px;}
+    @include MediaQuery(xs + s) {
+        position: absolute;
+        top: 197px;
+    }
+    @include MediaQuery(M) {
+        position: absolute;
+        top: 430px;
+    }
 }
 
 //  minimize song model 
@@ -1060,14 +1332,23 @@ input[type=number] {
     .myminilast {
         position: fixed;
         // right: 65%;
-        right:61%;
-        @include MediaQuery(xs + s ){  right: 89%;}
-        @include MediaQuery(M){  right: 78%;}
-        @include MediaQuery(L){  right: 68%;}
+        right: 61%;
+        @include MediaQuery(xs + s) {
+            right: 89%;
+        }
+        @include MediaQuery(M) {
+            right: 78%;
+        }
+        @include MediaQuery(L) {
+            right: 68%;
+        }
         // @media screen and (min-width:1600px) {right: 56%;}
-        @media screen and (min-width:1600px) and(max-width:1900px) {right: 56%;}
-        @media screen and (min-width:1901px) {right: 58%;}
-
+        @media screen and (min-width:1600px) and(max-width:1900px) {
+            right: 56%;
+        }
+        @media screen and (min-width:1901px) {
+            right: 58%;
+        }
     }
 }
 
@@ -1092,26 +1373,26 @@ input[type=number] {
     bottom: 0;
     overflow-y: auto;
     padding-top: 100px;
-
-    @media screen and (max-width: 767px){
+    @media screen and (max-width: 767px) {
         padding: 0;
     }
 }
 
-.ourhomecontainer{
+.ourhomecontainer {
     @include MediaQuery(xs) {
         margin-top: 150px !important;
     }
 }
+
 .imagCdPlay {
     // width: 31%;
-    width:30%;
+    width: 30%;
     float: left;
     position: relative;
     height: 100%;
     text-align: center;
     margin-left: 30px;
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
         padding: 0;
         margin-left: 10px;
     }
@@ -1124,44 +1405,37 @@ input[type=number] {
     left: 0;
     right: 0;
 }
-.cdButtonPlay{
+
+.cdButtonPlay {
     right: 20px;
     float: right;
 }
 
-
-@media(max-width: 991px){
-    
+@media(max-width: 991px) {
     .backimg.position-relative {
         height: 90px !important;
-        @media screen and (max-width: 400px){
+        @media screen and (max-width: 400px) {
             height: 70px !important;
         }
     }
-    
     .cdButtonPlay {
         top: 20px;
         height: 50px;
-
-        @media screen and (max-width: 400px){
+        @media screen and (max-width: 400px) {
             top: 15px;
         }
-
-        @media screen and (max-width: 350px){
+        @media screen and (max-width: 350px) {
             top: 20px;
         }
     }
-    
     .cdButtonPlay img {
         height: 50px !important;
         width: 50px !important;
-
-        @media screen and (max-width: 400px){
+        @media screen and (max-width: 400px) {
             height: 37px !important;
             width: 37px !important;
         }
-
-        @media screen and (max-width: 350px){
+        @media screen and (max-width: 350px) {
             height: 30px !important;
             width: 30px !important;
         }
@@ -1174,17 +1448,16 @@ input[type=number] {
     }
     .playerTitlesHome {
         padding-left: 30% !important;
-    }    
+    }
     .HomeLogo {
         text-align: center;
         position: relative;
         height: 90px;
         margin-top: 50px;
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
             margin-top: 0;
         }
     }
-    
     .HomeLogo * {
         max-width: 200px;
         right: auto !important;
@@ -1192,14 +1465,15 @@ input[type=number] {
         position: relative !important;
         top: 0 !important;
     }
-    
 }
-@media(max-width: 767px){
+
+@media(max-width: 767px) {
     .playerTitlesHome {
         width: 90% !important;
         padding: 0 !important;
-    }  
+    }
 }
+
 app-navbar {
     z-index: 10;
 }
@@ -1211,7 +1485,6 @@ app-navbar {
 }
 
 .btnClockPopup {
-       
     border: 0;
     background: transparent;
     outline: none !important;
@@ -1228,39 +1501,36 @@ app-navbar {
     line-height: 11px !important;
     height: 80px;
     padding-bottom: 14px;
-
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
         width: 45px;
         height: 55px;
         margin: 0 6px;
         padding-bottom: 10px;
     }
-
-    @media screen and (max-width: 320px){
+    @media screen and (max-width: 320px) {
         width: 32px;
     }
-
 }
 
 .mylivehoursContainer {
     width: 256px;
     margin: 0 auto;
     margin-top: 10px;
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
         width: 205px;
     }
-    @media screen and (max-width: 320px){
+    @media screen and (max-width: 320px) {
         width: 180px;
     }
-
 }
+
 .errorClock {
     font-size: 14px !important;
 }
 
 // telephone number
-.telephonenumber{
-    input{
+.telephonenumber {
+    input {
         width: 96%;
         margin: 0 auto;
         height: 60px;
@@ -1271,16 +1541,16 @@ app-navbar {
         background-size: 23px !important;
         background-repeat: no-repeat;
         text-indent: 30px;
-
     }
-    .tele{
-        color:white !important;
+    .tele {
+        color: white !important;
         width: 100%;
         text-align: right !important;
         padding-right: 13px !important;
     }
 }
-.soonsubmit{
+
+.soonsubmit {
     color: white;
     background: none;
     border: none;
@@ -1289,4 +1559,74 @@ app-navbar {
     font-size: 25px;
 }
 
+.playNowSwction {
+    display: block !important;
+}
 
+.playNowSwction * {
+    display: block !important;
+}
+
+
+/*  player */
+
+.scroll-left {
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.scroll-left p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    /* Starting position */
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    /* Apply animation to this element */
+    -moz-animation: scroll-left 10s linear infinite;
+    -webkit-animation: scroll-left 10s linear infinite;
+    animation: scroll-left 10s linear infinite;
+}
+
+
+/* Move it (define the animation) */
+
+@-moz-keyframes scroll-left {
+    0% {
+        -moz-transform: translateX(100%);
+    }
+    100% {
+        -moz-transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes scroll-left {
+    0% {
+        -webkit-transform: translateX(100%);
+    }
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-left {
+    0% {
+        -moz-transform: translateX(100%);
+        /* Browser bug fix */
+        -webkit-transform: translateX(100%);
+        /* Browser bug fix */
+        transform: translateX(100%);
+    }
+    100% {
+        -moz-transform: translateX(-100%);
+        /* Browser bug fix */
+        -webkit-transform: translateX(-100%);
+        /* Browser bug fix */
+        transform: translateX(-100%);
+    }
+}
