@@ -59,16 +59,19 @@
         margin-bottom: 100px;
         @include MediaQuery(xs){
             padding: 0;
-            margin-top: 0px;
+            // margin-top: 0px;
             //
+            margin-top: 283px;
             margin-bottom: 130px;
         }
         @media screen and (max-width:320px){
-            margin-top: 120px;
+            // margin-top: 120px;
+            margin-top: 318px;
         }
         @include MediaQuery(s){
             padding: 0;
-            margin-top: 100px;
+            // margin-top: 100px;
+            margin-top: 262px;
         }
         @include MediaQuery(M){
             padding: 0;

@@ -293,6 +293,7 @@ export class ToolsComponent implements OnInit {
   open() {
     let configTimer = this.atp.open({
       time:  this.selectedTime,
+      // time: new Date().getHours() +":"+new Date().getMinutes(),
       theme: 'dark',
       preference: { 
         labels: { 
@@ -317,8 +318,16 @@ export class ToolsComponent implements OnInit {
       var CurrentDate = new Date();
       var currenthour = CurrentDate.getHours();
       var currentminute = CurrentDate.getMinutes();
+      //
+      if(((hours - currenthour) == 0) &&((minutes - currentminute) == 0)){
+        var one = (minutes - currentminute); //minutes
+        var resultone = 60000 * one; //milliseconds
+        console.log(resultone);
+        this.playerUrl.ActionAutoPlayPlayer(resultone);
+        this.toastr.success(' سيتم تشغيل البث المباشر تلقائيا الأن ');
+      }
 
-      if(((hours - currenthour)==0) &&((minutes - currentminute) < 0)){
+     else if(((hours - currenthour)==0) &&((minutes - currentminute) < 0)){
         var one = ((minutes - currentminute)+(24 * 60)); //minutes
         var resultone = 60000 * one; //milliseconds
         console.log(resultone);

@@ -54,7 +54,24 @@ font-size: 17px;
         @include MediaQuery(M){display: block;}
         
         @include MediaQuery(xs){top:0px;}
-        @include MediaQuery(s){text-outline: 0px;}
+        @media screen and (max-width:319px){
+            margin-top: 260px;
+            padding-bottom: 132px;
+        }
+        @media screen and (min-width:320px)and (max-width:359px){
+            margin-top: 275px;
+            padding-bottom: 81px;
+        }
+        @media screen and (min-width:360px)and (max-width:374px){
+            margin-top: 200px;
+            padding-bottom: 77px;
+        }
+        @media screen and (width:375px)and (height:667px){
+            margin-top: 200px;
+            padding-bottom: 77px;
+        }
+
+        @include MediaQuery(s){text-outline: 0px;top:40px;}
         @include MediaQuery(M){
             // top:0px;
             top:40px;
@@ -115,6 +132,15 @@ font-size: 17px;
         @include MediaQuery(xs+ s){
             // margin-top: -31px;
             margin-top: -121px;
+        }
+        @media screen and (max-width:319px){
+            margin-top: 294px;
+            margin-bottom: 170px;
+        }
+        @media screen and (min-width:320px)and (max-width:360px){
+            margin-top: 294px;
+            margin-bottom: 170px;
+
         }
         @include MediaQuery(M){margin-top: 70px;}
         @include MediaQuery(L){margin-top: 114px;}
