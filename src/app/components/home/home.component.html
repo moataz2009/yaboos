@@ -13,34 +13,40 @@
 
             <div class="playerTitlesHome">
                 <h1 class="col-xs-6">البث المباشر</h1>
-                <h5 class="col-xs-6"> {{playNowVar}} &nbsp;</h5>
+                <h5 class="col-xs-6 playNowSwction">
+
+                    <div *ngIf="playNowVar != null && playNowVar != '' " class="webSliderText">
+                        <marquee scrollamount="10"> {{playNowVar}} ** {{playNowVar}} ** {{playNowVar}} ** {{playNowVar}} ** {{playNowVar}} </marquee>
+                    </div>
+
+                </h5>
+
             </div>
             <div class="m-auto pb-3 d-flex justify-content-center">
-                <div class="backimg mt-2 position-relative">                    
+                <div class="backimg mt-2 position-relative">
                     <div class="imagCdPlay">
                         <a id="button2">
                             <img src="../../../assets/imgs/CD.png" class="cd img-responsive">
                         </a>
                         <img src="../../../assets/imgs/CD_GIF.gif" class="cd img-responsive" *ngIf="playerStatus">
                     </div>
-                    
-         
+
                     <div class="col-xs-4 cdButtonPlay images justify-content-center">
-                        <img *ngIf="PlayerTypes != 'live'"  src="../../../assets/imgs/Materials-06.png" class="small" (click)="setNext30()">
-                        
-                        
-                        
+                        <img *ngIf="PlayerTypes != 'live'" src="../../../assets/imgs/Materials-06.png" class="small" (click)="setNext30()">
+
+
+
                         <button class="ngClassPlay" *ngIf="PlayerTypes ==='live'" (click)="PlayRadio('http://188.225.182.10:8000/live', playerStatus)">
                             <img *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
                             <img *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
                         </button>
-                 
+
                         <!-- Play if is play trak  -->
-                        <button  class="ngClassPlay" *ngIf="PlayerTypes !='live'" (click)="PlayRadio('http://188.225.182.10:8000/live', false)">
+                        <button class="ngClassPlay" *ngIf="PlayerTypes !='live'" (click)="PlayRadio('http://188.225.182.10:8000/live', false)">
                             <img src="../../../assets/imgs/Materials-04.png" class="small">
                         </button>
-                 
-    
+
+
                         <img *ngIf="PlayerTypes != 'live'" src="../../../assets/imgs/Materials-07.png" class="small" (click)="setBack30()">
                     </div>
                 </div>
@@ -61,7 +67,7 @@
                     <input type="text" [value]="searchTxt" (keyup.enter)="HomeSearch(searchTxtx.value)" class="form-control border-right-0" #searchTxtx placeholder="أغانى،فنانين،كلمات،قوائم....">
                 </div>
             </div>
-    
+
             <div class="col-sm-12 col-md-12 col-lg-12  m-auto pb-3 " style="padding-right:0;padding-left: 0;" *ngIf="!currentUser">
                 <div class="last w-100 d-flex justify-content-center sdash">
                     <a class="btn btn-simple btn-danger btn-round sagel" (click)="openloginpage()">
@@ -81,10 +87,10 @@
                     </a>
                 </div>
             </div>
-    
+
         </div>
     </div>
-    
+
     <!-- song request -->
     <div class="footer" *ngIf="hideall">
         <a class="songOrder " data-toggle="modal" href="#SongOrder">
@@ -219,7 +225,7 @@
                 <div *ngIf="ifLogin === true">
                     <div class="blockView text-center pt-4 pb-4" dir="ltr">
                         <div class="mylivehours">
-                            
+
                         </div>
                         <div class="clearfix"></div>
 
@@ -238,29 +244,28 @@
                                 </div>
                             </div>
                         </div>
-                        
+
 
                         <div class="mylivehours hiddenSection myinputs mylivehoursContainer">
-    
+
                             <button class="btnClockPopup" (click)="removeFromClock()">-</button>
 
-                            <input type="number" id="ChangTimeFormInput" class="ChangTimeFormInput" [value]="clockBack" placeholder="0" (keyup)="keytabcheck($event)"
-                            #InputClock1  onKeyPress="if(this.value.length==2) return false;" > 
-                            
+                            <input type="number" id="ChangTimeFormInput" class="ChangTimeFormInput" [value]="clockBack" placeholder="0" (keyup)="keytabcheck($event)" #InputClock1 onKeyPress="if(this.value.length==2) return false;">
+
                             <button class="btnClockPopup" (click)="addToClock()">+</button>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="clearfix"></div>
-    
+
                     </div>
-    
+
                     <div class="clearfix"></div>
                     <div class="text-center">
                         <span class="text-white  errorClock">{{errorClock}}</span>
                     </div>
                     <div class="clearfix"></div>
-    
+
                     <div class="d-flex justify-content-center mt-0" *ngIf="ifLogin === true">
                         <button class="btn confirmbtn mt-0" aria-disabled="false" (click)="closesection(InputClock1.value)" data-dismiss="modal" aria-label="Close"> 
                            تأكيد 
@@ -268,17 +273,17 @@
                     </div>
                     <div class="clearfix"></div>
 
-            </div>
-                
+                </div>
+
 
                 <div *ngIf="ifLogin != true">
                     <div class="blockView  text-center pt-4 pb-4" dir="ltr">
                         <div class="mylivehours">
                             <p class="backtext "> للحصول على هذه الخدمة والعديد من الخدمات الاضافية مجانا اضغط على تسجيل الدخول او أنشيء حساب الان </p>
                         </div>
-                        
+
                         <div class="clearfix"></div>
-    
+
                     </div>
                 </div>
 
@@ -314,21 +319,20 @@
                 <div>
                     <div class="blockView  text-center pt-4 pb-4 pr-1 pl-1" dir="ltr">
                         <div class="mylivehours">
-                            <p class="backtext "> 
+                            <p class="backtext ">
                                 التطبيق سيكون متاح قريبا اترك رقم جوالك وسيتم ارسال رساله باعلامك فور طرح التطبيق
                             </p>
-                            <form name="soonform" #soonform="ngForm" (ngSubmit)="savetelephone()" >
+                            <form name="soonform" #soonform="ngForm">
                                 <div class="container">
-                                    <div class=" row col-xs-4 telephonenumber form-group" >
-                                        <input type="number" name="telephone" placeholder=" من فضلك ادخل رقم التليفون" class="form-control"
-                                        #telephone="ngModel" ngModel  autocomplete="off" required minlength="13">
+                                    <div class=" row col-xs-4 telephonenumber form-group">
+                                        <input type="number" name="telephone" placeholder=" من فضلك ادخل رقم التليفون" class="form-control" #telephone="ngModel" ngModel autocomplete="off" required minlength="13">
 
-                                        <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)"  class="alert alert-danger alertMessage tele">
-        
+                                        <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)" class="alert alert-danger alertMessage tele">
+
                                             <div *ngIf="telephone.errors.required">
                                                 رقم التليفون لا يمكن تركه فارغا
                                             </div>
-                                            <div *ngIf="telephone.errors?.minlength" >
+                                            <div *ngIf="telephone.errors?.minlength">
                                                 <div>
                                                     برجاء ادخال 13 رقم
                                                 </div>
@@ -337,15 +341,15 @@
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-center mt-3">
-                                    <button type="submit" [disabled]="soonform.invalid" class="btn submitbutton" (click)="savetelephone()" class="soonsubmit"> دخول</button>
+                                    <button type="submit" [disabled]="soonform.invalid" class="btn submitbutton" (click)="savetelephone()" class="soonsubmit"> ارسال </button>
                                 </div>
                             </form>
-                            
-                            
+
+
                         </div>
 
                         <div class="clearfix"></div>
-    
+
                     </div>
                 </div>
 

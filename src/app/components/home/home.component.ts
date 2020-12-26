@@ -148,11 +148,12 @@ export class HomeComponent {
     this.prevlive = true;
 
     $(document).ready(function(){
+      var selecVal = 11;
       $("#slider").roundSlider({
         min: 0,
         max: 24,
         step: 1,
-        value: 12,
+        value: selecVal,
         width: 25,
         sliderType: "min-range",
         startAngle: 90,
@@ -172,11 +173,91 @@ export class HomeComponent {
         change:  function traceEvent(e) {
           changeTime(e);
         },
+        valueChange: function traceEvent(e) {
+          changeTime(e);
+        },
         drag: function traceEvent(e) {
           changeTime(e)
         }
       });
 
+      $('.timeType').click(function(){
+        var typeSelected = $(this).text();
+        if(typeSelected === 'AM'){
+          $(this).text("PM");
+        }else{
+          $(this).text("AM");
+        }
+
+        calcTimeToBac();
+      }); 
+
+      $("#ChangTimeFormInputView").change(function(){
+
+        calcTimeToBac();
+
+      });
+
+      $("#ChangTimeFormInputView").keyup(function(){
+
+        calcTimeToBac();
+
+      });
+
+      function calcTimeToBac(){
+
+    
+        $("input[type='hidden']").focusin();
+
+        var typeSelected = $('.timeType').text();
+        var plusH = 12;
+        var changedVal = $("#ChangTimeFormInputView").val() * 1;
+
+        if(typeSelected === 'AM'){
+
+          if($("#ChangTimeFormInputView").val() < 12 ){
+            $("#ChangTimeFormInput").val($("#ChangTimeFormInputView").val());
+            $('.rs-tooltip-text').text($("#ChangTimeFormInputView").val());
+            $("input[type='hidden']").val(12);
+          }else{
+
+            $("#ChangTimeFormInput").val(0);
+            $(".rs-tooltip-text").text(0);
+            $("input[type='hidden']").val(12);
+
+          }
+        }else{
+          if($("#ChangTimeFormInputView").val() === 12 ){
+
+            $(".rs-tooltip-text").text(12);
+            $("#ChangTimeFormInput").val(12);
+            $("input[type='hidden']").val(12);
+
+          }else{
+
+            var resX = changedVal * 1 + plusH * 1;
+
+            $("#ChangTimeFormInput").val(resX);
+            $(".rs-tooltip-text").text(resX);
+            $("input[type='hidden']").val(12);
+
+          }
+          
+
+        }
+
+        $("input[type='hidden']").focusin();
+        $("input[type='hidden']").keydown();
+        $("input[type='hidden']").keypress();
+        $("input[type='hidden']").keyup();
+        $("input[type='hidden']").click();
+        $("input[type='hidden']").focusout();
+
+        
+    
+
+
+      }
 
       function changeTime(e){
 
@@ -694,7 +775,7 @@ closesoonsection(){
 }
 
 savetelephone(){
-
+  this.toastr.success('تم الحفظ بنجاح ... سيتم ابلاغكم قريبا');     
 }
 
 

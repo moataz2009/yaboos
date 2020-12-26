@@ -1,20 +1,20 @@
 // @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-::ng-deep{
-    .text-danger{
+::ng-deep {
+    .text-danger {
         color: white !important;
         text-align: right;
         text-indent: 24px !important;
     }
-    ::placeholder{
+     ::placeholder {
         text-indent: 24px !important;
     }
 }
 
+
 /****************************************/
 
-.homepage{
-  
-    margin:auto;
+.homepage {
+    margin: auto;
     width: 100%;
     height: 100%;
     display: flex;
@@ -27,7 +27,7 @@
     height: 100%;
     padding-top: 95px;
     left: 0;
-    @media screen and (max-width:319px) {
+    @media screen and (max-width: 319px) {
         top: 16px;
     }
     @media screen and (min-width:320px)and (max-width:359px) {
@@ -39,10 +39,7 @@
     @media screen and (min-width:366px)and (max-width:575.98px) {
         top: 40px;
     }
-    
 }
-
-
 
 .toast-container {
     pointer-events: none;
@@ -50,22 +47,25 @@
     /* z-index: 999999; */
     z-index: 10000000000000000000000;
     /*  */
-  }
+}
 
 .toast-success {
     /* background-color: #51A351; */
-   background-color: #106666 !important;
-  }
-  .toast-error {
+    background-color: #106666 !important;
+}
+
+.toast-error {
     // background-color: #BD362F; 
-   background-color: #106666 !important;
-  }
-  .toast-info {
     background-color: #106666 !important;
-  }
-  .toast-warning {
+}
+
+.toast-info {
     background-color: #106666 !important;
-  }
+}
+
+.toast-warning {
+    background-color: #106666 !important;
+}
 
 
 /* You can add global styles to this file, and also import other style files */
@@ -145,14 +145,12 @@
     @media screen and (max-width: 991px) {
         display: block;
     }
-
     img {
         // width: auto;
         // height: 80px;
         width: 200px;
         height: 86px;
     }
-
 }
 
 //*************************************************
@@ -181,9 +179,7 @@ body {
 
 $white:#fff;
 $basicColor:#106666;
-
-
-@media(max-width: 767px){
+@media(max-width: 767px) {
     .stopScrolMobile {
         overflow: inherit !important;
         min-height: auto;
@@ -192,26 +188,30 @@ $basicColor:#106666;
     }
 }
 
-.ng-invalid.ng-touched {border-color: #f00 !important;}
+.ng-invalid.ng-touched {
+    border-color: #f00 !important;
+}
+
 .alertMessage {
     padding: 0 !important;
     border: 0 !important;
     background-color: transparent !important;
     color: #f00 !important;
-    font-size: 12px ;
+    font-size: 12px;
     margin-top: 5px;
-
 }
 
-.imageSong{
+.imageSong {
     max-height: 150px;
     height: 100%;
 }
+
 .greenBox {
     background-color: #106666;
     border-radius: 15px;
     color: #fff;
 }
+
 .btnReadMore {
     background: #1f8f95;
     color: #fff;
@@ -225,12 +225,15 @@ $basicColor:#106666;
     color: #eee;
     text-decoration: none;
 }
+
 .imageArtist {
     width: 100%;
     max-width: 200px;
 }
 
+
 /* Player Sryle Start */
+
 .modalContainer {
     position: fixed;
     bottom: 0;
@@ -246,12 +249,14 @@ $basicColor:#106666;
     z-index: 9;
     border: 0;
 }
+
 .ngClassPlay {
     background: transparent !important;
-    border:  0 !important;
+    border: 0 !important;
     outline: none !important;
     padding: 0 20px;
 }
+
 .modalBody {
     position: relative;
 }
@@ -266,29 +271,33 @@ $basicColor:#106666;
     float: revert;
 }
 
+
 /* track player  */
 
 .imageTrackfalse {
-    @media screen and (max-width: 600px){
+    @media screen and (max-width: 600px) {
         display: none;
     }
 }
 
 .ngClassFavfalse {
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
         display: none !important;
     }
 }
+
 .imageTrack {
     width: 70px;
     float: left;
     margin-top: 7px;
 }
+
 .ngClassPlayFooter {
     padding: 0 8px;
     width: 70px;
     margin-top: 14px;
 }
+
 .ngClassPlayFooter img {
     max-width: 100%;
     /* max-height: 100% !important; */
@@ -301,7 +310,7 @@ $basicColor:#106666;
     background: #ccc;
 }
 
-.palyerContent  {
+.palyerContent {
     margin-top: 12px;
     h2 {
         font-size: 20px;
@@ -315,30 +324,31 @@ $basicColor:#106666;
     padding: 0 15px;
     font-size: 14px;
     margin-top: 5px;
-    @media screen and (max-width: 600px){
+    @media screen and (max-width: 600px) {
         width: calc(100% - 290px);
     }
-
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
         width: calc(100% - 149px);
     }
-    .TrackTitleText{
+    .TrackTitleText {
         font-size: 14px;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: pre;
     }
 }
+
 .px1 {
     padding-top: 1px;
 }
+
 .loadingSection {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     text-align: center;
-    background: rgba(0, 0 ,0 ,0.5);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 9;
     bottom: 0;
     justify-content: center;
@@ -346,44 +356,52 @@ $basicColor:#106666;
     flex-direction: column;
     text-align: center;
 }
-.TrackTitleTextfalse{
+
+.TrackTitleTextfalse {
     font-size: 14px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: pre;
 }
 
-
 .iconTools {
     max-width: 100px;
     width: 100%;
 }
+
+
 /* seek par rang design */
+
+
 /* Special styling for WebKit/Blink */
+
 .rangTrack {
     width: 100% !important;
 }
-
 
 input[type=range] {
     -webkit-appearance: none;
     margin: 10px 0;
     width: 100%;
     direction: ltr;
-  }
-  input[type=range]:focus {
+}
+
+input[type=range]:focus {
     outline: none;
-  }
-  input[type=range]::-webkit-slider-runnable-track {
+}
+
+input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 4px;
     cursor: pointer;
     box-shadow: none;
     background: #3cb8ba;
-    border-radius: 0px; /* rad  25*/
+    border-radius: 0px;
+    /* rad  25*/
     border: 0;
-  }
-  input[type=range]::-webkit-slider-thumb {
+}
+
+input[type=range]::-webkit-slider-thumb {
     box-shadow: none;
     border: 0;
     height: 12px;
@@ -393,21 +411,25 @@ input[type=range] {
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -3.6px;
-  }
-  input[type=range]:focus::-webkit-slider-runnable-track {
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
     background: #3cb8ba;
-  }
-  input[type=range]::-moz-range-track {
+}
+
+input[type=range]::-moz-range-track {
     width: 100%;
     height: 4px;
     cursor: pointer;
     animate: 0.2s;
     box-shadow: none;
     background: #3cb8ba;
-    border-radius: 0px; /* rad  25*/
+    border-radius: 0px;
+    /* rad  25*/
     border: 0;
-  }
-  input[type=range]::-moz-range-thumb {
+}
+
+input[type=range]::-moz-range-thumb {
     box-shadow: none;
     border: 0;
     height: 20px;
@@ -415,8 +437,9 @@ input[type=range] {
     border-radius: 30px;
     background: #1a9298;
     cursor: pointer;
-  }
-  input[type=range]::-ms-track {
+}
+
+input[type=range]::-ms-track {
     width: 100%;
     height: 4px;
     cursor: pointer;
@@ -425,20 +448,25 @@ input[type=range] {
     border-color: transparent;
     border-width: 39px 0;
     color: transparent;
-  }
-  input[type=range]::-ms-fill-lower {
+}
+
+input[type=range]::-ms-fill-lower {
     background: #3cb8ba;
     border: 0;
-    border-radius: 1px; /* rad */
+    border-radius: 1px;
+    /* rad */
     box-shadow: none;
-  }
-  input[type=range]::-ms-fill-upper {
+}
+
+input[type=range]::-ms-fill-upper {
     background: #3cb8ba;
     border: 0;
-    border-radius: 1px; /* rad */
+    border-radius: 1px;
+    /* rad */
     box-shadow: none;
-  }
-  input[type=range]::-ms-thumb {
+}
+
+input[type=range]::-ms-thumb {
     box-shadow: none;
     border: 0;
     height: 20px;
@@ -446,20 +474,22 @@ input[type=range] {
     border-radius: 30px;
     background: #1a9298;
     cursor: pointer;
-  }
-  input[type=range]:focus::-ms-fill-lower {
+}
+
+input[type=range]:focus::-ms-fill-lower {
     background: #3cb8ba;
-  }
-  input[type=range]:focus::-ms-fill-upper {
+}
+
+input[type=range]:focus::-ms-fill-upper {
     background: #3cb8ba;
-  }
-  
-  body {
+}
+
+body {
     padding: 30px;
-  }
-  
-  .popUpViewtrue {
-      width: 100%;
+}
+
+.popUpViewtrue {
+    width: 100%;
     max-width: 400px;
     border: 1px solid #3cb8ba;
     border-radius: 20px;
@@ -497,14 +527,14 @@ input[type=range] {
     float: right;
 }
 
-
 .trackTemplatetrue .trackButtons {
     width: 100%;
     text-align: center;
 }
+
 .popUpViewfalse {
     padding: 7px 20px;
-    @media screen and (max-width:500px){
+    @media screen and (max-width: 500px) {
         padding: 5px;
     }
 }
@@ -519,6 +549,7 @@ input[type=range] {
     margin-top: 14px;
     padding: 10px;
 }
+
 .btnToggle {
     background: transparent;
     border: 0;
@@ -533,6 +564,7 @@ input[type=range] {
         width: 32px;
     }
 }
+
 .ngClassFav {
     background: transparent;
     border: 0;
@@ -550,9 +582,12 @@ input[type=range] {
         width: 100%;
     }
 }
+
 .trackButtons {
     float: right;
 }
+
+
 /* Player Sryle End */
 
 
@@ -561,10 +596,18 @@ input[type=range] {
 div#slider {
     width: 280px !important;
     height: 280px !important;
-    margin:  0 auto;
+    margin: 0 auto;
     .rs-container.full {
         width: 280px !important;
         height: 280px !important;
+        @media screen and (max-width: 410px) {
+            width: 230px !important;
+            height: 230px !important;
+        }
+    }
+    @media screen and (max-width: 410px) {
+        width: 230px !important;
+        height: 230px !important;
     }
 }
 
@@ -578,16 +621,19 @@ span.rs-block {
 
 .rs-inner.rs-bg-color.rs-border {
     background-size: 100%;
-    background-image:  url('assets/imgs/bg_back.png');
+    background-image: url('assets/imgs/bg_back.png');
 }
+
 .rs-range-color {
     background-color: #9dfcfc !important;
 }
+
 .rs-handle {
     background-color: #116969 !important;
 }
+
 .hiddenSection {
-    display: none ;
+    display: none;
 }
 
 input#ChangTimeFormInputView {
@@ -600,12 +646,10 @@ input#ChangTimeFormInputView {
     color: #333 !important;
 }
 
-
-input#ChangTimeFormInputView::placeholder{ 
+input#ChangTimeFormInputView::placeholder {
     font-size: 14px !important;
     background-color: #97f7f8 !important;
     color: #333 !important;
-
 }
 
 .clookTime label {
@@ -627,6 +671,9 @@ h3.contentBackToH3 {
     max-width: 150px;
     text-align: center;
     font-family: "29lt-bukra-bold";
+    @media screen and (max-width: 410px) {
+        font-size: 10px;
+    }
 }
 
 .contentBackTo {
@@ -640,6 +687,9 @@ h3.contentBackToH3 {
     float: none;
     margin: 0 auto;
     background: #2daab0;
+    @media screen and (max-width: 410px) {
+        top: 85px;
+    }
 }
 
 .clookContainer {
