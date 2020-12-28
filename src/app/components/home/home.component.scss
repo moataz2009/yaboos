@@ -555,7 +555,8 @@
             padding-left: 0px;
         }
         input {
-            text-indent: 28px !important;
+            // text-indent: 28px !important;
+            text-indent: 56px !important;
         }
     }
     .input-group-append {
@@ -569,27 +570,33 @@
         box-shadow: none !important;
         @include MediaQuery(xs) {
             //    right: 7px !important;
-            right: 13px !important;
+            // right: 13px !important;
+            right: 36px !important;
         }
         @include MediaQuery(s) {
             //    right: 7px !important;
-            right: 13px !important;
+            // right: 13px !important;
+            right: 36px !important;
         }
         @include MediaQuery(M) {
             //    right: 7px !important;
-            right: 13px !important;
+            // right: 13px !important;
+            right: 36px !important;
         }
         @include MediaQuery(L) {
             //    right: 7px !important;
-            right: 13px !important;
+            // right: 13px !important;
+            right: 36px !important;
         }
         @include MediaQuery(XL-XXL) {
             //    right: 7px !important;
-            right: 13px !important;
+            // right: 13px !important;
+            right: 36px !important;
         }
         @include MediaQuery(XXL) {
             //    right: 7px !important;
-            right: 13px !important;
+            // right: 13px !important;
+            right: 36px !important;
         }
     }
      ::placeholder {
@@ -1629,4 +1636,9 @@ app-navbar {
         /* Browser bug fix */
         transform: translateX(-100%);
     }
+}
+
+.clear{
+    display: none;
+    top:6px !important;
 }

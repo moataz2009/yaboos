@@ -24,7 +24,13 @@
                         <div class="input-group-append" (click)="HomeSearch(searchTxtx.value)">
                             <i class="fas fa-search"></i>
                         </div>
-                        <input type="text" [value]="searchTxt" (keyup.enter)="HomeSearch(searchTxtx.value)" class="form-control border-right-0" #searchTxtx placeholder="أغانى،فنانين،كلمات،قوائم....">
+                        <div class="input-group-append clear" (click)="clearsearch()">
+                            <i class="fa fa-close"></i>
+                        </div>
+                        <input type="text" (input)="input_search_value()" id="inputsearch" [value]="searchTxt" 
+                        (keyup.enter)="HomeSearch(searchTxtx.value)" class="form-control border-right-0"
+                         #searchTxtx placeholder="أغانى،فنانين،كلمات،قوائم...." autocomplete="off">
+                       
                     </div>
                 </div>
 

@@ -513,9 +513,11 @@ Register(user:User)
    }
 
 
+
   this.getMobileOperatingSystem();
 
   $(document).ready(function() {
+
   //  debugger;
   var playing = false;
   var paused ;
@@ -777,6 +779,23 @@ closesoonsection(){
 savetelephone(){
   this.toastr.success('تم الحفظ بنجاح ... سيتم ابلاغكم قريبا');     
 }
+
+input_search_value() {
+      
+  if($("#inputsearch2").val()  == ''){
+   $(".clear").css('display','none');
+  }
+  else {
+   $(".clear").css('display','inline');
+  }
+ }
+ clearsearch(){
+  //  this.searchTxtx.value="";
+  this.searchTxt = '';
+  this.HomeSearch( this.searchTxt);
+  // localStorage.setItem('searchTxt','');
+  // this.route.navigate([`/Libaray/`], { queryParams: { searchText: '' } });
+ }
 
 
 }
