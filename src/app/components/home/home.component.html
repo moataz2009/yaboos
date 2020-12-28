@@ -15,9 +15,22 @@
                 <h1 class="col-xs-6">البث المباشر</h1>
                 <h5 class="col-xs-6 playNowSwction">
 
-                    <div *ngIf="playNowVar != null && playNowVar != '' " class="webSliderText">
-                        <marquee scrollamount="10"> {{playNowVar}} ** {{playNowVar}} ** {{playNowVar}} ** {{playNowVar}} ** {{playNowVar}} </marquee>
+                    <div class="heddenZero">
+                        <div style="clear: both; display: inline-block; overflow: hidden; white-space: nowrap;">
+                            <div style="float: left;" id="Test">
+                                *** Yaboos.Fm 87.8 *** {{playNowVar}} 
+                            </div>
+                        </div>
                     </div>
+                    
+
+
+                    <div *ngIf="playNowVar != null && playNowVar != '' "  class="wrapper">
+                        <div class="sliding-background"></div>
+                    </div>
+                    
+
+                   
 
                 </h5>
 
@@ -32,22 +45,22 @@
                     </div>
 
                     <div class="col-xs-4 cdButtonPlay images justify-content-center">
-                        <img *ngIf="PlayerTypes != 'live'" src="../../../assets/imgs/Materials-06.png" class="small" (click)="setNext30()">
+                        <img *ngIf="PlayerTypes != 'live'" src="../../../assets/imgs/materials_06.png" class="small" (click)="setNext30()">
 
 
 
                         <button class="ngClassPlay" *ngIf="PlayerTypes ==='live'" (click)="PlayRadio('http://188.225.182.10:8000/live', playerStatus)">
-                            <img *ngIf="playerStatus != true " src="../../../assets/imgs/Materials-04.png" class="small">
-                            <img *ngIf="playerStatus === true "  src="../../../assets/imgs/Materials-05.png" class="small">
+                            <img *ngIf="playerStatus != true " src="../../../assets/imgs/materials_play.png" class="small">
+                            <img *ngIf="playerStatus === true "  src="../../../assets/imgs/materials_05.png" class="small">
                         </button>
 
                         <!-- Play if is play trak  -->
                         <button class="ngClassPlay" *ngIf="PlayerTypes !='live'" (click)="PlayRadio('http://188.225.182.10:8000/live', false)">
-                            <img src="../../../assets/imgs/Materials-04.png" class="small">
+                            <img src="../../../assets/imgs/materials_play.png" class="small">
                         </button>
 
 
-                        <img *ngIf="PlayerTypes != 'live'" src="../../../assets/imgs/Materials-07.png" class="small" (click)="setBack30()">
+                        <img *ngIf="PlayerTypes != 'live'" src="../../../assets/imgs/materials_07.png" class="small" (click)="setBack30()">
                     </div>
                 </div>
             </div>

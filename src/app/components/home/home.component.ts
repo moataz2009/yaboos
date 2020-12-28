@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/models/user.model';
 import { ToastrService } from 'ngx-toastr';   
 import { PlayerService } from 'src/app/shared/player.service';
+import {generate, generateSync} from 'text-to-image'
 
 declare const $: any;
 
@@ -47,7 +48,7 @@ export class HomeComponent {
   errorClock:any = '';
   
   searchTxt:string = '';
-
+  playNowimagVar:any = '';
   ifLogin:boolean ;
   constructor( 
     private playerUrlTrack : PlayerService,
@@ -148,7 +149,10 @@ export class HomeComponent {
     this.prevlive = true;
 
     $(document).ready(function(){
-      var selecVal = 11;
+     
+      var d = new Date();
+      var selecVal = d.getHours() *1; 
+
       $("#slider").roundSlider({
         min: 0,
         max: 24,
@@ -414,7 +418,7 @@ Register(user:User)
       this.playerUrlTrack.actionSongId(null);
       this.playerUrlTrack.actionPlayerType("track");
 
-    $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-05.png");
+    $('a#button').children(":first").attr("src" , "../../../assets/imgs/materials_05.png");
     $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD_GIF.gif");
     }
 
@@ -475,6 +479,8 @@ Register(user:User)
   this.prevlive= false;
 }
 
+  
+
   ngOnInit() { 
 
     if(localStorage.getItem('searchTxt') != null){
@@ -489,6 +495,28 @@ Register(user:User)
 
     this.playerUrlTrack.playNowVar.subscribe(data => {
       this.playNowVar = data;
+
+      $(document).ready(function(){
+        var width = 400;
+
+
+        var fontSize = 12;
+        const test = $("#Test").css("fontSize", "25px");;
+        //test.style.fontSize = fontSize;
+        var height = (test.height() + 1);
+        width = (test.width() + 1);
+
+        generate(`${data}`+'***Yaboos 87.8 FM***', {maxWidth: width }).then(function (dataUri) {
+          $('.sliding-background').css('background-image', 'url(' + dataUri + ')');
+        });
+
+      });
+
+      
+
+      
+        
+
     });
 
     this.playerUrlTrack.PlayerTypes.subscribe(data => {
@@ -515,65 +543,7 @@ Register(user:User)
 
   this.getMobileOperatingSystem();
 
-  $(document).ready(function() {
-  //  debugger;
-  var playing = false;
-  var paused ;
-  // var audelem = document.querySelector("audio");
-  function isPlaying(audelem) {
-    return !audelem.paused; 
-
-    
-    }
-    if(isPlaying( document.querySelector("audio")) == false)
-    {
-      $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-04.png");
-      $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD.png");
-    }
-    if(isPlaying( document.querySelector("audio")) == true){
-      $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-05.png");
-      $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD_GIF.gif");
-    }
-
-
-    $('#button').click(function() {
-        $(this).toggleClass("down");
-
-        if (playing == false) {
-          var audio= document.querySelector("audio").src="http://188.225.182.10:8000/live";
-            $('audio').get(0).play();
-            playing = true;
-            this.IsPlaying = true;
-            // $(this).text("stop sound");
-            $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-05.png");
-            $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD_GIF.gif");
-
-        } else {
-          $('audio').get(0).pause();
-            playing = false;
-            this.IsPlaying = false;
-            // $(this).text("restart sound");
-            $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-04.png");
-            $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD.png");
-
-        }
-
-
-    });
-   
-
-// $('audio').on("play",function() {
-//   debugger;
-//   $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-05.png");
-//   $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD_GIF.gif");
-// });
-// $('audio').on("pause",function() {
-//   $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-04.png");
-//   $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD.png");
-// });
-
-
-});
+  
 
 
   }
@@ -662,12 +632,12 @@ Register(user:User)
      if(this.IsPlaying)
      {
       $('#player').get(0).play();
-      $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-05.png");
+      $('a#button').children(":first").attr("src" , "../../../assets/imgs/materials_05.png");
       $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD_GIF.gif");
      }
      else{
       $('#player').get(0).pause();
-      $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-04.png");
+      $('a#button').children(":first").attr("src" , "../../../assets/imgs/materials_play.png");
       $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD.png");
      }
    }
@@ -682,7 +652,7 @@ Register(user:User)
   var audio= document.querySelector("audio");
   audio.currentTime = audio.currentTime +1;
   audio.play();
-  $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-05.png");
+  $('a#button').children(":first").attr("src" , "../../../assets/imgs/materials_05.png");
   $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD_GIF.gif");
  }
 
@@ -692,7 +662,7 @@ Register(user:User)
   var audio= document.querySelector("audio");
   audio.currentTime= audio.currentTime -30;
   audio.play();
-  $('a#button').children(":first").attr("src" , "../../../assets/imgs/Materials-05.png");
+  $('a#button').children(":first").attr("src" , "../../../assets/imgs/materials_05.png");
   $('a#button2').children(":first").attr("src" , "../../../assets/imgs/CD_GIF.gif");
  }
 

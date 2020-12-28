@@ -51,11 +51,11 @@ export class AppComponent {
 
     $(document).ready(function() {
       $('audio').on("play",function() {
-        $(this.mybutton).children(":first").attr("src" , "../assets/imgs/Materials-05.png");
+        $(this.mybutton).children(":first").attr("src" , "../assets/imgs/materials_05.png");
         $('a#button2').children(":first").attr("src" , "../assets/imgs/CD_GIF.gif");
       });
       $('audio').on("pause",function() {
-        $(this.mybutton).children(":first").attr("src" , "../assets/imgs/Materials-04.png");
+        $(this.mybutton).children(":first").attr("src" , "../assets/imgs/materials_play.png");
         $('a#button2').children(":first").attr("src" , "../assets/imgs/CD.png");
       });
     });
