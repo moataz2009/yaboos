@@ -1,7 +1,8 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { PlayerService } from 'src/app/shared/player.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-library',
@@ -68,6 +69,7 @@ export class LibraryComponent implements OnInit {
       }else {
         this.searchTxt = '';
       }
+    
     }
 
 
@@ -77,8 +79,23 @@ export class LibraryComponent implements OnInit {
       this.router.navigate(['/Home']);
 
     }
+    input_search_value() {
+      
+     if($("#inputsearch").val() == ''){
+      $(".clear").hide();
+     }
+     else {
+      $(".clear").show();
+     }
+    }
 
+clearsearch(){
+ 
+  this.searchTxt = '';
+ this.HomeSearch( this.searchTxt);
+ $("#inputsearch").val('');
+ $(".clear").hide();
 
 }
 
-
+}
