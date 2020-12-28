@@ -329,7 +329,18 @@ $basicColor:#106666;
     }
     @media screen and (max-width: 500px) {
         width: 58%;/*calc(100% - 149px);*/
+        width: calc(100% - 153px);
     }
+    @media screen and (max-width: 400px) {
+        width: 56%;/*calc(100% - 149px);*/
+        width: calc(100% - 153px);
+    }
+    
+    @media screen and (max-width: 350px) {
+        width: 52%;/*calc(100% - 149px);*/
+        width: calc(100% - 153px);
+    }
+    
     .TrackTitleText {
         font-size: 14px;
         text-overflow: ellipsis;
