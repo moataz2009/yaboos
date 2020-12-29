@@ -185,6 +185,7 @@ export class ToolsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getMobileOperatingSystem();
 
     this.PlayerOptions.PlayerVolume.subscribe(data => {
       this.playerVolume = data;

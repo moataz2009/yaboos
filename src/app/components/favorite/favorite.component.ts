@@ -202,7 +202,7 @@ $('.navigation .our-prev-icon').css("color","#1a5356");
   }
 
   ngOnInit(): void {
-    //this.getMobileOperatingSystem();
+    this.getMobileOperatingSystem();
     this.getMyFavourites();
     
   }

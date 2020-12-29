@@ -23,10 +23,19 @@ font-size: 17px;
     border-radius: 10px;
     text-align: center !important;
     margin: 0 60px;
-    @include MediaQuery(xs + s + M){ margin: 0;}
+    @include MediaQuery(xs + s + M){
+         margin: 0;
+         margin-bottom: 90px;
+        }
+        @include MediaQuery(L){
+            margin-bottom: 95px;
+           }
+        @include MediaQuery(XL){
+            margin-bottom: 95px;
+           }
     .mysecton{
-        @include MediaQuery(xs + s){ margin-top: -62px;}
-        @include MediaQuery( M){ margin-top: -140px;}
+        // @include MediaQuery(xs + s){ margin-top: -62px;}
+        // @include MediaQuery( M){ margin-top: -140px;}
     }
     h1{
         color: #32AAB2;
