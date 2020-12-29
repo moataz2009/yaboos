@@ -532,23 +532,18 @@ Register(user:User)
       $(document).ready(function(){
         var width = 400;
 
-
-        var fontSize = 12;
         const test = $("#Test").css("fontSize", "25px");;
-        //test.style.fontSize = fontSize;
-        var height = (test.height() + 1);
         width = (test.width() + 1);
 
         generate(`${data}`+'***Yaboos 87.8 FM***', {maxWidth: width }).then(function (dataUri) {
           $('.sliding-background').css('background-image', 'url(' + dataUri + ')');
+        },(err: any) => {
         });
 
+    
+    
+
       });
-
-      
-
-      
-        
 
     });
 

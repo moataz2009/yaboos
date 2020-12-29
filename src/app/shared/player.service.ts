@@ -157,6 +157,12 @@ export class PlayerService {
     this.actionChangeStopImage(status);
   }
 
+  ActionEndStopPlayer(TimePlayer: any, status: any){
+    this.mainStopPlayer.next(TimePlayer);
+    this.autoStopPlayerAction(TimePlayer);
+    this.actionChangeStopImage(null);
+  }
+
   ActionAutoPlayPlayer(TimePlayer: any){
     this.autoPlayPlayerAction(TimePlayer);
   }
@@ -180,15 +186,20 @@ export class PlayerService {
 
   /** plauer actions  */
   
-
+  timeOut: any;
   autoStopPlayerAction(TimePlayer){
-   //console.log("Start auto stop");
-   //console.log(TimePlayer);
-   //console.log("End auto stop");
-    setTimeout( () => {
+
+    if(TimePlayer === null){
+      clearTimeout(this.timeOut);
+      
+      return true;
+    }
+
+    this.timeOut = setTimeout( () => {
       this.ngAutoStop();
       this.actionChangeStopImage(null);
     },TimePlayer);
+    
   }
 
   readonly rootUrl = MainURL;

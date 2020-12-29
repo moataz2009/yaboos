@@ -45,4 +45,16 @@ export class UserService {
     return this.http.post(this.rootUrl+'/api/Account/login', data, {headers: ReqHrder});
 
   }
+
+  ChangePassword(oldPassword:string, newPassword:string){
+
+    var data = `{ "oldPassword": "${oldPassword}", "newPassword": "${newPassword}", "deviceToken": "" }`;
+    var ReqHrder = new HttpHeaders({  
+      'Content-Type':  'application/json',
+      'Authorization': "Bearer "+localStorage.getItem('userToken')
+     });
+
+    return this.http.post(this.rootUrl+'/api/Account/ChangePassword', data, {headers: ReqHrder});
+
+  }
 }

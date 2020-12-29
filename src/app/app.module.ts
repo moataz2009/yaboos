@@ -42,6 +42,7 @@ import { ArtistComponent } from './components/library/artist/artist.component';
 import { PlayerComponent } from './components/player/player.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ResetpasswordComponent } from './components/user/resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -64,7 +65,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     AlbumComponent,
     ArtistComponent,
     PlayerComponent,
-    
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,

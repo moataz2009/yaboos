@@ -15,6 +15,7 @@ import { AuthGuard } from './auth.guard';
 import { SongsComponent } from './components/library/songs/songs.component';
 import { ArtistComponent } from './components/library/artist/artist.component';
 import { AlbumComponent } from './components/library/album/album.component';
+import { ResetpasswordComponent } from './components/user/resetpassword/resetpassword.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,10 @@ const routes: Routes = [
     {
       path: 'Tools',
       component: ToolsComponent , canActivate:[AuthGuard]
+    },
+    {
+      path: 'restpassword',
+      component: ResetpasswordComponent , canActivate:[AuthGuard]
     },
     {
       path: 'WhoWeAre',

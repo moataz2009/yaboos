@@ -1,4 +1,4 @@
-<div *ngIf="UsernameValidation != ''"  class="alert alert-danger text-right alertMessage">
+<div *ngIf="UsernameValidation != null"  class="alert alert-danger text-right mt-2">
     {{UsernameValidation}}
 </div>
 
@@ -14,7 +14,6 @@
             <div *ngIf="username.errors.email">
                 يجب ان يكون تنسيقه مثل name@domin.com
             </div>
-
         </div>
     </div>
 
@@ -23,13 +22,10 @@
         <input type="password" name="password" #password="ngModel" ngModel  class="form-control" id="password" placeholder=" كلمة المرور" required>
 
         <div *ngIf="password.invalid && (password.dirty || password.touched)"  class="alert alert-danger alertMessage">
-
             <div *ngIf="password.errors.required">
                 كلمة المرور لا يمكن تركه فارغا
             </div>
         </div>
-
-
     </div>
     
     <div class="clearfix"></div>

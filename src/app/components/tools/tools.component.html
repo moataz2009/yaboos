@@ -1,24 +1,18 @@
 <div class="d-xs-block d-lg-none px1">
     <a class="mobileapp">{{headerMessage}}</a>
 </div>
+
 <div class="HomeLogo mt-3">
 
     <img src="../../../assets/imgs/logo.png " class="mt-5">
 </div>
 
 
-<div class="homepage">
+<div class="homepage toolHomePage">
     <div class="tools">
         <div class="container mt-3 p-0">
     
-            <!-- <div class="HomeLogo">
-                <img src="../../../assets/imgs/logo.png " class="iconTools">
-            </div> -->
             
-            <!-- <div dir="ltr">
-                <button (click)="open()">Time</button>
-            </div> -->
-          
     
             <div class="">
                 <ul class="tools-tab" *ngIf="hidesection">
@@ -34,6 +28,15 @@
                         <!--  (click)="sohwalarm()" -->
                         <a><img src="../../../assets/imgs/alarm.png"></a>
                         <h3>المنبه </h3>
+                    </li>
+                    
+                    <li  class="alarmimage">
+                        <!--  (click)="sohwalarm()" -->
+                        <a routerLink="/restpassword">
+                            <img src="../../../assets/imgs/user_settings.png">
+                            <h3>اعادة كلمة المرور </h3>
+                        </a>
+                        
                     </li>
                 </ul>
             </div>
