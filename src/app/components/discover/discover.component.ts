@@ -24,7 +24,7 @@ import { PlayerService } from 'src/app/shared/player.service';
   styleUrls: ['./discover.component.scss']
 })
 export class DiscoverComponent implements OnInit {
-
+  searchTxt:string = '';
   [x: string]: any;
   headerMessage : string;
   pagenumber : number =0;
@@ -83,7 +83,7 @@ breakpoints:{  //when make it responsive
           },
           768:{
             slidesPerView: 3, 
-            spaceBetween: 60,
+            // spaceBetween: 60,
            }
    },
     loop:true,
@@ -430,9 +430,11 @@ nextSong(){
   }
   
   }
+
   HomeSearch(searchTxt)
   {
-    debugger;
+    //
+    localStorage.setItem('searchTxt',searchTxt);
     this.route.navigate([`/Libaray/`], { queryParams: { searchText: searchTxt } })
   }
   prevSong(){
@@ -467,7 +469,11 @@ a.remove();
 
     // this.http.get('http://www.mocky.io/v2/5ea172973100002d001eeada').subscribe(Response => {//console.log(Response)});
 
-
+    if(localStorage.getItem('searchTxt') != null){
+      this.searchTxt = localStorage.getItem('searchTxt');
+    }else {
+      this.searchTxt = '';
+    }
 
   }
 

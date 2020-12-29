@@ -24,7 +24,8 @@
                         <div class="input-group-append" (click)="HomeSearch(searchTxtx.value)">
                             <i class="fas fa-search"></i>
                         </div>
-                        <div class="input-group-append clear" (click)="clearsearch()">
+                        <div *ngIf="searchTxtx.value  !='' " class="input-group-append " (click)="clearsearch()">
+                            <!-- clear -->
                             <i class="fa fa-close"></i>
                         </div>
                         <input type="text" (input)="input_search_value()" id="inputsearch" [value]="searchTxt" 

@@ -74,7 +74,14 @@
         }
         .form-control {
             padding-left: 2.375rem;
-            text-indent: 24px;
+            // text-indent: 24px;
+            text-indent: 73px;
+            @include MediaQuery(xs){
+                text-indent: 50px;
+            }
+            @include MediaQuery(s){
+                text-indent: 60px;
+            }
             background-color: #106666;
             color: white;
             border-color: #106666;
@@ -100,6 +107,14 @@
             color: white;
             @include MediaQuery( M){
               font-size: 20px;
+            }
+            //
+            text-indent: 73px !important;
+            @include MediaQuery(xs){
+                text-indent: 50px !important;
+            }
+            @include MediaQuery(s){
+                text-indent: 60px !important;
             }
 
         }
@@ -208,7 +223,8 @@
         .swiper-button-prev {
             float: left;
             position: relative;
-            top: -34%;
+            // top: -34%;
+            top: -30%;
             outline: none;
             border: none;
             box-shadow: none;
@@ -216,10 +232,18 @@
             @media screen and (max-width: 319px){
                 left: 0px;
             }
-            @media screen and (min-width: 320px)and (max-width: 500px) {
+            @media screen and (min-width: 320px)and (max-width: 359px) {
                 left: 3px;
                 // top: -18%;
-                top: -32%;
+                // top: -32%;
+                top: -21%;
+
+            }
+            @media screen and (min-width: 360px)and (max-width: 500px) {
+                left: 3px;
+                // top: -18%;
+                // top: -32%;
+                top: -28%;
 
             }
             @media screen and (min-width:501px)and (max-width:575.98px) {
@@ -229,11 +253,13 @@
             }
             @include MediaQuery(s) {
                 left: 10px;
-                top: -35%;
+                // top: -35%;
+                top: -38%;
             }
             @include MediaQuery(M) {
                 left: 22px;
-                top: -40%;
+                // 
+                top: -37%;
             }
             @include MediaQuery(L) {
                 left: 20px;
@@ -337,7 +363,8 @@
         .swiper-button-next1 {
             float: right;
             position: relative;
-            top: 24%;
+            // top: 24%;
+            top: 21%;
             outline: none;
             border: none;
             box-shadow: none;
@@ -345,7 +372,11 @@
             @media screen and (max-width: 319px){
                 right: 0px;
             }
-            @media screen and (min-width: 320px)and (max-width: 500px) {
+            @media screen and (min-width: 320px)and (max-width: 359px) {
+                right: 3px;
+                top: 21%;
+            }
+            @media screen and (min-width: 360px)and (max-width: 500px) {
                 right: 3px;
                 top: 28%;
             }
@@ -386,7 +417,8 @@
             float: left;
             position: relative;
             // bottom: 28%;
-            bottom: 39%;
+            // bottom: 39%;
+            bottom: 37%;
             outline: none;
             border: none;
             box-shadow: none;
@@ -397,7 +429,8 @@
             @media screen and (min-width: 320px)and (max-width: 500px) {
                 left: 3px;
                 // bottom: 24%;
-                bottom: 43%;
+                // bottom: 43%;
+                bottom: 38%;
             }
             @media screen and (min-width:501px)and (max-width:575.98px) {
                 left: 8px;
@@ -406,7 +439,8 @@
             }
             @include MediaQuery(s) {
                 left: 6px;
-                bottom: 30%;
+                // bottom: 30%;
+                bottom: 43%;
             }
             @include MediaQuery(M) {
                 left: 9px;
@@ -1246,18 +1280,25 @@
   background: #1a5356; 
 }
 .mysearchicon{
-    position: relative;
-    left: 93%;
+    // position: absolute;
+    // left: 93%;
+    left:84%;
     top: 37px;
     color: white;
+    i{
+        cursor: pointer;
+    }
     @media screen and (max-width:319px) {
-        left: 89%;
+        // left: 89%;
+        left: 77%;
     }
     @include MediaQuery(s){
-        left: 95%;
+        // left: 95%;
+        left:88%;
     }
     @include MediaQuery( M){
-        left: 96%;
+        // left: 96%;
+        left:88%;
         top: 43px;
     }
 }
@@ -1278,3 +1319,58 @@
 //         height: auto !important;
 //     }
 // }
+
+.mysearchinput {
+    background: #106666;
+    height: auto;
+    // padding: 0 25px !important;
+    padding: 0 12px 0 0 !important;
+
+    border-radius: 50px;
+    //
+    margin: 0 auto;
+    // margin-top:215px;
+     margin-top:35px;
+    @media screen and (min-width:320px) and (max-width:359px) {
+        // margin-top:370px;
+    }
+    @media screen and (max-width:319px){
+        // margin-top: 300px;
+    }
+    margin-bottom: 50px;
+}
+input.form-control.border-right-0 {
+    margin: 0 !important;
+}
+
+.input-group-append i {
+    color: #fff;
+    padding: 21px 0  13px 11px;
+    cursor: pointer;
+}
+
+
+.mysearchinput input {background: transparent !important; 
+    // text-align: center;
+     color: #fff !important;border: 0;outline: transparent  !important;border: 0 !important;box-shadow: none !important;}
+
+input.form-control.border-right-0 {
+    padding: 20px  !important;
+    height: 55px;
+    padding-right: 0 !important;
+}
+
+::placeholder{ 
+    // text-indent: inherit;
+    // font-size:20px;
+    font-size: 25px;
+    color: #30a7ae;
+    // text-align: center;
+    // text-align: right;
+    @include MediaQuery(xs){font-size:14px;}
+    @include MediaQuery(s){font-size:17px; text-indent: inherit;}
+    @include MediaQuery(M){font-size:17px; text-indent: inherit;}
+    @include MediaQuery(L){font-size:19px; text-indent: inherit;}
+     @include MediaQuery(XL-XXL){font-size:19px; text-indent: inherit;}
+     @include MediaQuery(XXL){font-size:19px; text-indent: inherit;}
+}

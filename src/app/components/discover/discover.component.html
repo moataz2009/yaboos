@@ -14,22 +14,39 @@
     
     
             <div class="row d-flex justify-content-center">
+               
+                    <div class="col-xs-10 col-sm-9 col-md-9 col-lg-6 pb-3 mysearchinput">
+                        <div class="input-group w-100 d-flex justify-content-center ">
+                            <div class="input-group-append" (click)="HomeSearch(searchTxtx.value)">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div *ngIf="searchTxtx.value  !='' " class="input-group-append " (click)="HomeSearch('')">
+                                <!-- clear -->
+                                <i class="fa fa-close"></i>
+                            </div>
+                            <input type="text" id="inputsearch" [value]="searchTxt" 
+                            (keyup.enter)="HomeSearch(searchTxtx.value)" class="form-control border-right-0"
+                             #searchTxtx placeholder="أغانى،فنانين،كلمات،قوائم...." autocomplete="off">
+                           
+                        </div>
+                    </div>
+    
+                  
+                
+               
                      
-                <div  class="form-group has-search">
+                <!-- <div  class="form-group has-search">
     
-                    <!-- <div class="HomeLogo">
-                        <img src="../../../assets/imgs/logo.png " class="">
-                    </div> -->
-    
-                    <div class="form-group has-search" (click)="HomeSearch(searchTxt.value)" class="mysearchicon">
-                        <i class="fas fa-search"></i>
+                    <div class="form-group has-search "  class="mysearchicon">
+                        <i class="fas fa-search ml-3" (click)="HomeSearch(searchTxtx.value)"></i>
                     </div>
-                    <input type="text" class="form-control border-right-0" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم....">
+                    <div class="form-group has-search "  class="mysearchicon">
+                        <i *ngIf="searchTxtx.value  !=''" class="fa fa-close" (click)="HomeSearch('')"></i>
+                    </div>
+                  
+                    <input type="text"  #searchTxtx [value]="searchTxt" (keyup.enter)="HomeSearch(searchTxtx.value)" class="form-control border-right-0"  placeholder="أغانى،فنانين،كلمات،قوائم....">
                 </div>
-                    <!-- <div class="form-group has-search" (click)="HomeSearch(searchTxt.value)">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <input type="text" class="form-control border-right-0" #searchTxt placeholder="أغانى،فنانين،كلمات،قوائم...."> -->
+                   -->
     
     
                 <div class="newsongs" *ngIf="hideprograms">
@@ -37,8 +54,7 @@
                     <div class="swiper-button-next">
                         <img src="../../../assets/imgs/swipernext.png">
                     </div>
-                    <swiper [config]="config">
-    
+                    <swiper [config]="config"> 
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"  *ngFor="let prop of programsList">
                                 <img [src]="prop.image" (click)="showprogrmslist(prop.id , prop.titleAr , prop.image)">
@@ -58,7 +74,6 @@
                         <img src="../../../assets/imgs/swipernext.png">
                     </div>
                     <swiper [config]="configer">
-    
                         <div class="swiper-wrapper">
                             <div class="swiper-slide" *ngFor="let prop of Reporters">
                                 <img [src]="prop.image">

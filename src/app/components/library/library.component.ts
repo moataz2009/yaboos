@@ -81,20 +81,18 @@ export class LibraryComponent implements OnInit {
     }
     input_search_value() {
       
-     if($("#inputsearch").val() == ''){
-      $(".clear").hide();
-     }
-     else {
-      $(".clear").show();
-     }
+    //  if($("#inputsearch").val() == ''){
+    //   $(".clear").hide();
+    //  }
+    //  else {
+    //   $(".clear").show();
+    //  }
     }
 
 clearsearch(){
  
-  this.searchTxt = '';
- this.HomeSearch( this.searchTxt);
+ this.HomeSearch('');
  $("#inputsearch").val('');
- $(".clear").hide();
 
 }
 
