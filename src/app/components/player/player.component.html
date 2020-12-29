@@ -175,7 +175,25 @@
 </div>
 
 
+<div *ngIf="ContinuePlayer === true" class="modalContinueContainer">
+    <div class="ModalContent">
+        <div class="ModalContentHeader">
+            <h5>
+                هل تود الاستمرار بالاستماع لهذا التسجيل، او تشغيل من البداية
+            </h5>
+        </div>
 
+        <div class="clearfix"></div>
+        <button class="btn confirmbtn m-1" (click)="ContinuePlay()">
+            نعم، استمرار
+        </button>
+
+        <button class="btn confirmbtn m-1" (click)="StartPlay()">
+            تشغيل من البداية
+        </button>
+
+    </div>
+</div>
 
 
 <div style="display: none;">

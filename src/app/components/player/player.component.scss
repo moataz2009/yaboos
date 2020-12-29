@@ -1,0 +1,35 @@
+.modalContinueContainer {
+    position: fixed;
+    z-index: 9999999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #106666b0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ModalContent {
+    border: 2px solid #fff;
+    padding: 40px;
+    background: #106666;
+    border-radius: 15px;
+    color: #fff;
+    max-width: 400px;
+    box-shadow: 0 0 40px #106666;
+}
+
+.ModalContentHeader{
+    margin-bottom: 20px;
+}
+
+.confirmbtn {
+    background-color: #32AAB2 !important;
+    font-size: 14px !important;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+    box-shadow: none;
+}
