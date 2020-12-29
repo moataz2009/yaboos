@@ -42,14 +42,14 @@ font-size: 17px;
     
     .tools-tab {
         margin-top: 0px;
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    justify-content: space-around;
-    /* width: 100%; */
-    position: relative;
-    top: 0;
-    margin: 0 auto;
+        list-style-type: none;
+        display: flex;
+        padding: 0;
+        justify-content: space-around;
+        /* width: 100%; */
+        position: relative;
+        top: 0;
+        margin: 0 auto;
         @include MediaQuery(xs + s){display: block;}
         @include MediaQuery(M){display: block;}
         
@@ -78,15 +78,18 @@ font-size: 17px;
         }
         h3{
             color: white;font-weight: bold;
+            font-size: 20px;
+            margin-top: 20px;
             @include MediaQuery(xs + s ){
-                font-size: 19px;
+                font-size: 15px;
+                margin-top: 5px;
             }
 
         }
         li{cursor: pointer;
             a{
                 img{
-                    width:90%;
+                    width:60%;
                     @include MediaQuery(M){
                         width:49%;
 
@@ -836,4 +839,12 @@ input[type=number] {
         }
         
         
+}
+
+.toolHomePage {
+    @media screen and (max-width: 991px) {
+        position: relative;
+        padding-top: 0;
+    }
+    
 }

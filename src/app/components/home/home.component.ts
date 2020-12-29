@@ -408,11 +408,44 @@ Register(user:User)
       var month = ("0" + (date.getMonth() + 1)).slice(-2);
       var today = date.getFullYear()+"-"+(month)+"-"+(day);
       
+      let title = `تسجيل سابق ${hours}:00 ${today} `
+
+      if(localStorage.getItem("tp-2") === null){
+
+        localStorage.setItem("tp-1", `0`);
+        localStorage.setItem("tp-2", title);
+        this.playerUrlTrack.ActionPlayCurruntTime(0);
+        this.playerUrlTrack.ActionContinuePlayer(false);
+        console.log("First");
+        
+      }else{
+
+        var PlayerInfoFromLocalStorage = localStorage.getItem("tp-2");
+        if(PlayerInfoFromLocalStorage === title){
+
+          this.playerUrlTrack.ActionPlayCurruntTime(localStorage.getItem("tp-1"));
+          this.playerUrlTrack.ActionContinuePlayer(true);
+
+          // next time service
+          console.log("Done local");
+
+        }else{
+          console.log("First update");
+
+          this.playerUrlTrack.ActionPlayCurruntTime(0);
+          this.playerUrlTrack.ActionContinuePlayer(false);
+
+          localStorage.setItem("tp-1", `0`);
+          localStorage.setItem("tp-2", title);
+        }
+
+      }
+
       this.PlayerURl =`http://188.225.184.108:9091/api/Radio/PlayHistory?datetime=${today}&hour=${hours}`;
       this.playerUrlTrack.changeUrlPlayer(this.PlayerURl);
 
       this.playerUrlTrack.changePlayerStatus(true);
-      this.playerUrlTrack.changePlayerTitle(`تسجيل سابق ${hours}:00 ${today} `);
+      this.playerUrlTrack.changePlayerTitle(title);
       this.playerUrlTrack.actionPlayNow(`تسجيل سابق ${hours}:00 ${today} `);
       this.playerUrlTrack.actionPlayImage(null);
       this.playerUrlTrack.actionSongId(null);
@@ -499,23 +532,18 @@ Register(user:User)
       $(document).ready(function(){
         var width = 400;
 
-
-        var fontSize = 12;
         const test = $("#Test").css("fontSize", "25px");;
-        //test.style.fontSize = fontSize;
-        var height = (test.height() + 1);
         width = (test.width() + 1);
 
         generate(`${data}`+'***Yaboos 87.8 FM***', {maxWidth: width }).then(function (dataUri) {
           $('.sliding-background').css('background-image', 'url(' + dataUri + ')');
+        },(err: any) => {
         });
 
+    
+    
+
       });
-
-      
-
-      
-        
 
     });
 

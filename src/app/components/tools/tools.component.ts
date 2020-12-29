@@ -29,7 +29,11 @@ export class ToolsComponent implements OnInit {
    
 
   AutoStopTime(time, status){
-    this.playerUrl.ActionStopPlayer(time, status);
+    if(this.stopImage == status){
+      this.playerUrl.ActionStopPlayer(null, null);
+    }else{
+      this.playerUrl.ActionStopPlayer(time, status);
+    }
   }
 
   fillHeader(message , url)

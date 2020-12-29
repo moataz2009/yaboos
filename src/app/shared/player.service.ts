@@ -13,7 +13,8 @@ export class PlayerService {
   playUrl: String;
   PlayNowStrind: any;
   PlayNowType: any;
-  
+  PlayerTitleGlobal: any;
+  DoPlay:boolean = false;
   private minStatus = new BehaviorSubject<boolean>(false);
   PlayerStatus = this.minStatus.asObservable();
 
@@ -75,6 +76,12 @@ export class PlayerService {
   private mianPlayTextSearch = new BehaviorSubject<any>(null);
   PlayTextSearchVar = this.mianPlayTextSearch.asObservable();
 
+  private mianCurreuntTime = new BehaviorSubject<any>(0);
+  CurreuntTimeVar = this.mianCurreuntTime.asObservable();
+
+  private mianContinuePlayer = new BehaviorSubject<any>(false);
+  ContinuePlayerVar = this.mianContinuePlayer.asObservable();
+
   audiObg = new Audio();
 
   constructor(private http: HttpClient) {
@@ -85,12 +92,18 @@ export class PlayerService {
       this.setVolumePlayer(0.50);
     }
 
-
-
    }
 
-   changeUrlPlayer(UrlPlayer: any){
+  changeUrlPlayer(UrlPlayer: any){
     this.minUrlSource.next(UrlPlayer);
+  }
+
+  ActionPlayCurruntTime(cTime: any){
+    this.mianCurreuntTime.next(cTime);
+  }
+
+  ActionContinuePlayer(Status: any){
+    this.mianContinuePlayer.next(Status);
   }
 
   ActionPlayTextSearch(TextSearch: any){
@@ -144,6 +157,12 @@ export class PlayerService {
     this.actionChangeStopImage(status);
   }
 
+  ActionEndStopPlayer(TimePlayer: any, status: any){
+    this.mainStopPlayer.next(TimePlayer);
+    this.autoStopPlayerAction(TimePlayer);
+    this.actionChangeStopImage(null);
+  }
+
   ActionAutoPlayPlayer(TimePlayer: any){
     this.autoPlayPlayerAction(TimePlayer);
   }
@@ -159,19 +178,28 @@ export class PlayerService {
 
   changePlayerTitle(title: any){
     this.minPlayerTitle.next(title);
+    if(this.PlayerTitleGlobal != title){
+      this.PlayerTitleGlobal = title;
+    }
   }
+
 
   /** plauer actions  */
   
-
+  timeOut: any;
   autoStopPlayerAction(TimePlayer){
-   //console.log("Start auto stop");
-   //console.log(TimePlayer);
-   //console.log("End auto stop");
-    setTimeout( () => {
+
+    if(TimePlayer === null){
+      clearTimeout(this.timeOut);
+      
+      return true;
+    }
+
+    this.timeOut = setTimeout( () => {
       this.ngAutoStop();
       this.actionChangeStopImage(null);
     },TimePlayer);
+    
   }
 
   readonly rootUrl = MainURL;
@@ -227,15 +255,15 @@ export class PlayerService {
   
   
   audioEvent = [
-    'ended',
-    'error',
-    'play',
-    'playing',
-    'pause',
-    'timeupdate',
-    'canplay',
-    'loadedmetadata',
-    'loadstart'
+    "ended",
+    "error",
+    "play",
+    "playing",
+    "pause",
+    "timeupdate",
+    "canplay",
+    "loadedmetadata",
+    "loadstart"
   ];
 
   ngAutoPlay(){
@@ -250,20 +278,19 @@ export class PlayerService {
   }
 
   openMusic(playUrl, PlayType){
-    this.streamObserv(playUrl, PlayType).subscribe(event => {});
-   //console.log('loded');
+
+      this.streamObserv(playUrl, PlayType).subscribe(event => {});
+
   }
 
   ngPlay(){
     
     if(this.PlayNowStrind === 'live'){
       this.audiObg.load();
-     //console.log('ngStop zero');
     }
-    
+
     this.audiObg.play();
 
-   //console.log('play');
   }
 
   ngStop(){
@@ -271,18 +298,13 @@ export class PlayerService {
 
     if(this.PlayNowStrind === 'live'){
       this.audiObg.currentTime = 0;
-     //console.log('ngStop zero');
     }
-    
-   //console.log('ngStop');
   }
 
   ngAutoStop(){
     this.audiObg.pause();
     this.audiObg.currentTime = 0;
     this.minStatus.next(false);
-
-   //console.log('ng auto Func Stop');
   }
 
   
@@ -308,13 +330,25 @@ export class PlayerService {
         if(event.type === 'ended'){
           this.changePlayerStatus(false);
         }
-        
+
+        if(event.type === 'play'){
+          this.DoPlay = true;
+        }
+
+        if(this.DoPlay === true){
+          localStorage.setItem("tp-1", `${this.audiObg.currentTime}`);
+        }
+
+
+
         if(PlayType === 'live'){
 
           this.mainSeek.next(0);
           this.mincurrentTime.next(this.timeFormat(this.audiObg.currentTime));
           this.minDuration.next("00:00:00");
           this.mainDurationSeek.next(0);
+
+
 
         }else{
 
@@ -361,6 +395,13 @@ export class PlayerService {
     }else {
       this.audiObg.currentTime = this.audiObg.currentTime - 30;
     }
+  }
+
+
+  ngContinuePlay(time:any) {
+    
+      this.ngPlay();
+      this.audiObg.currentTime = time;
   }
 
   removeEvent(obj, events, handler){

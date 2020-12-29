@@ -39,7 +39,8 @@ export class PlayerComponent implements OnInit {
   isFavorite: any;
   PlayIndex: any;
   PlayList: Songs[] = [];
-
+  ContinuePlayer: any;
+  CurreuntTime: any;
   PlayUrlTrack: any;
   constructor(
     private playerUrl : PlayerService,
@@ -166,6 +167,14 @@ export class PlayerComponent implements OnInit {
       this.isFavorite = data;
     });
 
+    this.playerUrl.ContinuePlayerVar.subscribe(data => {
+      this.ContinuePlayer = data;
+    });
+
+    this.playerUrl.CurreuntTimeVar.subscribe(data => {
+      this.CurreuntTime = data;
+    });
+
     this.playerUrl.PlayIndexVar.subscribe(data => {
       this.PlayIndex = data;
     });
@@ -232,6 +241,15 @@ export class PlayerComponent implements OnInit {
     this.playerUrl.openMusic(playUrl, title)
   }
   
+  ContinuePlay(){
+    this.playerUrl.ngContinuePlay(this.CurreuntTime);
+    this.playerUrl.ActionContinuePlayer(false);
+  }
+
+  StartPlay(){
+    this.ngPlay();
+    this.playerUrl.ActionContinuePlayer(false);
+  }
 
   ngPlay(){
     this.playerUrl.ngPlay();
